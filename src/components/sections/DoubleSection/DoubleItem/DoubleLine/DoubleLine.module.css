@@ -1,0 +1,22 @@
+.line_item{
+    display: flex;
+    padding: 0.83333vw 1.25vw;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+    flex-direction: row;
+
+    border-radius: 166px;
+    background: #17161C;
+}
+
+.line_item p{
+    color: var(--White, #FFF);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 0.9375rem */
+    letter-spacing: -0.01875rem;
+}
