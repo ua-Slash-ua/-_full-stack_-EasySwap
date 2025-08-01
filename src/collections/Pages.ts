@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 import { NumbersBlock } from '@/blocks/NumbersBlock'
 import { HeroBlock } from '@/blocks/HeroBlock'
 import { PromiseBlock } from '@/blocks/PromiseBlock'
+import { DoubleBlock } from '@/blocks/DoubleBlock'
 
 
 export const Pages: CollectionConfig = {
@@ -53,6 +54,7 @@ export const Pages: CollectionConfig = {
         HeroBlock,
         NumbersBlock,
         PromiseBlock,
+        DoubleBlock,
       ],
     },
   ],
