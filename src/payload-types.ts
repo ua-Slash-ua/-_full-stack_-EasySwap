@@ -193,6 +193,15 @@ export interface Page {
             blockName?: string | null;
             blockType: 'numbers-block';
           }
+        | {
+            enabled?: boolean | null;
+            title: string;
+            word: string;
+            icon: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'promise-block';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -333,6 +342,16 @@ export interface PagesSelect<T extends boolean = true> {
                     card_description?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        'promise-block'?:
+          | T
+          | {
+              enabled?: T;
+              title?: T;
+              word?: T;
+              icon?: T;
               id?: T;
               blockName?: T;
             };

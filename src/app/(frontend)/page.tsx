@@ -8,10 +8,12 @@ import './reset.css'
 import HeroSection from '@/components/sections/HeroSection/HeroSection'
 import Header from '@/components/Header/Header'
 import NumbersSection from '@/components/sections/NumbersSection/NumbersSection'
+import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
 
 const BLOCK_COMPONENTS =  {
   'hero-block': HeroSection ,
   'numbers-block': NumbersSection ,
+  'promise-block': PromiseSection ,
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
