@@ -1,0 +1,55 @@
+.header{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+}
+
+.rside{
+    display: flex;
+    gap:9.1vw;
+    padding: 0.83vw 0.83vw 0.83vw 5.28vw;
+    align-items: center;
+}
+.lside{
+    display: flex;
+    gap:0.62vw;
+    padding: 0.83333vw 5.20833vw 0.83333vw 0;
+    align-items: center;
+    font-size: 0.83rem;
+    justify-content: flex-end;
+}
+
+.btn_write div:last-of-type{
+    display: flex;
+    flex-direction: row;
+    padding: 0 1.25vw;
+    height: 2.71vw;
+    justify-content: center;
+    gap: 0.62vw;
+    align-items: center;
+    background: white;
+    color: #0F0E13;
+}
+
+.btn_write div:last-of-type svg{
+    width: 1.25vw;
+    height: auto;
+}
+
+.btn_phone div:last-of-type{
+    display: flex;
+    flex-direction: row;
+    padding: 0 1.25vw;
+    height: 2.71vw;
+    justify-content: center;
+    gap: 0.62vw;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.btn_phone div:last-of-type svg{
+    width: 1.25vw;
+    height: auto;
+}

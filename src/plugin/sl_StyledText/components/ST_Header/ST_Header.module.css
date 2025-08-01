@@ -1,0 +1,24 @@
+.st_header{
+    width: 100%;
+    height: 5vh;
+    background:rgb(34, 34, 34);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.st_header_action_container{
+    min-width:20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.st_header_switch_container{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

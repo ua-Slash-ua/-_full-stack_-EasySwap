@@ -1,0 +1,19 @@
+.btn_container{
+    min-width:20%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 0.5vh 0.5vw;
+
+}
+.btn_input{
+    font-weight: bold;
+    height: 3vh;
+    min-width: 1.6vw;
+    border:1px solid #828282;
+    border-radius: 5px;
+    padding: 0.5vh 0.5vw;
+    background: rgb(60, 60, 60);
+}

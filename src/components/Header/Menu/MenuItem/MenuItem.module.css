@@ -1,0 +1,20 @@
+.link{
+    display: flex;
+    height: 2.29167rem;
+    padding: 0.41667rem 0.83333rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.52083rem;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72917rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.02083rem */
+    letter-spacing: -0.01458rem;
+
+    opacity: 0.6;
+
+}

@@ -1,0 +1,15 @@
+.fulltext_container{
+    width: 100%;
+    min-height: 30vh;
+    overflow: scroll;
+    background: rgb(34, 34, 34);
+;
+}
+.fulltext_textarea{
+    width: 100%;
+    min-height: 30vh;
+    background: #666666;
+    padding: 1vh 1vw;
+    border:  3px solid #000000;
+    border-radius: 15px;
+}

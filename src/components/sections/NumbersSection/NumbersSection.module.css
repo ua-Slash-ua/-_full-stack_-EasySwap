@@ -1,0 +1,75 @@
+.numbers_section {
+    display: flex;
+    padding: 0 5.20833vw;
+    align-items: flex-end;
+    gap: 1.04167vw;
+    align-self: stretch;
+    margin-top: 4.17vw;
+}
+
+.aside_card {
+    display: flex;
+    width: 29.16667vw;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3.54vw;
+}
+.aside_card_title{
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 3rem */
+    letter-spacing: -0.05rem;
+    align-self: stretch;
+}
+.aside_card_title span{
+    background: linear-gradient(93deg, #B792FF -12.64%, #7447FB 15.04%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.aside_bottom {
+    display: flex;
+    width: 29.16667vw;
+    padding: 1.66667vw;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.83333vw;
+
+    border-radius: 32px;
+    background: linear-gradient(106deg, #B792FF -62.71%, #7735FC 61.14%);
+}
+
+.aside_bottom_left{
+    display: flex;
+    padding: 1.04167vw 0;
+    align-items: center;
+    gap: 0.52083vw;
+}
+
+
+
+.aside_bottom_description {
+    display: flex;
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-style: normal;
+    line-height: 100%; /* 4.27083rem */
+    flex-direction: column;
+    font-size: 4.27083rem;
+    font-weight: 700;
+    height: fit-content;
+    gap: 1.04vw;
+}
+.aside_bottom_description p{
+    font-size: 1.25rem;
+    letter-spacing: -0.025rem;
+    line-height: 120%; /* 1.5rem */
+    font-weight: 600;
+}
