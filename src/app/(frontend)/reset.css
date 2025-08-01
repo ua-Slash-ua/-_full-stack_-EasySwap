@@ -45,7 +45,7 @@ h6 {
 
 /* Set default font and smooth rendering */
 body {
-    font-family: Mont, system-ui, sans-serif;
+    font-family: var(--font-inter), sans-serif;
     font-weight: 600;
     line-height: 1.5;
     background-color: #fff;
@@ -54,6 +54,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     /* Додаємо плавний скрол для всього сайту */
     scroll-behavior: smooth;
+    height: auto;
 }
 
 /* Images & media responsive by default */

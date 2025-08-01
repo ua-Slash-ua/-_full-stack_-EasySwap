@@ -1,6 +1,5 @@
-import s from './page.module.css'
 import { getPayload } from 'payload'
-import React, { JSX } from 'react'
+import React from 'react'
 
 import config from '@/payload.config'
 import './styles.css'
@@ -12,19 +11,18 @@ import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
 import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
 import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
 
-const BLOCK_COMPONENTS =  {
-  'hero-block': HeroSection ,
-  'numbers-block': NumbersSection ,
-  'promise-block': PromiseSection ,
-  'double-block': DoubleSection ,
-  'service-block': ServiceSection ,
+const BLOCK_COMPONENTS = {
+  'hero-block': HeroSection,
+  'numbers-block': NumbersSection,
+  'promise-block': PromiseSection,
+  'double-block': DoubleSection,
+  'service-block': ServiceSection,
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
-
 
   const { docs } = await payload.find({
     collection: 'pages',
@@ -33,18 +31,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const page = docs[0]
 
   return (
-    <div className={s.page}>
-      <Header/>
+    <>
+      <Header />
       {page?.blocks?.map((block, i) => {
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
           block.blockType as keyof typeof BLOCK_COMPONENTS
-          ] as unknown as React.ComponentType<{ block: unknown; locale: string }>
+        ] as unknown as React.ComponentType<{ block: unknown; locale: string }>
         if (!BlockComponent) return null
 
         return <BlockComponent key={block.id || i} block={block} locale={locale} />
       })}
-    </div>
+    </>
   )
 }
-
