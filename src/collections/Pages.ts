@@ -3,6 +3,7 @@ import { NumbersBlock } from '@/blocks/NumbersBlock'
 import { HeroBlock } from '@/blocks/HeroBlock'
 import { PromiseBlock } from '@/blocks/PromiseBlock'
 import { DoubleBlock } from '@/blocks/DoubleBlock'
+import { ServiceBlock } from '@/blocks/ServiceBlock'
 
 
 export const Pages: CollectionConfig = {
@@ -55,6 +56,7 @@ export const Pages: CollectionConfig = {
         NumbersBlock,
         PromiseBlock,
         DoubleBlock,
+        ServiceBlock,
       ],
     },
   ],

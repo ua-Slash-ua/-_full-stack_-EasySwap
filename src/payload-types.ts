@@ -230,6 +230,28 @@ export interface Page {
             blockName?: string | null;
             blockType: 'double-block';
           }
+        | {
+            enabled?: boolean | null;
+            aside_title: string;
+            services?:
+              | {
+                  service_title: string;
+                  service_icon: string;
+                  how_does_it_work: {
+                    how_does_it_work_description?: string | null;
+                    id?: string | null;
+                  }[];
+                  features: {
+                    features_description?: string | null;
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'service-block';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -412,6 +434,33 @@ export interface PagesSelect<T extends boolean = true> {
                           what_description?: T;
                           id?: T;
                         };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'service-block'?:
+          | T
+          | {
+              enabled?: T;
+              aside_title?: T;
+              services?:
+                | T
+                | {
+                    service_title?: T;
+                    service_icon?: T;
+                    how_does_it_work?:
+                      | T
+                      | {
+                          how_does_it_work_description?: T;
+                          id?: T;
+                        };
+                    features?:
+                      | T
+                      | {
+                          features_description?: T;
+                          id?: T;
+                        };
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

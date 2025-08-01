@@ -4,7 +4,7 @@ import NumberCard from '@/components/sections/NumbersSection/NumberCard/NumberCa
 export default function NumbersSection({ block, locale }: { block: any; locale: string }) {
   return (
     <>
-      <section className={s.numbers_section}>
+      <section className={s.numbers_section} id={'about-service'}>
         <aside className={s.aside_card}>
           <h3
             className={s.aside_card_title}
