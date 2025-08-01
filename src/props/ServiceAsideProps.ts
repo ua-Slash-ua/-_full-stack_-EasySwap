@@ -1,4 +1,5 @@
 export type ServiceAsideProps = {
   title: string,
-  menuItems: { text: string }[]
+  menuItems: { text: string }[],
+  func:any
 }
