@@ -206,6 +206,7 @@ export interface Page {
             enabled?: boolean | null;
             why_we_the_best: {
               title?: string | null;
+              icon_why: string;
               why_point?:
                 | {
                     why_icon: string;
@@ -216,6 +217,7 @@ export interface Page {
             };
             what_do_you_get: {
               title?: string | null;
+              icon_what: string;
               what_point?:
                 | {
                     what_icon: string;
@@ -389,6 +391,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     title?: T;
+                    icon_why?: T;
                     why_point?:
                       | T
                       | {
@@ -401,6 +404,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     title?: T;
+                    icon_what?: T;
                     what_point?:
                       | T
                       | {

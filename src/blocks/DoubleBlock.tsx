@@ -20,13 +20,25 @@ export const DoubleBlock: Block = {
         {
           name: 'title',
           type: 'text',
-          label:'Title'
+          label: 'Title',
+        },
+        {
+          name: 'icon_why',
+          type: 'textarea',
+          required: true,
+          localized: true,
+          label: 'Icon',
+          admin: {
+            components: {
+              Field: PreviewSvg,
+            },
+          },
         },
         {
           name: 'why_point',
           type: 'array',
           label: 'Point',
-          fields:[
+          fields: [
             {
               name: 'why_icon',
               type: 'textarea',
@@ -45,10 +57,10 @@ export const DoubleBlock: Block = {
               required: true,
               localized: true,
               label: 'Description',
-            }
-          ]
-        }
-      ]
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'what_do_you_get',
@@ -59,13 +71,25 @@ export const DoubleBlock: Block = {
         {
           name: 'title',
           type: 'text',
-          label:'Title'
+          label: 'Title',
+        },
+        {
+          name: 'icon_what',
+          type: 'textarea',
+          required: true,
+          localized: true,
+          label: 'Icon',
+          admin: {
+            components: {
+              Field: PreviewSvg,
+            },
+          },
         },
         {
           name: 'what_point',
           type: 'array',
           label: 'Point',
-          fields:[
+          fields: [
             {
               name: 'what_icon',
               type: 'textarea',
@@ -84,10 +108,10 @@ export const DoubleBlock: Block = {
               required: true,
               localized: true,
               label: 'Description',
-            }
-          ]
-        }
-      ]
-    }
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
