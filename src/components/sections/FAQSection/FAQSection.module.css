@@ -28,11 +28,20 @@
     justify-content: flex-end;
     align-items: center;
     gap: 2.08333vw;
+    height: fit-content;
 
     border-radius: 30px;
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
     box-shadow: -4px -4px 12px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 12px 0 rgba(255, 255, 255, 0.10) inset;
     backdrop-filter: blur(5px);
+    position: sticky;
+    top: 1vw;
+}
+
+.aside_icon{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.04vw;
 }
 
 .aside_text h4{
@@ -87,6 +96,8 @@
     line-height: 140%; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 }
-.faq_content{
+.faq_content ul{
+    display: flex;
+    flex-direction: column;
     gap: 1.67vw;
 }

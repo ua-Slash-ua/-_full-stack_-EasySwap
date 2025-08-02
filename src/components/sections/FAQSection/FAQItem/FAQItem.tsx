@@ -1,10 +1,20 @@
+'use client'
 import s from './FAQItem.module.css'
-export default function FAQItem({items}:any) {
-  return(
-    <>
-      <div className={s.faq_item}>
+import { FAQItemProps } from '@/props/FAQItemProps'
+import { useState } from 'react'
+import { faqIcons } from '@/config/faq.config'
 
-      </div>
+export default function FAQItem({ question, answer }: FAQItemProps) {
+  const [active, setActive] = useState(false)
+  return (
+    <>
+      <li className={`${s.faq_item} ${active ? s.active : ''}`}>
+        <div className={s.title_container} onClick={() => setActive(!active)}>
+          <p className={question}>{question}</p>
+          <div dangerouslySetInnerHTML={{ __html: active ? faqIcons.disabled : faqIcons.active }} />
+        </div>
+        <p className={s.answer}>{answer}</p>
+      </li>
     </>
   )
 }
