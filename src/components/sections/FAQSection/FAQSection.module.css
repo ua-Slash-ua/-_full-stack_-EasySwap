@@ -8,11 +8,11 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 2.70833rem;
+    font-size: 2.70833vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 100%; /* 2.70833rem */
-    letter-spacing: -0.05417rem;
+    line-height: 100%; /* 2.70833vw */
+    letter-spacing: -0.05417vw;
 }
 .faq_container{
     display: flex;
@@ -40,22 +40,22 @@
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 1.45833rem;
+    font-size: 1.45833vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 110%; /* 1.60417rem */
-    letter-spacing: -0.02917rem;
+    line-height: 110%; /* 1.60417vw */
+    letter-spacing: -0.02917vw;
 }
 .aside_text p{
     color: var(--White, #FFF);
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.83333rem;
+    font-size: 0.83333vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 1.16667rem */
-    letter-spacing: -0.01667rem;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
 }
 .aside_text{
     display: flex;
@@ -81,11 +81,11 @@
     color: #0F0E13;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.83333rem;
+    font-size: 0.83333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 1.16667rem */
-    letter-spacing: -0.01667rem;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
 }
 .faq_content{
     gap: 1.67vw;

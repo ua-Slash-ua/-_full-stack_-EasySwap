@@ -18,11 +18,11 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 2.08333rem;
+    font-size: 2.08333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 2.91667rem */
-    letter-spacing: -0.04167rem;
+    line-height: 140%; /* 2.91667vw */
+    letter-spacing: -0.04167vw;
     opacity: 0.3;
 }
 .exchanger_content input[type=number]{

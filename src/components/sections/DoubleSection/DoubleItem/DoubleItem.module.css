@@ -18,11 +18,11 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 2.08333rem;
+    font-size: 2.08333vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 2.5rem */
-    letter-spacing: -0.04167rem;
+    line-height: 120%; /* 2.5vw */
+    letter-spacing: -0.04167vw;
 }
 
 .icon_main{

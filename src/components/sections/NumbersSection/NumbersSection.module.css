@@ -18,11 +18,11 @@
 .aside_card_title{
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.5vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 3rem */
-    letter-spacing: -0.05rem;
+    line-height: 120%; /* 3vw */
+    letter-spacing: -0.05vw;
     align-self: stretch;
 }
 .aside_card_title span{
@@ -60,16 +60,16 @@
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
     font-style: normal;
-    line-height: 100%; /* 4.27083rem */
+    line-height: 100%; /* 4.27083vw */
     flex-direction: column;
-    font-size: 4.27083rem;
+    font-size: 4.27083vw;
     font-weight: 700;
     height: fit-content;
     gap: 1.04vw;
 }
 .aside_bottom_description p{
-    font-size: 1.25rem;
-    letter-spacing: -0.025rem;
-    line-height: 120%; /* 1.5rem */
+    font-size: 1.25vw;
+    letter-spacing: -0.025vw;
+    line-height: 120%; /* 1.5vw */
     font-weight: 600;
 }

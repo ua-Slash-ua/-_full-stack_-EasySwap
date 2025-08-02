@@ -1,4 +1,5 @@
 import s from './FAQSection.module.css'
+import FAQItem from '@/components/sections/FAQSection/FAQItem/FAQItem'
 
 export default function FAQSection({ block, locale }: { block: any; locale: string }) {
   return (
@@ -9,11 +10,9 @@ export default function FAQSection({ block, locale }: { block: any; locale: stri
           <div className={s.faq_content}>
             <ul>
               {block.elements.map((item: any, index: number) => (
-<>
-</>
+                <FAQItem key={index} item={item} />
               ))}
             </ul>
-
           </div>
           <aside className={s.faq_aside}>
             <div>

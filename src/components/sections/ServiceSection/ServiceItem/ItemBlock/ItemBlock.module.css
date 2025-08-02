@@ -16,22 +16,22 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 1.04167rem;
+    font-size: 1.04167vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 1.25rem */
-    letter-spacing: -0.02083rem;
+    line-height: 120%; /* 1.25vw */
+    letter-spacing: -0.02083vw;
 }
 
 .item_block{
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 1.04167rem;
+    font-size: 1.04167vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 1.25rem */
-    letter-spacing: -0.02083rem;
+    line-height: 120%; /* 1.25vw */
+    letter-spacing: -0.02083vw;
 }
 .item_block ul{
     display: flex;
@@ -48,11 +48,11 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.83333rem;
+    font-size: 0.83333vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 1.16667rem */
-    letter-spacing: -0.01667rem;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
 }
 
 .item_block_icon{
@@ -71,8 +71,8 @@
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-noto-sans);
-    font-size: 0.72917rem;
+    font-size: 0.72917vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 0.875rem */
+    line-height: 120%; /* 0.875vw */
 }

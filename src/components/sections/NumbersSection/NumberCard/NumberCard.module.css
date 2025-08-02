@@ -22,31 +22,31 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.25vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 1.5rem */
-    letter-spacing: -0.025rem;
+    line-height: 120%; /* 1.5vw */
+    letter-spacing: -0.025vw;
     opacity: 1;
 }
 .card_item span{
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 4.27083rem;
+    font-size: 4.27083vw;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 5.125rem */
+    line-height: 120%; /* 5.125vw */
 }
 .card_item p{
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.83333rem;
+    font-size: 0.83333vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 1.16667rem */
-    letter-spacing: -0.01667rem;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
 
     opacity: 0.6;
 }

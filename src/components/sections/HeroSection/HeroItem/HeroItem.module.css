@@ -18,14 +18,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.62rem;
+    gap: 0.62vw;
 
     color: #FFF;
     font-family: var(--font-inter), sans-serif;
-    font-size: 1.04167rem;
+    font-size: 1.04167vw;
     font-weight: 500;
-    line-height: 120%; /* 1.25rem */
-    letter-spacing: -0.02083rem;
+    line-height: 120%; /* 1.25vw */
+    letter-spacing: -0.02083vw;
 }
 
 .hero_item_description{
@@ -33,9 +33,9 @@
     color: rgba(255, 255, 255, 0.70);
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.83333rem;
+    font-size: 0.83333vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 1.16667rem */
-    letter-spacing: -0.01667rem;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
 }

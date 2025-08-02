@@ -8,11 +8,11 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 2.70833rem;
+    font-size: 2.70833vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 100%; /* 2.70833rem */
-    letter-spacing: -0.05417rem;
+    line-height: 100%; /* 2.70833vw */
+    letter-spacing: -0.05417vw;
 }
 .service_aside h3 span{
     background: linear-gradient(93deg, #B792FF 16.82%, #7447FB 79.74%);
@@ -35,7 +35,7 @@
 
 .aside_scroll{
     width: 0.10417vw;
-    border-radius: 5.20833rem;
+    border-radius: 5.20833vw;
     background: #262627;
 }
 
