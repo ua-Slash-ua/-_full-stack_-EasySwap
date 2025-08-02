@@ -11,7 +11,7 @@ import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
 import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
 import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
 import FAQSection from '@/components/sections/FAQSection/FAQSection'
-import SupportSection from '@/components/sections/SupportSection/SypportSection'
+import SupportSection from '@/components/sections/SupportSection/SupportSection'
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
