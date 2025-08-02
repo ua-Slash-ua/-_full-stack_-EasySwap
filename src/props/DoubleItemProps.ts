@@ -6,5 +6,5 @@ export type DoubleItemProps = {
     why_description?: string,
     what_icon?: string,
     what_description?: string,
-  }
+  }[]
 }

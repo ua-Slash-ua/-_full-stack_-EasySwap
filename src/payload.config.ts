@@ -26,6 +26,7 @@ export default buildConfig({
     Users,
     Media,
     Pages,
+    // Currencies,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

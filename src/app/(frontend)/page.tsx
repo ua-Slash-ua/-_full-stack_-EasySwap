@@ -10,6 +10,7 @@ import NumbersSection from '@/components/sections/NumbersSection/NumbersSection'
 import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
 import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
 import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
+import FAQSection from '@/components/sections/FAQSection/FAQSection'
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
@@ -17,6 +18,7 @@ const BLOCK_COMPONENTS = {
   'promise-block': PromiseSection,
   'double-block': DoubleSection,
   'service-block': ServiceSection,
+  'faq-block': FAQSection,
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {

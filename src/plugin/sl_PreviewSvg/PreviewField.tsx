@@ -9,7 +9,7 @@ const PreviewField = (props: any) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   return (
     <div className="field-type textarea">
-      <label className="field-label">{field.label?.en}</label>
+      <label className="field-label">{field.label}</label>
       <div className={`textarea-outer ${styles.preview_svg_container_textarea}`}>
         <textarea
           ref={textareaRef}
@@ -17,7 +17,7 @@ const PreviewField = (props: any) => {
           value={value || ''}
           onChange={(e) => setValue(e.target.value)}
           rows={10}
-          placeholder='asd'
+          placeholder='... icon'
         />
       </div>
       <div

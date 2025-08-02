@@ -4,6 +4,7 @@ import { HeroBlock } from '@/blocks/HeroBlock'
 import { PromiseBlock } from '@/blocks/PromiseBlock'
 import { DoubleBlock } from '@/blocks/DoubleBlock'
 import { ServiceBlock } from '@/blocks/ServiceBlock'
+import { FAQBlock } from '@/blocks/FAQBlock'
 
 
 export const Pages: CollectionConfig = {
@@ -57,6 +58,8 @@ export const Pages: CollectionConfig = {
         PromiseBlock,
         DoubleBlock,
         ServiceBlock,
+
+        FAQBlock,
       ],
     },
   ],

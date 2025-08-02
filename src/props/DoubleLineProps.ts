@@ -1,4 +1,4 @@
 export type DoubleLineProps = {
-  icon: string,
-  content: string,
+  icon: string | undefined,
+  content: string | undefined,
 }

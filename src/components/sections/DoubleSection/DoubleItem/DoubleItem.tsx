@@ -3,6 +3,7 @@ import s from './DoubleItem.module.css'
 import DoubleLine from '@/components/sections/DoubleSection/DoubleItem/DoubleLine/DoubleLine'
 
 export default function DoubleItem({ title, icon, lines }: DoubleItemProps) {
+  console.log(lines)
   return (
     <>
       <div className={s.item}>
@@ -11,8 +12,8 @@ export default function DoubleItem({ title, icon, lines }: DoubleItemProps) {
           {lines.map((line, index) => (
             <DoubleLine
               key={index}
-              icon={line.why_icon ? line.why_icon : line.what_icon}
-              content={line.why_description ? line.why_description : line.what_description}
+              icon={line.why_icon ?? line.what_icon}
+              content={line.why_description ?? line.what_description}
             />
           ))}
         </div>
