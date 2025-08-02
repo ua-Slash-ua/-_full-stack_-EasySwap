@@ -1,6 +1,7 @@
 .service_item{
     display: flex;
     width: 56.25vw;
+    min-height: 38.23vw;
     padding: 3.125vw;
     flex-direction: column;
     align-items: flex-start;
@@ -40,3 +41,28 @@
     gap: 1.67vw;
 }
 
+.header_icon{
+    max-width: 3.33vw;
+}
+
+.item_btn{
+    display: flex;
+    padding: 1.09vw 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+
+    border-radius: 100px;
+    background: #FFF;
+}
+.item_btn span{
+    color: #0F0E13;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667rem;
+}
