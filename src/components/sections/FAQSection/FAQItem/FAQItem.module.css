@@ -18,6 +18,8 @@
 
     border-radius: 1.66667vw;
     background: #0E0E0F;
+
+
 }
 
 .question{
@@ -43,11 +45,7 @@
 }
 
 
-.active{
-    border-radius: 1.66667vw;
-    border: 1px solid #7B4BFF;
-    background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
-}
+
 
 .active p{
     display: inline;
@@ -61,4 +59,15 @@
     gap: 0.83vw;
     width: 100%;
     cursor: pointer;
+
+    transition:
+            border-radius 0.3s ease,
+            border 0.3s ease,
+            background 0.5s ease;
+}
+.active{
+
+    border-radius: 1.66667vw;
+    border: 1px solid #7B4BFF;
+    background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
 }

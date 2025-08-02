@@ -265,6 +265,14 @@ export interface Page {
             blockName?: string | null;
             blockType: 'faq-block';
           }
+        | {
+            enabled?: boolean | null;
+            title: string;
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'support-block';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -489,6 +497,15 @@ export interface PagesSelect<T extends boolean = true> {
                     answer?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        'support-block'?:
+          | T
+          | {
+              enabled?: T;
+              title?: T;
+              description?: T;
               id?: T;
               blockName?: T;
             };
