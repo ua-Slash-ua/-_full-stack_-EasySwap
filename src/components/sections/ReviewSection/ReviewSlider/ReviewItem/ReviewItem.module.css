@@ -1,0 +1,43 @@
+.review_slide{
+    display: flex;
+    width: 21.61458vw;
+    min-height: 26.04167vw;
+    padding: 1.66667vw;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    border-radius: 1.66667vw;
+    border: 1px solid rgba(255, 255, 255, 0.00);
+    background: #0F0E13;
+    box-shadow: -4px -4px 24px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 24px 0 rgba(255, 255, 255, 0.10) inset;
+}
+
+.swiper_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.63vw;
+}
+
+.swiper_header div{
+    width: 2.70833vw;
+    height: 2.70833vw;
+    aspect-ratio: 1/1;
+}
+
+.swiper_header p{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.9375vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 1.21875rem */
+    letter-spacing: -0.01875vw;
+}
+
+.review_image{
+    width: 5.8vw;
+    height: 5.3vw;
+}

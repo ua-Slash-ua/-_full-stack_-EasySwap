@@ -12,6 +12,8 @@ import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
 import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
 import FAQSection from '@/components/sections/FAQSection/FAQSection'
 import SupportSection from '@/components/sections/SupportSection/SupportSection'
+import ReviewSection from '@/components/sections/ReviewSection/ReviewSection'
+import { getReviews } from '@/api/getReviews'
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
@@ -21,6 +23,7 @@ const BLOCK_COMPONENTS = {
   'service-block': ServiceSection,
   'faq-block': FAQSection,
   'support-block': SupportSection,
+  'review-block': ReviewSection,
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
@@ -32,6 +35,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     collection: 'pages',
     where: { slug: { equals: 'main' } },
   })
+  const reviews = await getReviews()
   const page = docs[0]
 
   return (
@@ -43,7 +47,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           block.blockType as keyof typeof BLOCK_COMPONENTS
         ] as unknown as React.ComponentType<{ block: unknown; locale: string }>
         if (!BlockComponent) return null
+        if (block.blockType === 'review-block') {
 
+          return <BlockComponent key={block.id || i} block={reviews} locale={locale} />
+        }
         return <BlockComponent key={block.id || i} block={block} locale={locale} />
       })}
     </>

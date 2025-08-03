@@ -275,6 +275,12 @@ export interface Page {
             blockName?: string | null;
             blockType: 'support-block';
           }
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'review-block';
+          }
       )[]
     | null;
   updatedAt: string;
@@ -524,6 +530,13 @@ export interface PagesSelect<T extends boolean = true> {
               enabled?: T;
               title?: T;
               description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'review-block'?:
+          | T
+          | {
+              enabled?: T;
               id?: T;
               blockName?: T;
             };

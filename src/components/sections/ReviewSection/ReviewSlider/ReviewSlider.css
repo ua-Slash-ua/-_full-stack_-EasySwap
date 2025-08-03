@@ -1,0 +1,26 @@
+.slider-container{
+    position: relative;
+
+}
+.value-indicator{
+    left: 2vw;
+}
+
+.value-indicator{
+    color: #FFF!important;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif !important;
+    font-size: 1.04167vw!important;
+    font-style: normal!important;
+    font-weight: 400!important;
+    line-height: 110% !important; /* 1.14583rem */
+    letter-spacing: -0.02083vw!important;
+}
+.slider-range{
+    height: 0.15625vw !important;
+    background-color: #622FF1 !important ;
+}
+
+.slider-track-wrapper{
+    height: 0.15625vw !important;
+}
