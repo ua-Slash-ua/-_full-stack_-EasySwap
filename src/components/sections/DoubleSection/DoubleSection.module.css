@@ -1,0 +1,6 @@
+.double_section{
+    padding: 0 5.16vw;
+    display: flex;
+    flex-direction: row;
+    gap: 1.04vw;
+}

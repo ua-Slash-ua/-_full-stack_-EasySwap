@@ -1,0 +1,15 @@
+.preview_svg_container {
+    margin-bottom: 2vh;
+}
+
+.preview_svg_container_textarea {
+    min-height: 15vh;
+    white-space: pre-wrap;
+    max-height: 30vh;
+}
+
+.preview_svg_content {
+    border: 2px solid #545454;
+    margin: 1vh 0;
+    padding: 1vh 2vw;
+}

@@ -1,0 +1,19 @@
+.btn_switch {
+    min-width: 7vw;
+    padding: 0.2vh 0.5vw;
+    margin: 0.2vh 0.5vw;
+    cursor: pointer;
+    background: rgb(29, 29, 29);
+    transition: background-color 0.2s;
+    border-radius: 7px;
+    font-weight: 300;
+    font-size: 1.2em;
+    border-color: #e2e2e2;
+}
+
+.btn_active {
+    background: rgb(184, 184, 184);
+    color: black;
+    font-weight: 700;
+    border-color: #323232;
+}

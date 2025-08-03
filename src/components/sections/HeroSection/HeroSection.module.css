@@ -1,0 +1,104 @@
+.section_hero{
+    width: 100vw;
+    height: 46.93vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5.21vw;
+}
+
+.hero_main{
+    width: 50.52vw;
+    height: 46.93vw;
+    padding: 8.75vw 5.42vw 0 8.33vw;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.92vw;
+}
+.hero_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.swap{
+    background: linear-gradient(93deg, #B792FF -12.64%, #7447FB 15.04%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero_header p{
+    text-align: center;
+    align-items: center;
+    font-size: 3.54167vw;
+    font-weight: 600;
+    line-height: 110%;
+    font-family: var(--font-inter), sans-serif;
+    letter-spacing: -0.07083vw;
+}
+.hero_header_icons{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero_header_icons img{
+    width: 4.38vw;
+    padding: 0.625vw;
+}
+.hero_header_icons img:last-of-type{
+    position: relative;
+    left: -25%;
+    z-index: 0;
+}
+.hero_header_icons img:first-of-type{
+    position: relative;
+
+    z-index: 1;
+}
+
+.hero_description{
+    font-size: 3.54167vw;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.07083vw;
+    font-family: var(--font-inter), sans-serif;
+}
+
+
+.hero_items{
+    display: flex;
+    flex-direction: row;
+    gap: 0.625vw;
+}
+
+.calculator{
+    width: 35.94vw;
+    padding: 3.125vw;
+
+
+    border-radius: 40px;
+    border: 1px solid #FFF;
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.06) -17.85%, rgba(255, 255, 255, 0.00) 117.02%);
+    backdrop-filter: blur(46.982540130615234px);
+}
+.calc_header{
+    display: flex;
+    padding: 0.3125vw;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+
+    border-radius: 100px;
+    border: 1.5px solid #3D3856;
+    backdrop-filter: blur(20px);
+}
+.calc_content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.42vw;
+}

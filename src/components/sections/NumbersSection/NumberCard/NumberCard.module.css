@@ -1,0 +1,52 @@
+.card_item{
+    display: flex;
+    width: 19.0625vw;
+    height: 19.89583vw;
+    justify-content: space-between;
+    padding: 1.66667vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.83333vw;
+
+    border-radius: 32px;
+    border: 1px solid #622FF1;
+    background: #0F0E13;
+    box-shadow: 4px 4px 20px 0 rgba(255, 255, 255, 0.04) inset;
+}
+.card_item div{
+    display: flex;
+    flex-direction: column;
+}
+
+.card_item div p{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.25vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 1.5vw */
+    letter-spacing: -0.025vw;
+    opacity: 1;
+}
+.card_item span{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 4.27083vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 5.125vw */
+}
+.card_item p{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
+
+    opacity: 0.6;
+}

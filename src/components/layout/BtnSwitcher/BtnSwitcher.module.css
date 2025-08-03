@@ -1,0 +1,27 @@
+.switcher_container {
+    width: 14.47917vw;
+    height: 2.70833vw;
+    border-radius: 100px;
+
+
+    display: flex;
+    padding: 0 0.625vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.52083vw;
+    flex: 1 0 0;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
+
+    cursor: pointer;
+}
+.active{
+    background: #622FF1;
+}

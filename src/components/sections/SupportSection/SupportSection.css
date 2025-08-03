@@ -1,0 +1,9 @@
+.aurora-container{
+    background-color: #060010;
+    border-radius: 1.5vw;
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+}

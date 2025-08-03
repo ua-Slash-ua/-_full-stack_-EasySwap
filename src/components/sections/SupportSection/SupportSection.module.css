@@ -1,0 +1,122 @@
+.support_section{
+    width: 100vw;
+    padding: 8.23vw 5.21vw 0 5.21vw;
+
+}
+
+.support_container{
+    position:relative;
+    z-index: 10;
+    padding: 6.15vw 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.support_content{
+    width: 32.4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons{
+    position: relative;
+    margin-bottom: 2.71vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.icons div{
+    display: flex;
+    width: 5vw;
+    height: 5vw;
+    padding: 0.625vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.52083vw;
+    aspect-ratio: 1/1;
+}
+.icons svg{
+    width: 1.875vw;
+    height: 1.875vw;
+}
+.icons div:last-of-type{
+    position: relative;
+    left: -0.5vw;
+
+    border-radius: 5.20833vw;
+    border: 1px solid rgba(255, 255, 255, 0.70);
+    z-index: 5;
+}
+.icons div:first-of-type{
+    position: relative;
+    left: 0.5vw;
+
+    border-radius: 5.20833vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 4px 4px 5px 0 rgba(255, 255, 255, 0.06) inset;
+    backdrop-filter: blur(6px);
+    z-index: 10;
+
+}
+.title{
+    position: relative;
+    margin-bottom: 1.67vw;
+    text-align: center;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.70833vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 2.97917rem */
+    letter-spacing: -0.05417vw;
+}
+.title span{
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.description{
+    width: 25vw;
+    position: relative;
+    margin-bottom: 3.75vw;
+    text-align: center;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}
+
+.support_btn{
+    position: relative;
+    display: flex;
+    padding: 1.04vw 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+
+    border-radius: 5.20833rem;
+    background: #FFF;
+
+    color: #0F0E13;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}

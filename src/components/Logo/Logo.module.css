@@ -1,0 +1,8 @@
+.logo{
+    width: 7.86458vw;
+    height: auto;
+    flex-shrink: 0;
+    aspect-ratio: 151/40;
+    position: relative;
+    z-index: 20;
+}

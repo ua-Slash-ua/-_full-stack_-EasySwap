@@ -1,0 +1,37 @@
+.item{
+    display: flex;
+    width: 44.27083vw;
+    padding: 2.70833vw 1.66667vw 1.66667vw 1.66667vw;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 7.92vw;
+    position: relative;
+
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.00);
+    background: #0F0E13;
+    box-shadow: -4px -4px 24px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 24px 0 rgba(255, 255, 255, 0.10) inset;
+    backdrop-filter: blur(5px);
+}
+.item h4{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.08333vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 2.5vw */
+    letter-spacing: -0.04167vw;
+}
+
+.icon_main{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.21vw;
+}

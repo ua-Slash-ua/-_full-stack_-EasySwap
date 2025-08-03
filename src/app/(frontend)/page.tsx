@@ -1,59 +1,51 @@
-import { headers as getHeaders } from 'next/headers.js'
-import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
-import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
 import './styles.css'
+import './reset.css'
+import HeroSection from '@/components/sections/HeroSection/HeroSection'
+import Header from '@/components/Header/Header'
+import NumbersSection from '@/components/sections/NumbersSection/NumbersSection'
+import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
+import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
+import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
+import FAQSection from '@/components/sections/FAQSection/FAQSection'
+import SupportSection from '@/components/sections/SupportSection/SupportSection'
 
-export default async function HomePage() {
-  const headers = await getHeaders()
+const BLOCK_COMPONENTS = {
+  'hero-block': HeroSection,
+  'numbers-block': NumbersSection,
+  'promise-block': PromiseSection,
+  'double-block': DoubleSection,
+  'service-block': ServiceSection,
+  'faq-block': FAQSection,
+  'support-block': SupportSection,
+}
+
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
-  const { user } = await payload.auth({ headers })
 
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+  const { docs } = await payload.find({
+    collection: 'pages',
+    where: { slug: { equals: 'main' } },
+  })
+  const page = docs[0]
 
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>Welcome to your new project.</h1>}
-        {user && <h1>Welcome back, {user.email}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Go to admin panel
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
-        </div>
-      </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
-      </div>
-    </div>
+    <>
+      <Header />
+      {page?.blocks?.map((block, i) => {
+        if (block.enabled === false) return null
+        const BlockComponent = BLOCK_COMPONENTS[
+          block.blockType as keyof typeof BLOCK_COMPONENTS
+        ] as unknown as React.ComponentType<{ block: unknown; locale: string }>
+        if (!BlockComponent) return null
+
+        return <BlockComponent key={block.id || i} block={block} locale={locale} />
+      })}
+    </>
   )
 }

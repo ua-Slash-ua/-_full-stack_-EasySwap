@@ -1,0 +1,1 @@
+export const StyledText = '@/plugin/sl_StyledText/components/StyledTextComponent'

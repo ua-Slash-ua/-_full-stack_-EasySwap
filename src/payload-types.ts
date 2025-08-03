@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    pages: Page;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +78,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -158,6 +160,126 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  slug: string;
+  title: string;
+  description?: string | null;
+  blocks?:
+    | (
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero-block';
+          }
+        | {
+            enabled?: boolean | null;
+            aside_title: string;
+            aside_icon: string;
+            aside_number: string;
+            aside_description: string;
+            cards?:
+              | {
+                  card_title: string;
+                  card_number: string;
+                  card_description: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'numbers-block';
+          }
+        | {
+            enabled?: boolean | null;
+            title: string;
+            word: string;
+            icon: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'promise-block';
+          }
+        | {
+            enabled?: boolean | null;
+            why_we_the_best: {
+              title?: string | null;
+              icon_why: string;
+              why_point?:
+                | {
+                    why_icon: string;
+                    why_description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            what_do_you_get: {
+              title?: string | null;
+              icon_what: string;
+              what_point?:
+                | {
+                    what_icon: string;
+                    what_description: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'double-block';
+          }
+        | {
+            enabled?: boolean | null;
+            aside_title: string;
+            services?:
+              | {
+                  service_title: string;
+                  service_icon: string;
+                  how_does_it_work: {
+                    how_does_it_work_description?: string | null;
+                    id?: string | null;
+                  }[];
+                  features: {
+                    features_description?: string | null;
+                    id?: string | null;
+                  }[];
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'service-block';
+          }
+        | {
+            enabled?: boolean | null;
+            elements?:
+              | {
+                  question: string;
+                  answer: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'faq-block';
+          }
+        | {
+            enabled?: boolean | null;
+            title: string;
+            description: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'support-block';
+          }
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -170,6 +292,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -252,6 +378,140 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  slug?: T;
+  title?: T;
+  description?: T;
+  blocks?:
+    | T
+    | {
+        'hero-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'numbers-block'?:
+          | T
+          | {
+              enabled?: T;
+              aside_title?: T;
+              aside_icon?: T;
+              aside_number?: T;
+              aside_description?: T;
+              cards?:
+                | T
+                | {
+                    card_title?: T;
+                    card_number?: T;
+                    card_description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'promise-block'?:
+          | T
+          | {
+              enabled?: T;
+              title?: T;
+              word?: T;
+              icon?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'double-block'?:
+          | T
+          | {
+              enabled?: T;
+              why_we_the_best?:
+                | T
+                | {
+                    title?: T;
+                    icon_why?: T;
+                    why_point?:
+                      | T
+                      | {
+                          why_icon?: T;
+                          why_description?: T;
+                          id?: T;
+                        };
+                  };
+              what_do_you_get?:
+                | T
+                | {
+                    title?: T;
+                    icon_what?: T;
+                    what_point?:
+                      | T
+                      | {
+                          what_icon?: T;
+                          what_description?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'service-block'?:
+          | T
+          | {
+              enabled?: T;
+              aside_title?: T;
+              services?:
+                | T
+                | {
+                    service_title?: T;
+                    service_icon?: T;
+                    how_does_it_work?:
+                      | T
+                      | {
+                          how_does_it_work_description?: T;
+                          id?: T;
+                        };
+                    features?:
+                      | T
+                      | {
+                          features_description?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'faq-block'?:
+          | T
+          | {
+              enabled?: T;
+              elements?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'support-block'?:
+          | T
+          | {
+              enabled?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

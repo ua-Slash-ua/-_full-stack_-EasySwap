@@ -1,0 +1,103 @@
+.faq_section{
+    padding: 17.24vw 5.21vw 0 5.21vw;
+    gap: 4.17vw;
+    display: flex;
+    flex-direction: column;
+}
+.faq_section h3{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.70833vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 2.70833vw */
+    letter-spacing: -0.05417vw;
+}
+.faq_container{
+    display: flex;
+    flex-direction: row;
+    gap: 1.04vw;
+}
+
+.faq_aside{
+    display: flex;
+    width: 29.16667vw;
+    padding: 2.70833vw;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2.08333vw;
+    height: fit-content;
+
+    border-radius: 30px;
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+    box-shadow: -4px -4px 12px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 12px 0 rgba(255, 255, 255, 0.10) inset;
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 1vw;
+}
+
+.aside_icon{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.04vw;
+}
+
+.aside_text h4{
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.45833vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%; /* 1.60417vw */
+    letter-spacing: -0.02917vw;
+}
+.aside_text p{
+    color: var(--White, #FFF);
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
+}
+.aside_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.62vw;
+}
+
+.aside_btn{
+    display: flex;
+    padding: 1.09vw 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    border-radius: 100px;
+    background: #FFF;
+
+    color: #0F0E13;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667vw */
+    letter-spacing: -0.01667vw;
+}
+.faq_content ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.67vw;
+}

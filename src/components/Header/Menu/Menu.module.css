@@ -1,0 +1,15 @@
+.header_menu {
+    position: relative;
+    z-index: 20;
+
+}
+.header_menu ul{
+    display: flex;
+    padding: 0.20833vw;
+    align-items: center;
+    border-radius: 1.66667vw;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+
+}

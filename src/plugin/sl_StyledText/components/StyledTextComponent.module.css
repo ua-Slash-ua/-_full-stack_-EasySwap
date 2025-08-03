@@ -1,0 +1,7 @@
+.st_container{
+    width: 100%;
+    min-height: 30vh;
+    border: 2px solid rgb(60, 60, 60);
+    border-radius: 10px;
+    overflow: hidden;
+}
