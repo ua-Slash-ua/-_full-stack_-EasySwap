@@ -11,6 +11,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { NumbersBlock } from '@/blocks/NumbersBlock'
 import { Pages } from '@/collections/Pages'
+import { Reviews } from '@/collections/Reviews'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,6 +27,7 @@ export default buildConfig({
     Users,
     Media,
     Pages,
+    Reviews,
     // Currencies,
   ],
   editor: lexicalEditor(),
