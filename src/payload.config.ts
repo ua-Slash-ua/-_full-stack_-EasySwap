@@ -9,9 +9,9 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import { NumbersBlock } from '@/blocks/NumbersBlock'
 import { Pages } from '@/collections/Pages'
 import { Reviews } from '@/collections/Reviews'
+import { Contacts } from '@/globals/Contacts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,6 +30,7 @@ export default buildConfig({
     Reviews,
     // Currencies,
   ],
+  globals: [Contacts],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

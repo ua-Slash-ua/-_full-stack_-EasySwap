@@ -88,8 +88,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    contacts: Contact;
+  };
+  globalsSelect: {
+    contacts: ContactsSelect<false> | ContactsSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -280,6 +284,18 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'review-block';
+          }
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'application-block';
+          }
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contact-block';
           }
       )[]
     | null;
@@ -540,6 +556,20 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'application-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'contact-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -586,6 +616,92 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts".
+ */
+export interface Contact {
+  id: string;
+  phone?: string | null;
+  social_networks?: {
+    instagram?: {
+      footer_icon?: string | null;
+      location_icon?: string | null;
+      link?: string | null;
+    };
+    telegram?: {
+      footer_icon?: string | null;
+      location_icon?: string | null;
+      link?: string | null;
+    };
+    tik_tok?: {
+      footer_icon?: string | null;
+      location_icon?: string | null;
+      link?: string | null;
+    };
+    locations?:
+      | {
+          address?: string | null;
+          description?: string | null;
+          schedule?: string | null;
+          phone?: string | null;
+          /**
+           * @minItems 2
+           * @maxItems 2
+           */
+          coords?: [number, number] | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts_select".
+ */
+export interface ContactsSelect<T extends boolean = true> {
+  phone?: T;
+  social_networks?:
+    | T
+    | {
+        instagram?:
+          | T
+          | {
+              footer_icon?: T;
+              location_icon?: T;
+              link?: T;
+            };
+        telegram?:
+          | T
+          | {
+              footer_icon?: T;
+              location_icon?: T;
+              link?: T;
+            };
+        tik_tok?:
+          | T
+          | {
+              footer_icon?: T;
+              location_icon?: T;
+              link?: T;
+            };
+        locations?:
+          | T
+          | {
+              address?: T;
+              description?: T;
+              schedule?: T;
+              phone?: T;
+              coords?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
