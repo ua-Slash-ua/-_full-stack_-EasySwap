@@ -1,7 +1,7 @@
 import s from './Header.module.css'
 import Logo from '@/components/Logo/Logo'
 import Menu from '@/components/Header/Menu/Menu'
-import StarBorder from '../../../Value/StarBorder/StarBorder'
+import StarBorder from '@/libs/StarBorder/StarBorder'
 
 export default function Header() {
   return (

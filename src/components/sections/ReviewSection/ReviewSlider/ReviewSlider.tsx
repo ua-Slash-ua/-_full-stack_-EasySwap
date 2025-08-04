@@ -8,9 +8,9 @@ import { Swiper } from 'swiper/react'
 import ReviewItem from '@/components/sections/ReviewSection/ReviewSlider/ReviewItem/ReviewItem'
 import { ReviewProps } from '@/props/ReviewProps'
 import { useRef, useState } from 'react'
-import ElasticSlider from '../../../../../block/ElasticSlider/ElasticSlider'
 import { reviewData } from '@/config/review.config'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import ElasticSlider from '@/libs/ElasticSlider/ElasticSlider'
 
 
 export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {

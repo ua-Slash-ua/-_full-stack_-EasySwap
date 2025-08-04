@@ -1,8 +1,8 @@
 'use client'
 import s from './SupportSection.module.css'
 import './SupportSection.css'
-import Aurora from '../../../../yes/Aurora/Aurora'
 import { supportData } from '@/config/support.config'
+import Aurora from '@/libs/Aurora/Aurora'
 
 export default function SupportSection({ block, locale }: { block: any; locale: string }) {
   return (
