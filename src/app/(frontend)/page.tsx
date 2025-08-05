@@ -56,7 +56,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         if (block.blockType === 'review-block') {
 
           return <BlockComponent key={block.id || i} block={reviews} locale={locale} />
-        }else if (block.blockType === 'application-block') {
+        }else if (block.blockType === 'application-block' || block.blockType === 'contact-block') {
           return <BlockComponent key={block.id || i} block={contacts} locale={locale} />
         }
         return <BlockComponent key={block.id || i} block={block} locale={locale} />

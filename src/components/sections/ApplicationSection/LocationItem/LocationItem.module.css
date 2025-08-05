@@ -1,0 +1,104 @@
+.location_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.83vw;
+}
+
+.bg_circle{
+    display: flex;
+    width: 1.45833vw;
+    height: 1.45833vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5.20833vw;
+    background: #FFF;
+
+    position: relative;
+}
+
+.bg_circle div{
+    position: absolute;
+}
+
+.location_header{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.62vw;
+}
+
+.header_title{
+    display: flex;
+    flex-direction: column;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.04167vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 1.45833rem */
+    letter-spacing: -0.02083rem;
+}
+
+.header_title p{
+    color: #BB9EFF;
+}
+
+.location_content{
+    display: flex;
+    padding: 1.25vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.83333vw;
+    align-self: stretch;
+
+    border-radius: 1.25vw;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.location_content li{
+    display: flex;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+}
+
+.location_content li p{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 1.08333rem */
+}
+
+.location_btn{
+    display: flex;
+    height: 2.70833vw;
+    padding: 0 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+
+    border-radius: 5.20833vw;
+    background: white;
+}
+
+.location_btn span{
+    color: #0F0E13;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}

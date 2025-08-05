@@ -31,3 +31,9 @@
     line-height: 100%; /* 2.70833rem */
     letter-spacing: -0.05417rem;
 }
+
+.content_list{
+    display: flex;
+    flex-direction: row;
+    gap: 2.81vw;
+}
