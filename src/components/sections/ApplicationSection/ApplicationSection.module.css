@@ -1,0 +1,130 @@
+.application_section{
+    width: 100vw;
+    padding: 8.23vw 5.21vw 0 5.21vw;
+
+}
+
+.application_container{
+    position:relative;
+    z-index: 10;
+    padding: 4.17vw 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.application_content{
+    display: flex;
+    padding: 3.75vw 3.125vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.75vw;
+
+    border-radius: 2.08333vw;
+    border: 1px solid #FFF;
+    background: linear-gradient(123deg, rgba(15, 14, 19, 0.00) -3.66%, rgba(15, 14, 19, 0.90) 72.82%);
+    backdrop-filter: blur(46.982540130615234px);
+
+}
+
+.application_content h3 {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.08333vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 2.08333rem */
+    letter-spacing: -0.04167vw;
+    width: 100%;
+    text-align: center;
+}
+
+.form_label{
+    width: 14.63vw;
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}
+.container_application_telegram label{
+    color: rgba(255, 255, 255, 0.50);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72917vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.02083rem */
+    letter-spacing: -0.01458vw;
+}
+
+.form_label , .form_label input::placeholder{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+
+    display: flex;
+    padding: 1.04vw 0.83333vw;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+
+    border-radius: 1.04167vw;
+    background: rgba(23, 21, 27, 0.70);
+}
+.form_label::placeholder{
+    opacity: 0.3;
+
+}
+.container_application_telegram{
+    display: flex;
+    flex-direction: column;
+    gap: 0.63vw;
+}
+
+
+.application_double{
+    display: flex;
+    flex-direction: row;
+    gap: 1.04vw;
+}
+
+.application_labels{
+    display: flex;
+    flex-direction: column;
+    gap: 1.67vw;
+}
+
+.btn_send{
+    width: 100%;
+    display: flex;
+    padding: 1.09vw 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    flex: 1 0 0;
+
+    border-radius: 5.20833vw;
+    background: #FFF;
+}
+
+.btn_send span{
+    color: #0F0E13;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667rem;
+}

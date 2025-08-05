@@ -1,0 +1,66 @@
+.phone_container {
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.50);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72917vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.02083rem */
+    letter-spacing: -0.01458vw;
+
+    gap: 0.62vw;
+}
+.phone_container div{
+    display: flex;
+    width: 14.63vw;
+    padding: 1.09vw 0.83333vw;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+
+    border-radius: 1.04167vw;
+    background: rgba(23, 21, 27, 0.70);
+}
+.phone_container select{
+    color: #FFF;
+    background: rgba(23, 21, 27, 0.70);
+}
+
+.phone_container option{
+    color: black;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 0.83333rem */
+    letter-spacing: -0.01667vw;
+}
+
+.phone_container input:first-of-type, .phone_container input:first-of-type::placeholder{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}
+
+.phone_container span{
+    color: rgba(255, 255, 255, 0.50);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72917vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.02083rem */
+    letter-spacing: -0.01458vw;
+}
+.phone_container input:first-of-type::placeholder{
+    opacity: 0.3;
+
+}

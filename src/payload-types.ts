@@ -640,21 +640,22 @@ export interface Contact {
       location_icon?: string | null;
       link?: string | null;
     };
-    locations?:
-      | {
-          address?: string | null;
-          description?: string | null;
-          schedule?: string | null;
-          phone?: string | null;
-          /**
-           * @minItems 2
-           * @maxItems 2
-           */
-          coords?: [number, number] | null;
-          id?: string | null;
-        }[]
-      | null;
   };
+  locations?:
+    | {
+        is_location?: boolean | null;
+        address?: string | null;
+        description?: string | null;
+        schedule?: string | null;
+        phone?: string | null;
+        /**
+         * @minItems 2
+         * @maxItems 2
+         */
+        coords?: [number, number] | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -688,16 +689,17 @@ export interface ContactsSelect<T extends boolean = true> {
               location_icon?: T;
               link?: T;
             };
-        locations?:
-          | T
-          | {
-              address?: T;
-              description?: T;
-              schedule?: T;
-              phone?: T;
-              coords?: T;
-              id?: T;
-            };
+      };
+  locations?:
+    | T
+    | {
+        is_location?: T;
+        address?: T;
+        description?: T;
+        schedule?: T;
+        phone?: T;
+        coords?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;

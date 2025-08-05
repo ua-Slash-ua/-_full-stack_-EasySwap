@@ -113,40 +113,46 @@ export const Contacts: GlobalConfig = {
             }
 
           ],
-        },
-        {
-          name: 'locations',
-          label:'Locations',
-          type:'array',
-          fields:[
-            {
-              name:'address',
-              label: 'Location Address',
-              type: 'text',
-            },
-            {
-              name:'description',
-              label: 'Location Description',
-              type: 'text',
-            },
-            {
-              name:'schedule',
-              label: 'Location Schedule',
-              type: 'text',
-            },
-            {
-              name:'phone',
-              label: 'Location Phone',
-              type: 'text',
-            },
-            {
-              name:'coords',
-              label: 'Location Coordinates',
-              type: 'point',
-            },
-          ]
         }
       ],
     },
+    {
+      name: 'locations',
+      label:'Locations',
+      type:'array',
+      fields:[
+        {name: 'is_location',
+        type: 'checkbox',
+        label: 'Is Location',
+        defaultValue: false,
+        },
+
+        {
+          name:'address',
+          label: 'Location Address',
+          type: 'text',
+        },
+        {
+          name:'description',
+          label: 'Location Description',
+          type: 'text',
+        },
+        {
+          name:'schedule',
+          label: 'Location Schedule',
+          type: 'text',
+        },
+        {
+          name:'phone',
+          label: 'Location Phone',
+          type: 'text',
+        },
+        {
+          name:'coords',
+          label: 'Location Coordinates',
+          type: 'point',
+        },
+      ]
+    }
   ],
 }
