@@ -10,7 +10,7 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 1.45833rem;
+    font-size: 1.45833vw;
     font-style: normal;
     font-weight: 500;
     line-height: 110%; /* 1.60417rem */

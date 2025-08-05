@@ -64,7 +64,7 @@ export default function PhoneInput({
           </select>
 
           <input
-            className={`${dataClasses?.classNameInput ? dataClasses.classNameInput : ''}`}
+            className={`${dataClasses?.classNameInput ? dataClasses.classNameInput : ''} ${s.form_input}`}
             type="number"
             onChange={e => {
               if (e.target.value.length > 9) {

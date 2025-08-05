@@ -22,6 +22,14 @@
 
 .bg_circle div{
     position: absolute;
+
+}
+.bg_circle svg{
+
+    width: 0.72917vw;
+    height: 0.72917vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
 }
 
 .location_header{
@@ -42,7 +50,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 140%; /* 1.45833rem */
-    letter-spacing: -0.02083rem;
+    letter-spacing: -0.02083vw;
 }
 
 .header_title p{
@@ -102,3 +110,10 @@
     line-height: 140%; /* 1.16667rem */
     letter-spacing: -0.01667vw;
 }
+
+.location_btn svg{
+    width: 1.25vw;
+    height: 1.25vw;
+    aspect-ratio: 1/1;
+}
+

@@ -27,11 +27,11 @@
     color: #ffffff;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 2.70833rem;
+    font-size: 2.70833vw;
     font-style: normal;
     font-weight: 600;
     line-height: 100%; /* 2.70833rem */
-    letter-spacing: -0.05417rem;
+    letter-spacing: -0.05417vw;
 }
 
 .content_list_address{

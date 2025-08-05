@@ -19,15 +19,24 @@ export default function DepartmentInput({ text, departments }: DepartmentInputPr
           {text}
         </label>
         <div className={s.select_container}>
-          <input type="text" hidden={true} value={department} style={{display: 'none'}}/>
           <input
+            className={s.form_input}
             type="text"
+            value={department}
             placeholder={departments[0].address}
             onChange={e => setDepartment(e.target.value)}
           />
           <ul className={`${s.options_container} ${active ? s.active : ''}`}>
             {departments.map((department: any, index: number) => (
-              <li key={index} onClick={e => setDepartment(e.target.value)}>{department.address}</li>
+              <li
+                key={index}
+                onClick={e => {
+                  setDepartment(department.address)
+                  setActive(false)
+                }}
+              >
+                {department.address}
+              </li>
             ))}
           </ul>
           <div className={s.btn} onClick={() => setActive(!active)}>

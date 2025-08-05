@@ -37,7 +37,7 @@
     letter-spacing: -0.01875vw;
 }
 
-.review_image{
+.review_image, .review_image img{
     width: 5.8vw;
     height: 5.3vw;
 }
