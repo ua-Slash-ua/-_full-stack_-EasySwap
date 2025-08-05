@@ -7,7 +7,9 @@
 }
 
 .main{
-
+    display: flex;
+    flex-direction: column;
+    gap: 1.04vw;
 }
 
 .content{
@@ -32,8 +34,24 @@
     letter-spacing: -0.05417rem;
 }
 
-.content_list{
+.content_list_address{
     display: flex;
     flex-direction: row;
     gap: 2.81vw;
+}
+
+.content_list_social{
+    display: flex;
+    flex-direction: row;
+    gap: 1.04vw;
+}
+
+.map{
+    width: 44.27083vw;
+    height: 100%;
+    aspect-ratio: 103/87;
+    background-color: #859685;
+
+    border-radius: 2.08333vw;
+
 }
