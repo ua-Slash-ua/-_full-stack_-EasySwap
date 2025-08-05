@@ -16,6 +16,7 @@ import ReviewSection from '@/components/sections/ReviewSection/ReviewSection'
 import { getReviews } from '@/api/getReviews'
 import ApplicationSection from '@/components/sections/ApplicationSection/ApplicationSection'
 import { getContacts } from '@/api/getContacts'
+import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
@@ -27,6 +28,7 @@ const BLOCK_COMPONENTS = {
   'support-block': SupportSection,
   'review-block': ReviewSection,
   'application-block': ApplicationSection,
+  'contact-block': ContactsSection,
 }
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
