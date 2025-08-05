@@ -1,0 +1,14 @@
+.review_swiper{
+    display: flex;
+    flex-direction: row;
+    gap: 1.04vw;
+    margin-top: 4.17vw ;
+    margin-bottom: 2.71vw ;
+
+}
+.review_slider_nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

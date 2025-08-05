@@ -1,0 +1,23 @@
+.social_item{
+    display: flex;
+    width: 14.0625vw;
+    /*height: 10.52083vw;*/
+    padding: 2.70833vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.83333vw;
+
+    border-radius: 1.66667vw;
+    border: 1px solid rgba(255, 255, 255, 0.00);
+    background: #0F0E13;
+    box-shadow: -4px -4px 24px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 24px 0 rgba(255, 255, 255, 0.10) inset;
+    backdrop-filter: blur(5px);
+}
+
+.social_item svg{
+    width: 4.16667vw;
+    height: 4.16667vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+}

@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
+    reviews: Review;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    reviews: ReviewsSelect<false> | ReviewsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -86,8 +88,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    contacts: Contact;
+  };
+  globalsSelect: {
+    contacts: ContactsSelect<false> | ContactsSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -273,8 +279,38 @@ export interface Page {
             blockName?: string | null;
             blockType: 'support-block';
           }
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'review-block';
+          }
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'application-block';
+          }
+        | {
+            enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contact-block';
+          }
       )[]
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reviews".
+ */
+export interface Review {
+  id: string;
+  title: string;
+  description: string;
+  photo: string | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -296,6 +332,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'reviews';
+        value: string | Review;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -509,7 +549,39 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'review-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'application-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'contact-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reviews_select".
+ */
+export interface ReviewsSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  photo?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -544,6 +616,94 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts".
+ */
+export interface Contact {
+  id: string;
+  phone?: string | null;
+  social_networks?: {
+    instagram?: {
+      footer_icon?: string | null;
+      location_icon?: string | null;
+      link?: string | null;
+    };
+    telegram?: {
+      footer_icon?: string | null;
+      location_icon?: string | null;
+      link?: string | null;
+    };
+    tik_tok?: {
+      footer_icon?: string | null;
+      location_icon?: string | null;
+      link?: string | null;
+    };
+  };
+  locations?:
+    | {
+        is_location?: boolean | null;
+        address?: string | null;
+        description?: string | null;
+        schedule?: string | null;
+        phone?: string | null;
+        /**
+         * @minItems 2
+         * @maxItems 2
+         */
+        coords?: [number, number] | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contacts_select".
+ */
+export interface ContactsSelect<T extends boolean = true> {
+  phone?: T;
+  social_networks?:
+    | T
+    | {
+        instagram?:
+          | T
+          | {
+              footer_icon?: T;
+              location_icon?: T;
+              link?: T;
+            };
+        telegram?:
+          | T
+          | {
+              footer_icon?: T;
+              location_icon?: T;
+              link?: T;
+            };
+        tik_tok?:
+          | T
+          | {
+              footer_icon?: T;
+              location_icon?: T;
+              link?: T;
+            };
+      };
+  locations?:
+    | T
+    | {
+        is_location?: T;
+        address?: T;
+        description?: T;
+        schedule?: T;
+        phone?: T;
+        coords?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

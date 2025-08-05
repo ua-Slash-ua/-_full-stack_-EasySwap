@@ -3,7 +3,6 @@ import s from './DoubleItem.module.css'
 import DoubleLine from '@/components/sections/DoubleSection/DoubleItem/DoubleLine/DoubleLine'
 
 export default function DoubleItem({ title, icon, lines }: DoubleItemProps) {
-  console.log(lines)
   return (
     <>
       <div className={s.item}>

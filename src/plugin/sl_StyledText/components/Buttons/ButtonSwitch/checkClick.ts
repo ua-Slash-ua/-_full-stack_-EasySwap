@@ -7,7 +7,6 @@ export function checkClick(e: React.MouseEvent<HTMLInputElement>) {
   idList.forEach((id) => {
     const el = document.getElementById(id) as HTMLElement | null;
     if (!el) return;
-    console.log(element.classList)
     if (id === type) {
       el.style.display = 'flex';
     } else {

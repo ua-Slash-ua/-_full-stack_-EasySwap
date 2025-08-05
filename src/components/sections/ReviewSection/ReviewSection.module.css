@@ -1,0 +1,54 @@
+.review_section{
+    width: 100vw;
+    margin-top: 8.02vw;
+}
+.review_container{
+    width: 100vw;
+    padding: 8.33vw 5.21vw;
+
+    border-radius: 3.33333vw;
+    background: #0E0E0F;
+}
+
+.review_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review_title h3{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.70833vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 2.70833rem */
+    letter-spacing: -0.05417vw;
+}
+
+.review_btn{
+    display: flex;
+    padding: 0.78vw 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    flex-shrink: 0;
+
+    border-radius: 5.20833vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(5px);
+}
+
+.review_btn span{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}

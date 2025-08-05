@@ -1,0 +1,57 @@
+.contacts_section{
+    margin-top: 10.47vw;
+    padding: 0 5.21vw;
+    gap: 1.04vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 1.04vw;
+}
+
+.content{
+    display: flex;
+    padding: 2.70833vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4.16667vw;
+    align-self: stretch;
+
+    border-radius: 1.66667vw;
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+}
+.content h3{
+    color: #ffffff;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.70833vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 2.70833rem */
+    letter-spacing: -0.05417vw;
+}
+
+.content_list_address{
+    display: flex;
+    flex-direction: row;
+    gap: 2.81vw;
+}
+
+.content_list_social{
+    display: flex;
+    flex-direction: row;
+    gap: 1.04vw;
+}
+
+.map{
+    width: 44.27083vw;
+    height: 100%;
+    aspect-ratio: 103/87;
+    background-color: #859685;
+
+    border-radius: 2.08333vw;
+
+}
