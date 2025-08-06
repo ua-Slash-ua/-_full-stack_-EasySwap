@@ -1,6 +1,5 @@
 import s from './Footer.module.css'
 import Logo from '@/components/Logo/Logo'
-import StarBorder from '@/libs/StarBorder/StarBorder'
 import Link from 'next/link'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
@@ -28,12 +27,40 @@ export default function Footer({ block, locale }: { block: any; locale: string }
                 svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
                 phone={block.phone}
               />
-              <BtnSendApplication
-                svgIcon={contacts.iconMail}
-                text={'Залишити заявку'}
-              />
+              <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
             </div>
           </div>
+          <div className={s.footer_title}>
+            <p>
+              <span>easy </span>
+              swap
+            </p>
+          </div>
+
+          <ul className={s.footer_footer}>
+            <li>
+              <p>©2025 Easy Swap. All Rights Reserved.</p>
+            </li>
+            <li>
+              <p>Політика конфіденційності</p>
+            </li>
+            <li>
+              <div>
+                <p>Дизайн & Розробка:</p>
+                <Link
+                  href={
+                    'https://www.instagram.com/before_after.agency/?igsh=MTVyMTIxaTE4ZmRobA%3D%3D#'
+                  }
+                >
+                  <span>Before/After</span>
+                </Link>
+                <p> & </p>
+                <Link href={'https://projection-ua.webflow.io/'}>
+                  <span>PROJECTION</span>
+                </Link>
+              </div>
+            </li>
+          </ul>
         </div>
       </footer>
     </>
