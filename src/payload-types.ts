@@ -624,13 +624,18 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Contact {
   id: string;
   phone?: string | null;
+  footer_words: {
+    word_1: string;
+    word_2: string;
+    word_3: string;
+  };
   social_networks?: {
-    instagram?: {
+    telegram?: {
       footer_icon?: string | null;
       location_icon?: string | null;
       link?: string | null;
     };
-    telegram?: {
+    instagram?: {
       footer_icon?: string | null;
       location_icon?: string | null;
       link?: string | null;
@@ -665,17 +670,24 @@ export interface Contact {
  */
 export interface ContactsSelect<T extends boolean = true> {
   phone?: T;
+  footer_words?:
+    | T
+    | {
+        word_1?: T;
+        word_2?: T;
+        word_3?: T;
+      };
   social_networks?:
     | T
     | {
-        instagram?:
+        telegram?:
           | T
           | {
               footer_icon?: T;
               location_icon?: T;
               link?: T;
             };
-        telegram?:
+        instagram?:
           | T
           | {
               footer_icon?: T;

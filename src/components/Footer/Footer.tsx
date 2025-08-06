@@ -1,0 +1,76 @@
+import s from './Footer.module.css'
+import Logo from '@/components/Logo/Logo'
+import Link from 'next/link'
+import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
+import { contacts } from '@/config/contacts.config'
+import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
+import SocialNetworkItem from '@/components/sections/ContactsSection/SocialNetworkItem/SocialNetworkItem'
+
+export default function Footer({ block, locale }: { block: any; locale: string }) {
+  const socialMedia = block.social_networks
+  const footerWords = block.footer_words
+  return (
+    <>
+      <footer className={s.footer}>
+        <div className={s.footer_container}>
+          <div className={s.footer_header}>
+            <Logo />
+            <div className={s.social_media}>
+              {Object.entries(socialMedia).map(([key, value], index) => (
+                <div key={index} className={s.sm_icon}>
+                  <Link href={socialMedia[key].link} target="_blank">
+                    <div dangerouslySetInnerHTML={{ __html: socialMedia[key].footer_icon }} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+            <div className={s.lside}>
+              <BtnPhone
+                svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
+                phone={block.phone}
+              />
+              <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
+            </div>
+          </div>
+          <div className={s.footer_title}>
+            <p>
+              <span>easy </span>
+              swap
+            </p>
+          </div>
+          <ul className={s.footer_words}>
+            {Object.entries(footerWords).map(([key, value], index) => (
+              <li className={s.word_item}>
+                {footerWords[key]}
+              </li>
+            ))}
+          </ul>
+          <ul className={s.footer_footer}>
+            <li>
+              <p>©2025 Easy Swap. All Rights Reserved.</p>
+            </li>
+            <li>
+              <p>Політика конфіденційності</p>
+            </li>
+            <li>
+              <div>
+                <p>Дизайн & Розробка:</p>
+                <Link
+                  href={
+                    'https://www.instagram.com/before_after.agency/?igsh=MTVyMTIxaTE4ZmRobA%3D%3D#'
+                  }
+                >
+                  <span>Before/After</span>
+                </Link>
+                <p> & </p>
+                <Link href={'https://projection-ua.webflow.io/'}>
+                  <span>PROJECTION</span>
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </>
+  )
+}
