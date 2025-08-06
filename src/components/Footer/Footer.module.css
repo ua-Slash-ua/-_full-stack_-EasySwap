@@ -163,3 +163,14 @@
     flex-direction: row;
     justify-content: center;
 }
+.footer_words{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.97vw;
+    position: relative;
+}
+.word_item{
+
+}

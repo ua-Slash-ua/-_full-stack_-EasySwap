@@ -4,9 +4,11 @@ import Link from 'next/link'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
+import SocialNetworkItem from '@/components/sections/ContactsSection/SocialNetworkItem/SocialNetworkItem'
 
 export default function Footer({ block, locale }: { block: any; locale: string }) {
   const socialMedia = block.social_networks
+  const footerWords = block.footer_words
   return (
     <>
       <footer className={s.footer}>
@@ -36,7 +38,13 @@ export default function Footer({ block, locale }: { block: any; locale: string }
               swap
             </p>
           </div>
-
+          <ul className={s.footer_words}>
+            {Object.entries(footerWords).map(([key, value], index) => (
+              <li className={s.word_item}>
+                {footerWords[key]}
+              </li>
+            ))}
+          </ul>
           <ul className={s.footer_footer}>
             <li>
               <p>©2025 Easy Swap. All Rights Reserved.</p>
