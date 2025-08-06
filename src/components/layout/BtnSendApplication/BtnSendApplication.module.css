@@ -1,0 +1,15 @@
+.btn_mail svg{
+    display: flex;
+    width: 1.25vw;
+    height: 1.25vw;
+}
+.btn_mail span{
+    color:  #000000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}

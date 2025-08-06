@@ -17,6 +17,7 @@ import { getReviews } from '@/api/getReviews'
 import ApplicationSection from '@/components/sections/ApplicationSection/ApplicationSection'
 import { getContacts } from '@/api/getContacts'
 import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
+import Footer from '@/components/Footer/Footer'
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
@@ -46,7 +47,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <Header />
+      <Header block={contacts} locale={locale}/>
       {page?.blocks?.map((block, i) => {
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
@@ -61,6 +62,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         }
         return <BlockComponent key={block.id || i} block={block} locale={locale} />
       })}
+      <Footer block={contacts} locale={locale}/>
     </>
   )
 }
