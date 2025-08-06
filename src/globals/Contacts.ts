@@ -11,43 +11,36 @@ export const Contacts: GlobalConfig = {
       type: 'text',
     },
     {
+      name: 'footer_words',
+      label: 'Footer Words',
+      type: 'group',
+      fields: [
+        {
+          name: 'word_1',
+          label: 'Word 1',
+          type: 'text',
+          required:true
+        },
+        {
+          name: 'word_2',
+          label: 'Word 2',
+          type: 'text',
+          required:true
+        },
+        {
+          name: 'word_3',
+          label: 'Word 3',
+          type: 'text',
+          required:true
+        },
+      ],
+    },
+
+    {
       name: 'social_networks',
       label: 'Social Networks',
       type: 'group',
       fields: [
-        {
-          name: 'instagram',
-          label: 'Instagram',
-          type: 'group',
-          fields: [
-            {
-              name: 'footer_icon',
-              label: 'Icon in footer',
-              type: 'textarea',
-              admin:{
-                components: {
-                  Field: PreviewSvg,
-                }
-              }
-            },
-            {
-              name: 'location_icon',
-              label: 'Icon in location',
-              type: 'textarea',
-              admin:{
-                components: {
-                  Field: PreviewSvg,
-                }
-              }
-            },
-            {
-              name: 'link',
-              label: 'Link',
-              type: 'text',
-            }
-
-          ],
-        },
         {
           name: 'telegram',
           label: 'Telegram',
@@ -57,28 +50,59 @@ export const Contacts: GlobalConfig = {
               name: 'footer_icon',
               label: 'Icon in footer',
               type: 'textarea',
-              admin:{
+              admin: {
                 components: {
                   Field: PreviewSvg,
-                }
-              }
+                },
+              },
             },
             {
               name: 'location_icon',
               label: 'Icon in location',
               type: 'textarea',
-              admin:{
+              admin: {
                 components: {
                   Field: PreviewSvg,
-                }
-              }
+                },
+              },
             },
             {
               name: 'link',
               label: 'Link',
               type: 'text',
-            }
-
+            },
+          ],
+        },
+        {
+          name: 'instagram',
+          label: 'Instagram',
+          type: 'group',
+          fields: [
+            {
+              name: 'footer_icon',
+              label: 'Icon in footer',
+              type: 'textarea',
+              admin: {
+                components: {
+                  Field: PreviewSvg,
+                },
+              },
+            },
+            {
+              name: 'location_icon',
+              label: 'Icon in location',
+              type: 'textarea',
+              admin: {
+                components: {
+                  Field: PreviewSvg,
+                },
+              },
+            },
+            {
+              name: 'link',
+              label: 'Link',
+              type: 'text',
+            },
           ],
         },
         {
@@ -90,69 +114,69 @@ export const Contacts: GlobalConfig = {
               name: 'footer_icon',
               label: 'Icon in footer',
               type: 'textarea',
-              admin:{
+              admin: {
                 components: {
                   Field: PreviewSvg,
-                }
-              }
+                },
+              },
             },
             {
               name: 'location_icon',
               label: 'Icon in location',
               type: 'textarea',
-              admin:{
+              admin: {
                 components: {
                   Field: PreviewSvg,
-                }
-              }
+                },
+              },
             },
             {
               name: 'link',
               label: 'Link',
               type: 'text',
-            }
-
+            },
           ],
-        }
+        },
       ],
     },
     {
       name: 'locations',
-      label:'Locations',
-      type:'array',
-      fields:[
-        {name: 'is_location',
-        type: 'checkbox',
-        label: 'Is Location',
-        defaultValue: false,
+      label: 'Locations',
+      type: 'array',
+      fields: [
+        {
+          name: 'is_location',
+          type: 'checkbox',
+          label: 'Is Location',
+          defaultValue: false,
         },
 
         {
-          name:'address',
+          name: 'address',
           label: 'Location Address',
           type: 'text',
         },
         {
-          name:'description',
+          name: 'description',
           label: 'Location Description',
           type: 'text',
         },
         {
-          name:'schedule',
+          name: 'schedule',
           label: 'Location Schedule',
           type: 'text',
         },
         {
-          name:'phone',
+          name: 'phone',
           label: 'Location Phone',
           type: 'text',
         },
         {
-          name:'coords',
+          name: 'coords',
           label: 'Location Coordinates',
           type: 'point',
         },
-      ]
-    }
+      ],
+    },
   ],
 }
