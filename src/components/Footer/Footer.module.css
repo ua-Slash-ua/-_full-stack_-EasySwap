@@ -99,7 +99,6 @@
     letter-spacing: -0.25vw;
 
     text-align: center;
-    margin-bottom: 17.5vw;
 }
 
 .footer_title span {
@@ -114,6 +113,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 17.5vw;
 }
 .footer_footer div{
     display: flex;
@@ -171,6 +171,51 @@
     gap: 2.97vw;
     position: relative;
 }
-.word_item{
 
+.word_container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4vw;
+}
+.word_item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+
+    top:1vw;
+    border-radius: 1.66667vw;
+    border: 1px solid rgba(255, 255, 255, 0.00);
+    background: rgba(15, 14, 19, 0.30);
+    box-shadow: -4px -4px 24px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 24px 0 rgba(255, 255, 255, 0.10) inset;
+    backdrop-filter: blur(5px);
+
+
+}
+.word_item div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 14.0625vw;
+    min-height: 10.52083vw;
+    padding: 2.70833vw;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.04167vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 1.25rem */
+    letter-spacing: -0.02083vw;
+}
+.word_item:nth-of-type(2) {
+    top: 6vw;
 }
