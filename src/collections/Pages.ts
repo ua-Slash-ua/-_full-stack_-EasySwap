@@ -9,6 +9,7 @@ import { SupportBlock } from '@/blocks/SupportBlock'
 import { ReviewBlock } from '@/blocks/ReviewBlock'
 import { ContactBlock } from '@/blocks/ContactBlock'
 import { ApplicationBlock } from '@/blocks/ApplicationBlock'
+import { CurrenciesBlock } from '@/blocks/CurrenciesBlock'
 
 
 export const Pages: CollectionConfig = {
@@ -62,7 +63,7 @@ export const Pages: CollectionConfig = {
         PromiseBlock,
         DoubleBlock,
         ServiceBlock,
-
+        CurrenciesBlock,
         FAQBlock,
         SupportBlock,
         ReviewBlock,

@@ -32,6 +32,29 @@ export const Currencies: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'cat_type',
+      label: 'Тип',
+      type: 'select',
+      required: true,
+      defaultValue: 'fiat',
+      options: [
+        { label: 'Фіат', value: 'fiat' },
+        { label: 'Криптовалюта', value: 'crypto' },
+      ],
+    },
+    {
+      name: 'cat_date',
+      label: 'Старість',
+      type: 'select',
+      required: true,
+      defaultValue: 'standard',
+      options: [
+        { label: 'Стандарт', value: 'standard' },
+        { label: 'Нова', value: 'new' },
+        { label: 'Стара', value: 'old' },
+      ],
+    },
     // {
     //   name: 'icon',
     //   localized: true,
@@ -107,7 +130,6 @@ export const Currencies: CollectionConfig = {
             },
           ],
         },
-
       ],
     },
   ],

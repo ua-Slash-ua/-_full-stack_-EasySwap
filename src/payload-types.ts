@@ -262,6 +262,12 @@ export interface Page {
           }
         | {
             enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'currencies-block';
+          }
+        | {
+            enabled?: boolean | null;
             elements?:
               | {
                   question: string;
@@ -324,6 +330,8 @@ export interface Currency {
   id: string;
   code: string;
   name: string;
+  cat_type: 'fiat' | 'crypto';
+  cat_date: 'standard' | 'new' | 'old';
   icon: string;
   ratesByCurrency?:
     | {
@@ -558,6 +566,13 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'currencies-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
         'faq-block'?:
           | T
           | {
@@ -624,6 +639,8 @@ export interface ReviewsSelect<T extends boolean = true> {
 export interface CurrenciesSelect<T extends boolean = true> {
   code?: T;
   name?: T;
+  cat_type?: T;
+  cat_date?: T;
   icon?: T;
   ratesByCurrency?:
     | T
