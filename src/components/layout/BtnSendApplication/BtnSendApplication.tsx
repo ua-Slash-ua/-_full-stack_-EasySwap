@@ -11,7 +11,7 @@ type BtnPhoneProps = {
 export default function BtnSendApplication({ svgIcon, text }: BtnPhoneProps) {
   return (
     <>
-      <StarBorder as="div" className={`${s.btn_mail} btn_mail`} speed="5s" color={'yellow'}>
+      <StarBorder as="div" className={`${s.btn_mail} btn_mail`} speed="5s" color={'#622FF1'}>
         <div dangerouslySetInnerHTML={{ __html: svgIcon }} />
 
         <span>{text}</span>

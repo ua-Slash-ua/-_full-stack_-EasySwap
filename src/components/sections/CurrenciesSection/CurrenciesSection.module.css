@@ -1,0 +1,168 @@
+.currencies_section {
+    margin: 0 5.21vw 0 5.21vw;
+}
+
+.calc_header {
+    display: flex;
+    padding: 0.3125vw;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100px;
+    border: 1.5px solid #3D3856;
+    backdrop-filter: blur(20px);
+}
+
+.currencies_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.currencies_icon {
+    position: absolute;
+    left: 41.51vw;
+    z-index: 0;
+}
+
+.currencies_table_container {
+    width: 100%;
+    border-radius: 1.66667vw;
+
+    z-index: 10;
+    position: relative;
+    margin-top: 3.65vw;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+
+
+    background: rgba(15, 14, 19, 0.9);
+}
+
+.currencies_table {
+}
+
+.table_head {
+
+}
+
+.head_1, .head_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* або default */
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.9375vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 1.125rem */
+    letter-spacing: -0.01875vw;
+
+}
+
+.head_2 {
+    opacity: 0.7;
+}
+
+.head_item {
+    width: calc(100% / 6);
+    padding: 2.55vw 0 1.09vw 1.25vw;
+    border-left: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.head_item:nth-of-type(1) {
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    padding-left: 2.71vw;
+}
+
+
+.head_item_one {
+    width: calc(100% / 6);
+    border-left: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.head_item_two {
+    padding: 1.33vw 0;
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.head_item_two:nth-of-type(2) {
+    border-left: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.body_line {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* або default */
+    color: #FFF;
+
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.9375vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 1.125rem */
+    letter-spacing: -0.01875vw;
+}
+.currencies_table_footer{
+    height: 2.70833vw;
+    margin: 1.67vw 2.71vw 2.71vw 2.71vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_see_all {
+
+    display: flex;
+    flex-direction: row;
+    gap: 0.42vw;
+    height: 2.70833vw;
+    align-items: center;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 1rem */
+    letter-spacing: -0.01667vw;
+    cursor: pointer;
+}
+
+.status_update{
+    display: flex;
+    flex-direction: row;
+    height: 2.70833vw;
+    padding: 0 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+
+    border-radius: 5.20833vw;
+    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(5px);
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}
+

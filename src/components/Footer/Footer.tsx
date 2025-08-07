@@ -1,10 +1,11 @@
+'use client'
 import s from './Footer.module.css'
 import Logo from '@/components/Logo/Logo'
 import Link from 'next/link'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
-import SocialNetworkItem from '@/components/sections/ContactsSection/SocialNetworkItem/SocialNetworkItem'
+import Magnet from '@/libs/Magnet/Magnet'
 
 export default function Footer({ block, locale }: { block: any; locale: string }) {
   const socialMedia = block.social_networks
@@ -38,13 +39,15 @@ export default function Footer({ block, locale }: { block: any; locale: string }
               swap
             </p>
           </div>
-          <ul className={s.footer_words}>
-            {Object.entries(footerWords).map(([key, value], index) => (
-              <li className={s.word_item}>
-                {footerWords[key]}
-              </li>
-            ))}
-          </ul>
+          <div className={s.footer_words}>
+            <div className={s.word_container}>
+              {Object.entries(footerWords).map(([key, value], index) => (
+                  <Magnet key={index} className={s.word_item} padding={50} disabled={false} magnetStrength={50}>
+                    {footerWords[key]}
+                  </Magnet>
+              ))}
+            </div>
+          </div>
           <ul className={s.footer_footer}>
             <li>
               <p>©2025 Easy Swap. All Rights Reserved.</p>

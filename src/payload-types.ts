@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     pages: Page;
     reviews: Review;
+    currencies: Currency;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -81,6 +82,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     reviews: ReviewsSelect<false> | ReviewsSelect<true>;
+    currencies: CurrenciesSelect<false> | CurrenciesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -260,6 +262,12 @@ export interface Page {
           }
         | {
             enabled?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'currencies-block';
+          }
+        | {
+            enabled?: boolean | null;
             elements?:
               | {
                   question: string;
@@ -316,6 +324,34 @@ export interface Review {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "currencies".
+ */
+export interface Currency {
+  id: string;
+  code: string;
+  name: string;
+  cat_type: 'fiat' | 'crypto';
+  cat_date: 'standard' | 'new' | 'old';
+  icon: string;
+  ratesByCurrency?:
+    | {
+        currency: string | Currency;
+        from_1000: {
+          buy1000: number;
+          sell1000: number;
+        };
+        from_5000: {
+          buy5000: number;
+          sell5000: number;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -336,6 +372,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'reviews';
         value: string | Review;
+      } | null)
+    | ({
+        relationTo: 'currencies';
+        value: string | Currency;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -526,6 +566,13 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'currencies-block'?:
+          | T
+          | {
+              enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
         'faq-block'?:
           | T
           | {
@@ -582,6 +629,37 @@ export interface ReviewsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   photo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "currencies_select".
+ */
+export interface CurrenciesSelect<T extends boolean = true> {
+  code?: T;
+  name?: T;
+  cat_type?: T;
+  cat_date?: T;
+  icon?: T;
+  ratesByCurrency?:
+    | T
+    | {
+        currency?: T;
+        from_1000?:
+          | T
+          | {
+              buy1000?: T;
+              sell1000?: T;
+            };
+        from_5000?:
+          | T
+          | {
+              buy5000?: T;
+              sell5000?: T;
+            };
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

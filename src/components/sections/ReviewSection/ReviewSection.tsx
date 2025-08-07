@@ -2,7 +2,7 @@ import s from './ReviewSection.module.css'
 import ReviewSlider from '@/components/sections/ReviewSection/ReviewSlider/ReviewSlider'
 
 
-export default async function ReviewSection({block}:{block:any}) {
+export default async function ReviewSection({ block, locale }: { block: any; locale: string }) {
   return (
     <>
       <section className={s.review_section} id="reviews">

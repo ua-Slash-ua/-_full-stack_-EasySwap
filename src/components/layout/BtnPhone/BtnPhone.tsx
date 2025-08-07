@@ -11,7 +11,7 @@ type BtnPhoneProps = {
 export default function BtnPhone({ svgIcon, phone }: BtnPhoneProps) {
   return (
     <>
-      <StarBorder as="div" className={`${s.btn_phone} btn_phone`} speed="5s" color={'cyan'}>
+      <StarBorder as="div" className={`${s.btn_phone} btn_phone`} speed="5s" color={'#622FF1'}>
         <div dangerouslySetInnerHTML={{ __html: svgIcon }} />
 
         <span>{phone}</span>

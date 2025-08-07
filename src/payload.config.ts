@@ -12,6 +12,7 @@ import { Media } from './collections/Media'
 import { Pages } from '@/collections/Pages'
 import { Reviews } from '@/collections/Reviews'
 import { Contacts } from '@/globals/Contacts'
+import { Currencies } from '@/collections/Currencies'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,7 +29,7 @@ export default buildConfig({
     Media,
     Pages,
     Reviews,
-    // Currencies,
+    Currencies,
   ],
   globals: [Contacts],
   editor: lexicalEditor(),
