@@ -1,0 +1,166 @@
+
+.popup_backgraund {
+    position: fixed; /* краще ніж absolute для фулскріну */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center; /* вертикальне центрування */
+    justify-content: center; /* горизонтальне центрування */
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+.popup_container{
+    display: flex;
+    width: 38.54167vw;
+    height: fit-content;
+    padding: 3.75vw 3.125vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 2.08333vw;
+    background: #1E1C25;
+    backdrop-filter: blur(20px);
+
+    position: relative;
+
+}
+
+.btn_close{
+    display: flex;
+    width: 3.125vw;
+    height: 3.125vw;
+    padding: 0.625vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 1.66667vw;
+    background: rgba(196, 196, 196, 0.20);
+    backdrop-filter: blur(15px);
+
+    position: absolute;
+    right: -4.3vw;
+    top: -2.9vw;
+    cursor: pointer;
+}
+
+.btn_close svg{
+    width: 1.66667vw;
+    height: 1.66667vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+
+}
+.double{
+    display: flex;
+    flex-direction: row;
+    gap: 1.04167vw;
+    margin-bottom: 1.25vw;
+    width: 100%;
+}
+
+.form_label{
+    display: flex;
+    padding: 1.04167vw 0.83333vw;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+
+    border-radius: 1.04167vw;
+    background: #17151B;
+}
+
+.form_label, .form_label::placeholder{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}
+.form_label::placeholder{
+    opacity: 0.3;
+}
+
+.container_application label{
+    color: rgba(255, 255, 255, 0.50);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72917vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.02083rem */
+    letter-spacing: -0.01458vw;
+}
+
+
+.container_application{
+    display: flex;
+    flex-direction: column;
+    gap: 0.63vw;
+    width: 100%;
+}
+.form_description input{
+    width: 32.29vw ;
+}
+
+.popup_container h3{
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.29167vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 2.29167rem */
+    letter-spacing: -0.04583vw;
+
+    margin-bottom: 3.12vw;
+}
+
+.container_application #application_description{
+    width: 32.29vw!important;
+}
+
+.btn_send{
+    display: flex;
+    height: 3.33333vw;
+    padding: 0 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    align-self: stretch;
+
+    border-radius: 5.20833vw;
+    background: #FFF;
+    margin-top: 2.71vw;
+}
+
+.btn_send svg{
+    display: flex;
+    width: 1.25vw;
+    height: 1.25vw;
+    padding: 0.20833vw 0.05208vw 0.00969vw 0.10417vw;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
+}
+.btn_send span{
+    color: #0F0E13;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 1.16667rem */
+    letter-spacing: -0.01667vw;
+}

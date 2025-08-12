@@ -1,3 +1,4 @@
+
 import s from './Header.module.css'
 import Logo from '@/components/Logo/Logo'
 import Menu from '@/components/Header/Menu/Menu'
@@ -5,8 +6,10 @@ import StarBorder from '@/libs/StarBorder/StarBorder'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
+import CreateApplication from '@/components/PopUps/CreateApplication/CreateApplication'
 
 export default function Header({ block, locale }: { block: any; locale: string }) {
+
   return (
     <>
       <header className={s.header}>
@@ -24,6 +27,7 @@ export default function Header({ block, locale }: { block: any; locale: string }
             text={'Залишити заявку'}
           />
         </div>
+
       </header>
     </>
   )
