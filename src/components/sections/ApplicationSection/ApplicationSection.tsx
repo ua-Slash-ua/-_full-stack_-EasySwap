@@ -4,6 +4,7 @@ import Aurora from '@/libs/Aurora/Aurora'
 import React from 'react'
 import PhoneInput from '@/components/layout/PhoneInput/PhoneInput'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
+import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 
 export default function ApplicationSection({ block, locale }: { block: any; locale: string }) {
   const [phone, setPhone] = React.useState('')
@@ -32,27 +33,7 @@ export default function ApplicationSection({ block, locale }: { block: any; loca
                   placeHolder={'00 000 00 00'}
                 />
 
-                <div className={s.container_application_telegram}>
-                  <label htmlFor="application_telegram">
-                    Telegram
-                  </label>
-                  <input
-                    className={s.form_label}
-                    type="text"
-                    id="application_telegram"
-                    name="application_telegram"
-                    onChange={e => {
-                      if (e.target.value.startsWith('@')) {
-                        setTelegram(e.target.value)
-                      }else {
-                        setTelegram(`@${e.target.value}`)
-                      }
-
-                    }}
-                    value={telegram}
-                    placeholder="@nickname"
-                  />
-                </div>
+                <TelegramInput name={'telegram_application'}/>
               </div>
               <DepartmentInput departments={block.locations} text={'Оберіть відділення'}/>
             </div>

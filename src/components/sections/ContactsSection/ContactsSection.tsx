@@ -45,7 +45,7 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
           />
           {locations.map((item, index) =>
             item.is_location ? (
-              <Marker position={item.coords}>
+              <Marker key={index} position={item.coords}>
                 <Popup>{`${item.address}, ${item.description}`}</Popup>
               </Marker>
             ) : null,
