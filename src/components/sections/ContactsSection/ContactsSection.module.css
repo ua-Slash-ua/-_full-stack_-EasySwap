@@ -47,12 +47,3 @@
     gap: 1.04vw;
 }
 
-.map{
-    width: 44.27083vw;
-    height: 100% !important;
-    aspect-ratio: 103/87;
-    background-color: #859685;
-
-    border-radius: 2.08333vw;
-
-}
