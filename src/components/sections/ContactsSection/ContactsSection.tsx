@@ -2,18 +2,21 @@
 import s from './ContactsSection.module.css'
 import LocationItem from '@/components/sections/ContactsSection/LocationItem/LocationItem'
 import SocialNetworkItem from '@/components/sections/ContactsSection/SocialNetworkItem/SocialNetworkItem'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import 'leaflet-defaulticon-compatibility'
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
+import dynamic from 'next/dynamic'
 
 export default function ContactsSection({ block, locale }: { block: any; locale: string }) {
   const locations: any[] = block.locations
   const social_networks: any = block.social_networks
-  const defaultCenter: [number, number] = [50.4501, 30.5234];
+  const defaultCenter: [number, number] = [50.4501, 30.5234]
 
-  const center = locations.find(loc => loc.is_location)?.coords ?? defaultCenter;
-
+  const center = locations.find(loc => loc.is_location)?.coords ?? defaultCenter
+  const DynamicMap = dynamic(
+    () => import('@/components/sections/ContactsSection/MapComponent/MapComponent'),
+    {
+      ssr: false,
+      loading: () => <p>Завантаження карти...</p>,
+    },
+  )
 
   return (
     <>
@@ -33,24 +36,7 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
             ))}
           </ul>
         </aside>
-        <MapContainer
-          center={center}
-          zoom={6}
-          style={{ height: '100vh', width: '100%' }}
-          className={s.map}
-        >
-          <TileLayer
-            url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-            attribution="&copy; Stadia Maps, OpenMapTiles & OpenStreetMap contributors"
-          />
-          {locations.map((item, index) =>
-            item.is_location ? (
-              <Marker key={index} position={item.coords}>
-                <Popup>{`${item.address}, ${item.description}`}</Popup>
-              </Marker>
-            ) : null,
-          )}
-        </MapContainer>
+        <DynamicMap locations={locations} center={center} />
       </section>
     </>
   )
