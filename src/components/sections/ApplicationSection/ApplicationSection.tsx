@@ -24,16 +24,14 @@ export default function ApplicationSection({ block, locale }: { block: any; loca
             <div className={s.application_labels}>
               <div className={s.application_double}>
                 <PhoneInput
-                  onChange={function (e: React.ChangeEvent<HTMLInputElement>): void {
-                    throw new Error('Function not implemented.')
-                  }}
-                  groupId={'application_phone'}
-                  defaultCode={''}
-                  text={'Номер телефону'}
-                  placeHolder={'00 000 00 00'}
+                  className={s.application_double_item}
+                  name={'application_phone'}
+                  activeCode={'ua'}
                 />
-
-                <TelegramInput name={'telegram_application'} />
+                <TelegramInput
+                  name={'telegram_application'}
+                  className={s.application_double_item}
+                />
               </div>
               <DepartmentInput departments={block.locations} text={'Оберіть відділення'} />
             </div>

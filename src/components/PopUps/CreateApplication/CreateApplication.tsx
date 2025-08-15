@@ -3,6 +3,8 @@ import s from './CreateApplication.module.css'
 import React, { useState } from 'react'
 import PhoneInput from '@/components/layout/PhoneInput/PhoneInput'
 import { usePopup } from '@/context/PopupContext'
+import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
+import DescriptionInput from '@/components/layout/DescriptionInput/DescriptionInput'
 
 export default function CreateApplication() {
   const [telegram, setTelegram] = useState('')
@@ -36,47 +38,17 @@ export default function CreateApplication() {
           <h3>Створити заявку</h3>
           <div className={s.double}>
             <PhoneInput
-              onChange={function (e: React.ChangeEvent<HTMLInputElement>): void {
-                throw new Error('Function not implemented.')
-              }}
-              groupId={'application_phone'}
-              defaultCode={''}
-              text={'Номер телефону'}
-              placeHolder={'00 000 00 00'}
+              className={s.application_double_item}
+              name={'application_phone_create'}
+              activeCode={'ua'}
             />
-            <div className={s.container_application}>
-              <label htmlFor="application_telegram">Telegram</label>
-              <input
-                className={s.form_label}
-                type="text"
-                id="application_telegram"
-                name="application_telegram"
-                onChange={e => {
-                  if (e.target.value.startsWith('@')) {
-                    setTelegram(e.target.value)
-                  } else {
-                    setTelegram(`@${e.target.value}`)
-                  }
-                }}
-                value={telegram}
-                placeholder="@nickname"
-              />
-            </div>
-          </div>
-          <div className={s.container_application}>
-            <label htmlFor="application_description">Опишіть запит</label>
-            <input
-              name={'application_description'}
-              id={'application_description'}
-              className={s.form_label}
-              type="text"
-              placeholder={'100$ купюри старого зразка'}
-              onChange={e => {
-                setDescription(e.target.value)
-              }}
-              value={description}
+            <TelegramInput
+              name={'application_telegram_create'}
+              className={s.application_double_item}
             />
           </div>
+          <DescriptionInput name={'application_description_create'}/>
+
           <div className={s.btn_send}>
             <svg
               width="22"

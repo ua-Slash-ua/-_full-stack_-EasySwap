@@ -13,6 +13,9 @@ import { Pages } from '@/collections/Pages'
 import { Reviews } from '@/collections/Reviews'
 import { Contacts } from '@/globals/Contacts'
 import { Currencies } from '@/collections/Currencies'
+import Applications from '@/collections/Applications'
+import categotyApplications from '@/collections/categories/categotyApplications'
+import { CreateApp } from '@/endpoints/createApp'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,8 +33,11 @@ export default buildConfig({
     Pages,
     Reviews,
     Currencies,
+    Applications,
+    categotyApplications,
   ],
   globals: [Contacts],
+  endpoints:[CreateApp,],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

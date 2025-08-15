@@ -72,6 +72,8 @@ export interface Config {
     pages: Page;
     reviews: Review;
     currencies: Currency;
+    applications: Application;
+    'request-categories': RequestCategory;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -83,6 +85,8 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     reviews: ReviewsSelect<false> | ReviewsSelect<true>;
     currencies: CurrenciesSelect<false> | CurrenciesSelect<true>;
+    applications: ApplicationsSelect<false> | ApplicationsSelect<true>;
+    'request-categories': RequestCategoriesSelect<false> | RequestCategoriesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -352,6 +356,35 @@ export interface Currency {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "applications".
+ */
+export interface Application {
+  id: string;
+  requestCategory?: (string | null) | RequestCategory;
+  email: string;
+  telegramNick: string;
+  meta?:
+    | {
+        key: string;
+        value?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "request-categories".
+ */
+export interface RequestCategory {
+  id: string;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -376,6 +409,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'currencies';
         value: string | Currency;
+      } | null)
+    | ({
+        relationTo: 'applications';
+        value: string | Application;
+      } | null)
+    | ({
+        relationTo: 'request-categories';
+        value: string | RequestCategory;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -660,6 +701,33 @@ export interface CurrenciesSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "applications_select".
+ */
+export interface ApplicationsSelect<T extends boolean = true> {
+  requestCategory?: T;
+  email?: T;
+  telegramNick?: T;
+  meta?:
+    | T
+    | {
+        key?: T;
+        value?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "request-categories_select".
+ */
+export interface RequestCategoriesSelect<T extends boolean = true> {
+  title?: T;
   updatedAt?: T;
   createdAt?: T;
 }
