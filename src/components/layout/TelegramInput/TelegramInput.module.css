@@ -37,7 +37,7 @@
     border-radius: 1.04167vw;
     background: rgba(23, 21, 27, 0.70);
 
-    cursor: pointer;
+    cursor: text;
 }
 .telegram_container input::placeholder{
     color: #FFF;
