@@ -56,6 +56,12 @@
     border-radius: 100px;
     background: #FFF;
 }
+.item_btn:hover{
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+    box-shadow: 0 16px 33px 0 rgba(255, 255, 255, 0.30);
+    cursor: pointer;
+}
 .item_btn span{
     color: #0F0E13;
     font-feature-settings: 'liga' off, 'clig' off;

@@ -3,7 +3,7 @@ import { addDataAndFileToRequest, Endpoint } from 'payload';
 type MetaItem = { key: string; value: string };
 
 type ApplicationPayload = {
-  email?: string;
+  phone?: string;
   telegramNick?: string;
   department?: string;
   request?: string;
@@ -31,17 +31,17 @@ export const CreateApp: Endpoint = {
       }
 
       const body = (await req.json()) as ApplicationPayload;
-      const { email, telegramNick, department, request } = body;
+      const { phone, telegramNick, department, request } = body;
 
       // Валідація обов'язкових полів
-      if (!email) {
-        return Response.json({ error: 'Поле "email" є обовʼязковим' }, { status: 400 });
+      if (!phone) {
+        return Response.json({ error: 'Поле "phone" є обовʼязковим' }, { status: 400 });
       }
       if (!telegramNick) {
         return Response.json({ error: 'Поле "telegramNick" є обовʼязковим' }, { status: 400 });
       }
 
-      // ✅ Оптимізовано: не дублюємо email та telegramNick у мета-даних
+      // ✅ Оптимізовано: не дублюємо phone та telegramNick у мета-даних
       const metaFields: MetaItem[] = [
         ...(department ? [{ key: 'department', value: department }] : []),
         ...(request ? [{ key: 'request', value: request }] : []),
@@ -51,7 +51,7 @@ export const CreateApp: Endpoint = {
       const newApp = await req.payload.create({
         collection: 'applications',
         data: {
-          email,
+          phone,
           telegramNick,
           requestCategory: '689f0902336953064bb75738',
           meta: metaFields,

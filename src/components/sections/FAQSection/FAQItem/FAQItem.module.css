@@ -1,4 +1,4 @@
-.faq_item{
+.faq_item {
     display: flex;
     width: 59.375vw;
     padding: 2.70833vw;
@@ -22,7 +22,7 @@
 
 }
 
-.question{
+.question {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -32,7 +32,8 @@
     line-height: 110%;
     letter-spacing: -0.02917vw;
 }
-.answer{
+
+.answer {
     display: none;
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -45,13 +46,11 @@
 }
 
 
-
-
-.active p{
+.active p {
     display: inline;
 }
 
-.title_container{
+.title_container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,14 +59,41 @@
     width: 100%;
     cursor: pointer;
 
-    transition:
-            border-radius 0.3s ease,
-            border 0.3s ease,
-            background 0.5s ease;
+    transition: border-radius 0.3s ease,
+    border 0.3s ease,
+    background 0.5s ease;
 }
-.active{
 
-    border-radius: 1.66667vw;
-    border: 1px solid #7B4BFF;
-    background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
+
+
+.active svg rect {
+    fill: white;
+}
+
+.active svg path {
+    stroke: #622FF1;
+}
+
+.active:hover svg rect {
+    fill: #622FF1;
+}
+
+.active:hover svg path {
+    stroke: white;
+}
+
+.disabled svg rect {
+    fill: #622FF1;
+}
+
+.disabled svg path {
+    stroke: white;
+}
+
+.disabled:hover svg rect {
+    fill: white;
+}
+
+.disabled:hover svg path {
+    stroke: #622FF1;
 }

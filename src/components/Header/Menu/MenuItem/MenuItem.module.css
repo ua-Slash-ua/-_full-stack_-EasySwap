@@ -18,3 +18,14 @@
     opacity: 0.6;
 
 }
+
+.link_li:hover{
+
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+}
+
+.link:hover{
+    color: #0F0E13;
+    opacity: 1;
+}

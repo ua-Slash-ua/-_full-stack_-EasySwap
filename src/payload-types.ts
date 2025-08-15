@@ -361,7 +361,7 @@ export interface Currency {
 export interface Application {
   id: string;
   requestCategory?: (string | null) | RequestCategory;
-  email: string;
+  phone: string;
   telegramNick: string;
   meta?:
     | {
@@ -710,7 +710,7 @@ export interface CurrenciesSelect<T extends boolean = true> {
  */
 export interface ApplicationsSelect<T extends boolean = true> {
   requestCategory?: T;
-  email?: T;
+  phone?: T;
   telegramNick?: T;
   meta?:
     | T

@@ -22,8 +22,8 @@ const Applications: CollectionConfig = {
       },
     },
     {
-      name: 'email',
-      type: 'email',
+      name: 'phone',
+      type: 'text',
       required: true,
       admin: {
         readOnly: true, // 🔒 нередаговане поле

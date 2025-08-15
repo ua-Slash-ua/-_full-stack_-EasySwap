@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function MenuItem({link,text}:MenuItemProps) {
   return(
     <>
-      <li>
+      <li className={s.link_li}>
         <Link
           className={s.link}
           href={link}>

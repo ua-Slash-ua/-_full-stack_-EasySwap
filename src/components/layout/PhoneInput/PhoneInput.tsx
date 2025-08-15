@@ -1,6 +1,6 @@
 'use client'
 import s from './PhoneInput.module.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { applicationConfig } from '@/config/application.config'
 import { phones } from '@/config/phone.config'
 
@@ -10,67 +10,94 @@ type PhoneInputProps = {
   name: string
   className?: string
   placeHolder?: string
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function PhoneInput({ label, name, className, placeHolder,activeCode = 'ua' }: PhoneInputProps) {
+export default function PhoneInput({
+                                     label,
+                                     name,
+                                     className,
+                                     placeHolder,
+                                     activeCode = 'ua',
+                                     value,
+                                     onChange,
+                                   }: PhoneInputProps) {
   const [code, setCode] = useState(
     phones.find((phone: any) => phone.iso === activeCode)?.code ?? '+380'
   )
   const [partPhone, setPartPhone] = useState('')
-  const [value, setValue] = useState('')
-
   const [active, setActive] = useState(false)
-  const [focused, setFocused] = useState(false);
-  return (
-    <>
-      <div className={`${s.phone_container} ${className ?? ''}`}>
-        <label htmlFor={name}>{label ?? 'Номер телефону'}</label>
-        <input type="text" hidden={true} name={name} id={name} value={value} />
-        <div className={`${s.input_container} ${focused ? s.focused : ''}`}>
-          <div className={s.choose_code}>
-            <div className={s.choose_code_text} onClick={() => setActive(!active)}>
-              <span>{code}</span>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: active ? applicationConfig.iconHide : applicationConfig.iconShow,
-                }}
-              />
-            </div>
-            <ul className={`${s.choose_code_container} ${active ? s.active : ''}`}>
-              {phones.map((phone: any, index: number) => (
-                <>
-                  <li
-                    key={index}
-                    onClick={e => {
-                      setCode(phone.code)
-                      setActive(!active)
-                      setValue(`${phone.code} ${partPhone}`)
-                    }}
-                  >
-                    {phone.code}
-                  </li>
-                </>
-              ))}
-            </ul>
-          </div>
+  const [focused, setFocused] = useState(false)
 
-          <input
-            type="number"
-            placeholder={placeHolder ?? '00 000 00 00'}
-            onChange={e => {
-              let value = e.target.value
-              if (value.length > 9) {
-                value = value.slice(0, 9)
-              }
-              setPartPhone(value)
-              setValue(`${code} ${value}`)
-            }}
-            onFocus={() => setFocused(true)}
-            onBlur={() => setFocused(false)}
-            value={partPhone}
-          />
+  // Синхронізуємо внутрішній номер з зовнішнім value
+  useEffect(() => {
+    const parts = (value ?? '').replace(code, '').trim()
+    setPartPhone(parts)
+  }, [value, code])
+
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let newPart = e.target.value.slice(0, 9)
+    setPartPhone(newPart)
+    const fullPhone = `${code} ${newPart}`
+
+    // Створюємо фейковий event для Formik
+    const syntheticEvent = {
+      target: {
+        name,
+        value: fullPhone,
+      },
+    } as React.ChangeEvent<HTMLInputElement>
+
+    onChange(syntheticEvent)
+  }
+
+  return (
+    <div className={`${s.phone_container} ${className ?? ''}`}>
+      <label htmlFor={name}>{label ?? 'Номер телефону'}</label>
+      <input type="text" hidden name={name} id={name} value={value} readOnly />
+      <div className={`${s.input_container} ${focused ? s.focused : ''}`}>
+        <div className={s.choose_code}>
+          <div className={s.choose_code_text} onClick={() => setActive(!active)}>
+            <span>{code}</span>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: active ? applicationConfig.iconHide : applicationConfig.iconShow,
+              }}
+            />
+          </div>
+          <ul className={`${s.choose_code_container} ${active ? s.active : ''}`}>
+            {phones.map((phone: any, index: number) => (
+              <li
+                key={index}
+                onClick={() => {
+                  setCode(phone.code)
+                  const fullPhone = `${phone.code} ${partPhone}`
+                  const syntheticEvent = {
+                    target: {
+                      name,
+                      value: fullPhone,
+                    },
+                  } as React.ChangeEvent<HTMLInputElement>
+                  onChange(syntheticEvent)
+                }}
+              >
+                {phone.code}
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <input
+          type="number"
+          placeholder={placeHolder ?? '00 000 00 00'}
+          onChange={handlePhoneChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          value={partPhone}
+        />
       </div>
-    </>
+    </div>
   )
 }
