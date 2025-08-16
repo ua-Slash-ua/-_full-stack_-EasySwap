@@ -336,7 +336,7 @@ export interface Currency {
   name: string;
   cat_type: 'fiat' | 'crypto';
   cat_date: 'standard' | 'new' | 'old';
-  icon: string;
+  icon: string | Media;
   ratesByCurrency?:
     | {
         currency: string | Currency;

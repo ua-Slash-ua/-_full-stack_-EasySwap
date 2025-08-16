@@ -46,6 +46,7 @@
     opacity: 0.3;
 }
 .btn{
+    width: 3.54167vw;
     display: flex;
     padding: 0 1.04167vw;
     justify-content: center;

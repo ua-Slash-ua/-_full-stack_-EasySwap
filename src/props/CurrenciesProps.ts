@@ -1,7 +1,10 @@
 export type RateByCurrency = {
   currency: {
     code: string;
-    icon: string;
+    icon: {
+      alt: string;
+      url: string;
+    };
     name: string;
     createdAt: string;
     updatedAt: string;
@@ -27,7 +30,10 @@ export type CurrencyMeta = {
   updatedAt: string;
   code: string;
   name: string;
-  icon: string; // SVG як HTML-рядок
+  icon: {
+    alt: string;
+    url: string;
+  };
   ratesByCurrency: RateByCurrency[]; // масив курсів
   cat_date: string;
   cat_type: string;

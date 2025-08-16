@@ -19,8 +19,11 @@
 
 }
 
-.link_li:hover{
+.link_li{
+    transition: all 0.1s;
+}
 
+.link_li:hover{
     border-radius: 5.20833vw;
     background: #F4EEFF;
 }
