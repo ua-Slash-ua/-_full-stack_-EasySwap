@@ -3,11 +3,18 @@ import { addDataAndFileToRequest, Endpoint } from 'payload';
 type MetaItem = { key: string; value: string };
 
 type ApplicationPayload = {
+  type: 'create' | 'urgent' | 'exchange';
   phone?: string;
   telegramNick?: string;
   department?: string;
   request?: string;
 };
+const typeIdApp = {
+  create: '689f0902336953064bb75738',
+  exchange: '689f0927336953064bb7575e',
+  urgent: '689f090f336953064bb7574d',
+}
+
 
 export const CreateApp: Endpoint = {
   path: '/create-application',
@@ -31,7 +38,7 @@ export const CreateApp: Endpoint = {
       }
 
       const body = (await req.json()) as ApplicationPayload;
-      const { phone, telegramNick, department, request } = body;
+      const { type, phone, telegramNick, department, request } = body;
 
       // Валідація обов'язкових полів
       if (!phone) {
@@ -39,6 +46,9 @@ export const CreateApp: Endpoint = {
       }
       if (!telegramNick) {
         return Response.json({ error: 'Поле "telegramNick" є обовʼязковим' }, { status: 400 });
+      }
+      if (!type) {
+        return Response.json({ error: 'Поле "type" є обовʼязковим' }, { status: 400 });
       }
 
       // ✅ Оптимізовано: не дублюємо phone та telegramNick у мета-даних
@@ -53,7 +63,7 @@ export const CreateApp: Endpoint = {
         data: {
           phone,
           telegramNick,
-          requestCategory: '689f0902336953064bb75738',
+          requestCategory: typeIdApp[type],
           meta: metaFields,
         },
         overrideAccess: true,

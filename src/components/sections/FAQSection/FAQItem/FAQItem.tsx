@@ -11,7 +11,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
       <li className={`${s.faq_item} ${active ? s.active : ''}`}>
         <div className={s.title_container} onClick={() => setActive(!active)}>
           <p className={question}>{question}</p>
-          <div  className={active? s.active : s.disabled} dangerouslySetInnerHTML={{ __html: active ? faqIcons.disabled : faqIcons.active }} />
+          <div  className={active? s.active_svg : s.disabled_svg} dangerouslySetInnerHTML={{ __html: active ? faqIcons.disabled : faqIcons.active }} />
         </div>
         <p className={s.answer}>{answer}</p>
       </li>

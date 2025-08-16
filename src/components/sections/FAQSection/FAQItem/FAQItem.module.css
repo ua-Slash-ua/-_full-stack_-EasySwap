@@ -13,7 +13,7 @@
     font-size: 1.45833vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 110%; /* 1.60417rem */
+    line-height: 110%; /* 1.vw */
     letter-spacing: -0.02917vw;
 
     border-radius: 1.66667vw;
@@ -21,7 +21,11 @@
 
 
 }
-
+.faq_item.active{
+    border-radius: 1.66667vw;
+    border: 1px solid #7B4BFF;
+    background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
+}
 .question {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -66,34 +70,34 @@
 
 
 
-.active svg rect {
+.active_svg svg rect {
     fill: white;
 }
 
-.active svg path {
+.active_svg svg path {
     stroke: #622FF1;
 }
 
-.active:hover svg rect {
+.active_svg:hover svg rect {
     fill: #622FF1;
 }
 
-.active:hover svg path {
+.active_svg:hover svg path {
     stroke: white;
 }
 
-.disabled svg rect {
+.disabled_svg svg rect {
     fill: #622FF1;
 }
 
-.disabled svg path {
+.disabled_svg svg path {
     stroke: white;
 }
 
-.disabled:hover svg rect {
+.disabled_svg:hover svg rect {
     fill: white;
 }
 
-.disabled:hover svg path {
+.disabled_svg:hover svg path {
     stroke: #622FF1;
 }

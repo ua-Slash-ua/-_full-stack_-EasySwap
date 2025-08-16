@@ -30,6 +30,7 @@ export default function CreateApplication() {
           onSubmit={async (values, { resetForm }) => {
             try {
               const result = await createApplication({
+                type:'create',
                 phone: values.phone,
                 telegramNick: values.telegram,
                 request: values.description,

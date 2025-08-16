@@ -1,12 +1,16 @@
 // lib/api/createApplication.ts
 export async function createApplication({
-                                          phone,
-                                          telegramNick,
-                                          request,
-                                        }: {
+  type,
+  phone,
+  telegramNick,
+  request,
+  department,
+}: {
+  type: 'create' | 'urgent' | 'exchange'
   phone: string
   telegramNick: string
-  request: string
+  request?: string
+  department?: string
 }) {
   try {
     const res = await fetch('/api/create-application', {
@@ -16,7 +20,7 @@ export async function createApplication({
         'x-api-key': process.env.NEXT_PUBLIC_API_KEY!,
         'x-api-secret': process.env.NEXT_PUBLIC_API_SECRET!,
       },
-      body: JSON.stringify({ phone, telegramNick, request }),
+      body: JSON.stringify({ type, phone, telegramNick, request, department }),
     })
 
     if (!res.ok) {
