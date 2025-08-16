@@ -10,9 +10,29 @@ import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
 import { useState } from 'react'
 import Exchanger from '@/components/Exchanger/Exchanger'
 
-export default function HeroSection() {
+export default function HeroSection({ block, locale }: { block: any[]; locale: string }) {
+  const [main, setMain] = useState(true)
+
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
+
+  const [value, setValue] = useState< number>(0)
+  const [count, setCount] = useState< number>(1)
+  const [currCode,setCurrCode] = useState<string>('UAN')
+  function changeValue(value: number ) {
+    setValue(value)
+  }
+  function changeCount(count: number ) {
+    setCount(count)
+  }
+  function changeCurrCode(currCode:string){
+    setCurrCode(currCode)
+  }
+
+  const filteredCurrencies = block.filter(item => {
+    if (activeFiat) return item.cat_type === 'fiat'
+    if (activeCrypto) return item.cat_type === 'crypto'
+  })
   return (
     <>
       <section className={s.section_hero}>
@@ -62,6 +82,7 @@ export default function HeroSection() {
                 func={() => {
                   setActiveCrypto(!activeCrypto)
                   setActiveFiat(!activeFiat)
+
                 }}
               />
               <BtnSwitcher
@@ -70,12 +91,37 @@ export default function HeroSection() {
                 func={() => {
                   setActiveCrypto(!activeCrypto)
                   setActiveFiat(!activeFiat)
+
                 }}
               />
             </div>
             <div className={s.calc_content}>
-              <Exchanger/>
-              <Exchanger/>
+              <Exchanger
+                key={'main'}
+                isMain={main}
+                currencies={filteredCurrencies}
+                value={value}
+                changeValue={changeValue}
+
+                count={count}
+                changeCount={changeCount}
+
+                currCode={currCode}
+                changeCurrCode={changeCurrCode}
+              />
+              <Exchanger
+                key={'!main'}
+                isMain={!main}
+                currencies={filteredCurrencies}
+                value={value}
+                changeValue={changeValue}
+
+                count={count}
+                changeCount={changeCount}
+
+                changeCurrCode={changeCurrCode}
+                currCode={currCode}
+              />
             </div>
           </div>
         </aside>

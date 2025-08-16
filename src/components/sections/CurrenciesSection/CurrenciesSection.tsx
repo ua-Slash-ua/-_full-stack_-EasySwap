@@ -23,6 +23,7 @@ export default function CurrenciesSection({ block }: { block: any }) {
   const [seeAll, setSeeAll] = useState(false)
   const [lastUpdate, setLastUpdate] = useState('')
 
+
   const currUAN: CurrUAN = block.find((item: any) => item.code === 'UAN').ratesByCurrency
   const iconUSD: string = block.find((item: any) => item.code === 'USD').icon.url
   const iconEUR: string = block.find((item: any) => item.code === 'EUR').icon.url
