@@ -2,6 +2,7 @@
 import s from './Exchanger.module.css'
 import SelectCurrencies from '@/components/layout/SelectCurrencies/SelectCurrencies'
 import { CurrUAN } from '@/props/CurrenciesProps'
+import { Currency } from '@/payload-types'
 
 type ExchangerProps = {
   isMain: boolean
@@ -23,7 +24,6 @@ export default function Exchanger({
   currCode = 'UAN',
   changeCurrCode,
 }: ExchangerProps) {
-  const currency = currencies.find(c => c.code === currCode)?.ratesByCurrency
 
   return (
     <>
@@ -43,9 +43,10 @@ export default function Exchanger({
             value={isMain ? value : value*count}
           />
           <SelectCurrencies
-            currency={isMain ? currencies : currency}
+            currency={ currencies.filter((item: Currency) => item.ratesByCurrency!.length > 0) }
             changeCurrCode={isMain ? changeCurrCode : null}
             changeCurrCount={!isMain ? changeCount : null}
+            currCode={currCode}
           />
         </div>
       </div>

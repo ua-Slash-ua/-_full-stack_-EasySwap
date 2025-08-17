@@ -11,6 +11,7 @@ type CurrencyIcon = {
 type Currency = {
   code: string
   icon: CurrencyIcon
+  ratesByCurrency?: RateItem[]
 }
 
 type RateItem = {
@@ -21,7 +22,8 @@ type RateItem = {
 }
 
 type SelectCurrenciesProps = {
-  currency: (Currency | RateItem)[]
+  currency: Currency[]
+  currCode: string
   changeCurrCode: Function | null
   changeCurrCount: Function | null
 }
@@ -29,68 +31,69 @@ type SelectCurrenciesProps = {
 export default function SelectCurrencies({
                                            currency,
                                            changeCurrCode,
-                                           changeCurrCount
+                                           changeCurrCount,
+                                           currCode,
                                          }: SelectCurrenciesProps) {
   const defaultCurrency: Currency = {
     code: 'UAN',
-    icon: { url: '/api/media/file/Vector%20(10).svg', alt: 'USD' }
+    icon: { url: '/api/media/file/Vector%20(10).svg', alt: 'USD' },
   }
 
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(() => {
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(defaultCurrency)
+  // currency = currency.filter((item: Currency) => item.ratesByCurrency!.length > 0)
+  // console.log('currency = ', currency)
+  const currencies = []
+  useEffect(() => {
     if (changeCurrCode) {
-      const found = currency.find(c => {
-        const code = (c as RateItem).currency?.code ?? (c as Currency).code
-        return code?.trim() === 'UAN'
-      })
-      return (found as RateItem)?.currency ?? (found as Currency) ?? defaultCurrency
+      const findCurren = currency.find(item => item.code === 'UAN')
+      if (findCurren) {
+        console.log('UAN is found')
+        setSelectedCurrency({
+          code: findCurren.code,
+          icon: findCurren.icon,
+        })
+        if ('UAN'!== currCode) {
+          changeCurrCode('UAN')
+        }
+      } else if (currency.length > 0) {
+        console.log('Take 1-st element')
+        setSelectedCurrency({ icon: currency[0].icon, code: currency[0].code })
+        if (currency[0].code !== currCode) {
+          changeCurrCode(currency[0].code)
+        }
+      } else {
+        console.log('Default currency')
+        setSelectedCurrency(defaultCurrency)
+      }
     } else {
-      const first = currency[0]
-      return (first as RateItem)?.currency ?? (first as Currency) ?? defaultCurrency
+      const found = currency.find(item => item.code === currCode)
+      const firstRate = found?.ratesByCurrency?.[0]
+
+      if (firstRate?.currency && firstRate?.from_1000?.sell1000) {
+        setSelectedCurrency({
+          code: firstRate.currency.code,
+          icon: firstRate.currency.icon,
+        })
+        changeCurrCount(firstRate.from_1000.sell1000)
+      } else if (currency.length > 0) {
+        setSelectedCurrency({ icon: currency[0].icon, code: currency[0].code })
+      } else {
+        setSelectedCurrency(defaultCurrency)
+      }
     }
-  })
-  useEffect(() => {
-    if (!changeCurrCount || currency.length === 0) return
-
-    const rateItem = currency.find(c => {
-      const code = (c as RateItem).currency?.code ?? (c as Currency).code
-      return code?.trim() === selectedCurrency.code.trim()
-    }) as RateItem | undefined
-
-    const sellRate = rateItem?.from_1000?.sell1000 ?? 0
-    changeCurrCount(sellRate)
-  }, [selectedCurrency, currency, changeCurrCount])
-  useEffect(() => {
-    if (!Array.isArray(currency) || currency.length === 0) return
-
-    const found = currency.find(c => {
-      const code = (c as RateItem).currency?.code ?? (c as Currency).code
-      return code?.trim() === selectedCurrency.code.trim()
-    })
-
-    const updated = (found as RateItem)?.currency ?? (found as Currency)
-    if (updated) {
-      setSelectedCurrency(updated)
-    }
-  }, [currency])
+  }, [currency, currCode])
 
 
   const [active, setActive] = useState(false)
 
   const handleSelect = (item: Currency | RateItem) => {
-    const curr = (item as RateItem).currency ?? (item as Currency)
-    const code = curr.code.trim()
-
-    setSelectedCurrency(curr)
+    console.log('item = ',changeCurrCode? (item as Currency): (item as RateItem).currency)
+    const code = changeCurrCode? (item as Currency).code: (item as RateItem).currency.code
+    setSelectedCurrency(changeCurrCode? (item as Currency): (item as RateItem).currency)
     setActive(false)
     changeCurrCode?.(code)
 
-    const rateItem = currency.find(c => {
-      const cCode = (c as RateItem).currency?.code ?? (c as Currency).code
-      return cCode.trim() === code
-    }) as RateItem | undefined
-
-    const sellRate = rateItem?.from_1000?.sell1000 ?? 0
-    changeCurrCount?.(sellRate)
+    changeCurrCount?.((item as RateItem).from_1000!.sell1000)
   }
 
   return (
@@ -123,12 +126,7 @@ export default function SelectCurrencies({
           </g>
           <defs>
             <clipPath id="clip0_767_2997">
-              <rect
-                width="12"
-                height="24"
-                fill="white"
-                transform="matrix(0 1 -1 0 24 0)"
-              />
+              <rect width="12" height="24" fill="white" transform="matrix(0 1 -1 0 24 0)" />
             </clipPath>
           </defs>
         </svg>
@@ -136,28 +134,29 @@ export default function SelectCurrencies({
 
       {active && (
         <ul className={s.select_options}>
-          {currency.length > 0 ? (
+          {changeCurrCode ? (
             currency.map((item, index) => {
-              const curr = (item as RateItem).currency ?? (item as Currency)
               return (
-                <li
-                  key={curr.code.trim() + index}
-                  onClick={() => handleSelect(item)}
-                >
+                <li key={item.code.trim() + index} onClick={() => handleSelect(item)}>
                   <div className={s.icon_back_reverse}>
-                    <Image
-                      src={curr.icon.url}
-                      alt={curr.icon.alt}
-                      width={24}
-                      height={12}
-                    />
+                    <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
                   </div>
-                  <span>{curr.code.trim()}</span>
+                  <span>{item.code.trim()}</span>
                 </li>
               )
             })
-          ) : (
-            <p>Немає для обміну!</p>
+          ) : !changeCurrCode && currency.length > 0 ? (
+            currency.find((item) => item.code === currCode)?.ratesByCurrency?.map((item:RateItem, index) => {
+              return (
+                <li key={item.currency.code.trim() + index} onClick={() => handleSelect(item)}>
+                  <div className={s.icon_back_reverse}>
+                    <Image src={item.currency.icon.url} alt={item.currency.icon.alt} width={24} height={12} />
+                  </div>
+                  <span>{item.currency.code.trim()}</span>
+                </li>
+              )
+            })) : (
+            <p>Немає для обміну2!</p>
           )}
         </ul>
       )}

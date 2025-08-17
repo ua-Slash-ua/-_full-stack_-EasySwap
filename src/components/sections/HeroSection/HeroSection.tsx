@@ -7,7 +7,7 @@ import icon_2 from 'public/hero/euro.png'
 import HeroItem from '@/components/sections/HeroSection/HeroItem/HeroItem'
 import { heroItem } from '@/config/heroItem.config'
 import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Exchanger from '@/components/Exchanger/Exchanger'
 
 export default function HeroSection({ block, locale }: { block: any[]; locale: string }) {
@@ -20,19 +20,29 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
   const [count, setCount] = useState< number>(1)
   const [currCode,setCurrCode] = useState<string>('UAN')
   function changeValue(value: number ) {
+    console.log('value', value)
     setValue(value)
   }
   function changeCount(count: number ) {
+    console.log('count', count)
     setCount(count)
   }
   function changeCurrCode(currCode:string){
+    console.log('currCode', currCode)
     setCurrCode(currCode)
   }
+  const [filteredCurrencies, setFilteredCurrencies] = useState<any[]>([])
 
-  const filteredCurrencies = block.filter(item => {
-    if (activeFiat) return item.cat_type === 'fiat'
-    if (activeCrypto) return item.cat_type === 'crypto'
-  })
+  useEffect(() => {
+    const filtered = block.filter(item => {
+      if (activeFiat) return item.cat_type === 'fiat'
+      if (activeCrypto) return item.cat_type === 'crypto'
+      return true // якщо жоден не активний — повертаємо все
+    })
+    setFilteredCurrencies(filtered)
+  }, [block, activeFiat, activeCrypto])
+
+
   return (
     <>
       <section className={s.section_hero}>
@@ -80,18 +90,23 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 content={'Фіат'}
                 active={activeFiat}
                 func={() => {
-                  setActiveCrypto(!activeCrypto)
-                  setActiveFiat(!activeFiat)
-
+                  setActiveCrypto(false)
+                  setActiveFiat(true)
+                  // console.log('filteredCurrencies1 = ',filteredCurrencies)
+                  // console.log('activeCrypto1 = ',activeCrypto)
+                  // console.log('activeFiat1 = ',activeFiat)
                 }}
               />
               <BtnSwitcher
                 content={'Криптовалюта'}
                 active={activeCrypto}
                 func={() => {
-                  setActiveCrypto(!activeCrypto)
-                  setActiveFiat(!activeFiat)
+                  setActiveCrypto(true)
+                  setActiveFiat(false)
 
+                  // console.log('filteredCurrencies2 = ',filteredCurrencies)
+                  // console.log('activeCrypto2 = ',activeCrypto)
+                  // console.log('activeFiat2 = ',activeFiat)
                 }}
               />
             </div>
