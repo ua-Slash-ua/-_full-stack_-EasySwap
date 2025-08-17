@@ -19,6 +19,8 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
   const [value, setValue] = useState< number>(0)
   const [count, setCount] = useState< number>(1)
   const [currCode,setCurrCode] = useState<string>('UAN')
+  const [currCodeExc,setCurrCodeExc] = useState<string>('')
+
   function changeValue(value: number ) {
     console.log('value', value)
     setValue(value)
@@ -30,6 +32,10 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
   function changeCurrCode(currCode:string){
     console.log('currCode', currCode)
     setCurrCode(currCode)
+  }
+  function changeCurrCodeExc(currCodeExc:string){
+    console.log('currCodeExc', currCodeExc)
+    setCurrCodeExc(currCodeExc)
   }
   const [filteredCurrencies, setFilteredCurrencies] = useState<any[]>([])
 
@@ -92,9 +98,6 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 func={() => {
                   setActiveCrypto(false)
                   setActiveFiat(true)
-                  // console.log('filteredCurrencies1 = ',filteredCurrencies)
-                  // console.log('activeCrypto1 = ',activeCrypto)
-                  // console.log('activeFiat1 = ',activeFiat)
                 }}
               />
               <BtnSwitcher
@@ -103,10 +106,6 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 func={() => {
                   setActiveCrypto(true)
                   setActiveFiat(false)
-
-                  // console.log('filteredCurrencies2 = ',filteredCurrencies)
-                  // console.log('activeCrypto2 = ',activeCrypto)
-                  // console.log('activeFiat2 = ',activeFiat)
                 }}
               />
             </div>
@@ -122,7 +121,9 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 changeCount={changeCount}
 
                 currCode={currCode}
+                currCodeExc={currCodeExc}
                 changeCurrCode={changeCurrCode}
+                changeCurrCodeExc={changeCurrCodeExc}
               />
               <Exchanger
                 key={'!main'}
@@ -135,8 +136,16 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 changeCount={changeCount}
 
                 changeCurrCode={changeCurrCode}
+                changeCurrCodeExc={changeCurrCodeExc}
                 currCode={currCode}
+                currCodeExc={currCodeExc}
               />
+              <div className={s.calc_course}>
+                <p>Курс: 1 <span>{currCode}</span> = <span>{count?? '...'}</span> <span>{currCodeExc??'...'} </span></p>
+              </div>
+            </div>
+            <div className={s.btn_exchange}>
+              <span>Обміняти валюту</span>
             </div>
           </div>
         </aside>

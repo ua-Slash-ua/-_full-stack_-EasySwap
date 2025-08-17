@@ -1,18 +1,19 @@
 'use client'
 import s from './Exchanger.module.css'
 import SelectCurrencies from '@/components/layout/SelectCurrencies/SelectCurrencies'
-import { CurrUAN } from '@/props/CurrenciesProps'
 import { Currency } from '@/payload-types'
 
 type ExchangerProps = {
   isMain: boolean
   currencies: any[]
-  value:  number
-  count:  number
+  value: number
+  count: number
   currCode: string
+  currCodeExc: string
   changeValue: Function
   changeCount: Function
   changeCurrCode: Function
+  changeCurrCodeExc: Function
 }
 export default function Exchanger({
   isMain,
@@ -22,9 +23,10 @@ export default function Exchanger({
   changeValue,
   changeCount,
   currCode = 'UAN',
+  currCodeExc ,
   changeCurrCode,
+  changeCurrCodeExc,
 }: ExchangerProps) {
-
   return (
     <>
       <div className={s.exchanger}>
@@ -40,13 +42,15 @@ export default function Exchanger({
             }}
             placeholder={'0'}
             disabled={!isMain}
-            value={isMain ? value : value*count}
+            value={isMain ? value : value * count}
           />
           <SelectCurrencies
-            currency={ currencies.filter((item: Currency) => item.ratesByCurrency!.length > 0) }
+            currency={currencies.filter((item: Currency) => item.ratesByCurrency!.length > 0)}
             changeCurrCode={isMain ? changeCurrCode : null}
             changeCurrCount={!isMain ? changeCount : null}
+            changeCurrCodeExc={!isMain ? changeCurrCodeExc : null}
             currCode={currCode}
+            currCodeExc={currCodeExc}
           />
         </div>
       </div>

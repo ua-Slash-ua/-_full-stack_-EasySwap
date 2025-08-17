@@ -10,6 +10,7 @@ type CurrencyIcon = {
 
 type Currency = {
   code: string
+  name?: string
   icon: CurrencyIcon
   ratesByCurrency?: RateItem[]
 }
@@ -24,8 +25,10 @@ type RateItem = {
 type SelectCurrenciesProps = {
   currency: Currency[]
   currCode: string
+  currCodeExc: string
   changeCurrCode: Function | null
   changeCurrCount: Function | null
+  changeCurrCodeExc: Function | null
 }
 
 export default function SelectCurrencies({
@@ -33,6 +36,8 @@ export default function SelectCurrencies({
                                            changeCurrCode,
                                            changeCurrCount,
                                            currCode,
+                                           currCodeExc,
+                                           changeCurrCodeExc,
                                          }: SelectCurrenciesProps) {
   const defaultCurrency: Currency = {
     code: 'UAN',
@@ -40,8 +45,6 @@ export default function SelectCurrencies({
   }
 
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(defaultCurrency)
-  // currency = currency.filter((item: Currency) => item.ratesByCurrency!.length > 0)
-  // console.log('currency = ', currency)
   const currencies = []
   useEffect(() => {
     if (changeCurrCode) {
@@ -49,7 +52,7 @@ export default function SelectCurrencies({
       if (findCurren) {
         console.log('UAN is found')
         setSelectedCurrency({
-          code: findCurren.code,
+          code: findCurren.name!.trim(),
           icon: findCurren.icon,
         })
         if ('UAN'!== currCode) {
@@ -57,7 +60,7 @@ export default function SelectCurrencies({
         }
       } else if (currency.length > 0) {
         console.log('Take 1-st element')
-        setSelectedCurrency({ icon: currency[0].icon, code: currency[0].code })
+        setSelectedCurrency({ icon: currency[0].icon, code: currency[0].name!.trim() })
         if (currency[0].code !== currCode) {
           changeCurrCode(currency[0].code)
         }
@@ -68,16 +71,28 @@ export default function SelectCurrencies({
     } else {
       const found = currency.find(item => item.code === currCode)
       const firstRate = found?.ratesByCurrency?.[0]
-
-      if (firstRate?.currency && firstRate?.from_1000?.sell1000) {
+      const itemCurrExc = found?.ratesByCurrency?.find(item => item.currency.code === currCodeExc)
+      if (itemCurrExc) {
         setSelectedCurrency({
-          code: firstRate.currency.code,
+          code: itemCurrExc.currency.name!.trim(),
+          icon: itemCurrExc.currency.icon,
+        })
+        console.log('Take element  currCode = ', itemCurrExc.currency)
+
+      }
+      else if (firstRate?.currency && firstRate?.from_1000?.sell1000) {
+        setSelectedCurrency({
+          code: firstRate.currency.name!.trim(),
           icon: firstRate.currency.icon,
         })
-        changeCurrCount(firstRate.from_1000.sell1000)
-      } else if (currency.length > 0) {
-        setSelectedCurrency({ icon: currency[0].icon, code: currency[0].code })
-      } else {
+        if (firstRate?.currency.code && firstRate?.currency.code !== currCodeExc) {
+          changeCurrCodeExc?.(firstRate.currency.code)
+          changeCurrCount?.(firstRate?.from_1000?.sell1000)
+        }
+        firstRate?.from_1000?.sell1000
+        console.log('Take 1-st element with currCode = ', firstRate.currency)
+      }  else {
+        console.log('Def')
         setSelectedCurrency(defaultCurrency)
       }
     }
@@ -88,11 +103,12 @@ export default function SelectCurrencies({
 
   const handleSelect = (item: Currency | RateItem) => {
     console.log('item = ',changeCurrCode? (item as Currency): (item as RateItem).currency)
-    const code = changeCurrCode? (item as Currency).code: (item as RateItem).currency.code
+    const code = changeCurrCode? (item as Currency).code: (item as RateItem).currency.name?.trim()
     setSelectedCurrency(changeCurrCode? (item as Currency): (item as RateItem).currency)
     setActive(false)
     changeCurrCode?.(code)
 
+    changeCurrCodeExc?.((item as RateItem).currency.code)
     changeCurrCount?.((item as RateItem).from_1000!.sell1000)
   }
 
@@ -141,7 +157,7 @@ export default function SelectCurrencies({
                   <div className={s.icon_back_reverse}>
                     <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
                   </div>
-                  <span>{item.code.trim()}</span>
+                  <span>{item.name?.trim()}</span>
                 </li>
               )
             })
@@ -152,7 +168,7 @@ export default function SelectCurrencies({
                   <div className={s.icon_back_reverse}>
                     <Image src={item.currency.icon.url} alt={item.currency.icon.alt} width={24} height={12} />
                   </div>
-                  <span>{item.currency.code.trim()}</span>
+                  <span>{item.currency.name?.trim()}</span>
                 </li>
               )
             })) : (
