@@ -2,6 +2,7 @@
 import s from './Exchanger.module.css'
 import SelectCurrencies from '@/components/layout/SelectCurrencies/SelectCurrencies'
 import { Currency } from '@/payload-types'
+import React from 'react'
 
 type ExchangerProps = {
   isMain: boolean
@@ -9,11 +10,12 @@ type ExchangerProps = {
   value: number
   count: number
   currCode: { code: string; isAge: string }
-  currCodeExc: {code:string, isAge:string}
+  currCodeExc: { code: string; isAge: string }
   changeValue: Function
   changeCount: Function
   changeCurrCode: Function
   changeCurrCodeExc: Function
+  content?:React.ReactNode
 }
 export default function Exchanger({
   isMain,
@@ -22,10 +24,11 @@ export default function Exchanger({
   count,
   changeValue,
   changeCount,
-  currCode ,
-  currCodeExc ,
+  currCode,
+  currCodeExc,
   changeCurrCode,
   changeCurrCodeExc,
+  content
 }: ExchangerProps) {
   return (
     <>
@@ -53,6 +56,7 @@ export default function Exchanger({
             currCodeExc={currCodeExc}
           />
         </div>
+        {content?? content}
       </div>
     </>
   )

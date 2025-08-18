@@ -20,7 +20,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
 
-  const [value, setValue] = useState<number>(0)
+  const [value, setValue] = useState<number>(1)
   const [count, setCount] = useState<number>(1)
   const [currCode, setCurrCode] = useState<{ code: string; isAge: string }>({
     code: 'UAN',
@@ -58,14 +58,12 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
     const filtered = block.filter(item => {
       if (activeFiat) return item.cat_type === 'fiat'
       if (activeCrypto) return item.cat_type === 'crypto'
-      return true // якщо жоден не активний — повертаємо все
+      return true
     })
     setFilteredCurrencies(filtered)
   }, [block, activeFiat, activeCrypto])
 
-  useEffect(() => {
-
-  }, [currCodeExc])
+  useEffect(() => {}, [currCodeExc])
 
   return (
     <>
@@ -140,6 +138,24 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 currCodeExc={currCodeExc}
                 changeCurrCode={changeCurrCode}
                 changeCurrCodeExc={changeCurrCodeExc}
+                content={<div className={s.btn_replace}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M9 15L5 19M5 19L1 15M5 19V1M19 5L15 1M15 1L11 5M15 1V19"
+                      stroke="#09090A"
+                      strokeWidth="2"
+                      strokeMiterlimit="10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>}
               />
               <Exchanger
                 key={'!main'}
@@ -154,6 +170,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 currCode={currCode}
                 currCodeExc={currCodeExc}
               />
+
               <div className={s.calc_course}>
                 <div className={s.calc_course_container}>
                   Курс: 1 <span>{currCode.code}</span>
@@ -175,7 +192,6 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                   </div>
                 </div>
               </div>
-
             </div>
             <div className={s.btn_exchange} onClick={() => setOpen('create_application')}>
               <span>Обміняти валюту</span>

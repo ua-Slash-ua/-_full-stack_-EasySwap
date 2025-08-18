@@ -163,3 +163,34 @@
 .btn_exchange:hover{
     box-shadow: 0 20px 56px 0 rgba(98, 47, 241, 0.50);
 }
+
+.btn_replace{
+    display: flex;
+    width: 2.5vw;
+    height: 2.5vw;
+    padding: 0.3125vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.52083vw;
+    aspect-ratio: 1/1;
+    position: absolute;
+
+    left: 12.8125vw;
+    bottom: -1.2vw;
+
+    border-radius: 5.20833vw;
+    border: 6px solid #131218;
+    background: #F4EEFF;
+    backdrop-filter: blur(50px);
+
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+}
+.btn_replace svg{
+    width: 0.9375vw;
+    height: 0.9375vw;
+}
+.btn_replace:hover{
+    background-color: white;
+}

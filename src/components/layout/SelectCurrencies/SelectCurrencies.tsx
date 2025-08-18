@@ -57,7 +57,7 @@ export default function SelectCurrencies({
           icon: findCurren.icon,
         })
         if ('UAN' !== currCode.code) {
-          // changeCurrCode('UAN')
+          changeCurrCode('UAN')
         }
       } else if (currency.length > 0) {
         // console.log('Take 1-st element')
