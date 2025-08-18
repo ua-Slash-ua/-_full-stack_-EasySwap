@@ -1,4 +1,4 @@
-.btn_mail .inner-content {
+.btn_mail  .inner-content{
     position: relative;
     display: flex;
     height: 2.70833vw;
@@ -8,10 +8,17 @@
     gap: 0.625vw;
 
     border-radius: 5.20833vw;
-    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    border: 0.5px solid transparent;
     background: #ffffff;
     backdrop-filter: blur(5px);
-
+    box-shadow: none;
+    transition: all 0.3s ease; /* плавність */
     z-index: 1;
     cursor: pointer;
+}
+
+.btn_mail:hover {
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+    box-shadow: 0 16px 33px 0 rgba(255, 255, 255, 0.30);
 }

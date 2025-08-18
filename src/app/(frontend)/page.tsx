@@ -62,7 +62,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           return <BlockComponent key={block.id || i} block={reviews} locale={locale} />
         } else if (block.blockType === 'application-block' || block.blockType === 'contact-block') {
           return <BlockComponent key={block.id || i} block={contacts} locale={locale} />
-        } else if (block.blockType === 'currencies-block') {
+        } else if (block.blockType === 'currencies-block' || block.blockType === 'hero-block') {
           return <BlockComponent key={block.id || i} block={currencies.docs} locale={locale} />
         }
         return <BlockComponent key={block.id || i} block={block} locale={locale} />

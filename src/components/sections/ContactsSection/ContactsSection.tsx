@@ -18,6 +18,7 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
     },
   )
 
+
   return (
     <>
       <section className={s.contacts_section} id="contacts">

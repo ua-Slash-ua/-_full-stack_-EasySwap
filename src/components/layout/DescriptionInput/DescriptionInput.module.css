@@ -1,4 +1,4 @@
-.telegram_container{
+.description_application {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -6,7 +6,8 @@
     flex: 1 0 0;
     align-self: stretch;
 }
-.telegram_container label{
+
+.description_application label {
     width: 100%;
     color: #909090;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -18,7 +19,8 @@
     letter-spacing: -0.01458vw;
     cursor: pointer;
 }
-.telegram_container input{
+
+.description_application input {
     display: flex;
     padding: 1.04167vw 0.83333vw;
     justify-content: space-between;
@@ -39,7 +41,8 @@
 
     cursor: text;
 }
-.telegram_container input::placeholder{
+
+.description_application input::placeholder {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -50,25 +53,29 @@
     letter-spacing: -0.01667vw;
     opacity: 0.3;
 }
-.telegram_container:hover{
+
+.description_application:hover {
     cursor: pointer;
 }
-.telegram_container:hover input{
+
+.description_application:hover input {
     background: #131019;
 }
 
-.telegram_container:hover label{
+.description_application:hover label {
     color: #FFF;
 }
-.telegram_container input:focus{
+
+.description_application input:focus {
     border-color: #2C2C2C;
 }
 
-.telegram_container input {
+.description_application input {
     border: 1px solid transparent;
     border-radius: 1.04167vw;
     transition: border-color 0.3s ease;
 }
-.telegram_container input, .telegram_container label{
+
+.description_application input, .description_application label {
     transition: all 0.3s ease;
 }

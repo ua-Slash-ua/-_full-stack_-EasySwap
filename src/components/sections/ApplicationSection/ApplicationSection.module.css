@@ -35,7 +35,7 @@
     font-size: 2.08333vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 100%; /* 2.08333rem */
+    line-height: 2.08333vw; /* 2.08333vw */
     letter-spacing: -0.04167vw;
     width: 100%;
 }
@@ -59,7 +59,7 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 1.16667rem */
+    line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 }
 .form_label::placeholder{
@@ -73,7 +73,7 @@
     font-size: 0.72917vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 1.02083rem */
+    line-height: 1.02083vw; /* 1.02083vw */
     letter-spacing: -0.01458vw;
 }
 
@@ -89,6 +89,10 @@
     display: flex;
     flex-direction: row;
     gap: 1.04vw;
+
+}
+.application_double_item{
+    width: 50%;
 }
 
 .application_labels{
@@ -108,6 +112,7 @@
 
     border-radius: 5.20833vw;
     background: #FFF;
+    margin-top: 3.75vw;
 }
 
 .btn_send span{
@@ -117,7 +122,7 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 1.16667rem */
+    line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 }
 
@@ -125,4 +130,14 @@
     width: 1.09375vw;
     height: 1.03198vw;
     flex-shrink: 0;
+}
+
+.status_message {
+    margin-top: 1rem;
+    font-size: 14px;
+    color: white;
+    background-color: #4B24CA;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
 }

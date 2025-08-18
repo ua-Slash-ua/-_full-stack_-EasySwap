@@ -49,7 +49,7 @@
     font-size: 1.04167vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 140%; /* 1.45833rem */
+    line-height: 1.45833vw; /*  */
     letter-spacing: -0.02083vw;
 }
 
@@ -84,7 +84,7 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 400;
-    line-height: 130%; /* 1.08333rem */
+    line-height: 1.08333vw; /* 1.08333vw */
 }
 
 .location_btn{
@@ -107,7 +107,7 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 1.16667rem */
+    line-height: 1.16667vw; /*  */
     letter-spacing: -0.01667vw;
 }
 

@@ -95,7 +95,7 @@
     font-size: 12.5vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 110%; /* 13.75rem */
+    line-height: 13.75vw; /*  */
     letter-spacing: -0.25vw;
 
     text-align: center;
@@ -131,7 +131,7 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 0.83333rem */
+    line-height: 0.83333vw; /*  */
     opacity: 0.4;
 
     display: flex;
@@ -149,7 +149,7 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 100%; /* 0.83333rem */
+    line-height: 0.83333vw; /*  */
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: none;
@@ -213,7 +213,7 @@
     font-size: 1.04167vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 1.25rem */
+    line-height: 1.25vw; /*  */
     letter-spacing: -0.02083vw;
 }
 .word_item:nth-of-type(2) {

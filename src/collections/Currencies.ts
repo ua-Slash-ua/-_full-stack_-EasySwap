@@ -9,7 +9,7 @@ export const Currencies: CollectionConfig = {
     plural: 'Валюти',
   },
   admin: {
-    useAsTitle: 'code', // показувати в заголовку код валюти
+    useAsTitle: 'name', // показувати в заголовку код валюти
     defaultColumns: ['code', 'name', 'symbol'],
   },
   access: {
@@ -24,7 +24,7 @@ export const Currencies: CollectionConfig = {
       label: 'Код (наприклад, USD)',
       type: 'text',
       required: true,
-      unique: true,
+      unique: false,
     },
     {
       name: 'name',
@@ -55,27 +55,26 @@ export const Currencies: CollectionConfig = {
         { label: 'Стара', value: 'old' },
       ],
     },
-    // {
-    //   name: 'icon',
-    //   localized: true,
-    //   relationTo:'media',
-    //   required:true,
-    //   label: 'Icon',
-    //   type:'upload'
-    //
-    // },
     {
       name: 'icon',
-      type: 'textarea',
-      required: true,
       localized: true,
+      relationTo:'media',
+      required:true,
       label: 'Icon',
-      admin: {
-        components: {
-          Field: PreviewSvg,
-        },
-      },
+      type:'upload'
+
     },
+    // {
+    //   name: 'icon',
+    //   type: 'textarea',
+    //   localized: true,
+    //   label: 'Icon',
+    //   admin: {
+    //     components: {
+    //       Field: PreviewSvg,
+    //     },
+    //   },
+    // },
     {
       name: 'ratesByCurrency',
       label: 'Курси по валютах',

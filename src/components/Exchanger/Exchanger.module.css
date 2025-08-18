@@ -14,6 +14,12 @@
     justify-content: space-between;
 
 }
+.exchanger_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .exchanger_content input[type=number], .exchanger_content input[type=number]::placeholder{
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
