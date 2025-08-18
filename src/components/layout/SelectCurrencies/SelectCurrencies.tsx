@@ -13,6 +13,7 @@ type Currency = {
   name?: string
   icon: CurrencyIcon
   ratesByCurrency?: RateItem[]
+  cat_date?: 'standard' | 'new' | 'old'
 }
 
 type RateItem = {
@@ -24,21 +25,21 @@ type RateItem = {
 
 type SelectCurrenciesProps = {
   currency: Currency[]
-  currCode: string
-  currCodeExc: string
+  currCode: { code: string; isAge: string }
+  currCodeExc: { code: string; isAge: string }
   changeCurrCode: Function | null
   changeCurrCount: Function | null
   changeCurrCodeExc: Function | null
 }
 
 export default function SelectCurrencies({
-                                           currency,
-                                           changeCurrCode,
-                                           changeCurrCount,
-                                           currCode,
-                                           currCodeExc,
-                                           changeCurrCodeExc,
-                                         }: SelectCurrenciesProps) {
+  currency,
+  changeCurrCode,
+  changeCurrCount,
+  currCode,
+  currCodeExc,
+  changeCurrCodeExc,
+}: SelectCurrenciesProps) {
   const defaultCurrency: Currency = {
     code: 'UAN',
     icon: { url: '/api/media/file/Vector%20(10).svg', alt: 'USD' },
@@ -50,65 +51,67 @@ export default function SelectCurrencies({
     if (changeCurrCode) {
       const findCurren = currency.find(item => item.code === 'UAN')
       if (findCurren) {
-        console.log('UAN is found')
+        // console.log('UAN is found')
         setSelectedCurrency({
           code: findCurren.name!.trim(),
           icon: findCurren.icon,
         })
-        if ('UAN'!== currCode) {
-          changeCurrCode('UAN')
+        if ('UAN' !== currCode.code) {
+          // changeCurrCode('UAN')
         }
       } else if (currency.length > 0) {
-        console.log('Take 1-st element')
+        // console.log('Take 1-st element')
         setSelectedCurrency({ icon: currency[0].icon, code: currency[0].name!.trim() })
-        if (currency[0].code !== currCode) {
-          changeCurrCode(currency[0].code)
+        if (currency[0].code !== currCode.code) {
+          changeCurrCode(currency[0].code, currency[0].cat_date)
         }
       } else {
-        console.log('Default currency')
+        // console.log('Default currency')
         setSelectedCurrency(defaultCurrency)
       }
     } else {
-      const found = currency.find(item => item.code === currCode)
+      const found = currency.find(item => item.code === currCode.code)
       const firstRate = found?.ratesByCurrency?.[0]
-      const itemCurrExc = found?.ratesByCurrency?.find(item => item.currency.code === currCodeExc)
+      const itemCurrExc = found?.ratesByCurrency?.find(
+        item => item.currency.code === currCodeExc.code,
+      )
       if (itemCurrExc) {
         setSelectedCurrency({
           code: itemCurrExc.currency.name!.trim(),
           icon: itemCurrExc.currency.icon,
         })
-        console.log('Take element  currCode = ', itemCurrExc.currency)
 
-      }
-      else if (firstRate?.currency && firstRate?.from_1000?.sell1000) {
+
+        // console.log('Take element  currCode = ', itemCurrExc.currency)
+      } else if (firstRate?.currency && firstRate?.from_1000?.sell1000) {
         setSelectedCurrency({
           code: firstRate.currency.name!.trim(),
           icon: firstRate.currency.icon,
         })
-        if (firstRate?.currency.code && firstRate?.currency.code !== currCodeExc) {
-          changeCurrCodeExc?.(firstRate.currency.code)
+        if (firstRate?.currency.code && firstRate?.currency.code !== currCodeExc.code)
+        {
+          changeCurrCodeExc?.(firstRate.currency.code, firstRate.currency.cat_date)
           changeCurrCount?.(firstRate?.from_1000?.sell1000)
         }
         firstRate?.from_1000?.sell1000
-        console.log('Take 1-st element with currCode = ', firstRate.currency)
-      }  else {
-        console.log('Def')
+        // console.log('Take 1-st element with currCode = ', firstRate.currency)
+      } else {
+        // console.log('Def')
         setSelectedCurrency(defaultCurrency)
       }
     }
   }, [currency, currCode])
 
-
   const [active, setActive] = useState(false)
 
   const handleSelect = (item: Currency | RateItem) => {
-    console.log('item = ',changeCurrCode? (item as Currency): (item as RateItem).currency)
-    const code = changeCurrCode? (item as Currency).code: (item as RateItem).currency.name?.trim()
-    setSelectedCurrency(changeCurrCode? (item as Currency): (item as RateItem).currency)
+    // console.log('item = ', changeCurrCode ? (item as Currency) : (item as RateItem).currency)
+    const code = changeCurrCode ? (item as Currency).code : (item as RateItem).currency.name?.trim()
+    setSelectedCurrency(changeCurrCode ? (item as Currency) : (item as RateItem).currency)
     setActive(false)
     changeCurrCode?.(code)
 
-    changeCurrCodeExc?.((item as RateItem).currency.code)
+    changeCurrCodeExc?.((item as RateItem).currency.code,(item as RateItem).currency.cat_date)
     changeCurrCount?.((item as RateItem).from_1000!.sell1000)
   }
 
@@ -162,16 +165,24 @@ export default function SelectCurrencies({
               )
             })
           ) : !changeCurrCode && currency.length > 0 ? (
-            currency.find((item) => item.code === currCode)?.ratesByCurrency?.map((item:RateItem, index) => {
-              return (
-                <li key={item.currency.code.trim() + index} onClick={() => handleSelect(item)}>
-                  <div className={s.icon_back_reverse}>
-                    <Image src={item.currency.icon.url} alt={item.currency.icon.alt} width={24} height={12} />
-                  </div>
-                  <span>{item.currency.name?.trim()}</span>
-                </li>
-              )
-            })) : (
+            currency
+              .find(item => item.code === currCode.code)
+              ?.ratesByCurrency?.map((item: RateItem, index) => {
+                return (
+                  <li key={item.currency.code.trim() + index} onClick={() => handleSelect(item)}>
+                    <div className={s.icon_back_reverse}>
+                      <Image
+                        src={item.currency.icon.url}
+                        alt={item.currency.icon.alt}
+                        width={24}
+                        height={12}
+                      />
+                    </div>
+                    <span>{item.currency.name?.trim()}</span>
+                  </li>
+                )
+              })
+          ) : (
             <p>Немає для обміну2!</p>
           )}
         </ul>

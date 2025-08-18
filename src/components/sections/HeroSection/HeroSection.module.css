@@ -120,6 +120,20 @@
     letter-spacing: -0.01458vw;
 
     opacity: 0.7;
+
+
+}
+
+.calc_course_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.21vw;
+}
+.curr_age img{
+    width: 3.125vw;
+    height: 1.30208vw;
+    aspect-ratio: 12/5;
 }
 
 .btn_exchange{

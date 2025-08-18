@@ -8,8 +8,8 @@ type ExchangerProps = {
   currencies: any[]
   value: number
   count: number
-  currCode: string
-  currCodeExc: string
+  currCode: { code: string; isAge: string }
+  currCodeExc: {code:string, isAge:string}
   changeValue: Function
   changeCount: Function
   changeCurrCode: Function
@@ -22,7 +22,7 @@ export default function Exchanger({
   count,
   changeValue,
   changeCount,
-  currCode = 'UAN',
+  currCode ,
   currCodeExc ,
   changeCurrCode,
   changeCurrCodeExc,

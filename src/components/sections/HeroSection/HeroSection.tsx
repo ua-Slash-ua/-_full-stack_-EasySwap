@@ -9,34 +9,49 @@ import { heroItem } from '@/config/heroItem.config'
 import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
 import { useEffect, useState } from 'react'
 import Exchanger from '@/components/Exchanger/Exchanger'
+import { usePopup } from '@/context/PopupContext'
+import { currencies } from '@/config/currencies.config'
 
 export default function HeroSection({ block, locale }: { block: any[]; locale: string }) {
+  const { setOpen } = usePopup()
+
   const [main, setMain] = useState(true)
 
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
 
-  const [value, setValue] = useState< number>(0)
-  const [count, setCount] = useState< number>(1)
-  const [currCode,setCurrCode] = useState<string>('UAN')
-  const [currCodeExc,setCurrCodeExc] = useState<string>('')
+  const [value, setValue] = useState<number>(0)
+  const [count, setCount] = useState<number>(1)
+  const [currCode, setCurrCode] = useState<{ code: string; isAge: string }>({
+    code: 'UAN',
+    isAge: '',
+  })
+  const [currCodeExc, setCurrCodeExc] = useState<{ code: string; isAge: string }>({
+    code: '',
+    isAge: '',
+  })
 
-  function changeValue(value: number ) {
+  function changeValue(value: number) {
     console.log('value', value)
     setValue(value)
   }
-  function changeCount(count: number ) {
+
+  function changeCount(count: number) {
     console.log('count', count)
     setCount(count)
   }
-  function changeCurrCode(currCode:string){
+
+  function changeCurrCode(text: string, isAge: string) {
     console.log('currCode', currCode)
-    setCurrCode(currCode)
+    setCurrCode({ code: text, isAge: isAge })
   }
-  function changeCurrCodeExc(currCodeExc:string){
-    console.log('currCodeExc', currCodeExc)
-    setCurrCodeExc(currCodeExc)
+
+  function changeCurrCodeExc(text: string, isAge: string) {
+    console.log('currCodeExc', text)
+    console.log('isAge', isAge)
+    setCurrCodeExc({ code: text, isAge: isAge })
   }
+
   const [filteredCurrencies, setFilteredCurrencies] = useState<any[]>([])
 
   useEffect(() => {
@@ -48,6 +63,9 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
     setFilteredCurrencies(filtered)
   }, [block, activeFiat, activeCrypto])
 
+  useEffect(() => {
+
+  }, [currCodeExc])
 
   return (
     <>
@@ -116,10 +134,8 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 currencies={filteredCurrencies}
                 value={value}
                 changeValue={changeValue}
-
                 count={count}
                 changeCount={changeCount}
-
                 currCode={currCode}
                 currCodeExc={currCodeExc}
                 changeCurrCode={changeCurrCode}
@@ -131,20 +147,37 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 currencies={filteredCurrencies}
                 value={value}
                 changeValue={changeValue}
-
                 count={count}
                 changeCount={changeCount}
-
                 changeCurrCode={changeCurrCode}
                 changeCurrCodeExc={changeCurrCodeExc}
                 currCode={currCode}
                 currCodeExc={currCodeExc}
               />
               <div className={s.calc_course}>
-                <p>Курс: 1 <span>{currCode}</span> = <span>{count?? '...'}</span> <span>{currCodeExc??'...'} </span></p>
+                <div className={s.calc_course_container}>
+                  Курс: 1 <span>{currCode.code}</span>
+                  <div className={s.curr_age}>
+                    {currCode.isAge === 'new' ? (
+                      <Image src={currencies.iconAgeNew.url} alt={currencies.iconAgeNew.alt} />
+                    ) : currCode.isAge === 'old' ? (
+                      <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
+                    ) : null}
+                  </div>
+                  = <span>{count ?? '...'}</span>
+                  <span>{currCodeExc.code ?? '...'}</span>
+                  <div className={s.curr_age}>
+                    {currCodeExc.isAge === 'new' ? (
+                      <Image src={currencies.iconAgeNew.url} alt={currencies.iconAgeNew.alt} />
+                    ) : currCodeExc.isAge === 'old' ? (
+                      <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
+                    ) : null}
+                  </div>
+                </div>
               </div>
+
             </div>
-            <div className={s.btn_exchange}>
+            <div className={s.btn_exchange} onClick={() => setOpen('create_application')}>
               <span>Обміняти валюту</span>
             </div>
           </div>
