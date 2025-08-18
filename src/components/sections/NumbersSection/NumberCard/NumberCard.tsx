@@ -1,16 +1,19 @@
+'use client'
 import s from './NumberCard.module.css'
 import { NumberCardProps } from '@/props/NumberCardProps'
-
+import SpotlightCard from '@/libs/SpotlightCard/SpotlightCard'
 export default function NumberCard({ card_title, card_number, card_description }: NumberCardProps) {
   return (
     <>
-      <div className={s.card_item}>
-        <p>{card_description}</p>
-        <div>
-          <span>{card_number}</span>
-          <p>{card_title}</p>
+      <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+        <div className={s.card_item}>
+          <p>{card_description}</p>
+          <div>
+            <span>{card_number}</span>
+            <p>{card_title}</p>
+          </div>
         </div>
-      </div>
+      </SpotlightCard>
     </>
   )
 }

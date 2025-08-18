@@ -6,21 +6,23 @@ import { applicationConfig } from '@/config/application.config'
 type DepartmentInputProps = {
   departments: any[]
   text: string
+  name?: string
   value: string
   onChange: (value: string) => void
 }
 
 export default function DepartmentInput({
-                                          text,
-                                          departments,
-                                          value,
-                                          onChange,
-                                        }: DepartmentInputProps) {
+  name,
+  text,
+  departments,
+  value,
+  onChange,
+}: DepartmentInputProps) {
   const [active, setActive] = useState(false)
 
   return (
     <div className={s.container_application_department}>
-      <label htmlFor="" className={s.form_label}>
+      <label htmlFor={name} className={s.form_label}>
         {text}
       </label>
       <div className={s.select_container}>
@@ -31,6 +33,8 @@ export default function DepartmentInput({
           placeholder={departments[0]?.address || 'Оберіть відділення'}
           onChange={e => onChange(e.target.value)}
           readOnly
+          id={name}
+          name={name}
         />
         <ul className={`${s.options_container} ${active ? s.active : ''}`}>
           {departments.map((department: any, index: number) => (

@@ -203,7 +203,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 </div>
               </div>
             </div>
-            <div className={s.btn_exchange} onClick={() => setOpen('create_application')}>
+            <div className={s.btn_exchange} onClick={() => setOpen('exchange_application')}>
               <span>Обміняти валюту</span>
             </div>
           </div>

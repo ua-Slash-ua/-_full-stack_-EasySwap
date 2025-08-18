@@ -8,10 +8,11 @@
     align-items: flex-start;
     gap: 0.83333vw;
 
-    border-radius: 32px;
+    border-radius: 1.66667vw;
     border: 1px solid #622FF1;
     background: #0F0E13;
     box-shadow: 4px 4px 20px 0 rgba(255, 255, 255, 0.04) inset;
+    overflow: hidden;
 }
 .card_item div{
     display: flex;
