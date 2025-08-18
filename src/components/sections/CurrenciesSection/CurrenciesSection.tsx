@@ -81,12 +81,12 @@ export default function CurrenciesSection({ block }: { block: any }) {
           <div className={s.currencies_table}>
             <div className={s.table_head}>
               <div className={s.head_1}>
-                <div className={s.head_item}>Валюта</div>
-                <div className={s.head_item}>Купівля</div>
-                <div className={s.head_item}>Продаж</div>
-                <div className={s.head_item}>Купівля</div>
-                <div className={s.head_item}>Продаж</div>
-                <div className={s.head_item}>Заявка на обмін</div>
+                <div className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}>Валюта</div>
+                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
+                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
+                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
+                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
+                <div className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}>Заявка на обмін</div>
               </div>
               <div className={s.head_2}>
                 <div className={s.head_item_one}></div>

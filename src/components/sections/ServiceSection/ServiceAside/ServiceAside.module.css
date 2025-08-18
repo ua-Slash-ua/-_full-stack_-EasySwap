@@ -68,6 +68,9 @@
     background: #262627;
     transition: height 5s ease;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 

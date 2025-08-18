@@ -50,12 +50,7 @@
     background: rgba(15, 14, 19, 0.9);
 }
 
-.currencies_table {
-}
 
-.table_head {
-
-}
 
 .head_1, .head_2 {
     display: flex;
@@ -82,6 +77,34 @@
     border-left: 1px solid rgba(255, 255, 255, 0.04);
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
+
+.border_gradient_vertical {
+    border-left: 1px solid transparent;
+    border-image-source: linear-gradient(to top, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-repeat: stretch;
+}
+
+
+.border_gradient_bottom_right {
+    border-bottom: 1px solid transparent;
+    border-image-source: linear-gradient(to right, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-repeat: stretch;
+}
+.border_gradient_bottom_left {
+    border-bottom: 1px solid transparent;
+    border-image-source: linear-gradient(to left, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    border-image-slice: 1;
+    border-image-width: 1;
+    border-image-repeat: stretch;
+}
+
+
+
+
 
 .head_item:nth-of-type(1), .body_item:nth-of-type(1) {
     border-right: 1px solid rgba(255, 255, 255, 0.04);
