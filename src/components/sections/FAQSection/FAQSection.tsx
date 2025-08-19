@@ -1,8 +1,12 @@
+'use client'
 import s from './FAQSection.module.css'
 import FAQItem from '@/components/sections/FAQSection/FAQItem/FAQItem'
 import { FAQItemProps } from '@/props/FAQItemProps'
+import { usePopup } from '@/context/PopupContext'
 
 export default function FAQSection({ block, locale }: { block: any; locale: string }) {
+  const { setOpen } = usePopup()
+
   return (
     <>
       <section className={s.faq_section}>
@@ -40,7 +44,7 @@ export default function FAQSection({ block, locale }: { block: any; locale: stri
                 </p>
               </div>
             </div>
-            <div className={s.aside_btn}>
+            <div className={s.aside_btn} onClick={() => setOpen('create_application')}>
               <p>Задати питання</p>
             </div>
           </aside>

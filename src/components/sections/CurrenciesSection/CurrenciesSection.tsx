@@ -23,7 +23,6 @@ export default function CurrenciesSection({ block }: { block: any }) {
   const [seeAll, setSeeAll] = useState(false)
   const [lastUpdate, setLastUpdate] = useState('')
 
-
   const currUAN: CurrUAN = block.find((item: any) => item.code === 'UAN').ratesByCurrency
   const iconUSD: string = block.find((item: any) => item.code === 'USD').icon.url
   const iconEUR: string = block.find((item: any) => item.code === 'EUR').icon.url
@@ -81,12 +80,20 @@ export default function CurrenciesSection({ block }: { block: any }) {
           <div className={s.currencies_table}>
             <div className={s.table_head}>
               <div className={s.head_1}>
-                <div className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}>Валюта</div>
+                <div
+                  className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}
+                >
+                  Валюта
+                </div>
                 <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
                 <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
                 <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
                 <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
-                <div className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}>Заявка на обмін</div>
+                <div
+                  className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}
+                >
+                  Заявка на обмін
+                </div>
               </div>
               <div className={s.head_2}>
                 <div className={s.head_item_one}></div>
@@ -136,6 +143,7 @@ export default function CurrenciesSection({ block }: { block: any }) {
               <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
 
               <div
+                className={s.see}
                 dangerouslySetInnerHTML={{
                   __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
                 }}
@@ -158,23 +166,29 @@ export default function CurrenciesSection({ block }: { block: any }) {
               <li>
                 <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
                 <span>USD</span>
-                <Image
-                  src={currencies.iconAgeNew.url}
-                  alt={currencies.iconAgeNew.alt}
-                  width={25}
-                  height={25}
-                />
+                <div className={s.curr_age}>
+                  <Image
+                    src={currencies.iconAgeNew.url}
+                    alt={currencies.iconAgeNew.alt}
+                    width={25}
+                    height={25}
+                  />
+                </div>
+
                 <p> - нові доларові купюри, введені в обіг після 2009 рр.;</p>
               </li>
               <li>
                 <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
                 <span>USD</span>
-                <Image
-                  src={currencies.iconAgeOld.url}
-                  alt={currencies.iconAgeOld.alt}
-                  width={25}
-                  height={25}
-                />
+                <div className={s.curr_age}>
+                  <Image
+                    src={currencies.iconAgeOld.url}
+                    alt={currencies.iconAgeOld.alt}
+                    width={25}
+                    height={25}
+                  />
+                </div>
+
                 <p>- старіші доларові купюри, 2000-2006 рр.;</p>
               </li>
               <li>

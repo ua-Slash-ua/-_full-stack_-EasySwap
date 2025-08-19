@@ -44,3 +44,6 @@
 .prevReview:hover svg, .nextReview:hover svg{
     fill: #622FF1;
 }
+/*.swiper-slide{*/
+/*    margin-right: 1.04vw!important;*/
+/*}*/

@@ -54,7 +54,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
             <div className={s.swiper_header}>
               <div dangerouslySetInnerHTML={{ __html: reviewData.icon }} />
               <p>
-                {activeSlide} - {review.description}
+                {review.description}
               </p>
             </div>
             <div className={s.review_image}>
@@ -78,6 +78,9 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
           <span className={s.swiper_scroll_info}>
             {activeSlide + 4}/{reviewCount}
           </span>
+          <div className={s.swiper_scroll_back}
+               style={{ width: `${((activeSlide+4) / reviewCount) * 100}%` }}
+          ></div>
         </div>
         <div
           ref={nextRef}

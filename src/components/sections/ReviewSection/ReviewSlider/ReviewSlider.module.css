@@ -64,10 +64,23 @@
     background: rgba(255, 255, 255, 0.20);
     margin: 0 0.89vw;
     position: relative;
+    user-select: none;
 }
 .swiper_scroll_info{
     position: absolute;
     bottom: 0.83vw;
     left: 0.62vw;
 
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.04167vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height:  1.14583vw; /* 1.14583rem */
+    letter-spacing: -0.02083vw;
+}
+.swiper_scroll_back{
+    height: 0.15625vw;
+    background: #622FF1;
 }

@@ -53,3 +53,8 @@
     line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 }
+.review_btn svg{
+    width: 0.83333vw;
+    height: 0.83333vw;
+    flex-shrink: 0;
+}

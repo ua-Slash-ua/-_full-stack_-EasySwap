@@ -27,13 +27,16 @@
     font-size: 2.70833vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 2.70833rem; /* 2.70833rem */
+    line-height: 2.70833vw;
     letter-spacing: -0.05417vw;
 }
 .currencies_icon {
     position: absolute;
     left: 41.51vw;
     z-index: 0;
+    width: 10.15625vw;
+    height: 10.15625vw;
+    top: -2vw;
 }
 
 .currencies_table_container {
@@ -42,10 +45,9 @@
 
     z-index: 10;
     position: relative;
-    margin-top: 3.65vw;
+    margin-top: 3.33vw;
     backdrop-filter: blur(0.26042vw);
     overflow: hidden;
-
 
     background: rgba(15, 14, 19, 0.9);
 }
@@ -253,8 +255,11 @@
 .body_line .body_item:first-of-type .icon_currencies {
     margin-right: 0.625vw;
 }
-.body_line .body_item:first-of-type .curr_age {
+.body_line .body_item:first-of-type .curr_age, .curr_age {
     margin-left: 0.315vw;
+    width: 3.125vw;
+    height: 1.30208vw;
+    aspect-ratio: 12/5;
 }
 
 
@@ -359,4 +364,17 @@
     font-weight: 400;
     line-height: 1.08333vw; /* 1.08333vw */
     letter-spacing: -0.01667vw;
+}
+
+.see svg{
+    width: 0.625vw;
+    height: 1.25vw;
+    aspect-ratio: 1/2;
+}
+
+.status_update svg{
+    width: 0.83333vw;
+    height: 0.83333vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
 }
