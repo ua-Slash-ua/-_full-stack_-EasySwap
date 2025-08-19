@@ -11,7 +11,6 @@ import { ReviewProps } from '@/props/ReviewProps'
 import React, { useEffect, useRef, useState } from 'react'
 import { reviewData } from '@/config/review.config'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import ElasticSlider from '@/libs/ElasticSlider/ElasticSlider'
 import Image from 'next/image'
 
 export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
@@ -31,6 +30,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
     <>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={20}
         onBeforeInit={swiper => {
           if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
             swiper.params.navigation.prevEl = prevRef.current
@@ -45,6 +45,9 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
         pagination={{ clickable: true }}
         className={s.review_swiper}
         onSwiper={swiper => (swiperRef.current = swiper)}
+        onSlideChange={swiper => {
+          setActiveSlide(swiper.activeIndex)
+        }}
       >
         {reviews.map((review, index) => (
           <SwiperSlide className={s.review_slide}>
@@ -62,35 +65,27 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
       </Swiper>
 
       <div className={s.review_slider_nav}>
-        <ElasticSlider
-          leftIcon={
-            <>
-              <div
-                ref={prevRef}
-                className="prevReview"
-                dangerouslySetInnerHTML={{ __html: reviewData.iconPrev }}
-              />
-            </>
-          }
-          rightIcon={
-            <>
-              <div
-                ref={nextRef}
-                className="nextReview"
-                dangerouslySetInnerHTML={{ __html: reviewData.iconNext }}
-              />
-            </>
-          }
-          startingValue={1}
-          defaultValue={activeSlide}
-          maxValue={reviewCount}
-          isStepped
-          stepSize={1}
-          func={(number: number) => {
-            if (number <= 4) {
-              number = 4
-            }
-            setActiveSlide(number - 4)
+        <div
+          ref={prevRef}
+          className="prevReview"
+          dangerouslySetInnerHTML={{ __html: reviewData.iconPrev }}
+          onClick={() => {
+            if (activeSlide <= 0) return
+            setActiveSlide(activeSlide - 1)
+          }}
+        />
+        <div className={s.swiper_scroll_container}>
+          <span className={s.swiper_scroll_info}>
+            {activeSlide + 4}/{reviewCount}
+          </span>
+        </div>
+        <div
+          ref={nextRef}
+          className="nextReview"
+          dangerouslySetInnerHTML={{ __html: reviewData.iconNext }}
+          onClick={() => {
+            if (activeSlide >= reviews.length - 4) return
+            setActiveSlide(activeSlide + 1)
           }}
         />
       </div>
