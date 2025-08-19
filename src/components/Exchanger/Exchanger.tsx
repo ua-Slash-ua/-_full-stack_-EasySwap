@@ -45,8 +45,8 @@ export default function Exchanger({
             }}
             placeholder={'0'}
             disabled={!isMain}
-            // value={isMain ? value : (1/ count * value).toFixed(2)}
-            value={isMain ? value : count * value}
+            value={isMain ? value : (1/ count * value).toFixed(2)}
+            // value={isMain ? value : count * value}
           />
           <SelectCurrencies
             currency={currencies.filter((item: Currency) => item.ratesByCurrency!.length > 0)}

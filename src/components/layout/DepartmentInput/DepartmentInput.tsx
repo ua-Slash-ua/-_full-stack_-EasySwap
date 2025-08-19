@@ -19,20 +19,23 @@ export default function DepartmentInput({
   onChange,
 }: DepartmentInputProps) {
   const [active, setActive] = useState(false)
-
+  const [address, setAddress] = useState('')
+  console.log('departments222 = ',departments)
   return (
     <div className={s.container_application_department}>
       <label htmlFor={name} className={s.form_label}>
-        {text}
+        {text?? 'Оберіть відділення'}
       </label>
       <div className={s.select_container}>
         <input
           className={s.form_input}
           type="text"
-          value={value}
+          value={address || value}
           placeholder={departments[0]?.address || 'Оберіть відділення'}
-          onChange={e => onChange(e.target.value)}
-          readOnly
+          onChange={e => {
+            setAddress(e.target.value); // оновлюємо локальний стан
+            onChange(e.target.value);   // повідомляємо батьків
+          }}
           id={name}
           name={name}
         />
@@ -42,6 +45,7 @@ export default function DepartmentInput({
               key={index}
               onClick={() => {
                 onChange(department.address)
+                setAddress(department.address)
                 setActive(false)
               }}
             >

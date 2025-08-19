@@ -106,42 +106,32 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
                 <div className={s.head_item_one}></div>
               </div>
             </div>
-            {visibleCurrencies.map((item: CurrencyMeta) => (
-              item.name !== 'UAN' &&
-              <div key={item.id} className={s.body_line}>
-                <div className={s.body_item}>
-                  <div className={s.icon_currencies}>
-                    <Image src={item.icon.url} alt={item.icon.alt} width={100} height={100} />
-                  </div>
-                  {item.code}
-                  <div className={s.curr_age}>
-                    {item.cat_date === 'new' ? (
-                      <Image src={currencies.iconAgeNew.url} alt={currencies.iconAgeNew.alt} />
-                    ) : item.cat_date === 'old' ? (
-                      <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
-                    ) : (
-                      <></>
+            {visibleCurrencies.map(
+              (item: CurrencyMeta) =>
+                item.name !== 'UAN' && (
+                  <div key={item.id} className={s.body_line}>
+                    <div className={s.body_item}>
+                      <div className={s.icon_currencies}>
+                        <Image src={item.icon.url} alt={item.icon.alt} width={100} height={100} />
+                      </div>
+                      {item.code}
+                      <div className={s.curr_age}>
+                        {item.cat_date === 'new' ? (
+                          <Image src={currencies.iconAgeNew.url} alt={currencies.iconAgeNew.alt} />
+                        ) : item.cat_date === 'old' ? (
+                          <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    </div>
+                    {item.ratesByCurrency.map(
+                      (curr: RateByCurrency, index) =>
+                        curr.currency.code === 'UAN' && <TableLine key={index} {...curr} />,
                     )}
                   </div>
-                </div>
-                {item.ratesByCurrency.map(
-                  (curr: RateByCurrency) =>
-                    curr.currency.code === 'UAN'
-                    &&
-                    (
-                      <>
-                        <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-                        <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
-                        <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-                        <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
-                        <div className={s.body_item}>
-                          <BtnExchange />
-                        </div>
-                      </>
-                    ),
-                )}
-              </div>
-            ))}
+                ),
+            )}
           </div>
           <div className={s.currencies_table_footer}>
             <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
@@ -224,6 +214,22 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
           </div>
         </div>
       </section>
+    </>
+  )
+}
+
+function TableLine(curr: RateByCurrency) {
+  return (
+    <>
+      <>
+        <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
+        <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
+        <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
+        <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
+        <div className={s.body_item}>
+          <BtnExchange />
+        </div>
+      </>
     </>
   )
 }

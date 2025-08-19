@@ -12,7 +12,7 @@ export const PopupManager = () => {
     case 'create_application':
       return <CreateApplication {...data}/>
     case 'exchange_application':
-      return <ExchangeApplication {...data} />
+      return <ExchangeApplication departments={data} />
     case 'review_image':
       return <ReviewImage {...data} />
     default:
