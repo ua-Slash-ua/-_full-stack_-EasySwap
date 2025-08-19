@@ -46,20 +46,19 @@ export default function SelectCurrencies({
   }
 
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(defaultCurrency)
-  const currencies = []
   useEffect(() => {
     if (changeCurrCode) {
-      const findCurren = currency.find(item => item.code === 'UAN')
+      const findCurren = currency.find(item => item.code === currCode.code)
       if (findCurren) {
-        // console.log('UAN is found')
+        // console.log('currCode.code is found', currCode.code)
         setSelectedCurrency({
           code: findCurren.name!.trim(),
           icon: findCurren.icon,
         })
-        if ('UAN' !== currCode.code) {
-          changeCurrCode('UAN')
-        }
-      } else if (currency.length > 0) {
+      }
+    else
+
+      if (currency.length > 0) {
         // console.log('Take 1-st element')
         setSelectedCurrency({ icon: currency[0].icon, code: currency[0].name!.trim() })
         if (currency[0].code !== currCode.code) {
@@ -70,6 +69,7 @@ export default function SelectCurrencies({
         setSelectedCurrency(defaultCurrency)
       }
     } else {
+
       const found = currency.find(item => item.code === currCode.code)
       const firstRate = found?.ratesByCurrency?.[0]
       const itemCurrExc = found?.ratesByCurrency?.find(
@@ -81,37 +81,42 @@ export default function SelectCurrencies({
           icon: itemCurrExc.currency.icon,
         })
 
-
+        if (currCodeExc.code == itemCurrExc.currency.code ){
+          const el  = found?.ratesByCurrency?.find((item)=>{
+            return item.currency.code === currCodeExc.code
+          })
+          changeCurrCount?.(el?.from_1000?.sell1000)
+        }
         // console.log('Take element  currCode = ', itemCurrExc.currency)
       } else if (firstRate?.currency && firstRate?.from_1000?.sell1000) {
         setSelectedCurrency({
           code: firstRate.currency.name!.trim(),
           icon: firstRate.currency.icon,
         })
-        if (firstRate?.currency.code && firstRate?.currency.code !== currCodeExc.code)
-        {
+
+        if (firstRate?.currency.code && firstRate?.currency.code !== currCodeExc.code) {
           changeCurrCodeExc?.(firstRate.currency.code, firstRate.currency.cat_date)
           changeCurrCount?.(firstRate?.from_1000?.sell1000)
         }
         firstRate?.from_1000?.sell1000
-        // console.log('Take 1-st element with currCode = ', firstRate.currency)
+        console.log('Take 1-st element with currCode = ', firstRate.currency)
       } else {
         // console.log('Def')
         setSelectedCurrency(defaultCurrency)
       }
     }
-  }, [currency, currCode])
+  }, [currency,currCode])
 
   const [active, setActive] = useState(false)
 
   const handleSelect = (item: Currency | RateItem) => {
     // console.log('item = ', changeCurrCode ? (item as Currency) : (item as RateItem).currency)
-    const code = changeCurrCode ? (item as Currency).code : (item as RateItem).currency.name?.trim()
+    const code = changeCurrCode ? (item as Currency).code : (item as RateItem).currency.code?.trim()
     setSelectedCurrency(changeCurrCode ? (item as Currency) : (item as RateItem).currency)
     setActive(false)
     changeCurrCode?.(code)
 
-    changeCurrCodeExc?.((item as RateItem).currency.code,(item as RateItem).currency.cat_date)
+    changeCurrCodeExc?.((item as RateItem).currency.code, (item as RateItem).currency.cat_date)
     changeCurrCount?.((item as RateItem).from_1000!.sell1000)
   }
 

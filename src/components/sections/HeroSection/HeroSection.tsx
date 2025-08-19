@@ -7,14 +7,14 @@ import icon_2 from 'public/hero/euro.png'
 import HeroItem from '@/components/sections/HeroSection/HeroItem/HeroItem'
 import { heroItem } from '@/config/heroItem.config'
 import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Exchanger from '@/components/Exchanger/Exchanger'
 import { usePopup } from '@/context/PopupContext'
 import { currencies } from '@/config/currencies.config'
 
 export default function HeroSection({ block, locale }: { block: any[]; locale: string }) {
   const { setOpen } = usePopup()
-
+  const divRef = useRef<HTMLDivElement>(null);
   const [main, setMain] = useState(true)
 
   const [activeFiat, setActiveFiat] = useState(true)
@@ -51,6 +51,11 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
     console.log('isAge', isAge)
     setCurrCodeExc({ code: text, isAge: isAge })
   }
+  function reverseCurrency(){
+    const temp = currCode
+    changeCurrCode(currCodeExc.code, currCodeExc.isAge)
+    changeCurrCodeExc(temp.code, temp.isAge)
+  }
 
   const [filteredCurrencies, setFilteredCurrencies] = useState<any[]>([])
 
@@ -61,7 +66,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
       return true
     })
     setFilteredCurrencies(filtered)
-  }, [block, activeFiat, activeCrypto])
+  }, [block, activeFiat, activeCrypto, main])
 
   useEffect(() => {}, [currCodeExc])
 
@@ -138,24 +143,29 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 currCodeExc={currCodeExc}
                 changeCurrCode={changeCurrCode}
                 changeCurrCodeExc={changeCurrCodeExc}
-                content={<div className={s.btn_replace}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M9 15L5 19M5 19L1 15M5 19V1M19 5L15 1M15 1L11 5M15 1V19"
-                      stroke="#09090A"
-                      strokeWidth="2"
-                      strokeMiterlimit="10"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>}
+                content={
+                  <div className={s.btn_replace} onClick={()=>{
+                    setMain(true)
+                    reverseCurrency()
+                  }}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                    >
+                      <path
+                        d="M9 15L5 19M5 19L1 15M5 19V1M19 5L15 1M15 1L11 5M15 1V19"
+                        stroke="#09090A"
+                        strokeWidth="2"
+                        strokeMiterlimit="10"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                }
               />
               <Exchanger
                 key={'!main'}
@@ -181,7 +191,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                       <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
                     ) : null}
                   </div>
-                  = <span>{count ?? '...'}</span>
+                  = <span>{count ??  '...'}</span>
                   <span>{currCodeExc.code ?? '...'}</span>
                   <div className={s.curr_age}>
                     {currCodeExc.isAge === 'new' ? (
@@ -193,7 +203,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 </div>
               </div>
             </div>
-            <div className={s.btn_exchange} onClick={() => setOpen('create_application')}>
+            <div className={s.btn_exchange} onClick={() => setOpen('exchange_application')}>
               <span>Обміняти валюту</span>
             </div>
           </div>

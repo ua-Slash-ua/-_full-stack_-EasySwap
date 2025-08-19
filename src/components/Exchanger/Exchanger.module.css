@@ -33,7 +33,7 @@
     opacity: 0.3;
 }
 .exchanger_content input[type=number]{
-    max-width: 16.35vw;
+    max-width: 14vw;
     opacity: 1;
     overflow-x: scroll;
 }

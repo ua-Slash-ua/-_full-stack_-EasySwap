@@ -1,15 +1,15 @@
 'use client'
 // context/PopupContext.tsx
 import { createContext, useContext, useState } from 'react';
+import { getContacts } from '@/api/getContacts'
 
-type PopupType = 'create_application' | 'login' | 'currency' | null;
+type PopupType = 'create_application' | 'exchange_application' | 'currency' | null;
 
 interface PopupContextType {
   open: PopupType;
   setOpen: (type: PopupType) => void;
   close: () => void;
 }
-
 const PopupContext = createContext<PopupContextType>({
   open: null,
   setOpen: () => {},

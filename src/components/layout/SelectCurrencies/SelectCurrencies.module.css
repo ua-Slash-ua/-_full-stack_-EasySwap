@@ -3,7 +3,7 @@
 }
 
 .select {
-    width: 9.375vw;
+    /*width: 9.375vw;*/
     display: flex;
     padding: 0.625vw 1.04167vw;
     align-items: center;
@@ -14,6 +14,7 @@
     background: #27252F;
     backdrop-filter: blur(50px);
     user-select: none;
+    gap:1.98vw;
 
 }
 

@@ -6,6 +6,10 @@
     left: 2vw;
 }
 
+.swiper-wrapper{
+    gap: 1.04vw;
+}
+
 .value-indicator{
     color: #FFF!important;
     font-feature-settings: 'liga' off, 'clig' off;
