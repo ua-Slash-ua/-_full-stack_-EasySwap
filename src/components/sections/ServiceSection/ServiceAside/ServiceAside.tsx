@@ -12,14 +12,17 @@ export default function ServiceAside({ title, menuItems, func, activeService }: 
             {menuItems.map((item, index) => (
               <div
                 key={index}
-                className={`${s.aside_scroll_item} ${activeService === index ? s.active_scroll : ''}`}
+                className={`${s.aside_scroll_item}`}
+                onClick={() => func(index)}
                 style={{
                   height: `${100 / menuItems.length}%`,
-                  '--target-height': `${100 / menuItems.length}%`,
-                } as React.CSSProperties}
-                onClick={() => func(index)}
-              ></div>
+                }}
+              >
+                <div
+                  className={`${s.scroll_back} ${activeService === index ? s.active_scroll : ''}`}
 
+                ></div>
+              </div>
             ))}
           </div>
           <ul>

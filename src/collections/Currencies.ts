@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload'
-import { PreviewSvg } from '@/plugin/sl_PreviewSvg'
 
 export const Currencies: CollectionConfig = {
   slug: 'currencies',
@@ -58,11 +57,10 @@ export const Currencies: CollectionConfig = {
     {
       name: 'icon',
       localized: true,
-      relationTo:'media',
-      required:true,
+      relationTo: 'media',
+      required: true,
       label: 'Icon',
-      type:'upload'
-
+      type: 'upload',
     },
     // {
     //   name: 'icon',
@@ -83,6 +81,7 @@ export const Currencies: CollectionConfig = {
         singular: 'Курс',
         plural: 'Курси',
       },
+
       fields: [
         {
           name: 'currency',

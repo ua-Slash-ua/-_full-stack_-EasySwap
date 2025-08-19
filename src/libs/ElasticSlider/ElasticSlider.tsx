@@ -16,6 +16,7 @@ interface ElasticSliderProps {
   stepSize?: number
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
+  func: Function
 }
 
 const ElasticSlider: React.FC<ElasticSliderProps> = ({
@@ -27,6 +28,7 @@ const ElasticSlider: React.FC<ElasticSliderProps> = ({
   stepSize = 1,
   leftIcon = <Icon as={RiVolumeDownFill} />,
   rightIcon = <Icon as={RiVolumeUpFill} />,
+  func,
 }) => {
   return (
     <div className={`slider-container ${className}`}>
@@ -38,6 +40,7 @@ const ElasticSlider: React.FC<ElasticSliderProps> = ({
         stepSize={stepSize}
         leftIcon={leftIcon}
         rightIcon={rightIcon}
+        func={func}
       />
     </div>
   )
@@ -51,6 +54,7 @@ interface SliderProps {
   stepSize: number
   leftIcon: React.ReactNode
   rightIcon: React.ReactNode
+  func: Function
 }
 
 const Slider: React.FC<SliderProps> = ({
@@ -61,6 +65,7 @@ const Slider: React.FC<SliderProps> = ({
   stepSize,
   leftIcon,
   rightIcon,
+  func,
 }) => {
   const [value, setValue] = useState<number>(defaultValue)
   const sliderRef = useRef<HTMLDivElement>(null)
@@ -100,6 +105,7 @@ const Slider: React.FC<SliderProps> = ({
       }
       newValue = Math.min(Math.max(newValue, startingValue), maxValue)
       setValue(newValue)
+      func(newValue)
       clientX.jump(e.clientX)
     }
   }
@@ -192,7 +198,9 @@ const Slider: React.FC<SliderProps> = ({
           {rightIcon}
         </motion.div>
       </motion.div>
-      <p className="value-indicator">{Math.round(value)}/{maxValue}</p>
+      <p className="value-indicator">
+        {Math.round(value)}/{maxValue}
+      </p>
     </>
   )
 }

@@ -17,6 +17,7 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
   }, [activeService]);
 
   function handlerService(id:number){
+    console.log('id = ', id)
     if (id>=block.services.length) {
       id=0
     }
