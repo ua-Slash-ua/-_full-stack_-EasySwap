@@ -21,9 +21,9 @@
     gap: 3.75vw;
 
     border-radius: 2.08333vw;
-    border: 1px solid #FFF;
+    border: 0.05208vw solid #FFF;
     background: linear-gradient(123deg, rgba(15, 14, 19, 0.00) -3.66%, rgba(15, 14, 19, 0.90) 72.82%);
-    backdrop-filter: blur(46.982540130615234px);
+    backdrop-filter: blur(2.44799vw);
 
 }
 
@@ -134,10 +134,10 @@
 
 .status_message {
     margin-top: 1rem;
-    font-size: 14px;
+    font-size: 0.72917vw;
     color: white;
     background-color: #4B24CA;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 0.41667vw 0.625vw;
+    border-radius: 0.3125vw;
     text-align: center;
 }

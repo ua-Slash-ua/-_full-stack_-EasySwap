@@ -23,7 +23,7 @@
 }
 .faq_item.active{
     border-radius: 1.66667vw;
-    border: 1px solid #7B4BFF;
+    border: 0.05208vw solid #7B4BFF;
     background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
 }
 .question {

@@ -9,9 +9,10 @@
     gap: 0.83333vw;
 
     border-radius: 1.66667vw;
-    border: 1px solid #622FF1;
+    border: 0.05208vw solid #622FF1;
     background: #0F0E13;
-    box-shadow: 4px 4px 20px 0 rgba(255, 255, 255, 0.04) inset;
+    box-shadow: 0.20833vw 0.20833vw 1.04167vw 0vw rgba(255, 255, 255, 0.04) inset;
+
     overflow: hidden;
 }
 .card_item div{

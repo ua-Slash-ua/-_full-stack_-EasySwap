@@ -7,9 +7,9 @@
     align-items: flex-start;
     gap: 2vw;
 
-    border-radius: 20px;
+    border-radius: 1.04167vw;
     background: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(0.78125vw);
 }
 
 .item_block h4 {
@@ -63,8 +63,7 @@
     min-width: 1.86vw;
     height: 1.86vw;
     background: #ffffff;
-    border-radius: 100px;
-
+    border-radius: 5.20833vw;
 }
 .item_block_icon span{
     color: #8143FD;
@@ -75,4 +74,11 @@
     font-style: normal;
     font-weight: 600;
     line-height: 120%; /* 0.875vw */
+}
+
+.item_block_icon svg{
+    width: 1.04167vw;
+    height: 1.04167vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
 }

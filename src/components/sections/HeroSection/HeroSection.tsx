@@ -72,7 +72,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
 
   return (
     <>
-      <section className={s.section_hero}>
+      <section className={s.section_hero} id={'main'}>
         <div
           className={s.hero_main}
           style={{

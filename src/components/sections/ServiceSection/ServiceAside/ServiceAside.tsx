@@ -32,8 +32,9 @@ export default function ServiceAside({ title, menuItems, func, activeService }: 
                 onClick={() => {
                   func(index)
                 }}
+                className={activeService === index ? s.active : ''}
               >
-                <span className={activeService === index ? s.active : ''}>{item.text}</span>
+                {item.text}
               </li>
             ))}
           </ul>

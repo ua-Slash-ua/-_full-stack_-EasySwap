@@ -53,15 +53,16 @@
     gap: 0.625vw;
     align-self: stretch;
 
-    border-radius: 100px;
+    border-radius: 5.20833vw;
     background: #FFF;
 }
 .item_btn:hover{
     border-radius: 5.20833vw;
     background: #F4EEFF;
-    box-shadow: 0 16px 33px 0 rgba(255, 255, 255, 0.30);
+    box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
     cursor: pointer;
 }
+
 .item_btn span{
     color: #0F0E13;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -71,4 +72,8 @@
     font-weight: 500;
     line-height: 140%; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+}
+.item_btn svg{
+    width: 1.25vw;
+    height: 1.25vw;
 }

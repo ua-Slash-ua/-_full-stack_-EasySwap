@@ -41,7 +41,7 @@
     align-items: flex-start;
     gap: 0.83333vw;
 
-    border-radius: 32px;
+    border-radius: 1.66667vw;
     background: linear-gradient(106deg, #B792FF -62.71%, #7735FC 61.14%);
 }
 
@@ -51,7 +51,11 @@
     align-items: center;
     gap: 0.52083vw;
 }
-
+.aside_bottom_left{
+    width: 2.5vw;
+    height: 2.5vw;
+    aspect-ratio: 1/1;
+}
 
 
 .aside_bottom_description {

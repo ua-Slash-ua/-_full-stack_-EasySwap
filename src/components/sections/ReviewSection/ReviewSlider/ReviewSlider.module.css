@@ -21,9 +21,12 @@
     align-items: flex-start;
 
     border-radius: 1.66667vw;
-    border: 1px solid rgba(255, 255, 255, 0.00);
+    border: 0.05208vw solid rgba(255, 255, 255, 0.00);
     background: #0F0E13;
-    box-shadow: -4px -4px 24px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 24px 0 rgba(255, 255, 255, 0.10) inset;
+    box-shadow:
+            -0.20833vw -0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.04) inset,
+            0.20833vw  0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.10) inset;
+
 }
 
 .swiper_header{

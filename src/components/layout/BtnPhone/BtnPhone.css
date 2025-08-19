@@ -8,9 +8,9 @@
     gap: 0.625vw;
 
     border-radius: 5.20833vw;
-    border: 0.5px solid transparent; /* фіксована товщина */
+    border: 0.02604vw solid transparent; /* фіксована товщина */
     background: #181819;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.26042vw);
     box-shadow: none;
     transition: all 0.3s ease; /* плавність */
     z-index: 1;
@@ -19,5 +19,7 @@
 .btn_phone:hover {
     border-color: rgba(247, 234, 249, 0.50);
     background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 0 8px rgba(98, 47, 241, 0.50);
+    box-shadow: 0 0 0.41667vw rgba(98, 47, 241, 0.50);
+    cursor: pointer;
+
 }

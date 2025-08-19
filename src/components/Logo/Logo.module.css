@@ -3,4 +3,5 @@
     height: 2.08333vw;
     flex-shrink: 0;
     aspect-ratio: 151/40;
+    cursor: pointer;
 }

@@ -132,7 +132,7 @@ export default function SelectCurrencies({
               height={12}
             />
           </div>
-          <span>{selectedCurrency.code.trim()}</span>
+          <span className={s.choose_code}>{selectedCurrency.code.trim()}</span>
         </div>
         <svg
           className={`${s.btn_arrow} ${active ? s.rotate : ''}`}
@@ -165,7 +165,7 @@ export default function SelectCurrencies({
                   <div className={s.icon_back_reverse}>
                     <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
                   </div>
-                  <span>{item.name?.trim()}</span>
+                  <span >{item.name?.trim()}</span>
                 </li>
               )
             })

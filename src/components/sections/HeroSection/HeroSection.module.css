@@ -11,7 +11,7 @@
     width: 50.52vw;
     height: 46.93vw;
     padding: 8.75vw 5.42vw 0 8.33vw;
-    border-radius: 40px;
+    border-radius: 2.08333vw;
     display: flex;
     flex-direction: column;
     gap: 2.92vw;
@@ -84,10 +84,11 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 40px;
-    border: 1px solid #FFF;
+    border-radius: 2.08333vw;
+    border: 0.05208vw solid #FFF;
     background: linear-gradient(170deg, rgba(255, 255, 255, 0.06) -17.85%, rgba(255, 255, 255, 0.00) 117.02%);
-    backdrop-filter: blur(46.982540130615234px);
+    backdrop-filter: blur(2.44799vw);
+
 
     gap: 2.08vw;
 }
@@ -98,9 +99,10 @@
     align-items: center;
     align-self: stretch;
 
-    border-radius: 100px;
-    border: 1.5px solid #3D3856;
-    backdrop-filter: blur(20px);
+    border-radius: 5.20833vw;
+    border: 0.07813vw solid #3D3856;
+
+    backdrop-filter: blur(1.04167vw);
 }
 .calc_content{
     display: flex;
@@ -161,7 +163,7 @@
 }
 
 .btn_exchange:hover{
-    box-shadow: 0 20px 56px 0 rgba(98, 47, 241, 0.50);
+    box-shadow: 0 1.04167vw 2.91667vw 0vw rgba(98, 47, 241, 0.50);
 }
 
 .btn_replace{
@@ -179,9 +181,10 @@
     bottom: -1.2vw;
 
     border-radius: 5.20833vw;
-    border: 6px solid #131218;
+    border: 0.3125vw solid #131218;
     background: #F4EEFF;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(2.60417vw);
+
 
     cursor: pointer;
     transition: all 0.3s;

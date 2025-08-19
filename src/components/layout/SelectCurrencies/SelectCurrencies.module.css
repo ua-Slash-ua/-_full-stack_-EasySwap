@@ -12,7 +12,7 @@
 
     border-radius: 5.20833vw;
     background: #27252F;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(2.60417vw);
     user-select: none;
     gap:1.98vw;
 
@@ -30,11 +30,11 @@
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.83333rem;
+    font-size: 0.83333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.16667rem; /* 1.16667rem */
-    letter-spacing: -0.01667rem;
+    line-height: 1.16667vw;
+    letter-spacing: -0.01667vw;
 }
 
 .icon_back, .icon_back_reverse {
@@ -90,7 +90,7 @@
 
     border-radius: 1.04167vw;
     background: #27252F;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(2.60417vw);
 
     gap: 1.04vw;
 }
@@ -102,4 +102,14 @@
     gap: 0.625vw;
     align-items: center;
     justify-content: flex-start;
+}
+.choose_code{
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.16667vw; /*  */
+    letter-spacing: -0.01667vw;
 }
