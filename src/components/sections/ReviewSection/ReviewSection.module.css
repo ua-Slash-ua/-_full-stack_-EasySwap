@@ -40,7 +40,8 @@
     border: 0.02604vw solid rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.01);
     backdrop-filter: blur(0.26042vw);
-
+    cursor: pointer;
+    user-select: none;
 }
 
 .review_btn span{

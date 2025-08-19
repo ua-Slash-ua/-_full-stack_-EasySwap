@@ -12,10 +12,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { reviewData } from '@/config/review.config'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import Image from 'next/image'
+import { usePopup } from '@/context/PopupContext'
 
 export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
   const [activeSlide, setActiveSlide] = useState(0)
-
+  const { setOpen } = usePopup()
   const prevRef = useRef<HTMLDivElement>(null)
   const nextRef = useRef<HTMLDivElement>(null)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -53,11 +54,14 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
           <SwiperSlide className={s.review_slide}>
             <div className={s.swiper_header}>
               <div dangerouslySetInnerHTML={{ __html: reviewData.icon }} />
-              <p>
-                {review.description}
-              </p>
+              <p>{review.description}</p>
             </div>
-            <div className={s.review_image}>
+            <div
+              className={s.review_image}
+              onClick={() =>
+                setOpen('review_image', { src: review.photo.url, alt: review.photo.alt })
+              }
+            >
               <Image width={112} height={104} src={review.photo.url} alt={review.photo.alt} />
             </div>
           </SwiperSlide>
@@ -78,8 +82,9 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
           <span className={s.swiper_scroll_info}>
             {activeSlide + 4}/{reviewCount}
           </span>
-          <div className={s.swiper_scroll_back}
-               style={{ width: `${((activeSlide+4) / reviewCount) * 100}%` }}
+          <div
+            className={s.swiper_scroll_back}
+            style={{ width: `${((activeSlide + 4) / reviewCount) * 100}%` }}
           ></div>
         </div>
         <div

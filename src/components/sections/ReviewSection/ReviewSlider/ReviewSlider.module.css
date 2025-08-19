@@ -56,6 +56,7 @@
 .review_image, .review_image img{
     width: 5.8vw;
     height: 5.3vw;
+    cursor: pointer;
 }
 
 .swiper_scroll_container{
