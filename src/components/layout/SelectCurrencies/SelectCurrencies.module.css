@@ -1,4 +1,4 @@
-.select_container{
+.select_container {
     position: relative;
 }
 
@@ -14,7 +14,7 @@
     background: #27252F;
     backdrop-filter: blur(2.60417vw);
     user-select: none;
-    gap:1.98vw;
+    gap: 1.98vw;
 
 }
 
@@ -26,7 +26,8 @@
     flex-grow: 1;
     position: relative;
 }
-.info span, .select_options span{
+
+.info span, .select_options span {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -50,17 +51,18 @@
     align-items: center;
 }
 
-.icon_back img, .icon_back_reverse img{
+.icon_back img, .icon_back_reverse img {
     width: 0.625vw;
     height: 0.9375vw;
     flex-shrink: 0;
 
 }
 
-.icon_back_reverse{
+.icon_back_reverse {
     background: linear-gradient(139deg, #FFF 15.16%, rgba(255, 255, 255, 0.10) 100%);
 }
-.icon_back_reverse img{
+
+.icon_back_reverse img {
     fill: black;
 }
 
@@ -75,10 +77,10 @@
     transform: rotate(180deg);
 }
 
-.select_options{
+.select_options {
     position: absolute;
     left: 0;
-    top:4vw;
+    top: 4vw;
     z-index: 1000;
 
     display: flex;
@@ -96,14 +98,15 @@
 }
 
 
-.select_options li{
+.select_options li {
     display: flex;
     flex-direction: row;
     gap: 0.625vw;
     align-items: center;
     justify-content: flex-start;
 }
-.choose_code{
+
+.choose_code {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -112,4 +115,45 @@
     font-weight: 500;
     line-height: 1.16667vw; /*  */
     letter-spacing: -0.01667vw;
+}
+
+@media screen and (max-width: 376px) {
+    .select {
+        padding: 2.12766vw 3.19149vw;
+        border-radius: 26.59574vw;
+
+    }
+    .icon_back, .icon_back_reverse {
+        width: 6.38298vw;
+        height: 6.38298vw;
+        flex-shrink: 0;
+    }
+    .icon_back img, .icon_back_reverse img {
+        width: 4.78723vw;
+        height: 4.78723vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+
+    }
+    .info span{
+        font-size: 3.7234vw;
+        line-height: 5.21277vw; /*  */
+        letter-spacing: -0.07447vw;
+    }
+    .select_options{
+        top: 12vw;
+        left: 2vw;
+        padding: 2.12766vw 0;
+        border-radius: 5.31915vw;
+
+    }
+    .select_options li{
+        padding: 0 3.19149vw;
+
+    }
+    .select_options li span{
+        font-size: 3.7234vw;
+        line-height: 5.21277vw; /*  */
+        letter-spacing: -0.07447vw;
+    }
 }

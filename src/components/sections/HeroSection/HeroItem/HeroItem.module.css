@@ -1,4 +1,4 @@
-.hero_item{
+.hero_item {
     display: flex;
     width: 18.073vw;
     padding: 2.08333vw;
@@ -13,14 +13,15 @@
     backdrop-filter: blur(0.78125vw);
 
 }
-.hero_icon{
+
+.hero_icon {
     width: 2.08333vw;
     height: 2.08333vw;
     flex-shrink: 0;
     aspect-ratio: 1/1;
 }
 
-.hero_item_title{
+.hero_item_title {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -35,7 +36,7 @@
     letter-spacing: -0.02083vw;
 }
 
-.hero_item_description{
+.hero_item_description {
     width: 13.33333vw;
     color: rgba(255, 255, 255, 0.70);
     font-feature-settings: 'liga' off, 'clig' off;
@@ -45,4 +46,43 @@
     font-weight: 400;
     line-height: 140%; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+}
+
+@media screen and (max-width: 376px) {
+    .hero_item {
+        display: flex;
+        width: 44.68085vw;
+        height: 45.21277vw;
+        padding: 4.25532vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 4.25532vw;
+        flex-shrink: 0;
+        border-radius: 5.31915vw;
+
+    }
+    .hero_item_title{
+        font-size: 4.25532vw;
+        line-height: 5.10638vw;
+        letter-spacing: -0.08511vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.13vw;
+    }
+    .hero_icon{
+        width: 9.57447vw;
+        height: 9.57447vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+    }
+    .hero_item_description{
+        width: auto;
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 4.84043vw;
+        letter-spacing: -0.07447vw;
+    }
+
 }
