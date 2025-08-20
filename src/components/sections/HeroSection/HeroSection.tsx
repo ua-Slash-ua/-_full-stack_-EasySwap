@@ -12,7 +12,7 @@ import Exchanger from '@/components/Exchanger/Exchanger'
 import { usePopup } from '@/context/PopupContext'
 import { currencies } from '@/config/currencies.config'
 
-export default function HeroSection({ block, locale }: { block: any[]; locale: string }) {
+export default function HeroSection({ block, locale, departments }: { block: any[]; locale: string; departments:any[] }) {
   const { setOpen } = usePopup()
   const divRef = useRef<HTMLDivElement>(null);
   const [main, setMain] = useState(true)
@@ -72,7 +72,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
 
   return (
     <>
-      <section className={s.section_hero}>
+      <section className={s.section_hero} id={'main'}>
         <div
           className={s.hero_main}
           style={{
@@ -203,7 +203,7 @@ export default function HeroSection({ block, locale }: { block: any[]; locale: s
                 </div>
               </div>
             </div>
-            <div className={s.btn_exchange} onClick={() => setOpen('exchange_application')}>
+            <div className={s.btn_exchange} onClick={() => setOpen('exchange_application', departments)}>
               <span>Обміняти валюту</span>
             </div>
           </div>

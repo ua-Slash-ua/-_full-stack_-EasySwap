@@ -6,7 +6,7 @@ export default function HeroItem({ icon, title, description }: HeroItemProps) {
     <>
       <div className={s.hero_item}>
         <div className={s.hero_item_title}>
-          <div
+          <div className={s.hero_icon}
             dangerouslySetInnerHTML={{
               __html: `
       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">

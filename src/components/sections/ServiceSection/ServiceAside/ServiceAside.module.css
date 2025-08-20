@@ -29,7 +29,7 @@
 
 }
 
-.service_aside li span {
+.service_aside li {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -57,7 +57,7 @@
 
 .aside_scroll_item:hover{
     background: rgba(255, 255, 255, 0.46);
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.30);
+    box-shadow: 0 0.20833vw 0.41667vw 0vw rgba(255, 255, 255, 0.30);
 }
 .active {
     opacity: 0.9 !important;

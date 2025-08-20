@@ -7,10 +7,17 @@
     align-items: flex-start;
     gap: 1.46vw;
 
-    border-radius: 32px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 1.66667vw;
+    border: 0.05208vw solid rgba(255, 255, 255, 0.03);
     background: rgba(22, 20, 28, 0.30);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(0.78125vw);
+
+}
+.hero_icon{
+    width: 2.08333vw;
+    height: 2.08333vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
 }
 
 .hero_item_title{

@@ -11,7 +11,7 @@
     justify-content: center; /* горизонтальне центрування */
 
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.26042vw);
     z-index: 100;
 }
 
@@ -26,7 +26,7 @@
 
     border-radius: 2.08333vw;
     background: #1E1C25;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(1.04167vw);
 
     position: relative;
 
@@ -43,7 +43,7 @@
 
     border-radius: 1.66667vw;
     background: rgba(196, 196, 196, 0.20);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(0.78125vw);
 
     position: absolute;
     right: -4.3vw;

@@ -8,9 +8,9 @@ import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import { createApplication } from '@/api/createApp'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
 
-export default function ExchangeApplication() {
+export default function ExchangeApplication({departments}:{departments:any[]}) {
   const { close } = usePopup()
-
+  console.log(departments)
   return (
     <div className={s.popup_backgraund}>
       <div className={s.popup_container} id={'exchange_application'}>
@@ -75,8 +75,8 @@ export default function ExchangeApplication() {
                 name={'address'}
                 value={values.department}
                 onChange={handleChange}
-                departments={[]}
-                text={''}
+                departments={departments}
+                text={'Оберіть відділення'}
               />
 
               <button type="submit" className={s.btn_send}>

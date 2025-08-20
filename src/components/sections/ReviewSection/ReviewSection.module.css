@@ -37,9 +37,11 @@
     flex-shrink: 0;
 
     border-radius: 5.20833vw;
-    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    border: 0.02604vw solid rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.26042vw);
+    cursor: pointer;
+    user-select: none;
 }
 
 .review_btn span{
@@ -51,4 +53,9 @@
     font-weight: 500;
     line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+}
+.review_btn svg{
+    width: 0.83333vw;
+    height: 0.83333vw;
+    flex-shrink: 0;
 }

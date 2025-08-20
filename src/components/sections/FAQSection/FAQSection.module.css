@@ -30,10 +30,12 @@
     gap: 2.08333vw;
     height: fit-content;
 
-    border-radius: 30px;
+    border-radius: 1.5625vw;
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
-    box-shadow: -4px -4px 12px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 12px 0 rgba(255, 255, 255, 0.10) inset;
-    backdrop-filter: blur(5px);
+    box-shadow:
+            -0.20833vw -0.20833vw 0.625vw 0vw rgba(255, 255, 255, 0.04) inset,
+            0.20833vw  0.20833vw 0.625vw 0vw rgba(255, 255, 255, 0.10) inset;
+    backdrop-filter: blur(0.26042vw);
     position: sticky;
     top: 1vw;
 }
@@ -42,6 +44,12 @@
     display: flex;
     justify-content: center;
     padding-bottom: 1.04vw;
+
+
+}
+.aside_icon svg{
+    width: 2.5vw;
+    height: 2.5vw;
 }
 
 .aside_text h4{
@@ -84,7 +92,7 @@
     flex-shrink: 0;
     align-self: stretch;
 
-    border-radius: 100px;
+    border-radius: 5.20833vw;
     background: #FFF;
 
     color: #0F0E13;
@@ -95,11 +103,13 @@
     font-weight: 500;
     line-height: 140%; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+    cursor: pointer;
+    user-select: none;
 }
 .aside_btn:hover{
     border-radius: 5.20833vw;
     background: #F4EEFF;
-    box-shadow: 0 16px 33px 0 rgba(255, 255, 255, 0.30);
+    box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
 }
 
 .faq_content ul{

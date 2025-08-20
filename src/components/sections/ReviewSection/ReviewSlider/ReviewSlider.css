@@ -7,7 +7,7 @@
 }
 
 .swiper-wrapper{
-    gap: 1.04vw;
+    /*gap: 1.04vw;*/
 }
 
 .value-indicator{
@@ -28,3 +28,22 @@
 .slider-track-wrapper{
     height: 0.15625vw !important;
 }
+.prevReview, .nextReview{
+    display: flex;
+    padding: 1.14583vw;
+    align-items: center;
+    gap: 0.52083vw;
+    cursor: pointer;
+}
+.prevReview svg, .nextReview svg{
+    width: 0.74313vw;
+    height: 1.35104vw;
+    fill: rgba(255, 255, 255, 0.20);
+}
+
+.prevReview:hover svg, .nextReview:hover svg{
+    fill: #622FF1;
+}
+/*.swiper-slide{*/
+/*    margin-right: 1.04vw!important;*/
+/*}*/

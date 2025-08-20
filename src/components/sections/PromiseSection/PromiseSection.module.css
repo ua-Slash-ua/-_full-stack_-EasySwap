@@ -39,9 +39,10 @@
     height: 3.125vw;
 
 
-    border-radius: 100px;
+    border-radius: 5.20833vw;
     background: linear-gradient(92deg, #9B69FF -21.65%, #622FF1 50.8%);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.52083vw);
+
 }
 
 .promise span {
@@ -60,7 +61,10 @@
     width: 100%;
     position: relative;
 }
-
+.promise svg{
+    width: 1.02698vw;
+    height: 0.97818vw;
+}
 /* scroller */
 .scroller {
     display: flex;

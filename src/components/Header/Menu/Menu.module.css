@@ -8,8 +8,8 @@
     padding: 0.20833vw;
     align-items: center;
     border-radius: 1.66667vw;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 0.05208vw solid rgba(255, 255, 255, 0.05);
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(0.10417vw);
     transition: all 0.3s;
 }

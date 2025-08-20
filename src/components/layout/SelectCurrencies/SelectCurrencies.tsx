@@ -55,6 +55,10 @@ export default function SelectCurrencies({
           code: findCurren.name!.trim(),
           icon: findCurren.icon,
         })
+        if(findCurren.code !== currCode.code){
+          changeCurrCode(findCurren.code, findCurren.cat_date)
+        }
+
       }
     else
 
@@ -112,9 +116,10 @@ export default function SelectCurrencies({
   const handleSelect = (item: Currency | RateItem) => {
     // console.log('item = ', changeCurrCode ? (item as Currency) : (item as RateItem).currency)
     const code = changeCurrCode ? (item as Currency).code : (item as RateItem).currency.code?.trim()
+    const isAge = changeCurrCode ? (item as Currency).cat_date : (item as RateItem).currency.cat_date?.trim()
     setSelectedCurrency(changeCurrCode ? (item as Currency) : (item as RateItem).currency)
     setActive(false)
-    changeCurrCode?.(code)
+    changeCurrCode?.(code,isAge)
 
     changeCurrCodeExc?.((item as RateItem).currency.code, (item as RateItem).currency.cat_date)
     changeCurrCount?.((item as RateItem).from_1000!.sell1000)
@@ -132,7 +137,7 @@ export default function SelectCurrencies({
               height={12}
             />
           </div>
-          <span>{selectedCurrency.code.trim()}</span>
+          <span className={s.choose_code}>{selectedCurrency.code.trim()}</span>
         </div>
         <svg
           className={`${s.btn_arrow} ${active ? s.rotate : ''}`}
@@ -165,7 +170,7 @@ export default function SelectCurrencies({
                   <div className={s.icon_back_reverse}>
                     <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
                   </div>
-                  <span>{item.name?.trim()}</span>
+                  <span >{item.name?.trim()}</span>
                 </li>
               )
             })

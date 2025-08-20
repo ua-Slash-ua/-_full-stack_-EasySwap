@@ -144,7 +144,7 @@
 }
 
 .input_container  {
-    border: 1px solid transparent;
+    border: 0.05208vw solid transparent;
     border-radius: 1.04167vw;
     transition: border-color 0.3s ease;
 }

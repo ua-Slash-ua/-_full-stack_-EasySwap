@@ -1,11 +1,11 @@
-.support_section{
+.support_section {
     width: 100vw;
     padding: 8.23vw 5.21vw 0 5.21vw;
 
 }
 
-.support_container{
-    position:relative;
+.support_container {
+    position: relative;
     z-index: 10;
     padding: 6.15vw 0;
     display: flex;
@@ -13,7 +13,8 @@
     justify-content: center;
     align-items: center;
 }
-.support_content{
+
+.support_content {
     width: 32.4vw;
     display: flex;
     flex-direction: column;
@@ -21,7 +22,7 @@
     align-items: center;
 }
 
-.icons{
+.icons {
     position: relative;
     margin-bottom: 2.71vw;
     display: flex;
@@ -29,7 +30,8 @@
     justify-content: center;
     align-items: center;
 }
-.icons div{
+
+.icons div {
     display: flex;
     width: 5vw;
     height: 5vw;
@@ -39,31 +41,35 @@
     gap: 0.52083vw;
     aspect-ratio: 1/1;
 }
-.icons svg{
+
+.icons svg {
     width: 1.875vw;
     height: 1.875vw;
 }
-.icons div:last-of-type{
+
+.icons div:last-of-type {
     position: relative;
     left: -0.5vw;
 
     border-radius: 5.20833vw;
-    border: 1px solid rgba(255, 255, 255, 0.70);
+    border: 0.05208vw solid rgba(255, 255, 255, 0.70);
     z-index: 5;
 }
-.icons div:first-of-type{
+
+.icons div:first-of-type {
     position: relative;
     left: 0.5vw;
 
     border-radius: 5.20833vw;
-    border: 0.5px solid rgba(255, 255, 255, 0.10);
+    border: 0.02604vw solid rgba(255, 255, 255, 0.10);
     background: rgba(255, 255, 255, 0.10);
-    box-shadow: 4px 4px 5px 0 rgba(255, 255, 255, 0.06) inset;
-    backdrop-filter: blur(6px);
+    box-shadow: 0.20833vw 0.20833vw 0.26042vw 0 rgba(255, 255, 255, 0.06) inset;
+    backdrop-filter: blur(0.3125vw);
     z-index: 10;
 
 }
-.title{
+
+.title {
     position: relative;
     margin-bottom: 1.67vw;
     text-align: center;
@@ -77,13 +83,15 @@
     line-height: 2.97917vw; /* 2.97917vw */
     letter-spacing: -0.05417vw;
 }
-.title span{
+
+.title span {
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.description{
+
+.description {
     width: 25vw;
     position: relative;
     margin-bottom: 3.75vw;
@@ -99,7 +107,7 @@
     letter-spacing: -0.01667vw;
 }
 
-.support_btn{
+.support_btn {
     position: relative;
     display: flex;
     padding: 1.04vw 1.25vw;
@@ -119,4 +127,9 @@
     font-weight: 500;
     line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+}
+.support_btn svg{
+    width: 1.25vw;
+    height: 1.25vw;
+    aspect-ratio: 1/1;
 }

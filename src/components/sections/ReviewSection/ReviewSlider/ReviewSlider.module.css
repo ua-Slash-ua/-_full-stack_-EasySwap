@@ -1,7 +1,6 @@
 .review_swiper{
     display: flex;
     flex-direction: row;
-    gap: 1.04vw;
     margin-top: 4.17vw ;
     margin-bottom: 2.71vw ;
 
@@ -15,7 +14,6 @@
 
 .review_slide{
     display: flex;
-    width: 21.61458vw!important;
     min-height: 26.04167vw;
     padding: 1.66667vw;
     flex-direction: column;
@@ -23,9 +21,12 @@
     align-items: flex-start;
 
     border-radius: 1.66667vw;
-    border: 1px solid rgba(255, 255, 255, 0.00);
+    border: 0.05208vw solid rgba(255, 255, 255, 0.00);
     background: #0F0E13;
-    box-shadow: -4px -4px 24px 0 rgba(255, 255, 255, 0.04) inset, 4px 4px 24px 0 rgba(255, 255, 255, 0.10) inset;
+    box-shadow:
+            -0.20833vw -0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.04) inset,
+            0.20833vw  0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.10) inset;
+
 }
 
 .swiper_header{
@@ -55,5 +56,32 @@
 .review_image, .review_image img{
     width: 5.8vw;
     height: 5.3vw;
+    cursor: pointer;
 }
 
+.swiper_scroll_container{
+    width: 12.91667vw;
+    height: 0.15625vw;
+    background: rgba(255, 255, 255, 0.20);
+    margin: 0 0.89vw;
+    position: relative;
+    user-select: none;
+}
+.swiper_scroll_info{
+    position: absolute;
+    bottom: 0.83vw;
+    left: 0.62vw;
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.04167vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height:  1.14583vw; /* 1.14583rem */
+    letter-spacing: -0.02083vw;
+}
+.swiper_scroll_back{
+    height: 0.15625vw;
+    background: #622FF1;
+}
