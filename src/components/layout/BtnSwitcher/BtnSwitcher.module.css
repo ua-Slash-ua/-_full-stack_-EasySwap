@@ -17,11 +17,23 @@
     font-size: 0.83333vw;
     font-style: normal;
     font-weight: 500;
-    line-height: 140%; /* 1.16667vw */
+    line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 
     cursor: pointer;
 }
 .active{
     background: #622FF1;
+}
+
+@media screen and (max-width: 376px) {
+
+    .switcher_container {
+        height: 10.6383vw;
+
+        font-size: 3.7234vw;
+        line-height: 5.21277vw;
+        font-weight: 500;
+        letter-spacing: -0.07447vw;
+    }
 }

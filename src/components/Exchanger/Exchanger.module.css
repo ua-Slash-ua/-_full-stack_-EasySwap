@@ -47,3 +47,6 @@
     opacity: 1;
     overflow-x: scroll;
 }
+@media screen and (max-width: 376px) {
+
+}

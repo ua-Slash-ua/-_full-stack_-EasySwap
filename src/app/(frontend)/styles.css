@@ -5,4 +5,21 @@ main{
   background-color: #09090A;
   color: #fff;
 }
+.show {
+  display: none!important;
+}
 
+.hide {
+  display: flex!important;
+}
+
+@media screen and (max-width: 376px) {
+
+  .hide {
+    display: none!important;
+  }
+
+  .show {
+    display: flex  !important;
+  }
+}
