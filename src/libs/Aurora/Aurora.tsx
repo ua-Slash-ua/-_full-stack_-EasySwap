@@ -111,6 +111,7 @@ void main() {
 
 interface AuroraProps {
   colorStops?: string[]
+  className?: string
   amplitude?: number
   blend?: number
   time?: number
@@ -140,7 +141,6 @@ export default function Aurora(props: AuroraProps) {
     gl.canvas.style.backgroundColor = 'transparent'
 
     let program: Program | undefined
-
     function resize() {
       if (!ctn) return
       const width = ctn.offsetWidth
@@ -207,5 +207,5 @@ export default function Aurora(props: AuroraProps) {
     }
   }, [amplitude])
 
-  return <div ref={ctnDom} className="aurora-container" />
+  return <div ref={ctnDom} className={`${props.className} aurora-container`} />
 }
