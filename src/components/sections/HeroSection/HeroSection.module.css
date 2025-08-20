@@ -1,4 +1,4 @@
-.section_hero{
+.section_hero {
     width: 100vw;
     height: 46.93vw;
     display: flex;
@@ -7,7 +7,7 @@
     gap: 5.21vw;
 }
 
-.hero_main{
+.hero_main {
     width: 50.52vw;
     height: 46.93vw;
     padding: 8.75vw 5.42vw 0 8.33vw;
@@ -16,20 +16,22 @@
     flex-direction: column;
     gap: 2.92vw;
 }
-.hero_header{
+
+.hero_header {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
-.swap{
+
+.swap {
     background: linear-gradient(93deg, #B792FF -12.64%, #7447FB 15.04%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero_header p{
+.hero_header p {
     text-align: center;
     align-items: center;
     font-size: 3.54167vw;
@@ -38,7 +40,8 @@
     font-family: var(--font-inter), sans-serif;
     letter-spacing: -0.07083vw;
 }
-.hero_header_icons{
+
+.hero_header_icons {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -46,22 +49,24 @@
     align-items: center;
 }
 
-.hero_header_icons img{
+.hero_header_icons img {
     width: 4.38vw;
     padding: 0.625vw;
 }
-.hero_header_icons img:last-of-type{
+
+.hero_header_icons img:last-of-type {
     position: relative;
     left: -25%;
     z-index: 0;
 }
-.hero_header_icons img:first-of-type{
+
+.hero_header_icons img:first-of-type {
     position: relative;
 
     z-index: 1;
 }
 
-.hero_description{
+.hero_description {
     font-size: 3.54167vw;
     font-weight: 400;
     line-height: 110%;
@@ -70,13 +75,13 @@
 }
 
 
-.hero_items{
+.hero_items {
     display: flex;
     flex-direction: row;
     gap: 0.625vw;
 }
 
-.calculator{
+.calculator {
     width: 35.94vw;
     padding: 3.125vw;
     display: flex;
@@ -92,7 +97,8 @@
 
     gap: 2.08vw;
 }
-.calc_header{
+
+.calc_header {
     display: flex;
     padding: 0.3125vw;
     justify-content: center;
@@ -104,13 +110,14 @@
 
     backdrop-filter: blur(1.04167vw);
 }
-.calc_content{
+
+.calc_content {
     display: flex;
     flex-direction: column;
     gap: 0.42vw;
 }
 
-.calc_course{
+.calc_course {
     margin-top: 0.62vw;
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -126,19 +133,20 @@
 
 }
 
-.calc_course_container{
+.calc_course_container {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.21vw;
 }
-.curr_age img{
+
+.curr_age img {
     width: 3.125vw;
     height: 1.30208vw;
     aspect-ratio: 12/5;
 }
 
-.btn_exchange{
+.btn_exchange {
     display: flex;
     width: 29.6875vw;
     height: 3.33333vw;
@@ -162,11 +170,11 @@
     cursor: pointer;
 }
 
-.btn_exchange:hover{
+.btn_exchange:hover {
     box-shadow: 0 1.04167vw 2.91667vw 0vw rgba(98, 47, 241, 0.50);
 }
 
-.btn_replace{
+.btn_replace {
     display: flex;
     width: 2.5vw;
     height: 2.5vw;
@@ -190,10 +198,74 @@
     transition: all 0.3s;
     z-index: 100;
 }
-.btn_replace svg{
+
+.btn_replace svg {
     width: 0.9375vw;
     height: 0.9375vw;
 }
-.btn_replace:hover{
+
+.btn_replace:hover {
     background-color: white;
+}
+
+
+
+@media screen and (max-width: 376px) {
+    .section_hero {
+        width: 100vw;
+        height: 215.96vw;
+        align-items: flex-start;
+    }
+
+
+
+    .hero_aside {
+        position: relative;
+
+    }
+
+    .hero_container {
+        position: relative;
+        z-index: 10;
+        flex-direction: column;
+        margin: 17.02vw 4.26vw 0 4.26vw;
+    }
+
+    .calculator {
+        margin: 10.64vw 4.26vw 0 4.26vw;
+        width: 91.22vw;
+        padding: 5.32vw 4.26vw;
+
+    }
+
+    .image_container {
+        display: flex;
+        position: absolute;
+        z-index: 0;
+    }
+
+    .image_container img {
+        width: 100vw;
+        height: 215.96vw;
+    }
+
+    .hero_header span, .hero_header p, .hero_description p {
+        font-size: 10.64vw;
+        line-height: 14.89vw;
+        letter-spacing: -0.21vw;
+
+    }
+
+    .hero_description p {
+        font-size: 8.51vw;
+        line-height: 11.70vw;
+        letter-spacing: -0.17vw;
+
+    }
+
+    .hero_header_icons img {
+        width: 9.57vw;
+        height: 9.57vw;
+    }
+
 }

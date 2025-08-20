@@ -12,9 +12,17 @@ import Exchanger from '@/components/Exchanger/Exchanger'
 import { usePopup } from '@/context/PopupContext'
 import { currencies } from '@/config/currencies.config'
 
-export default function HeroSection({ block, locale, departments }: { block: any[]; locale: string; departments:any[] }) {
+export default function HeroSection({
+  block,
+  locale,
+  departments,
+}: {
+  block: any[]
+  locale: string
+  departments: any[]
+}) {
   const { setOpen } = usePopup()
-  const divRef = useRef<HTMLDivElement>(null);
+  const divRef = useRef<HTMLDivElement>(null)
   const [main, setMain] = useState(true)
 
   const [activeFiat, setActiveFiat] = useState(true)
@@ -51,7 +59,8 @@ export default function HeroSection({ block, locale, departments }: { block: any
     console.log('isAge', isAge)
     setCurrCodeExc({ code: text, isAge: isAge })
   }
-  function reverseCurrency(){
+
+  function reverseCurrency() {
     const temp = currCode
     changeCurrCode(currCodeExc.code, currCodeExc.isAge)
     changeCurrCodeExc(temp.code, temp.isAge)
@@ -74,14 +83,14 @@ export default function HeroSection({ block, locale, departments }: { block: any
     <>
       <section className={s.section_hero} id={'main'}>
         <div
-          className={s.hero_main}
+          className={`${s.hero_main} hide`}
           style={{
             backgroundImage: `url(${back.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
-          <div className="">
+          <div className={s.hero_container}>
             <div className={s.hero_header}>
               <p>
                 <span className={s.swap}>easy </span>
@@ -97,7 +106,7 @@ export default function HeroSection({ block, locale, departments }: { block: any
             </div>
           </div>
 
-          <div className={s.hero_items}>
+          <div className={`${s.hero_items} hide`}>
             {heroItem.map((item, index) => {
               return (
                 <HeroItem
@@ -111,6 +120,25 @@ export default function HeroSection({ block, locale, departments }: { block: any
           </div>
         </div>
         <aside className={s.hero_aside}>
+          <div className={`${s.image_container} show`}>
+            <Image src={back.src} alt={'background'} width={100} height={100} />
+          </div>
+
+          <div className={`${s.hero_container} show`}>
+            <div className={s.hero_header}>
+              <p>
+                <span className={s.swap}>easy </span>
+                swap
+              </p>
+              <div className={s.hero_header_icons}>
+                <Image src={icon_1} alt="Hero background" />
+                <Image src={icon_2} alt="Hero background" />
+              </div>
+            </div>
+            <div className={s.hero_description}>
+              <p>- надійний помічник у валютних операціях</p>
+            </div>
+          </div>
           <div className={s.calculator}>
             <div className={s.calc_header}>
               <BtnSwitcher
@@ -144,10 +172,13 @@ export default function HeroSection({ block, locale, departments }: { block: any
                 changeCurrCode={changeCurrCode}
                 changeCurrCodeExc={changeCurrCodeExc}
                 content={
-                  <div className={s.btn_replace} onClick={()=>{
-                    setMain(true)
-                    reverseCurrency()
-                  }}>
+                  <div
+                    className={s.btn_replace}
+                    onClick={() => {
+                      setMain(true)
+                      reverseCurrency()
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -191,7 +222,7 @@ export default function HeroSection({ block, locale, departments }: { block: any
                       <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
                     ) : null}
                   </div>
-                  = <span>{count ??  '...'}</span>
+                  = <span>{count ?? '...'}</span>
                   <span>{currCodeExc.code ?? '...'}</span>
                   <div className={s.curr_age}>
                     {currCodeExc.isAge === 'new' ? (
@@ -203,9 +234,24 @@ export default function HeroSection({ block, locale, departments }: { block: any
                 </div>
               </div>
             </div>
-            <div className={s.btn_exchange} onClick={() => setOpen('exchange_application', departments)}>
+            <div
+              className={s.btn_exchange}
+              onClick={() => setOpen('exchange_application', departments)}
+            >
               <span>Обміняти валюту</span>
             </div>
+          </div>
+          <div className={`${s.hero_items} show`}>
+            {heroItem.map((item, index) => {
+              return (
+                <HeroItem
+                  key={index}
+                  icon={item.icon}
+                  title={item.title}
+                  description={item.description}
+                />
+              )
+            })}
           </div>
         </aside>
       </section>
