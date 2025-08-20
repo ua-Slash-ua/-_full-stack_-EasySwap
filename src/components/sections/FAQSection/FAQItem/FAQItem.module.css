@@ -48,6 +48,7 @@
     font-weight: 400;
     line-height: 1.16667vw; /*  */
     letter-spacing: -0.01667vw;
+
 }
 
 
@@ -105,4 +106,37 @@
 
 .disabled_svg:hover svg path {
     stroke: #622FF1;
+}
+
+@media screen and (max-width: 376px) {
+    .faq_item{
+        width: 91.2234vw;
+        padding: 5.31915vw;
+        border-radius: 5.31915vw;
+
+    }
+    .title_container p{
+        font-size: 4.25532vw;
+        line-height: 5.53191vw;
+        letter-spacing: -0.08511vw;
+    }
+    .active_svg, .disabled_svg{
+        width: 8.51064vw;
+        height: 8.51064vw;
+    }
+    .active_svg svg, .disabled_svg svg{
+        width: 7.44681vw;
+        height: 7.44681vw;
+        max-width: none;
+    }
+
+    .answer{
+        font-size: 3.7234vw;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+        padding-right: 12.57vw;
+    }
+    .title_container{
+        gap: 3.196vw;
+    }
 }
