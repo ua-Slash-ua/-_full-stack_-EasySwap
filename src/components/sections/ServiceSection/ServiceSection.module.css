@@ -10,3 +10,12 @@
     display: flex;
     flex-direction: row;
 }
+
+@media screen and (max-width: 376px) {
+    .service_section{
+        flex-direction: column;
+        border-radius: 8.51064vw;
+        padding: 10.6383vw 4.25532vw;
+
+    }
+}

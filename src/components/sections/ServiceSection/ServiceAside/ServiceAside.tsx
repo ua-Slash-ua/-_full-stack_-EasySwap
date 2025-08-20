@@ -8,7 +8,7 @@ export default function ServiceAside({ title, menuItems, func, activeService }: 
       <aside className={s.service_aside}>
         <h3 dangerouslySetInnerHTML={{ __html: title }} />
         <div className={s.aside_menu}>
-          <div className={s.aside_scroll}>
+          <div className={`${s.aside_scroll} hide`}>
             {menuItems.map((item, index) => (
               <div
                 key={index}
@@ -20,7 +20,6 @@ export default function ServiceAside({ title, menuItems, func, activeService }: 
               >
                 <div
                   className={`${s.scroll_back} ${activeService === index ? s.active_scroll : ''}`}
-
                 ></div>
               </div>
             ))}
@@ -38,6 +37,22 @@ export default function ServiceAside({ title, menuItems, func, activeService }: 
               </li>
             ))}
           </ul>
+          <div className={`${s.aside_scroll} show`}>
+            {menuItems.map((item, index) => (
+              <div
+                key={index}
+                className={`${s.aside_scroll_item}`}
+                onClick={() => func(index)}
+                style={{
+                  width: `${100 / menuItems.length}%`,
+                }}
+              >
+                <div
+                  className={`${s.scroll_back} ${activeService === index ? s.active_scroll : ''}`}
+                ></div>
+              </div>
+            ))}
+          </div>
         </div>
       </aside>
     </>
