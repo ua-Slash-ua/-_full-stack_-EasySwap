@@ -6,6 +6,9 @@ export default function PromiseSection({ block, locale }: { block: any; locale: 
     { text: block.title, svg: block.icon, word: block.word },
     { text: block.title, svg: block.icon, word: block.word },
     { text: block.title, svg: block.icon, word: block.word },
+    { text: block.title, svg: block.icon, word: block.word },
+    { text: block.title, svg: block.icon, word: block.word },
+    { text: block.title, svg: block.icon, word: block.word },
   ]
 
   return (
@@ -13,10 +16,10 @@ export default function PromiseSection({ block, locale }: { block: any; locale: 
       <section className={s.promise_section}>
         <div className={s.promise_container}>
           <div className={s.scroller}>
-            {[...items, ...items].map((item, index) => (
+            {[...items].map((item, index) => (
               <div key={index} className={s.promise_item}>
                 <p>{item.text}</p>
-                <div className={s.promise}>
+                <div className={`${s.promise}`}>
                   <div dangerouslySetInnerHTML={{ __html: item.svg }} />
                   <span>{item.word}</span>
                 </div>

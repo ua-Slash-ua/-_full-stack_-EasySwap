@@ -61,10 +61,12 @@
     width: 100%;
     position: relative;
 }
-.promise svg{
+
+.promise svg {
     width: 1.02698vw;
     height: 0.97818vw;
 }
+
 /* scroller */
 .scroller {
     display: flex;
@@ -99,15 +101,42 @@
     width: 100%;
 }
 
-.blur_item:first-of-type{
+.blur_item:first-of-type {
     background: linear-gradient(270deg, rgba(9, 9, 10, 0.00) 0%, #09090A 87.33%);
     width: 17.29167vw;
     height: 3.95833vw;
 }
-.blur_item:last-of-type{
+
+.blur_item:last-of-type {
     background: linear-gradient(90deg, rgba(9, 9, 10, 0.00) 0%, #09090A 87.33%);
     width: 17.29167vw;
     height: 3.95833vw;
+}
+
+@media screen and (max-width: 376px) {
+
+    .promise_item p {
+        font-size: 6.38298vw;
+        line-height: 6.38298vw;
+        letter-spacing: -0.12766vw;
+    }
+    .promise{
+        padding: 3vw 2.5vw;
+        height: 7vw;
+    }
+    .promise svg{
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+    .promise span{
+        font-size: 3.5vw;
+        line-height: 3.5vw;
+        letter-spacing: -0.12766vw;
+    }
+    .blur_item {
+        height: 9vw !important;
+    }
+
 }
 
 
