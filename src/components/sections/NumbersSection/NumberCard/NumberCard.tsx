@@ -7,11 +7,12 @@ export default function NumberCard({ card_title, card_number, card_description }
     <>
       <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
         <div className={s.card_item}>
-          <p>{card_description}</p>
+          <p className={'hide'}>{card_description}</p>
           <div>
             <span>{card_number}</span>
             <p>{card_title}</p>
           </div>
+          <p className={'show'}>{card_description}</p>
         </div>
       </SpotlightCard>
     </>

@@ -1,4 +1,4 @@
-.card_item{
+.card_item {
     display: flex;
     width: 19.0625vw;
     height: 19.89583vw;
@@ -15,12 +15,13 @@
 
     overflow: hidden;
 }
-.card_item div{
+
+.card_item div {
     display: flex;
     flex-direction: column;
 }
 
-.card_item div p{
+.card_item div p {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -31,7 +32,8 @@
     letter-spacing: -0.025vw;
     opacity: 1;
 }
-.card_item span{
+
+.card_item span {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -40,7 +42,8 @@
     font-weight: 700;
     line-height: 120%; /* 5.125vw */
 }
-.card_item p{
+
+.card_item p {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -51,4 +54,39 @@
     letter-spacing: -0.01667vw;
 
     opacity: 0.6;
+}
+
+@media screen and (max-width: 376px) {
+    .card_item {
+        display: flex;
+        width: 44.54787vw;
+        min-height: 48.4vw;
+        height: auto;
+        padding: 4.25532vw;
+        gap: 8.51vw;
+        flex-shrink: 0;
+        border-radius: 5.31915vw;
+
+    }
+    .card_item p{
+        font-size: 3.7234vw;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+    .card_item div{
+        gap: 2.13vw;
+    }
+    .card_item div p{
+        font-size: 3.7234vw;
+        font-weight: 600;
+        line-height: 4.84043vw;
+        letter-spacing: -0.07447vw;
+
+    }
+    .card_item div span{
+        font-size: 8.51064vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 8.51064vw;
+    }
 }
