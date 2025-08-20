@@ -7,6 +7,7 @@ export default function DoubleLine({icon, content}:DoubleLineProps) {
         <div dangerouslySetInnerHTML={{ __html: icon?? 'not found' }} />
         <p>{content}</p>
       </div>
+
     </>
   )
 }

@@ -4,3 +4,10 @@
     flex-direction: row;
     gap: 1.04vw;
 }
+
+@media screen and (max-width: 376px) {
+    .double_section{
+        flex-direction: column;
+        gap: 4.26vw;
+    }
+}

@@ -41,3 +41,38 @@
     flex-direction: column;
     gap: 0.21vw;
 }
+
+@media screen and (max-width: 376px) {
+    .item{
+        width: auto;
+        display: flex;
+        padding: 8.51064vw 4.25532vw 4.25532vw 4.25532vw;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 4.25532vw;
+        align-self: stretch;
+        border-radius: 8.51064vw;
+        overflow: hidden;
+
+    }
+
+    .item h4{
+        font-size: 6.38298vw;
+        line-height: 7.65957vw;
+        letter-spacing: -0.12766vw;
+    }
+    .icon_main{
+        position: absolute;
+        right: 4.26vw;
+    }
+    .icon_main svg{
+        width: 20.74468vw;
+        height: 16.4234vw;
+        flex-shrink: 0;
+    }
+    .content{
+        gap: 1.06vw;
+    }
+
+}
