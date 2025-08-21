@@ -108,7 +108,7 @@
     stroke: #622FF1;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .faq_item{
         width: 91.2234vw;
         padding: 5.31915vw;

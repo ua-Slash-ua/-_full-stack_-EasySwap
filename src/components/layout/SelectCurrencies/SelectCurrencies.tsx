@@ -166,7 +166,7 @@ export default function SelectCurrencies({
           {changeCurrCode ? (
             currency.map((item, index) => {
               return (
-                <li key={item.code.trim() + index} onClick={() => handleSelect(item)}>
+                <li key={item.code.trim() + index} onClick={() => handleSelect(item)} className={s.li}>
                   <div className={s.icon_back_reverse}>
                     <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
                   </div>

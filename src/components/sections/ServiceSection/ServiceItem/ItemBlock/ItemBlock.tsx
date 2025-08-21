@@ -42,7 +42,7 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
         </div>
         {(
           isLeft ||
-          (!isLeft && (width > 376 || (active && width <= 376)))
+          (!isLeft && (width > 1024 || (active && width <= 1024)))
         ) && (
 
           <ul>

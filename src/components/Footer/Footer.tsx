@@ -37,7 +37,7 @@ export default function Footer({ block, locale }: { block: any; locale: string }
               ))}
             </div>
             {
-              width>376 &&
+              width>1024 &&
               (
                 <div className={s.lside}>
                   <BtnPhone
@@ -66,7 +66,7 @@ export default function Footer({ block, locale }: { block: any; locale: string }
             </div>
           </div>
           {
-            width<=376 &&
+            width<=1024 &&
             (
               <div className={s.lside}>
                 <BtnPhone

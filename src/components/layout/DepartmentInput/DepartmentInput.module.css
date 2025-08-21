@@ -135,7 +135,7 @@
 }
 
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .container_application_department {
         width: 100%;
         gap: 3.19vw;

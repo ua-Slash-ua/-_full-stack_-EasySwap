@@ -27,7 +27,7 @@
 
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .line_item {
         padding: 3.19149vw 3.19149vw 3.19149vw 5.31915vw;
         gap: 2.12766vw;

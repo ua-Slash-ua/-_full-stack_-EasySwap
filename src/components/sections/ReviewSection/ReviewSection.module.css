@@ -60,7 +60,7 @@
     height: 0.83333vw;
     flex-shrink: 0;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .review_container{
         padding: 10.6383vw 0 10.6383vw 4.25532vw;
         border-radius: 8.51064vw;

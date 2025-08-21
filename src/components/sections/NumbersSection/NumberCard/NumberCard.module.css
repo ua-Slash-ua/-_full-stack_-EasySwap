@@ -56,7 +56,7 @@
     opacity: 0.6;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .card_item {
         display: flex;
         width: 44.54787vw;

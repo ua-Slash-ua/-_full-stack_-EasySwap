@@ -38,7 +38,7 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
               )}
             </ul>
           </div>
-          {width > 376 && (
+          {width > 1024 && (
             <ul className={s.content_list_social}>
               {Object.entries(social_networks).map(([key, value], index) => (
                 <SocialNetworkItem key={`${index}-0`} {...social_networks[key]} />
@@ -47,7 +47,7 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
           )}
         </aside>
         <DynamicMap locations={locations} center={center} />
-        {width <= 376 && (
+        {width <= 1024 && (
           <ul className={s.content_list_social}>
             {Object.entries(social_networks).map(([key, value], index) => (
               <SocialNetworkItem key={`${index}-0`} {...social_networks[key]} />

@@ -142,7 +142,7 @@
     text-align: center;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .application_section{
         width: 100vw;
         padding: 21.28vw 4.26vw;

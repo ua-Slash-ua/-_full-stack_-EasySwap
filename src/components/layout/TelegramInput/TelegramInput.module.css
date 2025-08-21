@@ -73,7 +73,7 @@
     transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .telegram_container {
         width: 100%;
         gap: 3.19vw;

@@ -52,7 +52,7 @@
     overflow-x: scroll;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .exchanger {
         width: 82.71vw;
         gap: 6.38vw;
@@ -60,8 +60,8 @@
         border-radius: 5.31915vw;
 
     }
-    .exchanger_content input{
-        font-size: 6.38298vw;
+    .exchanger_content input, .exchanger_content input::placeholder {
+        font-size: 6.38298vw!important;
         font-style: normal;
         font-weight: 500;
         line-height: 8.93617vw;

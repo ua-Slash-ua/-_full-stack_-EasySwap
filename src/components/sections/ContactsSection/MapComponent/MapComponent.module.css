@@ -8,7 +8,7 @@
 
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .map{
         width: 91.2234vw;
         height: 99.46809vw;

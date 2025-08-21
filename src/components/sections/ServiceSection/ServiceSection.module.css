@@ -11,7 +11,7 @@
     flex-direction: row;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .service_section{
         flex-direction: column;
         border-radius: 8.51064vw;

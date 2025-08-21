@@ -117,7 +117,7 @@
     letter-spacing: -0.01667vw;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .select {
         padding: 2.12766vw 3.19149vw;
         border-radius: 26.59574vw;
@@ -127,14 +127,18 @@
         width: 6.38298vw;
         height: 6.38298vw;
         flex-shrink: 0;
+        border-radius: 6vw;
     }
     .icon_back img, .icon_back_reverse img {
-        width: 4.78723vw;
-        height: 4.78723vw;
+        width: 2.39362vw;
+        height: 3.59043vw;
         flex-shrink: 0;
-        aspect-ratio: 1/1;
 
     }
+    .info{
+        gap: 1.6vw;
+    }
+
     .info span{
         font-size: 3.7234vw;
         line-height: 5.21277vw; /*  */
@@ -153,7 +157,13 @@
     }
     .select_options li span{
         font-size: 3.7234vw;
+        font-weight: 500;
         line-height: 5.21277vw; /*  */
         letter-spacing: -0.07447vw;
     }
+.btn_arrow{
+    width: 3.19149vw;
+    height: 6.38298vw;
+    aspect-ratio: 1/2;
+}
 }

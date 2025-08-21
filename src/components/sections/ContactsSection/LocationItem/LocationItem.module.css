@@ -118,7 +118,7 @@
     aspect-ratio: 1/1;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .location_item {
         display: flex;
         padding: 7.44681vw 6.38298vw 6.38298vw 6.38298vw;

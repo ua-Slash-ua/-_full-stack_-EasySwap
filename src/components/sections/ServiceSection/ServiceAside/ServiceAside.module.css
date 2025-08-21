@@ -111,7 +111,7 @@
     background-color: rgba(203, 0, 0, 0.7);
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .service_aside h3{
         font-size: 7.44681vw;
         line-height: 7.44681vw;

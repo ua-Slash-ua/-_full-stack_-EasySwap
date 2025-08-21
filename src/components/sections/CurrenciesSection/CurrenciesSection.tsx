@@ -17,7 +17,7 @@ function formatDateToShort(dateString: string): string {
   return `${day}.${month}.${year}`
 }
 
-export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) {
+export default function CurrenciesSection({ block , departments }: { block: CurrencyMeta[], departments:any[] }) {
   const countCurrencies: number = 1
   const [width, setWidth] = useState<number>(0)
 
@@ -81,7 +81,7 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
       <section className={s.currencies_section} id={'courses'}>
         <div className={s.currencies_header}>
           <h3>Актуальний курс валют</h3>
-          {width > 376 && (
+          {width > 1024 && (
             <div
               className={s.currencies_icon}
               dangerouslySetInnerHTML={{ __html: currencies.iconMain }}
@@ -195,13 +195,12 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
             </>
           ) : (
             <CurrencyTableMobile
+              departments={departments}
               icons={[iconUSD, iconEUR]}
               isLeft={column}
               activeFiat={activeFiat}
               visibleCurrencies={visibleCurrencies}
               handlerColumn={handleColumn}
-              seeAll={seeAll}
-              handlerSeeAll={handleSeAll}
               lastUpdate={lastUpdate}
             />
           )}
@@ -323,9 +322,8 @@ function CurrencyTableMobile({
   activeFiat,
   handlerColumn,
   visibleCurrencies,
-  seeAll,
+  departments,
   lastUpdate,
-  handlerSeeAll,
 }: {
   icons: string[]
   isLeft: {
@@ -333,9 +331,8 @@ function CurrencyTableMobile({
     right: boolean
   }
   visibleCurrencies: any[]
-  seeAll: boolean
+  departments: any[]
   activeFiat?: boolean
-  handlerSeeAll: Function
   handlerColumn: Function
   lastUpdate: string
 }) {
@@ -442,7 +439,10 @@ function CurrencyTableMobile({
           )}
         </div>
         <div className={s.table_footer}>
-          <div className={s.btn_details} onClick={() => setOpen('currencies_info',{iconUSD:icons[0], iconEUR:icons[1]})}>
+          <div
+            className={s.btn_details}
+            onClick={() => setOpen('currencies_info', { iconUSD: icons[0], iconEUR: icons[1] })}
+          >
             <span>Деталі обміну</span>
             <div>
               <svg
@@ -481,6 +481,9 @@ function CurrencyTableMobile({
             <span>{lastUpdate}</span>
           </div>
         </div>
+      </div>
+      <div className={s.btn_exchange} onClick={() => setOpen('exchange_application', departments)}>
+        <span>Обміняти валюту</span>
       </div>
     </>
   )

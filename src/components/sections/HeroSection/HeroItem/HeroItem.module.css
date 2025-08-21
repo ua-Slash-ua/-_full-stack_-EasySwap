@@ -48,7 +48,7 @@
     letter-spacing: -0.01667vw;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .hero_item {
         display: flex;
         width: 44.68085vw;

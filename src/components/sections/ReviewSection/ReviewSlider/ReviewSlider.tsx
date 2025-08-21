@@ -52,8 +52,8 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
           nextEl: nextRef.current,
         }}
         breakpoints={{
-          0: { slidesPerView: 1.1 }, // для екранів <= 376px
-          377: { slidesPerView: 4 }, // для ширших екранів
+          0: { slidesPerView: 1.1 }, // для екранів <= 1024px
+          1025: { slidesPerView: 4 }, // для ширших екранів
         }}
         pagination={{ clickable: true }}
         className={s.review_swiper}
@@ -81,7 +81,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
       </Swiper>
 
       <div className={s.review_slider_nav}>
-        {width <= 376 && (
+        {width <= 1024 && (
           <div className={`${s.swiper_scroll_container} show`}>
             <span className={s.swiper_scroll_info}>
               {activeSlide + 1}/{reviewCount}
@@ -102,7 +102,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
             setActiveSlide(activeSlide - 1)
           }}
         />
-        {width >= 376 && (
+        {width >= 1024 && (
           <div className={`${s.swiper_scroll_container} hide`}>
             <span className={s.swiper_scroll_info}>
               {activeSlide + 4}/{reviewCount}

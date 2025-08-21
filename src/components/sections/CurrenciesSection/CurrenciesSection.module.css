@@ -392,10 +392,15 @@
         flex-direction: column;
         gap: 10.64vw;
     }
-
-    .currencies_table_container {
+    .currencies_table_container{
+        background: none;
+    }
+    .currencies_table {
         border-radius: 5.5vw;
-        box-shadow: 0.20833vw 0.20833vw 1.04167vw 0vw rgba(255, 255, 255, 0.02) inset;
+        box-shadow: 0.2vw 0.2vw 2vw 1.5vw rgba(255, 255, 255, 0.015) inset;
+        overflow: hidden;
+        background: rgba(15, 14, 19, 0.9);
+        backdrop-filter: blur(1vw);
 
     }
 
@@ -610,6 +615,30 @@
         font-size: 3.7234vw;
         font-style: normal;
         font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+    .btn_exchange{
+        display: flex;
+        height: 12.23404vw;
+        padding: 2.12766vw 6.38298vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.65957vw;
+        align-self: stretch;
+
+        border-radius: 26.59574vw;
+        background: #622FF1;
+        margin-top:8.51vw ;
+        margin-bottom:21.28vw ;
+    }
+    .btn_exchange span{
+        color: #FFF;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: var(--font-inter), sans-serif;
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 600;
         line-height: 5.21277vw;
         letter-spacing: -0.07447vw;
     }

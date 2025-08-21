@@ -123,13 +123,19 @@
     gap: 1.67vw;
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .faq_section {
         flex-direction: column;
         gap: 10.64vw;
         padding: 0 4.26vw;
     }
-
+.faq_section h3{
+    font-size: 7.44681vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 7.44681vw;
+    letter-spacing: -0.14894vw;
+}
     .faq_container {
         flex-direction: column;
         gap: 5.32vw;
