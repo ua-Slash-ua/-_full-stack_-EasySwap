@@ -35,11 +35,14 @@
     gap: 0.52083vw;
     cursor: pointer;
 }
+
 .prevReview svg, .nextReview svg{
     width: 0.74313vw;
     height: 1.35104vw;
     fill: rgba(255, 255, 255, 0.20);
 }
+
+
 
 .prevReview:hover svg, .nextReview:hover svg{
     fill: #622FF1;
@@ -47,3 +50,19 @@
 /*.swiper-slide{*/
 /*    margin-right: 1.04vw!important;*/
 /*}*/
+@media screen and (max-width: 376px){
+    .prevReview, .nextReview{
+        width: 10.6383vw;
+        height: 10.6383vw;
+    }
+    .prevReview{
+        margin-right: 3.19vw;
+    }
+    .prevReview svg, .nextReview svg{
+        width: 2.65957vw;
+        height: 4.78723vw;
+        fill: rgba(255, 255, 255, 0.20);
+
+    }
+
+}
