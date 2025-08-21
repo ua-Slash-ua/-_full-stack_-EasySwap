@@ -72,3 +72,37 @@
 .telegram_container input, .telegram_container label{
     transition: all 0.3s ease;
 }
+
+@media screen and (max-width: 376px) {
+    .telegram_container {
+        width: 100%;
+        gap: 3.19vw;
+
+
+        /*display: flex;*/
+        flex-direction: column;
+    }
+    .telegram_container label {
+        font-size: 3.19149vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.46809vw;
+        letter-spacing: -0.06383vw;
+    }
+
+    .telegram_container input::placeholder, .telegram_container input{
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+
+    .telegram_container input{
+        height: 12.76596vw;
+        padding: 0 4.25532vw;
+        border-radius: 3.7234vw;
+        width: 100%;
+
+    }
+}

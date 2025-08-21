@@ -81,6 +81,7 @@ export default function PhoneInput({
                     },
                   } as React.ChangeEvent<HTMLInputElement>
                   onChange(syntheticEvent)
+                  setActive(false)
                 }}
               >
                 {phone.code}

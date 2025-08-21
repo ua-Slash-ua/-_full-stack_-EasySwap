@@ -172,6 +172,8 @@
     }
     .application_double{
         flex-direction: column;
+        gap: 5.32vw;
+        margin-bottom: 5.32vw;
     }
     .btn_send{
         width: 100%;
