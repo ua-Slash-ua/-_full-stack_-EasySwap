@@ -261,14 +261,13 @@
 
 .curr_age, .body_line .body_item:first-of-type .curr_age {
     margin-left: 0.315vw;
-    width: 3.125vw !important;
-    height: 1.30208vw !important;
-    aspect-ratio: 12/5;
 }
 
 .curr_age img {
-    width: 100%;
-    height: 100%;
+    width: 3.125vw !important;
+    height: 1.30208vw !important;
+
+    aspect-ratio: 12/5;
 }
 
 
@@ -416,17 +415,22 @@
 
     }
 
-    .head_1 {
+    .table_head_1, .table_head_2 {
         display: flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
         align-items: center;
         background: none;
+
+    }
+
+    .table_head_1 {
         padding: 4.25532vw 5.31915vw;
 
     }
-    .head_1 span{
+
+    .table_head_1 span {
         color: #FFF;
         font-feature-settings: 'liga' off, 'clig' off;
         font-family: var(--font-inter), sans-serif;
@@ -459,4 +463,154 @@
         aspect-ratio: 8/15;
     }
 
+    .active path {
+        fill: #622FF1;
+    }
+
+    .table_item {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 4.25532vw 2.12766vw;
+        color: #FFF;
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 4.46809vw;
+        letter-spacing: -0.07447vw;
+        opacity: 1;
+        width: 30%;
+        border-right: 1px solid rgba(255, 255, 255, 0.04);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        text-align: center;
+        gap: 1.6vw;
+    }
+
+    .table_head_2 .table_item {
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+    }
+
+    .table_head_2 .table_item:nth-of-type(1), .table_body_line .table_item:nth-of-type(1) {
+        padding-left: 5.31915vw;
+        justify-content: flex-start;
+        width: 40%;
+        /*flex-wrap: wrap;*/
+
+
+    }
+
+    .table_body {
+        /*max-height: 10vw;*/
+        max-height: 77.1vw;
+        overflow-y: scroll;
+    }
+
+    .table_body_line {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .icon_currencies {
+        width: 6.38298vw;
+        height: 6.38298vw;
+        aspect-ratio: 1/1;
+        border-radius: 6.38298vw;
+    }
+
+    .icon_currencies img {
+        width: 3.38298vw;
+        height: 3.38298vw;
+        aspect-ratio: 1/1;
+    }
+
+    .curr_age img {
+        width: 11.70213vw !important;
+        height: 4.78723vw !important;
+        aspect-ratio: 22/9;
+        margin: 0;
+    }
+
+    .table_footer {
+
+
+        display: flex;
+        padding: 5.31915vw;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2.65957vw;
+        align-self: stretch;
+    }
+
+    .btn_details {
+        display: flex;
+        height: 10.6383vw;
+        padding: 0 2.65957vw 0 4.25532vw;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 0 0;
+
+        border-radius: 26.59574vw;
+        background: #FFF;
+    }
+
+    .btn_details span {
+        color: #0F0E13;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: var(--font-inter), sans-serif;
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+
+    .btn_details div {
+        display: flex;
+        width: 5.31915vw;
+        height: 5.31915vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn_details div svg {
+        width: 4.43271vw;
+        height: 4.43271vw;
+        flex-shrink: 0;
+    }
+
+    .status_update {
+        display: flex;
+        width: 33.51064vw;
+        height: 10.6383vw;
+        padding: 0 5.31915vw;
+        justify-content: center;
+        align-items: center;
+        gap: 3.19149vw;
+
+        border-radius: 26.59574vw;
+        border: 0.133vw solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(1.33vw);
+
+    }
+
+    .status_update svg {
+        width: 4.12234vw;
+        height: 4.04202vw;
+        flex-shrink: 0;
+        aspect-ratio: 15.50/15.20;
+    }
+
+    .status_update span {
+        color: #FFF;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: var(--font-inter), sans-serif;
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
 }

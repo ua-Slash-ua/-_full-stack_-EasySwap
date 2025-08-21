@@ -18,13 +18,13 @@ function formatDateToShort(dateString: string): string {
 
 export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) {
   const countCurrencies: number = 1
-
   const [width, setWidth] = useState<number>(0)
 
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
+  const constSeeAll = width > 1024
 
-  const [seeAll, setSeeAll] = useState(false)
+  const [seeAll, setSeeAll] = useState(constSeeAll)
   const [column, setColumn] = useState<{ left: boolean; right: boolean }>({
     left: true,
     right: false,
@@ -91,87 +91,111 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
               content={'Фіат'}
               active={activeFiat}
               func={() => {
-                setActiveCrypto(!activeCrypto)
-                setActiveFiat(!activeFiat)
+                setActiveCrypto(false)
+                setActiveFiat(true)
               }}
             />
             <BtnSwitcher
               content={'Криптовалюта'}
               active={activeCrypto}
               func={() => {
-                setActiveCrypto(!activeCrypto)
-                setActiveFiat(!activeFiat)
+                setActiveCrypto(true)
+                setActiveFiat(false)
               }}
             />
           </div>
         </div>
         <div className={s.currencies_table_container}>
           {width >= 1024 ? (
-            <div className={s.currencies_table}>
-              <div className={s.table_head}>
-                <div className={s.head_1}>
-                  <div
-                    className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}
-                  >
-                    Валюта
+            <>
+              <div className={s.currencies_table}>
+                <div className={s.table_head}>
+                  <div className={s.head_1}>
+                    <div
+                      className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}
+                    >
+                      Валюта
+                    </div>
+                    <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
+                    <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
+                    <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
+                    <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
+                    <div
+                      className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}
+                    >
+                      Заявка на обмін
+                    </div>
                   </div>
-                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
-                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
-                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
-                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
-                  <div
-                    className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}
-                  >
-                    Заявка на обмін
+                  <div className={s.head_2}>
+                    <div className={s.head_item_one}></div>
+                    <div className={s.head_item_two}>
+                      {activeFiat ? currencies.text.fiat.fist : currencies.text.crypto.fist}
+                    </div>
+                    <div className={s.head_item_two}>
+                      {activeFiat ? currencies.text.fiat.second : currencies.text.crypto.second}
+                    </div>
+                    <div className={s.head_item_one}></div>
                   </div>
                 </div>
-                <div className={s.head_2}>
-                  <div className={s.head_item_one}></div>
-                  <div className={s.head_item_two}>
-                    {activeFiat ? currencies.text.fiat.fist : currencies.text.crypto.fist}
-                  </div>
-                  <div className={s.head_item_two}>
-                    {activeFiat ? currencies.text.fiat.second : currencies.text.crypto.second}
-                  </div>
-                  <div className={s.head_item_one}></div>
+                {visibleCurrencies.map(
+                  (item: CurrencyMeta) =>
+                    item.name !== 'UAN' && (
+                      <div key={item.id} className={s.body_line}>
+                        <div className={s.body_item}>
+                          <div className={s.icon_currencies}>
+                            <Image
+                              src={item.icon.url}
+                              alt={item.icon.alt}
+                              width={100}
+                              height={100}
+                            />
+                          </div>
+                          {item.code}
+                          <div className={s.curr_age}>
+                            {item.cat_date === 'new' ? (
+                              <Image
+                                src={currencies.iconAgeNew.url}
+                                alt={currencies.iconAgeNew.alt}
+                              />
+                            ) : item.cat_date === 'old' ? (
+                              <Image
+                                src={currencies.iconAgeOld.url}
+                                alt={currencies.iconAgeOld.alt}
+                              />
+                            ) : (
+                              <></>
+                            )}
+                          </div>
+                        </div>
+                        {item.ratesByCurrency.map(
+                          (curr: RateByCurrency, index) =>
+                            curr.currency.code === 'UAN' && <TableLine key={index} curr={curr} />,
+                        )}
+                      </div>
+                    ),
+                )}
+              </div>
+              <div className={s.currencies_table_footer}>
+                <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
+                  <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
+
+                  <div
+                    className={s.see}
+                    dangerouslySetInnerHTML={{
+                      __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
+                    }}
+                  />
+                </div>
+                <div className={s.status_update}>
+                  <div dangerouslySetInnerHTML={{ __html: currencies.iconStatus }} />
+                  <span>Оновлено {lastUpdate}</span>
                 </div>
               </div>
-              {visibleCurrencies.map(
-                (item: CurrencyMeta) =>
-                  item.name !== 'UAN' && (
-                    <div key={item.id} className={s.body_line}>
-                      <div className={s.body_item}>
-                        <div className={s.icon_currencies}>
-                          <Image src={item.icon.url} alt={item.icon.alt} width={100} height={100} />
-                        </div>
-                        {item.code}
-                        <div className={s.curr_age}>
-                          {item.cat_date === 'new' ? (
-                            <Image
-                              src={currencies.iconAgeNew.url}
-                              alt={currencies.iconAgeNew.alt}
-                            />
-                          ) : item.cat_date === 'old' ? (
-                            <Image
-                              src={currencies.iconAgeOld.url}
-                              alt={currencies.iconAgeOld.alt}
-                            />
-                          ) : (
-                            <></>
-                          )}
-                        </div>
-                      </div>
-                      {item.ratesByCurrency.map(
-                        (curr: RateByCurrency, index) =>
-                          curr.currency.code === 'UAN' && <TableLine key={index} curr={curr} />,
-                      )}
-                    </div>
-                  ),
-              )}
-            </div>
+            </>
           ) : (
             <CurrencyTableMobile
               isLeft={column}
+              activeFiat={activeFiat}
               visibleCurrencies={visibleCurrencies}
               handlerColumn={handleColumn}
               seeAll={seeAll}
@@ -179,22 +203,6 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
               lastUpdate={lastUpdate}
             />
           )}
-          <div className={s.currencies_table_footer}>
-            <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
-              <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
-
-              <div
-                className={s.see}
-                dangerouslySetInnerHTML={{
-                  __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
-                }}
-              />
-            </div>
-            <div className={s.status_update}>
-              <div dangerouslySetInnerHTML={{ __html: currencies.iconStatus }} />
-              <span>Оновлено {lastUpdate}</span>
-            </div>
-          </div>
         </div>
         <div className={s.currencies_footer}>
           <div className={s.footer_first}>
@@ -265,10 +273,10 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
 }
 
 function TableLine({
-                     curr,
-                     isLeft,
-                     mobile = false,
-                   }: {
+  curr,
+  isLeft,
+  mobile = false,
+}: {
   curr: RateByCurrency
   isLeft?: {
     left: boolean
@@ -281,13 +289,13 @@ function TableLine({
       {mobile ? (
         isLeft?.left ? (
           <>
-            <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-            <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
+            <div className={s.table_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
+            <div className={s.table_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
           </>
         ) : (
           <>
-            <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-            <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
+            <div className={s.table_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
+            <div className={s.table_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
           </>
         )
       ) : (
@@ -306,14 +314,14 @@ function TableLine({
 }
 
 function CurrencyTableMobile({
-                               isLeft,
-                               activeFiat,
-                               handlerColumn,
-                               visibleCurrencies,
-                               seeAll,
-                               lastUpdate,
-                               handlerSeeAll,
-                             }: {
+  isLeft,
+  activeFiat,
+  handlerColumn,
+  visibleCurrencies,
+  seeAll,
+  lastUpdate,
+  handlerSeeAll,
+}: {
   isLeft: {
     left: boolean
     right: boolean
@@ -325,34 +333,31 @@ function CurrencyTableMobile({
   handlerColumn: Function
   lastUpdate: string
 }) {
-  const [textHeader, setTextHeader] = useState<string>(
-    currencies.text.fiat.fist,
-  )
+  const [textHeader, setTextHeader] = useState<string>(currencies.text.fiat.fist)
   useEffect(() => {
-    if(activeFiat){
+    if (activeFiat) {
       if (isLeft.left) {
         setTextHeader(currencies.text.fiat.fist)
       } else {
         setTextHeader(currencies.text.fiat.second)
       }
-    }else{
+    } else {
       if (isLeft.right) {
-        setTextHeader(currencies.text.crypto.fist)
-      } else {
         setTextHeader(currencies.text.crypto.second)
+      } else {
+        setTextHeader(currencies.text.crypto.fist)
       }
     }
-
-  }, [activeFiat, isLeft])
+  }, [activeFiat, isLeft.left])
   return (
     <>
       <div className={s.currencies_table}>
         <div className={s.table_header}>
-          <div className={s.head_1}>
+          <div className={s.table_head_1}>
             <span>{textHeader}</span>
             <div className={s.head_switch}>
               <div
-                className={s.arrow}
+                className={`${s.arrow} ${isLeft.right ? s.active : ''}`}
                 onClick={() => {
                   handlerColumn(true, false)
                 }}
@@ -372,7 +377,7 @@ function CurrencyTableMobile({
                 </svg>
               </div>
               <div
-                className={s.arrow}
+                className={`${s.arrow} ${isLeft.left ? s.active : ''}`}
                 onClick={() => {
                   handlerColumn(false, true)
                 }}
@@ -393,7 +398,81 @@ function CurrencyTableMobile({
               </div>
             </div>
           </div>
-          <div className={s.head_2}></div>
+          <div className={s.table_head_2}>
+            <div className={s.table_item}>Валюта</div>
+            <div className={s.table_item}>Купівля</div>
+            <div className={s.table_item}>Продаж</div>
+          </div>
+        </div>
+        <div className={s.table_body}>
+          {visibleCurrencies.map(
+            (item: CurrencyMeta) =>
+              item.name !== 'UAN' && (
+                <div key={item.id} className={s.table_body_line}>
+                  <div className={s.table_item}>
+                    <div className={s.icon_currencies}>
+                      <Image src={item.icon.url} alt={item.icon.alt} width={100} height={100} />
+                    </div>
+                    {item.code}
+                    <div className={s.curr_age}>
+                      {item.cat_date === 'new' ? (
+                        <Image src={currencies.iconAgeNew.url} alt={currencies.iconAgeNew.alt} />
+                      ) : item.cat_date === 'old' ? (
+                        <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </div>
+                  {item.ratesByCurrency.map(
+                    (curr: RateByCurrency, index) =>
+                      curr.currency.code === 'UAN' && (
+                        <TableLine key={index} curr={curr} mobile={true} isLeft={isLeft} />
+                      ),
+                  )}
+                </div>
+              ),
+          )}
+        </div>
+        <div className={s.table_footer}>
+          <div className={s.btn_details}>
+            <span>Деталі обміну</span>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 18 18"
+                fill="none"
+              >
+                <rect
+                  x="0.664062"
+                  y="0.667969"
+                  width="16.6667"
+                  height="16.6667"
+                  rx="8.33333"
+                  stroke="#0D0D0D"
+                />
+                <path
+                  d="M6.5 9H11.5"
+                  stroke="#0D0D0D"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M9 6.5L9 11.5"
+                  stroke="#0D0D0D"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className={s.status_update}>
+            <div dangerouslySetInnerHTML={{ __html: currencies.iconStatus }} />
+            <span>{lastUpdate}</span>
+          </div>
         </div>
       </div>
     </>
