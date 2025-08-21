@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { CurrencyMeta, RateByCurrency } from '@/props/CurrenciesProps'
 import Image from 'next/image'
 import BtnExchange from '@/components/layout/BtnExchange/BtnExchange'
+import { usePopup } from '@/context/PopupContext'
 
 function formatDateToShort(dateString: string): string {
   const date = new Date(dateString)
@@ -194,6 +195,7 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
             </>
           ) : (
             <CurrencyTableMobile
+              icons={[iconUSD, iconEUR]}
               isLeft={column}
               activeFiat={activeFiat}
               visibleCurrencies={visibleCurrencies}
@@ -204,69 +206,71 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
             />
           )}
         </div>
-        <div className={s.currencies_footer}>
-          <div className={s.footer_first}>
-            <h3>Зверніть увагу!</h3>
-            <div dangerouslySetInnerHTML={{ __html: currencies.iconFooter }} />
-          </div>
-          <div className={s.footer_second}>
-            <h3>Пояснення до таблиці:</h3>
-            <ul>
-              <li>
-                <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
-                <span>USD</span>
-                <div className={s.curr_age}>
-                  <Image
-                    src={currencies.iconAgeNew.url}
-                    alt={currencies.iconAgeNew.alt}
-                    width={25}
-                    height={25}
-                  />
-                </div>
+        {width >= 1024 ? (
+          <div className={s.currencies_footer}>
+            <div className={s.footer_first}>
+              <h3>Зверніть увагу!</h3>
+              <div dangerouslySetInnerHTML={{ __html: currencies.iconFooter }} />
+            </div>
+            <div className={s.footer_second}>
+              <h3>Пояснення до таблиці:</h3>
+              <ul>
+                <li>
+                  <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
+                  <span>USD</span>
+                  <div className={s.curr_age}>
+                    <Image
+                      src={currencies.iconAgeNew.url}
+                      alt={currencies.iconAgeNew.alt}
+                      width={25}
+                      height={25}
+                    />
+                  </div>
 
-                <p> - нові доларові купюри, введені в обіг після 2009 рр.;</p>
-              </li>
-              <li>
-                <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
-                <span>USD</span>
-                <div className={s.curr_age}>
-                  <Image
-                    src={currencies.iconAgeOld.url}
-                    alt={currencies.iconAgeOld.alt}
-                    width={25}
-                    height={25}
-                  />
-                </div>
+                  <p> - нові доларові купюри, введені в обіг після 2009 рр.;</p>
+                </li>
+                <li>
+                  <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
+                  <span>USD</span>
+                  <div className={s.curr_age}>
+                    <Image
+                      src={currencies.iconAgeOld.url}
+                      alt={currencies.iconAgeOld.alt}
+                      width={25}
+                      height={25}
+                    />
+                  </div>
 
-                <p>- старіші доларові купюри, 2000-2006 рр.;</p>
-              </li>
-              <li>
-                <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
-                <p>Від 10000 у.о. курс уточнюйте індивідуально у менеджера.</p>
-              </li>
-            </ul>
+                  <p>- старіші доларові купюри, 2000-2006 рр.;</p>
+                </li>
+                <li>
+                  <div dangerouslySetInnerHTML={{ __html: currencies.iconInfo }} />
+                  <p>Від 10000 у.о. курс уточнюйте індивідуально у менеджера.</p>
+                </li>
+              </ul>
+            </div>
+            <div className={s.footer_second}>
+              <h3>Пояснення до таблиці:</h3>
+              <ul>
+                <li>
+                  <div className={s.icon_currencies}>
+                    <Image src={iconUSD} alt={'USD'} width={25} height={25} />
+                  </div>
+                  <p>
+                    $ 100 доларові купюри, від 2000р випуску, без потерностей, печаток чи інших
+                    маркувань та без пошкоджень;
+                  </p>
+                </li>
+                <li>
+                  <div className={s.icon_currencies}>
+                    <Image src={iconEUR} alt={'EUR'} width={25} height={25} />
+                  </div>
+                  <p>€ лише купюри 50, 100, 200, 500 без значних дефектів</p>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div className={s.footer_second}>
-            <h3>Пояснення до таблиці:</h3>
-            <ul>
-              <li>
-                <div className={s.icon_currencies}>
-                  <Image src={iconUSD} alt={'USD'} width={25} height={25} />
-                </div>
-                <p>
-                  $ 100 доларові купюри, від 2000р випуску, без потерностей, печаток чи інших
-                  маркувань та без пошкоджень;
-                </p>
-              </li>
-              <li>
-                <div className={s.icon_currencies}>
-                  <Image src={iconEUR} alt={'EUR'} width={25} height={25} />
-                </div>
-                <p>€ лише купюри 50, 100, 200, 500 без значних дефектів</p>
-              </li>
-            </ul>
-          </div>
-        </div>
+        ) : null}
       </section>
     </>
   )
@@ -314,6 +318,7 @@ function TableLine({
 }
 
 function CurrencyTableMobile({
+  icons,
   isLeft,
   activeFiat,
   handlerColumn,
@@ -322,6 +327,7 @@ function CurrencyTableMobile({
   lastUpdate,
   handlerSeeAll,
 }: {
+  icons: string[]
   isLeft: {
     left: boolean
     right: boolean
@@ -333,6 +339,7 @@ function CurrencyTableMobile({
   handlerColumn: Function
   lastUpdate: string
 }) {
+  const { setOpen } = usePopup()
   const [textHeader, setTextHeader] = useState<string>(currencies.text.fiat.fist)
   useEffect(() => {
     if (activeFiat) {
@@ -435,7 +442,7 @@ function CurrencyTableMobile({
           )}
         </div>
         <div className={s.table_footer}>
-          <div className={s.btn_details}>
+          <div className={s.btn_details} onClick={() => setOpen('currencies_info',{iconUSD:icons[0], iconEUR:icons[1]})}>
             <span>Деталі обміну</span>
             <div>
               <svg

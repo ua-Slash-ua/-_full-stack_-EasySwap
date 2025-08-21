@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 2.5vw;
 
+
 }
 
 .service_aside li {
@@ -123,6 +124,7 @@
         flex-direction: row;
         overflow: scroll;
         gap: 2.66vw;
+        padding: 1vw 0 2vw 0  ;
     }
     .aside_menu ul li{
         text-wrap: nowrap;
