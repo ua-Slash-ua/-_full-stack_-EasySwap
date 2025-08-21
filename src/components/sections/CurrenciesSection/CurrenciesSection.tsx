@@ -18,9 +18,30 @@ function formatDateToShort(dateString: string): string {
 
 export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) {
   const countCurrencies: number = 1
+
+  const [width, setWidth] = useState<number>(0)
+
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
+
   const [seeAll, setSeeAll] = useState(false)
+  const [column, setColumn] = useState<{ left: boolean; right: boolean }>({
+    left: true,
+    right: false,
+  })
+
+  function handleColumn(left: boolean, right?: boolean) {
+    right = right ?? !left
+    setColumn({
+      left: left,
+      right: right,
+    })
+  }
+
+  function handleSeAll(seAll: boolean) {
+    setSeeAll(seAll)
+  }
+
   const [lastUpdate, setLastUpdate] = useState('')
 
   // const currUAN: CurrUAN = block.find((item: any) => item.code === 'UAN').ratesByCurrency
@@ -47,16 +68,24 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
     const formatted = formatDateToShort(latest.toISOString())
     setLastUpdate(formatted)
   }, [block])
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth / 4)
+    handleResize() // виставляємо ширину одразу після маунту
 
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   return (
     <>
       <section className={s.currencies_section} id={'courses'}>
         <div className={s.currencies_header}>
           <h3>Актуальний курс валют</h3>
-          <div
-            className={s.currencies_icon}
-            dangerouslySetInnerHTML={{ __html: currencies.iconMain }}
-          />
+          {width > 376 && (
+            <div
+              className={s.currencies_icon}
+              dangerouslySetInnerHTML={{ __html: currencies.iconMain }}
+            />
+          )}
           <div className={s.calc_header}>
             <BtnSwitcher
               content={'Фіат'}
@@ -77,62 +106,79 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
           </div>
         </div>
         <div className={s.currencies_table_container}>
-          <div className={s.currencies_table}>
-            <div className={s.table_head}>
-              <div className={s.head_1}>
-                <div
-                  className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}
-                >
-                  Валюта
-                </div>
-                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
-                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
-                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
-                <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
-                <div
-                  className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}
-                >
-                  Заявка на обмін
-                </div>
-              </div>
-              <div className={s.head_2}>
-                <div className={s.head_item_one}></div>
-                <div className={s.head_item_two}>
-                  {activeFiat ? currencies.text.fiat.fist : currencies.text.crypto.fist}
-                </div>
-                <div className={s.head_item_two}>
-                  {activeFiat ? currencies.text.fiat.second : currencies.text.crypto.second}
-                </div>
-                <div className={s.head_item_one}></div>
-              </div>
-            </div>
-            {visibleCurrencies.map(
-              (item: CurrencyMeta) =>
-                item.name !== 'UAN' && (
-                  <div key={item.id} className={s.body_line}>
-                    <div className={s.body_item}>
-                      <div className={s.icon_currencies}>
-                        <Image src={item.icon.url} alt={item.icon.alt} width={100} height={100} />
-                      </div>
-                      {item.code}
-                      <div className={s.curr_age}>
-                        {item.cat_date === 'new' ? (
-                          <Image src={currencies.iconAgeNew.url} alt={currencies.iconAgeNew.alt} />
-                        ) : item.cat_date === 'old' ? (
-                          <Image src={currencies.iconAgeOld.url} alt={currencies.iconAgeOld.alt} />
-                        ) : (
-                          <></>
-                        )}
-                      </div>
-                    </div>
-                    {item.ratesByCurrency.map(
-                      (curr: RateByCurrency, index) =>
-                        curr.currency.code === 'UAN' && <TableLine key={index} {...curr} />,
-                    )}
+          {width >= 1024 ? (
+            <div className={s.currencies_table}>
+              <div className={s.table_head}>
+                <div className={s.head_1}>
+                  <div
+                    className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom_left}`}
+                  >
+                    Валюта
                   </div>
-                ),
-            )}
-          </div>
+                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
+                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
+                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Купівля</div>
+                  <div className={`${s.head_item} ${s.border_gradient_vertical}`}>Продаж</div>
+                  <div
+                    className={`${s.head_item} ${s.border_gradient_vertical} ${s.border_gradient_bottom}`}
+                  >
+                    Заявка на обмін
+                  </div>
+                </div>
+                <div className={s.head_2}>
+                  <div className={s.head_item_one}></div>
+                  <div className={s.head_item_two}>
+                    {activeFiat ? currencies.text.fiat.fist : currencies.text.crypto.fist}
+                  </div>
+                  <div className={s.head_item_two}>
+                    {activeFiat ? currencies.text.fiat.second : currencies.text.crypto.second}
+                  </div>
+                  <div className={s.head_item_one}></div>
+                </div>
+              </div>
+              {visibleCurrencies.map(
+                (item: CurrencyMeta) =>
+                  item.name !== 'UAN' && (
+                    <div key={item.id} className={s.body_line}>
+                      <div className={s.body_item}>
+                        <div className={s.icon_currencies}>
+                          <Image src={item.icon.url} alt={item.icon.alt} width={100} height={100} />
+                        </div>
+                        {item.code}
+                        <div className={s.curr_age}>
+                          {item.cat_date === 'new' ? (
+                            <Image
+                              src={currencies.iconAgeNew.url}
+                              alt={currencies.iconAgeNew.alt}
+                            />
+                          ) : item.cat_date === 'old' ? (
+                            <Image
+                              src={currencies.iconAgeOld.url}
+                              alt={currencies.iconAgeOld.alt}
+                            />
+                          ) : (
+                            <></>
+                          )}
+                        </div>
+                      </div>
+                      {item.ratesByCurrency.map(
+                        (curr: RateByCurrency, index) =>
+                          curr.currency.code === 'UAN' && <TableLine key={index} curr={curr} />,
+                      )}
+                    </div>
+                  ),
+              )}
+            </div>
+          ) : (
+            <CurrencyTableMobile
+              isLeft={column}
+              visibleCurrencies={visibleCurrencies}
+              handlerColumn={handleColumn}
+              seeAll={seeAll}
+              handlerSeeAll={handleSeAll}
+              lastUpdate={lastUpdate}
+            />
+          )}
           <div className={s.currencies_table_footer}>
             <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
               <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
@@ -218,18 +264,138 @@ export default function CurrenciesSection({ block }: { block: CurrencyMeta[] }) 
   )
 }
 
-function TableLine(curr: RateByCurrency) {
+function TableLine({
+                     curr,
+                     isLeft,
+                     mobile = false,
+                   }: {
+  curr: RateByCurrency
+  isLeft?: {
+    left: boolean
+    right: boolean
+  }
+  mobile?: boolean
+}) {
   return (
     <>
-      <>
-        <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-        <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
-        <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-        <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
-        <div className={s.body_item}>
-          <BtnExchange />
+      {mobile ? (
+        isLeft?.left ? (
+          <>
+            <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
+            <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
+          </>
+        ) : (
+          <>
+            <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
+            <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
+          </>
+        )
+      ) : (
+        <>
+          <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
+          <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
+          <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
+          <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
+          <div className={s.body_item}>
+            <BtnExchange />
+          </div>
+        </>
+      )}
+    </>
+  )
+}
+
+function CurrencyTableMobile({
+                               isLeft,
+                               activeFiat,
+                               handlerColumn,
+                               visibleCurrencies,
+                               seeAll,
+                               lastUpdate,
+                               handlerSeeAll,
+                             }: {
+  isLeft: {
+    left: boolean
+    right: boolean
+  }
+  visibleCurrencies: any[]
+  seeAll: boolean
+  activeFiat?: boolean
+  handlerSeeAll: Function
+  handlerColumn: Function
+  lastUpdate: string
+}) {
+  const [textHeader, setTextHeader] = useState<string>(
+    currencies.text.fiat.fist,
+  )
+  useEffect(() => {
+    if(activeFiat){
+      if (isLeft.left) {
+        setTextHeader(currencies.text.fiat.fist)
+      } else {
+        setTextHeader(currencies.text.fiat.second)
+      }
+    }else{
+      if (isLeft.right) {
+        setTextHeader(currencies.text.crypto.fist)
+      } else {
+        setTextHeader(currencies.text.crypto.second)
+      }
+    }
+
+  }, [activeFiat, isLeft])
+  return (
+    <>
+      <div className={s.currencies_table}>
+        <div className={s.table_header}>
+          <div className={s.head_1}>
+            <span>{textHeader}</span>
+            <div className={s.head_switch}>
+              <div
+                className={s.arrow}
+                onClick={() => {
+                  handlerColumn(true, false)
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="8"
+                  height="16"
+                  viewBox="0 0 8 16"
+                  fill="none"
+                >
+                  <path
+                    d="M8 14.2741L6.8102 15.5L0.329635 8.81881C0.225172 8.71176 0.142269 8.58445 0.0856964 8.44422C0.0291242 8.304 0 8.15362 0 8.00174C0 7.84985 0.0291242 7.69947 0.0856964 7.55925C0.142269 7.41902 0.225172 7.29171 0.329635 7.18466L6.8102 0.5L7.99888 1.72591L1.91641 8L8 14.2741Z"
+                    fill="white"
+                    fillOpacity="0.2"
+                  />
+                </svg>
+              </div>
+              <div
+                className={s.arrow}
+                onClick={() => {
+                  handlerColumn(false, true)
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="8"
+                  height="16"
+                  viewBox="0 0 8 16"
+                  fill="none"
+                >
+                  <path
+                    d="M0 1.72591L1.1898 0.5L7.67036 7.18119C7.77483 7.28824 7.85773 7.41555 7.9143 7.55578C7.97088 7.696 8 7.84638 8 7.99826C8 8.15015 7.97088 8.30053 7.9143 8.44075C7.85773 8.58098 7.77483 8.70829 7.67036 8.81534L1.1898 15.5L0.00112152 14.2741L6.08359 8L0 1.72591Z"
+                    fill="white"
+                    fillOpacity="0.2"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div className={s.head_2}></div>
         </div>
-      </>
+      </div>
     </>
   )
 }

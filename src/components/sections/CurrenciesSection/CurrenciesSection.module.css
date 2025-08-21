@@ -387,3 +387,76 @@
     flex-shrink: 0;
     aspect-ratio: 1/1;
 }
+
+@media screen and (max-width: 1024px) {
+    .currencies_header {
+        flex-direction: column;
+        gap: 10.64vw;
+    }
+
+    .currencies_table_container {
+        border-radius: 5.5vw;
+        box-shadow: 0.20833vw 0.20833vw 1.04167vw 0vw rgba(255, 255, 255, 0.02) inset;
+
+    }
+
+    .currencies_header h3 {
+        font-size: 7.44681vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 7.44681vw;
+        letter-spacing: -0.14894vw;
+    }
+
+    .calc_header {
+        border-radius: 26.59574vw;
+
+        width: 100%;
+        padding: 1.06vw;
+
+    }
+
+    .head_1 {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        padding: 4.25532vw 5.31915vw;
+
+    }
+    .head_1 span{
+        color: #FFF;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: var(--font-inter), sans-serif;
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.46809vw;
+        letter-spacing: -0.07447vw;
+    }
+
+    .head_switch {
+        display: flex;
+        flex-direction: row;
+        gap: 2.13vw;
+    }
+
+    .head_switch div {
+        display: flex;
+        width: 10.6383vw;
+        height: 10.6383vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.65957vw;
+    }
+
+    .head_switch svg {
+        width: 2.12766vw;
+        height: 3.98936vw;
+        flex-shrink: 0;
+        aspect-ratio: 8/15;
+    }
+
+}
