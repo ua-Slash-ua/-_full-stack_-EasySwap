@@ -5,3 +5,9 @@
     aspect-ratio: 151/40;
     cursor: pointer;
 }
+@media screen and (max-width: 1024px) {
+    .logo{
+        width: 31.91489vw;
+        height: 8.51064vw;
+    }
+}
