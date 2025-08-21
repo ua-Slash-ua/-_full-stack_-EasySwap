@@ -2,11 +2,19 @@
 import { ServiceItemBlockProps } from '@/props/ServiceItemBlockProps'
 import { serviceData } from '@/config/services.config'
 import s from './ItemBlock.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
   const serviceConst = isLeft ? serviceData[0] : serviceData[1]
   const [active, setActive] = useState(false)
+  const [width, setWidth] = useState<number>(0)
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth/4)
+    handleResize() // виставляємо ширину одразу після маунту
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   return (
     <>
       <div className={s.item_block}>
@@ -32,7 +40,7 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
             </div>
           )}
         </div>
-        {isLeft ? (
+        {(isLeft || width >= 376 || (active && !isLeft)) && (
           <ul>
             {points.map((point, index) => (
               <li key={index}>
@@ -44,34 +52,13 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
                       }}
                     />
                   </div>
-
                   <p>{point}</p>
                 </div>
               </li>
             ))}
           </ul>
-        ) : (
-          active &&
-          !isLeft && (
-            <ul>
-              {points.map((point, index) => (
-                <li key={index}>
-                  <div className={s.item_block_line}>
-                    <div className={s.item_block_icon}>
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: serviceConst.icon || `<span>${index + 1}</span>`,
-                        }}
-                      />
-                    </div>
-
-                    <p>{point}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )
         )}
+
       </div>
     </>
   )

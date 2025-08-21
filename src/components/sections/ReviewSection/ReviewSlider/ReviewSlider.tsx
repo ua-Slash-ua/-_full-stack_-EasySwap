@@ -40,6 +40,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
+        // autoHeight={true}
         onBeforeInit={swiper => {
           if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
             swiper.params.navigation.prevEl = prevRef.current
@@ -51,7 +52,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
           nextEl: nextRef.current,
         }}
         breakpoints={{
-          0: { slidesPerView: 1 }, // для екранів <= 376px
+          0: { slidesPerView: 1.1 }, // для екранів <= 376px
           377: { slidesPerView: 4 }, // для ширших екранів
         }}
         pagination={{ clickable: true }}

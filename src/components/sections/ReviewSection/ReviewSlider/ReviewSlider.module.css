@@ -64,7 +64,7 @@
     width: 5.8vw;
     height: 5.3vw;
     cursor: pointer;
-    border-radius: 3vw;
+    border-radius: 1vw;
 }
 
 .swiper_scroll_container{
@@ -97,6 +97,7 @@
     .review_slide{
         display: flex;
         width: 79.78723vw;
+        /*min-height: 100vw;*/
         padding: 5.31915vw;
         flex-direction: column;
         align-items: flex-start;
@@ -155,5 +156,9 @@
         line-height:  4.09574vw;
         letter-spacing: -0.07447vw;
         bottom: 4.26vw;
+    }
+    .review_swiper{
+        padding-top: 10.64vw ;
+        padding-bottom: 8.51vw ;
     }
 }

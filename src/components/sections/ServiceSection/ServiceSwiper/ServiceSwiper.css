@@ -1,8 +1,12 @@
-.swiper{
-    overflow: visible !important;
-}
+
 
 /*.swiper-slide{*/
 /*    width: 85.90426vw!important;*/
 /*    height: auto;*/
 /*}*/
+
+@media screen and (max-width: 376px) {
+    .swiper{
+        overflow: visible !important;
+    }
+}
