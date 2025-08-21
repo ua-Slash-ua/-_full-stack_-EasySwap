@@ -86,7 +86,8 @@
 @media screen and (max-width: 376px) {
     .service_item {
         display: flex;
-        width: 85.90426vw;
+        width: 100%;
+        /*width: 85.90426vw;*/
         padding: 6.38298vw 4.25532vw 4.25532vw 4.25532vw;
         flex-direction: column;
         align-items: flex-start;
@@ -94,11 +95,13 @@
         align-self: stretch;
         justify-content: space-between;
         border-radius: 6.38298vw;
-
+        min-height: 140vw;
     }
-    .item_header{
+
+    .item_header {
         gap: 2.13vw;
     }
+
     .item_header h3 {
         font-size: 5.31915vw;
         line-height: 5.85106vw;
@@ -106,6 +109,7 @@
     }
 
     .item_header div, .item_header div svg {
+        max-width: none;
         width: 6.38298vw;
         height: 6.38298vw;
         aspect-ratio: 1/1;

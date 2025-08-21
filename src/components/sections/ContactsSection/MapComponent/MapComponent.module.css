@@ -7,3 +7,14 @@
     border-radius: 2.08333vw;
 
 }
+
+@media screen and (max-width: 376px) {
+    .map{
+        width: 91.2234vw;
+        height: 99.46809vw;
+        aspect-ratio: 166/181;
+        border-radius: 6.38298vw;
+        margin-top: 5.32vw;
+
+    }
+}

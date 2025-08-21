@@ -47,7 +47,7 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
           func={handlerService}
           activeService={activeService}
         />
-        {width <= 378 ? (
+        {width <= 376 ? (
           <ServiceSwiper services={block.services} activeService={activeService} setActiveService={handlerService} />
         ) : (
           <ServiceItem service={service} />

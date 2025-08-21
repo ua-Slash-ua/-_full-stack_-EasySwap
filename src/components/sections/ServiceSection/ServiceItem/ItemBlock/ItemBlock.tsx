@@ -40,7 +40,11 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
             </div>
           )}
         </div>
-        {(isLeft || width >= 376 || (active && !isLeft)) && (
+        {(
+          isLeft ||
+          (!isLeft && (width > 376 || (active && width <= 376)))
+        ) && (
+
           <ul>
             {points.map((point, index) => (
               <li key={index}>
@@ -58,6 +62,7 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
             ))}
           </ul>
         )}
+
 
       </div>
     </>

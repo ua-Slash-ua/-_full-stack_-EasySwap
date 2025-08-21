@@ -8,5 +8,7 @@
 @media screen and (max-width: 376px) {
     .swiper{
         overflow: visible !important;
+        max-width: 91.46vw;
+        width: 91.46vw;
     }
 }

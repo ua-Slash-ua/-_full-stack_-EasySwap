@@ -1,6 +1,7 @@
 .review_section{
     width: 100vw;
     margin-top: 8.02vw;
+    overflow: hidden;
 }
 .review_container{
     width: 100vw;

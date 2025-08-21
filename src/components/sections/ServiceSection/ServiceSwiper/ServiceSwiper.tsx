@@ -32,9 +32,7 @@ export default function ServiceSwiper({
     <Swiper
       modules={[ Pagination]}
       spaceBetween={20}
-      slidesPerView={1.1}
-      centeredSlides={false}
-      loop={false}
+      slidesPerView={1.05}
       pagination={{ clickable: true }}
       onSwiper={swiper => (swiperRef.current = swiper)}
       onSlideChange={swiper => setActiveService(swiper.activeIndex)}
