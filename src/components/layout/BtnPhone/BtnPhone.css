@@ -15,6 +15,23 @@
     transition: all 0.3s ease; /* плавність */
     z-index: 1;
 }
+.btn_phone_reversed .inner-content{
+    border-radius: 5.20833vw;
+    display: flex;
+    width: 2.70833vw;
+    height: 2.70833vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+    background: white;
+    padding: 0;
+}
+/*.btn_phone_reversed:hover{*/
+/*    border-color: rgba(247, 234, 249, 0.50);*/
+/*    background: rgba(255, 255, 255, 0.04);*/
+/*    box-shadow: 0 0 0.41667vw rgba(98, 47, 241, 0.50);*/
+/*    cursor: pointer;*/
+/*}*/
 
 .btn_phone:hover {
     border-color: rgba(247, 234, 249, 0.50);
