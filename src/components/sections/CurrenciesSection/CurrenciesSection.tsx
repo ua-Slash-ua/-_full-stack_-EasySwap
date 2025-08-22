@@ -70,7 +70,7 @@ export default function CurrenciesSection({ block , departments }: { block: Curr
     setLastUpdate(formatted)
   }, [block])
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth / 4)
+    const handleResize = () => setWidth(window.innerWidth )
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)

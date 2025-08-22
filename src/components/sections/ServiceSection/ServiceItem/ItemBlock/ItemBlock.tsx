@@ -9,7 +9,7 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
   const [active, setActive] = useState(false)
   const [width, setWidth] = useState<number>(0)
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth/4)
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)

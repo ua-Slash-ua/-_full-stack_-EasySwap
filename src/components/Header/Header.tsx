@@ -16,7 +16,12 @@ export default function Header({ block, locale }: { block: any; locale: string }
   useEffect(() => {
     const handleScroll = () => {
       // розрахунок 10vw у пікселях
-      const threshold = window.innerWidth * 0.4693
+      let threshold
+      if (width > 1024) {
+        threshold = window.innerWidth * 0.4693
+      }else{
+        threshold = window.innerWidth * 2.3
+      }
       // const threshold = window.innerWidth * 0.1;
       const currentScrollY = window.scrollY
 
@@ -36,7 +41,7 @@ export default function Header({ block, locale }: { block: any; locale: string }
   }, [])
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth / 4)
+    const handleResize = () => setWidth(window.innerWidth )
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)

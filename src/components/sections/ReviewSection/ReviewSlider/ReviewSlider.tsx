@@ -28,7 +28,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
     }
   }, [activeSlide])
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth / 4)
+    const handleResize = () => setWidth(window.innerWidth )
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)

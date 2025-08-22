@@ -18,7 +18,7 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
     return () => clearTimeout(timeout) // 🧹 очищення попереднього таймера
   }, [activeService])
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth/4)
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)

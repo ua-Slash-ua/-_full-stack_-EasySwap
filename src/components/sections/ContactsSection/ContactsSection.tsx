@@ -20,7 +20,7 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
     },
   )
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth / 4)
+    const handleResize = () => setWidth(window.innerWidth )
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)
