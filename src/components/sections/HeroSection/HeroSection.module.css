@@ -209,14 +209,12 @@
 }
 
 
-
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 1024px) {
     .section_hero {
         width: 100vw;
-        height: 215.96vw;
+        height: 281.13vw;
         align-items: flex-start;
     }
-
 
 
     .hero_aside {
@@ -235,6 +233,9 @@
         margin: 10.64vw 4.26vw 0 4.26vw;
         width: 91.22vw;
         padding: 5.32vw 4.26vw;
+        gap: 9.57vw;
+        border-radius: 8.51064vw;
+
 
     }
 
@@ -268,4 +269,58 @@
         height: 9.57vw;
     }
 
+    .calc_content {
+        gap: 1.6vw;
+    }
+
+    .calc_course_container {
+        font-size: 3.19149vw;
+        font-weight: 400;
+        /*line-height: 3.19149vw;*/
+        letter-spacing: -0.06383vw;
+    }
+
+    .curr_age img {
+        width: 11.70213vw;
+        height: 4.78723vw;
+        aspect-ratio: 22/9;
+    }
+
+    .btn_exchange {
+        height: 12.23404vw;
+        width: 82.71vw;
+        padding: 2.12766vw 6.38298vw;
+        font-size: 3.7234vw;
+
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+    .hero_items{
+        gap: 2.13vw;
+        margin: 10.64vw 3.99vw 0;
+    }
+
+    .btn_replace{
+        display: flex;
+        width: 11.11064vw;
+        height: 11.11064vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.65957vw;
+        aspect-ratio: 1/1;
+
+        border-radius: 26.59574vw;
+        background: #F4EEFF;
+        border: 1.6vw solid #1B1525;
+        backdrop-filter: blur(13.3vw);
+        left: 35vw;
+        bottom: -6vw;
+    }
+
+    .btn_replace svg{
+        width: 3.7234vw;
+        height: 3.7234vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+    }
 }

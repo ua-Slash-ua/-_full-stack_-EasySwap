@@ -14,6 +14,7 @@ export default function SupportSection({ block, locale }: { block: any; locale: 
             blend={0.5}
             amplitude={1.0}
             speed={0.5}
+            className={s.support_back}
           />
           <div className={s.support_content}>
             <div className={s.icons}>

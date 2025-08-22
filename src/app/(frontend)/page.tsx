@@ -56,15 +56,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
           block.blockType as keyof typeof BLOCK_COMPONENTS
-        ] as unknown as React.ComponentType<{ block: unknown; locale: string; departments?: any}>
+        ] as unknown as React.ComponentType<{ block: unknown; locale: string; departments?: any }>
         if (!BlockComponent) return null
         if (block.blockType === 'review-block') {
           return <BlockComponent key={block.id || i} block={reviews} locale={locale} />
         } else if (block.blockType === 'application-block' || block.blockType === 'contact-block') {
           return <BlockComponent key={block.id || i} block={contacts} locale={locale} />
-        } else if (block.blockType === 'currencies-block') {
-          return <BlockComponent key={block.id || i} block={currencies.docs} locale={locale} />
-        } else if (block.blockType === 'hero-block') {
+        } else if (block.blockType === 'currencies-block' || block.blockType === 'hero-block') {
           return (
             <BlockComponent
               key={block.id || i}

@@ -5,9 +5,13 @@ export default function NumbersSection({ block, locale }: { block: any; locale: 
   return (
     <>
       <section className={s.numbers_section} id={'about-service'}>
+        <h3
+          className={`${s.aside_card_title} show_inline`}
+          dangerouslySetInnerHTML={{ __html: block.aside_title }}
+        />
         <aside className={s.aside_card}>
           <h3
-            className={s.aside_card_title}
+            className={`${s.aside_card_title} hide_inline`}
             dangerouslySetInnerHTML={{ __html: block.aside_title }}
           />
           <div className={s.aside_bottom}>

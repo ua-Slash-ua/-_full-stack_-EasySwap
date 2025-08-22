@@ -17,6 +17,24 @@
     cursor: pointer;
 }
 
+.btn_mail_reversed .inner-content {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+
+    display: flex;
+    height: 2.70833vw;
+    padding: 0 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+
+    border-radius: 5.20833vw;
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.005vw solid #626262;
+    backdrop-filter: blur(1.56vw);
+}
+
 .btn_mail:hover {
     border-radius: 5.20833vw;
     background: #F4EEFF;

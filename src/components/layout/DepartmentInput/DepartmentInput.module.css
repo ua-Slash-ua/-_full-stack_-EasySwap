@@ -133,3 +133,64 @@
 .container_application_department input:focus {
     border-color: #2C2C2C;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .container_application_department {
+        width: 100%;
+        gap: 3.19vw;
+    }
+    .container_application_department label {
+        font-size: 3.19149vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.46809vw;
+        letter-spacing: -0.06383vw;
+    }
+
+    .select_container input::placeholder, .select_container input{
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+    .select_container{
+        width: 100%;
+        height: 12.76596vw;
+        border-radius: 3.7234vw;
+    }
+    .select_container input{
+        height: 100%;
+        border-radius: 3.7234vw;
+
+    }
+    .select_container input{
+        padding-left: 5.32vw;
+    }
+
+    .options_container {
+        top: 15vw;
+        border-radius: 3.7234vw;
+        gap: 5vw;
+        padding: 3vw 2vw;
+    }
+    .options_container li {
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+        padding: 1vw 2vw;
+    }
+    .btn{
+        width: 11.70213vw;
+        background: none;
+    }
+    .btn svg{
+        width: 2.65957vw;
+        height: 5.31915vw;
+        flex-shrink: 0;
+        aspect-ratio: 11/20;
+    }
+}

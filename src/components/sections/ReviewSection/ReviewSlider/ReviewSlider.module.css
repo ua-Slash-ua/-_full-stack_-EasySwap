@@ -28,6 +28,13 @@
             0.20833vw  0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.10) inset;
 
 }
+.review_slide:hover{
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+
+}
+.review_slide:hover svg path{
+    fill: white;
+}
 
 .swiper_header{
     display: flex;
@@ -57,6 +64,7 @@
     width: 5.8vw;
     height: 5.3vw;
     cursor: pointer;
+    border-radius: 1vw;
 }
 
 .swiper_scroll_container{
@@ -78,10 +86,79 @@
     font-size: 1.04167vw;
     font-style: normal;
     font-weight: 400;
-    line-height:  1.14583vw; /* 1.14583rem */
+    line-height:  1.14583vw; /* 1.14583vw */
     letter-spacing: -0.02083vw;
 }
 .swiper_scroll_back{
     height: 0.15625vw;
     background: #622FF1;
+}
+@media screen and (max-width: 1024px) {
+    .review_slide{
+        display: flex;
+        width: 79.78723vw;
+        /*min-height: 100vw;*/
+        padding: 5.31915vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 23.93617vw;
+        border-radius: 5.31915vw;
+        background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+    }
+    .swiper_header{
+        gap: 3.19vw;
+    }
+    .swiper_header svg path{
+        fill: white;
+    }
+    .swiper_header div{
+        width: 13.82979vw;
+        height: 13.82979vw;
+        aspect-ratio: 1/1;
+    }
+    .swiper_header svg{
+        width: 11.2367vw;
+        height: 8.21144vw;
+        flex-shrink: 0;
+    }
+    .swiper_header p{
+        font-size: 4.78723vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 6.2234vw;
+        letter-spacing: -0.09574vw;
+    }
+    .review_image, .review_image img {
+        width: 29.79vw;
+        height: 27.66vw;
+        flex-shrink: 0;
+        border-radius: 3vw;
+    }
+    .review_slider_nav{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .swiper_scroll_container{
+        margin-right: 29.52vw;
+        width: 37.23404vw;
+        height: 0.79787vw;
+    }
+    .swiper_scroll_back{
+        height: 0.79787vw;
+        background: #622FF1;
+    }
+    .swiper_scroll_info{
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height:  4.09574vw;
+        letter-spacing: -0.07447vw;
+        bottom: 4.26vw;
+    }
+    .review_swiper{
+        padding-top: 10.64vw ;
+        padding-bottom: 8.51vw ;
+    }
 }

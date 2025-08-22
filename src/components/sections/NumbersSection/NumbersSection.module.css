@@ -21,7 +21,7 @@
     font-size: 2.5vw;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 3vw */
+    line-height: 3vw;
     letter-spacing: -0.05vw;
     align-self: stretch;
 }
@@ -76,4 +76,61 @@
     letter-spacing: -0.025vw;
     line-height: 120%; /* 1.5vw */
     font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+    .numbers_section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        grid-auto-rows: auto;
+        gap: 1.86vw; /* відстань між елементами */
+        padding: 0 4.26vw;
+    }
+    .numbers_section > :first-child {
+        grid-column: 1 / -1;
+    }
+    .aside_bottom{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 44.54787vw;
+        min-height: 48.4vw;
+        height: fit-content;
+        padding: 4.25532vw;
+        gap: 3.19vw;
+        flex-shrink: 0;
+        border-radius: 5.31915vw;
+    }
+    .aside_bottom_description{
+        justify-content: space-between;
+        gap: 12.57vw;
+    }
+    .aside_bottom_left{
+        width: 5.85106vw;
+        height: 5.85106vw;
+        aspect-ratio: 1/1;
+    }
+    .aside_bottom_left svg{
+        width: 5.6117vw;
+        height: 5.85106vw;
+
+        flex-shrink: 0;
+    }
+    .aside_bottom_description h3{
+        font-size: 8.51064vw;
+        line-height: 8.51064vw;
+    }
+    .aside_bottom_description p{
+        font-size: 3.7234vw;
+        line-height: 4.46809vw;
+        letter-spacing: -0.07447vw;
+    }
+    .aside_card_title{
+        font-size: 7.44681vw;
+        line-height: 8.93617vw;
+        letter-spacing: -0.14894vw;
+        margin-bottom: 10.64vw;
+    }
+
 }

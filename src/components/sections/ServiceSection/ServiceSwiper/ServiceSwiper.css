@@ -1,0 +1,14 @@
+
+
+/*.swiper-slide{*/
+/*    width: 85.90426vw!important;*/
+/*    height: auto;*/
+/*}*/
+
+@media screen and (max-width: 1024px) {
+    .swiper{
+        overflow: visible !important;
+        max-width: 91.46vw;
+        width: 91.46vw;
+    }
+}

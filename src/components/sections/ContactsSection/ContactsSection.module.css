@@ -47,3 +47,31 @@
     gap: 1.04vw;
 }
 
+@media  screen and (max-width: 1024px) {
+    .contacts_section{
+        flex-direction: column;
+        padding: 0 4.26vw ;
+
+    }
+    .content_list_address{
+        flex-direction: column;
+        gap: 2.13vw;
+    }
+    .content{
+        background: none;
+        gap: 10.64vw;
+        padding: 0;
+    }
+    .content h3{
+        font-size: 7.44681vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 7.44681vw;
+        letter-spacing: -0.14894vw;
+    }
+    .content_list_social{
+        gap: 2.39vw;
+        margin-top: 5.32vw;
+    }
+}
+

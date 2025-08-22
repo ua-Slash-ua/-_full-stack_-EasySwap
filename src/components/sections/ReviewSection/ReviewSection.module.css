@@ -1,6 +1,7 @@
 .review_section{
     width: 100vw;
     margin-top: 8.02vw;
+    overflow: hidden;
 }
 .review_container{
     width: 100vw;
@@ -58,4 +59,50 @@
     width: 0.83333vw;
     height: 0.83333vw;
     flex-shrink: 0;
+}
+@media screen and (max-width: 1024px) {
+    .review_container{
+        padding: 10.6383vw 0 10.6383vw 4.25532vw;
+        border-radius: 8.51064vw;
+
+    }
+    .review_title h3 {
+        font-size: 7.44681vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 7.44681vw;
+        letter-spacing: -0.14894vw;
+    }
+    .review_btn{
+        display: flex;
+        width: 91.2234vw;
+        height: 12.23404vw;
+        padding: 0 6.38298vw;
+        justify-content: center;
+        align-items: center;
+        gap: 3.19149vw;
+
+        border-radius: 26.59574vw;
+        background: white;
+        margin-top: 10.64vw;
+    }
+    .review_btn svg{
+        width: 3.90106vw;
+        height: 3.81649vw;
+        flex-shrink: 0;
+    }
+    .review_btn svg path{
+        fill: black;
+    }
+    .review_btn span{
+        color: #0F0E13;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: var(--font-inter), sans-serif;
+        font-size: 4.25532vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%; /* 5.95745vw */
+        letter-spacing: -0.08511vw;
+    }
+
 }

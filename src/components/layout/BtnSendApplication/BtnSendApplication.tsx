@@ -8,15 +8,16 @@ import { usePopup } from '@/context/PopupContext'
 type BtnPhoneProps = {
   svgIcon: string
   text: string
+  isReversed?: boolean
 }
 
-export default function BtnSendApplication({ svgIcon, text }: BtnPhoneProps) {
+export default function BtnSendApplication({ svgIcon, text, isReversed=false}: BtnPhoneProps) {
   const { setOpen } = usePopup();
   return (
     <>
       <StarBorder
         as="div"
-        className={`${s.btn_mail} btn_mail`}
+        className={`${isReversed ? s.btn_mail_reversed : s.btn_mail} ${isReversed ? 'btn_mail_reversed' : 'btn_mail'}`}
         speed="5s"
         color={'#622FF1'}
         onClick={() => setOpen('create_application')}

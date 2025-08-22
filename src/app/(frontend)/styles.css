@@ -1,25 +1,45 @@
-main{
-  position: relative;
-  width: 100vw;
-  height: auto;
-  background-color: #09090A;
-  color: #fff;
+main {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    background-color: #09090A;
+    color: #fff;
 }
+
 .show {
-  display: none!important;
+    display: none !important;
 }
 
 .hide {
-  display: flex!important;
+    display: flex !important;
+}
+
+.show_inline {
+    display: none !important;
+
+}
+
+.hide_inline {
+    display: inline !important;
 }
 
 @media screen and (max-width: 376px) {
 
-  .hide {
-    display: none!important;
-  }
+    .hide {
+        display: none !important;
+    }
 
-  .show {
-    display: flex  !important;
-  }
+    .show {
+        display: flex !important;
+    }
+
+    .hide_inline {
+        display: none !important;
+    }
+
+    .show_inline {
+        display: inline !important;
+    }
+
+
 }

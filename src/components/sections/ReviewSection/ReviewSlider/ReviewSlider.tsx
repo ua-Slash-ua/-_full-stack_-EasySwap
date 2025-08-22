@@ -20,18 +20,27 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
   const prevRef = useRef<HTMLDivElement>(null)
   const nextRef = useRef<HTMLDivElement>(null)
   const swiperRef = useRef<SwiperType | null>(null)
+  const [width, setWidth] = useState<number>(0)
+
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(activeSlide)
     }
   }, [activeSlide])
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth / 4)
+    handleResize() // виставляємо ширину одразу після маунту
 
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   const reviewCount = reviews.length
   return (
     <>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
+        // autoHeight={true}
         onBeforeInit={swiper => {
           if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
             swiper.params.navigation.prevEl = prevRef.current
@@ -42,7 +51,10 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        slidesPerView={4}
+        breakpoints={{
+          0: { slidesPerView: 1.1 }, // для екранів <= 1024px
+          1025: { slidesPerView: 4 }, // для ширших екранів
+        }}
         pagination={{ clickable: true }}
         className={s.review_swiper}
         onSwiper={swiper => (swiperRef.current = swiper)}
@@ -69,6 +81,18 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
       </Swiper>
 
       <div className={s.review_slider_nav}>
+        {width <= 1024 && (
+          <div className={`${s.swiper_scroll_container} show`}>
+            <span className={s.swiper_scroll_info}>
+              {activeSlide + 1}/{reviewCount}
+            </span>
+            <div
+              className={s.swiper_scroll_back}
+              style={{ width: `${((activeSlide + 1) / reviewCount) * 100}%` }}
+            ></div>
+          </div>
+        )}
+
         <div
           ref={prevRef}
           className="prevReview"
@@ -78,15 +102,17 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
             setActiveSlide(activeSlide - 1)
           }}
         />
-        <div className={s.swiper_scroll_container}>
-          <span className={s.swiper_scroll_info}>
-            {activeSlide + 4}/{reviewCount}
-          </span>
-          <div
-            className={s.swiper_scroll_back}
-            style={{ width: `${((activeSlide + 4) / reviewCount) * 100}%` }}
-          ></div>
-        </div>
+        {width >= 1024 && (
+          <div className={`${s.swiper_scroll_container} hide`}>
+            <span className={s.swiper_scroll_info}>
+              {activeSlide + 4}/{reviewCount}
+            </span>
+            <div
+              className={s.swiper_scroll_back}
+              style={{ width: `${((activeSlide + 4) / reviewCount) * 100}%` }}
+            ></div>
+          </div>
+        )}
         <div
           ref={nextRef}
           className="nextReview"

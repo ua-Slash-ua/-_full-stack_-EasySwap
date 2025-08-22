@@ -63,6 +63,7 @@ export default function CreateApplication() {
               </div>
 
               <DescriptionInput
+                className={s.application_description}
                 name="description"
                 value={values.description}
                 onChange={handleChange}

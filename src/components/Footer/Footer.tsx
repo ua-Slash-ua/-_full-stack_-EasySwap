@@ -6,10 +6,21 @@ import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
 import Magnet from '@/libs/Magnet/Magnet'
+import { useEffect, useState } from 'react'
 
 export default function Footer({ block, locale }: { block: any; locale: string }) {
   const socialMedia = block.social_networks
   const footerWords = block.footer_words
+  const [width, setWidth] = useState<number>(0)
+
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth/4)
+    handleResize() // виставляємо ширину одразу після маунту
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   return (
     <>
       <footer className={s.footer}>
@@ -25,13 +36,19 @@ export default function Footer({ block, locale }: { block: any; locale: string }
                 </div>
               ))}
             </div>
-            <div className={s.lside}>
-              <BtnPhone
-                svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
-                phone={block.phone}
-              />
-              <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
-            </div>
+            {
+              width>1024 &&
+              (
+                <div className={s.lside}>
+                  <BtnPhone
+                    svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
+                    phone={block.phone}
+                  />
+                  <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
+                </div>
+              )
+            }
+
           </div>
           <div className={s.footer_title}>
             <p>
@@ -48,6 +65,18 @@ export default function Footer({ block, locale }: { block: any; locale: string }
               ))}
             </div>
           </div>
+          {
+            width<=1024 &&
+            (
+              <div className={s.lside}>
+                <BtnPhone
+                  svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
+                  phone={block.phone}
+                />
+                <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
+              </div>
+            )
+          }
           <ul className={s.footer_footer}>
             <li>
               <p>©2025 Easy Swap. All Rights Reserved.</p>

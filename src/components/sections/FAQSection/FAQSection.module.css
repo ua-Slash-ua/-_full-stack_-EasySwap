@@ -1,10 +1,11 @@
-.faq_section{
+.faq_section {
     padding: 17.24vw 5.21vw 0 5.21vw;
     gap: 4.17vw;
     display: flex;
     flex-direction: column;
 }
-.faq_section h3{
+
+.faq_section h3 {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -14,13 +15,14 @@
     line-height: 100%; /* 2.70833vw */
     letter-spacing: -0.05417vw;
 }
-.faq_container{
+
+.faq_container {
     display: flex;
     flex-direction: row;
     gap: 1.04vw;
 }
 
-.faq_aside{
+.faq_aside {
     display: flex;
     width: 29.16667vw;
     padding: 2.70833vw;
@@ -32,27 +34,27 @@
 
     border-radius: 1.5625vw;
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
-    box-shadow:
-            -0.20833vw -0.20833vw 0.625vw 0vw rgba(255, 255, 255, 0.04) inset,
-            0.20833vw  0.20833vw 0.625vw 0vw rgba(255, 255, 255, 0.10) inset;
+    box-shadow: -0.20833vw -0.20833vw 0.625vw 0vw rgba(255, 255, 255, 0.04) inset,
+    0.20833vw 0.20833vw 0.625vw 0vw rgba(255, 255, 255, 0.10) inset;
     backdrop-filter: blur(0.26042vw);
     position: sticky;
     top: 1vw;
 }
 
-.aside_icon{
+.aside_icon {
     display: flex;
     justify-content: center;
     padding-bottom: 1.04vw;
 
 
 }
-.aside_icon svg{
+
+.aside_icon svg {
     width: 2.5vw;
     height: 2.5vw;
 }
 
-.aside_text h4{
+.aside_text h4 {
     color: #FFF;
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -63,7 +65,8 @@
     line-height: 110%; /* 1.60417vw */
     letter-spacing: -0.02917vw;
 }
-.aside_text p{
+
+.aside_text p {
     color: var(--White, #FFF);
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -74,7 +77,8 @@
     line-height: 140%; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 }
-.aside_text{
+
+.aside_text {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +87,7 @@
     gap: 0.62vw;
 }
 
-.aside_btn{
+.aside_btn {
     display: flex;
     padding: 1.09vw 1.25vw;
     justify-content: center;
@@ -106,14 +110,113 @@
     cursor: pointer;
     user-select: none;
 }
-.aside_btn:hover{
+
+.aside_btn:hover {
     border-radius: 5.20833vw;
     background: #F4EEFF;
     box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
 }
 
-.faq_content ul{
+.faq_content ul {
     display: flex;
     flex-direction: column;
     gap: 1.67vw;
+}
+
+@media screen and (max-width: 1024px) {
+    .faq_section {
+        flex-direction: column;
+        gap: 10.64vw;
+        padding: 0 4.26vw;
+    }
+.faq_section h3{
+    font-size: 7.44681vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 7.44681vw;
+    letter-spacing: -0.14894vw;
+}
+    .faq_container {
+        flex-direction: column;
+        gap: 5.32vw;
+    }
+
+    .faq_content ul {
+        gap: 5.32vw;
+    }
+
+    .faq_aside {
+        display: flex;
+        width: 91.2234vw;
+        padding: 5.31915vw;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 6.38298vw;
+        border-radius: 5.31915vw;
+
+    }
+
+    .aside_icon {
+        display: flex;
+        flex-direction: row;
+        gap: 2.13vw;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .aside_icon div {
+        display: flex;
+        width: 8.51064vw;
+        height: 8.51064vw;
+        padding: 0.70931vw 0.70931vw 0.06622vw 0.70931vw;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+
+    }
+
+    .aside_icon div svg {
+        width: 7.09229vw;
+        height: 7.09229vw;
+        flex-shrink: 0;
+    }
+
+    .aside_icon h4 {
+        font-size: 4.25532vw;
+        line-height: 4.68085vw;
+        letter-spacing: -0.08511vw;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 3.19vw;
+    }
+    .aside_text p{
+        font-size: 3.7234vw;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+        align-self: stretch;
+        text-align: start;
+    }
+
+    .aside_btn{
+        display: flex;
+        height: 12.23404vw;
+        padding: 0 6.38298vw;
+        justify-content: center;
+        align-items: center;
+        gap: 3.19149vw;
+        align-self: stretch;
+        border-radius: 26.59574vw;
+
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
 }

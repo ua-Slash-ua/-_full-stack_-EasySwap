@@ -66,7 +66,7 @@
     align-items: center;
 }
 
-.input_container input::placeholder,  .input_container input{
+.input_container input::placeholder, .input_container input {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -77,9 +77,11 @@
     letter-spacing: -0.01667vw;
     opacity: 0.3;
 }
-.input_container input{
+
+.input_container input {
     opacity: 1;
 }
+
 .choose_code_container {
     display: none;
     position: absolute;
@@ -124,27 +126,98 @@
     display: flex;
 }
 
-.phone_container input, .phone_container label{
+.phone_container input, .phone_container label {
     transition: all 0.3s ease;
 }
 
 
-.phone_container:hover{
+.phone_container:hover {
     cursor: pointer;
 }
-.phone_container:hover .input_container{
+
+.phone_container:hover .input_container {
     background: #131019;
 }
 
-.phone_container:hover label{
+.phone_container:hover label {
     color: #FFF;
 }
-.input_container.focused  {
+
+.input_container.focused {
     border-color: #2C2C2C;
 }
 
-.input_container  {
+.input_container {
     border: 0.05208vw solid transparent;
     border-radius: 1.04167vw;
     transition: border-color 0.3s ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .phone_container {
+        width: 100%;
+        gap: 3.19vw;
+    }
+    .phone_container label {
+        font-size: 3.19149vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.46809vw;
+        letter-spacing: -0.06383vw;
+    }
+    .input_container{
+        height: 12.76596vw;
+        padding: 0 4.25532vw;
+        border-radius: 3.7234vw;
+        /*display: flex;*/
+        flex-direction: row;
+        gap: 3.19vw;
+    }
+    .input_container input::placeholder, .input_container input{
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+    .choose_code{
+        width: auto;
+
+    }
+    .choose_code_text{
+        gap: 1.06vw;
+    }
+    .choose_code_text div{
+        width: 2.65957vw;
+        height: 5.31915vw;
+    }
+    .choose_code_text svg{
+        width: 1.58112vw;
+        height: 2.87447vw;
+        flex-shrink: 0;
+    }
+    .choose_code_text span{
+
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 3.7234vw;
+        letter-spacing: -0.07447vw;
+    }
+    .choose_code_container {
+        width: 16vw;
+        top: 7vw;
+        border-radius: 3.7234vw;
+        gap: 1vw;
+        max-height: 30vw;
+        overflow: scroll;
+    }
+
+    .choose_code_container li {
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 3.7234vw;
+        letter-spacing: -0.07447vw;
+    }
 }

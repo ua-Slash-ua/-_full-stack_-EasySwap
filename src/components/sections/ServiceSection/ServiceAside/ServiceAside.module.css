@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 2.5vw;
 
+
 }
 
 .service_aside li {
@@ -93,6 +94,16 @@
         background-color: rgb(255, 255, 255);
     }
 }
+@keyframes expandWidth {
+    0% {
+        width: 0;
+        background-color: rgb(98, 47, 241);
+    }
+    100% {
+        width: 100%;
+        background-color: rgb(98, 47, 241);
+    }
+}
 
 
 
@@ -100,3 +111,49 @@
     background-color: rgba(203, 0, 0, 0.7);
 }
 
+@media screen and (max-width: 1024px) {
+    .service_aside h3{
+        font-size: 7.44681vw;
+        line-height: 7.44681vw;
+        letter-spacing: -0.14894vw;
+    }
+    .aside_menu{
+        flex-direction: column;
+    }
+    .aside_menu ul{
+        flex-direction: row;
+        overflow: scroll;
+        gap: 2.66vw;
+        padding: 1vw 0 2vw 0  ;
+    }
+    .aside_menu ul li{
+        text-wrap: nowrap;
+
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height:  4.46809vw;
+        letter-spacing: -0.07447vw;
+    }
+    .active_scroll {
+        border-radius: 5.20833vw;
+        background: #FFF;
+        width: 0.20833vw;
+        height: 100%;
+        animation: expandWidth 5s forwards;
+    }
+    .aside_scroll{
+        width: 91.2234vw;
+        flex-direction: row;
+        margin-top: 6.38vw;
+        margin-bottom: 10.64vw;
+        height: 0.79787vw;
+        user-select: none;
+    }
+    .aside_scroll_item{
+        height: 0.79787vw;
+
+    }
+
+
+}

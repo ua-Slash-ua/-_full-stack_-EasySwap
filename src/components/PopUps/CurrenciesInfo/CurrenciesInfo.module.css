@@ -1,0 +1,190 @@
+
+.popup_backgraund {
+    position: fixed; /* краще ніж absolute для фулскріну */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center; /* вертикальне центрування */
+    justify-content: center; /* горизонтальне центрування */
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0.26042vw);
+    z-index: 100;
+}
+
+.popup_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #1E1C25;
+    backdrop-filter: blur(1.04167vw);
+
+    position: relative;
+
+    padding: 11vw 5.31915vw;
+
+    border-radius: 6.38298vw;
+
+
+}
+
+.btn_close {
+    display: flex;
+    width: 10.6383vw;
+    height: 10.6383vw;
+    padding: 3.19149vw;
+    justify-content: center;
+    align-items: center;
+    gap: 2.65957vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+
+    border-radius: 8.51064vw;
+    background: #FFF;
+    backdrop-filter: blur(3.99vw);
+
+    position: absolute;
+    right: 0;
+    top: -14vw;
+    cursor: pointer;
+}
+
+.btn_close svg {
+    width: 3.49734vw;
+    height: 3.49734vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+
+
+}
+.btn_close svg path {
+    fill: #0F0E13;
+}
+
+.popup_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10.6383vw;
+    align-self: stretch;
+}
+
+.title h3 {
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 6.38298vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 7.02128vw;
+    letter-spacing: -0.12766vw;
+    align-self: stretch;
+}
+
+.container_first h3, .container_second h3 {
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 4.25532vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 5.10638vw;
+    letter-spacing: -0.08511vw;
+}
+
+.container_first,.container_second, .container_second ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6.38vw;
+}
+
+.container_first ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4.36vw;
+    width: 100%;
+}
+
+.container_first li,  .container_second li{
+    display: flex;
+    flex-direction: row;
+    gap: 2.66vw;
+}
+
+
+.li_icon svg  {
+    width: 6.38298vw;
+    height: 6.38298vw;
+    aspect-ratio: 1/1;
+}
+
+
+.text {
+    display: flex;
+    flex-direction: row;
+    max-width: 72.61vw;
+
+    color: rgba(255, 255, 255, 0.80);
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 3.7234vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 4.84043vw;
+    letter-spacing: -0.07447vw;
+    flex-wrap: wrap;
+}
+
+.text p, .text span {
+    color: rgba(255, 255, 255, 0.80);
+
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 3.7234vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 4.84043vw;
+    letter-spacing: -0.07447vw;
+}
+
+.curr_age {
+    margin-right: 2.13vw;
+    margin-left: 1.06vw;
+}
+
+.curr_age img {
+    width: 11.70213vw;
+    height: 4.90027vw;
+    aspect-ratio: 44.00/18.43;
+}
+
+.icon_currencies{
+
+    width: 6.38298vw;
+    height: 6.38298vw;
+
+    flex-shrink: 0;
+    border-radius: 6vw;
+    background: linear-gradient(155deg, #B792FF -6.43%, #622FF1 84.31%);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.icon_currencies img{
+    width: 3.45745vw;
+    height: 3.19149vw;
+    flex-shrink: 0;
+    aspect-ratio: 13/12;
+}
+.container_second .text{
+    flex-wrap: nowrap;
+}
