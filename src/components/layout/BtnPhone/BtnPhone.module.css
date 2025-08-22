@@ -30,3 +30,17 @@
 .btn_phone_reversed span {
     display: none;
 }
+
+@media screen and (max-width: 1024px) {
+    .btn_phone_reversed svg {
+        width: 4.25532vw;
+        height: 4.25532vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+
+    }
+
+    .btn_phone_reversed svg path {
+        fill: white;
+    }
+}

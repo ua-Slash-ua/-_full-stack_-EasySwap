@@ -162,6 +162,7 @@
         border:none;
         background: none;
         backdrop-filter: blur(0);
+        gap: 0;
     }
     .application_content h3{
         font-size: 6.38298vw;
@@ -169,6 +170,7 @@
         font-weight: 600;
         line-height: 7.02128vw;
         letter-spacing: -0.12766vw;
+        margin-bottom: 10.64vw;
     }
     .application_double{
         flex-direction: column;
@@ -187,6 +189,7 @@
 
         border-radius: 26.59574vw;
         background:  #FFF;
+        margin-top: 10.64vw;
     }
     .btn_send svg{
         width: 5.58511vw;
