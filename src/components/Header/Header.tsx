@@ -12,15 +12,16 @@ import { useEffect, useState } from 'react'
 export default function Header({ block, locale }: { block: any; locale: string }) {
   const [scrolled, setScrolled] = useState(false)
   const [width, setWidth] = useState<number>(0)
+
+  let threshold
+
   console.log('width = ', width)
   useEffect(() => {
     const handleScroll = () => {
-      // розрахунок 10vw у пікселях
-      let threshold
       if (width > 1024) {
-        threshold = window.innerWidth * 0.4693
-      }else{
-        threshold = window.innerWidth * 2.3
+        threshold = window.innerWidth * 0.5
+      } else {
+        threshold = window.innerWidth * 2.0
       }
       // const threshold = window.innerWidth * 0.1;
       const currentScrollY = window.scrollY
@@ -41,7 +42,7 @@ export default function Header({ block, locale }: { block: any; locale: string }
   }, [])
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth )
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)
@@ -71,7 +72,9 @@ export default function Header({ block, locale }: { block: any; locale: string }
           {width > 1024 ? (
             <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
           ) : (
-            <div className={s.header_menu}><span>Меню</span></div>
+            <div className={s.header_menu}>
+              <span>Меню</span>
+            </div>
           )}
         </div>
       </header>
