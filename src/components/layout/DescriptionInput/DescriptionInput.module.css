@@ -79,3 +79,34 @@
 .description_application input, .description_application label {
     transition: all 0.3s ease;
 }
+
+@media screen and (max-width: 1024px) {
+    .description_application label{
+        font-size: 3.19149vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 4.46809vw;
+        letter-spacing: -0.06383vw;
+    }
+
+    .description_application input{
+
+        display: flex;
+        height: 12.76596vw;
+        padding-left: 5.31915vw;
+        align-items: center;
+        gap: 2.12766vw;
+        align-self: stretch;
+
+        border-radius: 3.7234vw;
+
+    }
+    .description_application input::placeholder, .description_application input{
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+
+    }
+}

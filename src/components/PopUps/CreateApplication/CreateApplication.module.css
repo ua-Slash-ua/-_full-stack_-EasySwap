@@ -15,7 +15,7 @@
     z-index: 100;
 }
 
-.popup_container{
+.popup_container {
     display: flex;
     width: 38.54167vw;
     height: fit-content;
@@ -32,7 +32,7 @@
 
 }
 
-.btn_close{
+.btn_close {
     display: flex;
     width: 3.125vw;
     height: 3.125vw;
@@ -51,14 +51,15 @@
     cursor: pointer;
 }
 
-.btn_close svg{
+.btn_close svg {
     width: 1.66667vw;
     height: 1.66667vw;
     flex-shrink: 0;
     aspect-ratio: 1/1;
 
 }
-.double{
+
+.double {
     display: flex;
     flex-direction: row;
     gap: 1.04167vw;
@@ -66,7 +67,7 @@
     width: 100%;
 }
 
-.form_label{
+.form_label {
     display: flex;
     padding: 1.04167vw 0.83333vw;
     justify-content: space-between;
@@ -77,7 +78,7 @@
     background: #17151B;
 }
 
-.form_label, .form_label::placeholder{
+.form_label, .form_label::placeholder {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -87,11 +88,12 @@
     line-height: 1.02083vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
 }
-.form_label::placeholder{
+
+.form_label::placeholder {
     opacity: 0.3;
 }
 
-.container_application label{
+.container_application label {
     color: rgba(255, 255, 255, 0.50);
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -103,17 +105,18 @@
 }
 
 
-.container_application{
+.container_application {
     display: flex;
     flex-direction: column;
     gap: 0.63vw;
     width: 100%;
 }
-.form_description input{
-    width: 32.29vw ;
+
+.form_description input {
+    width: 32.29vw;
 }
 
-.popup_container h3{
+.popup_container h3 {
     color: #FFF;
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -127,11 +130,11 @@
     margin-bottom: 3.12vw;
 }
 
-.container_application #application_description{
-    width: 32.29vw!important;
+.container_application #application_description {
+    width: 32.29vw !important;
 }
 
-.btn_send{
+.btn_send {
     width: 100%;
     display: flex;
     height: 3.33333vw;
@@ -146,7 +149,7 @@
     margin-top: 2.71vw;
 }
 
-.btn_send svg{
+.btn_send svg {
     display: flex;
     width: 1.25vw;
     height: 1.25vw;
@@ -155,7 +158,8 @@
     align-items: center;
     aspect-ratio: 1/1;
 }
-.btn_send span{
+
+.btn_send span {
     color: #0F0E13;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -164,4 +168,90 @@
     font-weight: 500;
     line-height: 1.02083vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+}
+
+@media screen and (max-width: 1024px) {
+    .popup_container {
+        display: flex;
+        width: 91.2234vw;
+        /*height: 110.10638vw;*/
+        padding: 10.63vw 5.31915vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 6.38298vw;
+    }
+
+
+    .btn_close {
+        width: 13.6383vw;
+        height: 13.6383vw;
+        border-radius: 8.51064vw;
+        background: #FFF;
+        backdrop-filter: blur(3.99vw);
+        right: 0;
+        top: -18vw;
+    }
+
+    .btn_close svg {
+        width: 6.38298vw;
+        height: 6.38298vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+    }
+
+    .btn_close svg path {
+        fill: #0F0E13;
+    }
+
+    .btn_send {
+        display: flex;
+        height: 12.23404vw;
+        padding: 0 6.38298vw;
+        justify-content: center;
+        align-items: center;
+        gap: 3.19149vw;
+        align-self: stretch;
+
+        border-radius: 26.59574vw;
+        margin-top: 10.64vw;
+
+    }
+    .btn_send svg{
+        width: 5.58511vw;
+        height: 5.26968vw;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .btn_send span{
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+
+
+    .popup_container h3 {
+        font-size: 6.38298vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 7.02128vw;
+        letter-spacing: -0.12766vw;
+        margin-bottom: 10.64vw;
+    }
+
+    .double {
+        display: flex;
+        flex-direction: column;
+        gap: 5.32vw;
+        margin-bottom: 5.32vw;
+    }
+    .application_description {
+        display: none!important;
+    }
+
+
 }

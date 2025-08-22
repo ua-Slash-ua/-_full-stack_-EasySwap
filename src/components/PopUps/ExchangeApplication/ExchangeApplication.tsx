@@ -28,7 +28,7 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
             />
           </svg>
         </div>
-        <h3>Створити заявку</h3>
+        <h3>Заявка на обмін валюти</h3>
 
         <Formik
           initialValues={{

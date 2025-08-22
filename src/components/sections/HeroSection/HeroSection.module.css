@@ -299,4 +299,28 @@
         gap: 2.13vw;
         margin: 10.64vw 3.99vw 0;
     }
+
+    .btn_replace{
+        display: flex;
+        width: 11.11064vw;
+        height: 11.11064vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.65957vw;
+        aspect-ratio: 1/1;
+
+        border-radius: 26.59574vw;
+        background: #F4EEFF;
+        border: 1.6vw solid #1B1525;
+        backdrop-filter: blur(13.3vw);
+        left: 35vw;
+        bottom: -6vw;
+    }
+
+    .btn_replace svg{
+        width: 3.7234vw;
+        height: 3.7234vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+    }
 }
