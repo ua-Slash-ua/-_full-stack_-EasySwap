@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 export default function Header({ block, locale }: { block: any; locale: string }) {
   const [scrolled, setScrolled] = useState(false)
   const [width, setWidth] = useState<number>(0)
-
+  console.log('width = ', width)
   useEffect(() => {
     const handleScroll = () => {
       // розрахунок 10vw у пікселях
