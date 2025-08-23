@@ -1,6 +1,7 @@
 .support_section {
     width: 100vw;
     padding: 8.23vw 5.21vw 0 5.21vw;
+    position: relative;
 
 }
 
@@ -133,7 +134,19 @@
     height: 1.25vw;
     aspect-ratio: 1/1;
 }
+.circle{
+    position: absolute;
+    z-index: 0;
+    top: -3vw;
+    right: -20vw;
 
+    width: 86.51042vw;
+    height: 48.125vw;
+    
+    border-radius: 86.51042vw;
+    background: radial-gradient(46.13% 48.05% at 50% 50%, rgba(99, 47, 241, 0.20) 0%, rgba(99, 47, 241, 0.00) 100%);
+    filter: blur(2vw);
+}
 @media screen and (max-width: 1024px) {
     .support_section{
         padding:21.28vw 4.26vw;

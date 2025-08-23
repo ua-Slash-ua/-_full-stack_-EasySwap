@@ -2,6 +2,7 @@
 import s from './HeroSection.module.css'
 import Image from 'next/image'
 import back from 'public/hero/Hero_bg.png'
+import back_mob from 'public/hero/hero_mob.svg'
 import icon_1 from 'public/hero/return.png'
 import icon_2 from 'public/hero/euro.png'
 import HeroItem from '@/components/sections/HeroSection/HeroItem/HeroItem'
@@ -121,7 +122,44 @@ export default function HeroSection({
         </div>
         <aside className={s.hero_aside}>
           <div className={`${s.image_container} show`}>
-            <Image src={back.src} alt={'background'} width={100} height={100} />
+            <Image src={back_mob.src} alt={'background'} width={100} height={100} />
+            <div className={`${s.circle_mob} show`}></div>
+            <div className={`${s.circle_mob_small} show`}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="126"
+                viewBox="0 0 40 126"
+                fill="none"
+              >
+                <foreignObject x="-20" y="-20" width="80" height="166">
+                  <div
+                    style={{
+                      backdropFilter: 'blur(10px)',
+                      clipPath: 'url(#bgblur_0_365_19385_clip_path)',
+                      height: '100%',
+                      width: '100%',
+                    }}
+                  />
+                </foreignObject>
+
+                <ellipse
+                  data-figma-bg-blur-radius="20"
+                  cx="20"
+                  cy="63"
+                  rx="20"
+                  ry="63"
+                  fill="#D9D9D9"
+                  fillOpacity="0.01"
+                />
+
+                <defs>
+                  <clipPath id="bgblur_0_365_19385_clip_path" transform="translate(20 20)">
+                    <ellipse cx="20" cy="63" rx="20" ry="63" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
           </div>
 
           <div className={`${s.hero_container} show`}>
@@ -254,6 +292,7 @@ export default function HeroSection({
             })}
           </div>
         </aside>
+        <div className={`${s.circle} hide`}></div>
       </section>
     </>
   )
