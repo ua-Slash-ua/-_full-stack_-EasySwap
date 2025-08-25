@@ -1,15 +1,16 @@
 import s from './ReviewSection.module.css'
 import ReviewSlider from '@/components/sections/ReviewSection/ReviewSlider/ReviewSlider'
+import Link from 'next/link'
 
 
-export default async function ReviewSection({ block, locale }: { block: any; locale: string }) {
+export default async function ReviewSection({ block, locale , telegram }: { block: any; locale: string; telegram?: string }) {
   return (
     <>
       <section className={s.review_section} id="reviews">
         <div className={s.review_container}>
           <div className={s.review_title}>
             <h3>Досвід наших клієнтів</h3>
-            <div className={`${s.review_btn} hide`}>
+            <Link className={`${s.review_btn} hide`} href={telegram?? '#main'} target={'_blank'}>
               <svg
                 width="17"
                 height="16"
@@ -23,10 +24,10 @@ export default async function ReviewSection({ block, locale }: { block: any; loc
                 />
               </svg>
               <span>Залишити відгук</span>
-            </div>
+            </Link>
           </div>
           <ReviewSlider key={'review'} reviews={block.docs} />
-          <div className={`${s.review_btn} show`}>
+          <Link className={`${s.review_btn} show`} href={telegram?? '#main'}>
             <svg
               width="17"
               height="16"
@@ -40,7 +41,7 @@ export default async function ReviewSection({ block, locale }: { block: any; loc
               />
             </svg>
             <span>Залишити відгук</span>
-          </div>
+          </Link>
         </div>
       </section>
     </>

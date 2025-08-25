@@ -93,11 +93,12 @@ export default function Footer({ block, locale }: { block: any; locale: string }
                   href={
                     'https://www.instagram.com/before_after.agency/?igsh=MTVyMTIxaTE4ZmRobA%3D%3D#'
                   }
+                  target={'_blank'}
                 >
                   <span>Before/After</span>
                 </Link>
                 <p> & </p>
-                <Link href={'https://projection-ua.webflow.io/'}>
+                <Link href={'https://projection-ua.webflow.io/'} target={'_blank'}>
                   <span>PROJECTION</span>
                 </Link>
               </div>

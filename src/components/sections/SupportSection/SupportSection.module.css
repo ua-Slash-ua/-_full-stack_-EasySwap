@@ -128,6 +128,8 @@
     font-weight: 500;
     line-height: 1.16667vw; /* 1.16667vw */
     letter-spacing: -0.01667vw;
+    cursor: pointer;
+    user-select: none;
 }
 .support_btn svg{
     width: 1.25vw;

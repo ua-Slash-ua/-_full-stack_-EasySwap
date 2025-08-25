@@ -3,8 +3,17 @@ import s from './SupportSection.module.css'
 import './SupportSection.css'
 import { supportData } from '@/config/support.config'
 import Aurora from '@/libs/Aurora/Aurora'
+import Link from 'next/link'
 
-export default function SupportSection({ block, locale }: { block: any; locale: string }) {
+export default function SupportSection({
+  block,
+  locale,
+  telegram,
+}: {
+  block: any
+  locale: string
+  telegram?: string
+}) {
   return (
     <>
       <section className={s.support_section}>
@@ -28,7 +37,7 @@ export default function SupportSection({ block, locale }: { block: any; locale: 
             <div className={s.description}>
               <p>{block.description}</p>
             </div>
-            <div className={s.support_btn}>
+            <Link href={telegram ?? '#main'} className={s.support_btn} target={'_blank'}>
               <svg
                 width="25"
                 height="24"
@@ -42,7 +51,7 @@ export default function SupportSection({ block, locale }: { block: any; locale: 
                 />
               </svg>
               <span>Написати в Telegram</span>
-            </div>
+            </Link>
           </div>
         </div>
         <div className={`${s.circle} hide`}></div>
