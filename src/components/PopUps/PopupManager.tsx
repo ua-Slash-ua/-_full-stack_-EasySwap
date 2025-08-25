@@ -4,6 +4,7 @@ import CreateApplication from '@/components/PopUps/CreateApplication/CreateAppli
 import ExchangeApplication from '@/components/PopUps/ExchangeApplication/ExchangeApplication'
 import ReviewImage from '@/components/PopUps/ReviewImage/ReviewImage'
 import CurrenciesInfo from '@/components/PopUps/CurrenciesInfo/CurrenciesInfo'
+import MenuMobile from '@/components/PopUps/MenuMobile/MenuMobile'
 
 export const PopupManager = () => {
   const { open, data  } = usePopup()
@@ -18,6 +19,8 @@ export const PopupManager = () => {
       return <ReviewImage {...data} />
     case 'currencies_info':
       return <CurrenciesInfo  {...data}/>
+    case 'menu_mobile':
+      return <MenuMobile  {...data}/>
     default:
       return null
   }

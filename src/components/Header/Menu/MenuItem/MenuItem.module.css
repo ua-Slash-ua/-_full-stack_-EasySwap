@@ -32,3 +32,26 @@
     color: #0F0E13;
     opacity: 1;
 }
+
+@media screen and (max-width: 1024px) {
+    .link{
+
+        height: auto;
+        padding: 2.12766vw 0;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: var(--font-inter), sans-serif;
+        font-size: 5.85106vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 7.02128vw;
+        letter-spacing: -0.11702vw;
+        opacity: 1;
+    }
+    .link_li{
+        width: 100%;
+    }
+
+}

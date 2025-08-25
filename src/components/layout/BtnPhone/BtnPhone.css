@@ -59,4 +59,8 @@
         backdrop-filter: blur(1.33vw);
 
     }
+    .btn_phone_mob_menu .inner-content{
+        border-radius: 26.59574vw;
+        background: #622FF1;
+    }
 }

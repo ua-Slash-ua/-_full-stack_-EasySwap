@@ -7,6 +7,7 @@ type PopupType =
   | 'exchange_application'
   | 'review_image'
   | 'currencies_info'
+  | 'menu_mobile'
   | null
 
 interface PopupContextType {

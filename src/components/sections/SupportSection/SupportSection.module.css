@@ -2,7 +2,7 @@
     width: 100vw;
     padding: 8.23vw 5.21vw 0 5.21vw;
     position: relative;
-
+    overflow: hidden;
 }
 
 .support_container {
