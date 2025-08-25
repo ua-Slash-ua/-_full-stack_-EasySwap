@@ -8,6 +8,7 @@ import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import { Form, Formik } from 'formik'
 import { createApplication } from '@/api/createApp'
 import { usePopup } from '@/context/PopupContext'
+import { validationSchema } from '@/components/PopUps/CreateApplication/CreateApplication'
 
 export default function ApplicationSection({ block, locale }: { block: any; locale: string }) {
   const { setOpen } = usePopup()
@@ -30,6 +31,7 @@ export default function ApplicationSection({ block, locale }: { block: any; loca
               telegram: '',
               department: '',
             }}
+            validationSchema={validationSchema}
             onSubmit={async (values, { resetForm }) => {
               try {
                 const result = await createApplication({
@@ -46,7 +48,7 @@ export default function ApplicationSection({ block, locale }: { block: any; loca
               }
             }}
           >
-            {({ values, handleChange, setFieldValue, isSubmitting }) => (
+            {({ values, handleChange, setFieldValue, isSubmitting , errors, touched}) => (
               <Form>
                 <div className={s.application_labels}>
                   <div className={s.application_double}>
@@ -56,12 +58,16 @@ export default function ApplicationSection({ block, locale }: { block: any; loca
                       value={values.phone}
                       onChange={handleChange}
                       activeCode="ua"
+                      error={touched.phone && errors.phone ? errors.phone : null}
+
                     />
                     <TelegramInput
                       name="telegram"
                       className={s.application_double_item}
                       value={values.telegram}
                       onChange={handleChange}
+                      error={touched.telegram && errors.telegram ? errors.telegram : null}
+
                     />
                   </div>
 

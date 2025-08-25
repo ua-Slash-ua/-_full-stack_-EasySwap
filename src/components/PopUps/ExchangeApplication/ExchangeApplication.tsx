@@ -7,6 +7,7 @@ import { usePopup } from '@/context/PopupContext'
 import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import { createApplication } from '@/api/createApp'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
+import { validationSchema } from '@/components/PopUps/CreateApplication/CreateApplication'
 
 export default function ExchangeApplication({departments}:{departments:any[]}) {
   const { close, setOpen } = usePopup()
@@ -35,6 +36,7 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
             telegram: '',
             department: '',
           }}
+          validationSchema={validationSchema}
           onSubmit={async (values, { resetForm }) => {
             try {
               const result = await createApplication({
@@ -55,7 +57,7 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
             }
           }}
         >
-          {({ values, handleChange }) => (
+          {({ values, handleChange, errors, touched }) => (
             <Form>
               <div className={s.double}>
                 <PhoneInput
@@ -64,12 +66,15 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
                   value={values.phone}
                   onChange={handleChange}
                   activeCode="ua"
+                  error={touched.phone && errors.phone ? errors.phone : null}
                 />
                 <TelegramInput
                   name="telegram"
                   className={s.application_double_item}
                   value={values.telegram}
                   onChange={handleChange}
+                  error={touched.telegram && errors.telegram ? errors.telegram : null}
+
                 />
               </div>
 
