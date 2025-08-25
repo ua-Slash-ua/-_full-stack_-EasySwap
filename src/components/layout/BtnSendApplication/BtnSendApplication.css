@@ -40,3 +40,13 @@
     background: #F4EEFF;
     box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
 }
+
+@media screen and (max-width: 1024px) {
+    .btn_mail  .inner-content {
+        /*width: 91.2234vw;*/
+        height: 10.6383vw;
+        gap: 3.19149vw;
+        padding: 0 6.23vw ;
+    }
+
+    }

@@ -8,17 +8,19 @@ type TelegramProps = {
   className?: string
   placeHolder?: string
   value: string
+  error?: string | null
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export default function TelegramInput({
-                                        name,
-                                        className,
-                                        placeHolder,
-                                        label,
-                                        value,
-                                        onChange,
-                                      }: TelegramProps) {
+  name,
+  className,
+  placeHolder,
+  label,
+  value,
+  onChange,
+  error,
+}: TelegramProps) {
   return (
     <div className={`${s.telegram_container} ${className ?? ''}`}>
       <label htmlFor={name}>{label ?? 'Telegram'}</label>
@@ -30,6 +32,8 @@ export default function TelegramInput({
         value={value}
         onChange={onChange}
       />
+
+      {error && <div className="error-message">Вкажіть ваш нік в телеграм</div>}
     </div>
   )
 }

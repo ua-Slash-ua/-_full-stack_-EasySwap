@@ -6,6 +6,7 @@ import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
 import { useEffect, useState } from 'react'
+import { usePopup } from '@/context/PopupContext'
 
 export default function HeaderScroll({
   block,
@@ -16,6 +17,7 @@ export default function HeaderScroll({
   locale: string
   className: string
 }) {
+  const { setOpen } = usePopup()
   const [width, setWidth] = useState<number>(0)
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth )
@@ -47,7 +49,12 @@ export default function HeaderScroll({
             isReversed={true}
           />
           {width <= 1024 ? (
-            <div className={s.header_menu}>
+            <div
+              className={s.header_menu}
+              onClick={() =>
+                setOpen('menu_mobile', {phone:block.phone, social_network:block.social_networks})
+              }
+            >
               <span>Меню</span>
             </div>
           ) : null}

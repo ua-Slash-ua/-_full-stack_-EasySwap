@@ -20,7 +20,6 @@ export default function DepartmentInput({
 }: DepartmentInputProps) {
   const [active, setActive] = useState(false)
   const [address, setAddress] = useState('')
-  console.log('departments222 = ',departments)
   return (
     <div className={s.container_application_department}>
       <label htmlFor={name} className={s.form_label}>

@@ -1,0 +1,158 @@
+
+.popup_backgraund {
+    position: fixed; /* краще ніж absolute для фулскріну */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center; /* вертикальне центрування */
+    justify-content: center; /* горизонтальне центрування */
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0.26042vw);
+    z-index: 100;
+}
+
+.menu_items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 2.08333vw;
+    background: #1E1C25;
+    backdrop-filter: blur(1.04167vw);
+
+    position: relative;
+
+}
+
+
+@media screen and (max-width: 1024px) {
+    .popup_container {
+        border-radius: 10.6383vw;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .bg_container {
+        position: absolute;
+        z-index: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .bg_container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    .menu_items {
+        position: relative;
+        z-index: 10;
+
+        width: 91.2234vw;
+        padding: 8.51064vw 4.25532vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.66vw;
+
+        border-radius: 8.51064vw;
+        border: 0.05vw solid #FFF;
+        background: linear-gradient(170deg, rgba(255, 255, 255, 0.06) -17.85%, rgba(255, 255, 255, 0.00) 117.02%);
+        backdrop-filter: blur(9vw);
+    }
+
+    .menu_items span {
+        color: rgba(255, 255, 255, 0.50);
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+
+    .menu_items ul {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3.19vw;
+
+
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+
+        width: 99.73404vw;
+        padding: 4.25532vw;
+        justify-content: space-between;
+    }
+
+
+    .lside {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3.19vw;
+    }
+
+    .menu_container {
+        margin: 8.51vw 4.52vw;
+    }
+
+    .header_menu {
+        display: flex;
+        height: 10.6383vw;
+        padding: 2.12766vw 4.25532vw;
+        justify-content: center;
+        align-items: center;
+        gap: 2.65957vw;
+
+        border-radius: 26.59574vw;
+        background: rgba(255, 255, 255, 0.20);
+        backdrop-filter: blur(1vw);
+        cursor: pointer;
+        user-select: none;
+    }
+    .menu_btn{
+        padding:0 4.52vw ;
+        width: 100vw;
+    }
+    .menu_btn > div:first-child{
+        width: 91.23vw;
+    }
+
+    .social_networks{
+        display: flex;
+        flex-direction: row;
+
+        width: 91.2234vw;
+        align-items: center;
+        gap: 2.39362vw;
+        padding-left: 4.26vw;
+        margin-top: 5.32vw;
+    }
+    .social_networks a{
+        background: none;
+    }
+    .social_networks a:hover{
+        background: none;
+    }
+    .social_networks svg path{
+        fill: #FFF;
+    }
+}

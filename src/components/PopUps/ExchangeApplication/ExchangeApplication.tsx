@@ -7,10 +7,10 @@ import { usePopup } from '@/context/PopupContext'
 import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import { createApplication } from '@/api/createApp'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
+import { validationSchema } from '@/components/PopUps/CreateApplication/CreateApplication'
 
 export default function ExchangeApplication({departments}:{departments:any[]}) {
-  const { close } = usePopup()
-  console.log(departments)
+  const { close, setOpen } = usePopup()
   return (
     <div className={s.popup_backgraund}>
       <div className={s.popup_container} id={'exchange_application'}>
@@ -36,6 +36,7 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
             telegram: '',
             department: '',
           }}
+          validationSchema={validationSchema}
           onSubmit={async (values, { resetForm }) => {
             try {
               const result = await createApplication({
@@ -44,16 +45,19 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
                 telegramNick: values.telegram,
                 department: values.department,
               })
-
-              console.log('Заявка надіслана:', result)
-              resetForm()
               close()
+              setOpen('status_send', { status: 'success' })
+              resetForm()
+
             } catch (err) {
+              close()
+              setOpen('status_send', { status: 'error' })
               console.error('Помилка при надсиланні заявки:', err)
+              resetForm()
             }
           }}
         >
-          {({ values, handleChange }) => (
+          {({ values, handleChange, errors, touched }) => (
             <Form>
               <div className={s.double}>
                 <PhoneInput
@@ -62,12 +66,15 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
                   value={values.phone}
                   onChange={handleChange}
                   activeCode="ua"
+                  error={touched.phone && errors.phone ? errors.phone : null}
                 />
                 <TelegramInput
                   name="telegram"
                   className={s.application_double_item}
                   value={values.telegram}
                   onChange={handleChange}
+                  error={touched.telegram && errors.telegram ? errors.telegram : null}
+
                 />
               </div>
 

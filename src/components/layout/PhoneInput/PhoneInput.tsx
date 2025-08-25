@@ -11,6 +11,7 @@ type PhoneInputProps = {
   className?: string
   placeHolder?: string
   value: string
+  error?: string | null
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -21,6 +22,7 @@ export default function PhoneInput({
                                      placeHolder,
                                      activeCode = 'ua',
                                      value,
+                                     error,
                                      onChange,
                                    }: PhoneInputProps) {
   const [code, setCode] = useState(
@@ -40,7 +42,7 @@ export default function PhoneInput({
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newPart = e.target.value.slice(0, 9)
     setPartPhone(newPart)
-    const fullPhone = `${code} ${newPart}`
+    const fullPhone = `${code}${newPart}`
 
     // Створюємо фейковий event для Formik
     const syntheticEvent = {
@@ -99,6 +101,8 @@ export default function PhoneInput({
           value={partPhone}
         />
       </div>
+      {error && <div className="error-message">Вкажіть номер телефону</div>}
+
     </div>
   )
 }

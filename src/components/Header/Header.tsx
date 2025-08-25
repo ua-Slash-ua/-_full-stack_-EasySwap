@@ -8,10 +8,12 @@ import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
 import HeaderScroll from '@/components/Header/HeaderScroll/HeaderScroll'
 import { useEffect, useState } from 'react'
+import { usePopup } from '@/context/PopupContext'
 
 export default function Header({ block, locale }: { block: any; locale: string }) {
   const [scrolled, setScrolled] = useState(false)
   const [width, setWidth] = useState<number>(0)
+  const { setOpen } = usePopup()
 
   let threshold
 
@@ -72,7 +74,12 @@ export default function Header({ block, locale }: { block: any; locale: string }
           {width > 1024 ? (
             <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
           ) : (
-            <div className={s.header_menu}>
+            <div
+              className={s.header_menu}
+              onClick={() =>
+                setOpen('menu_mobile', {phone:block.phone, social_network:block.social_networks})
+              }
+            >
               <span>Меню</span>
             </div>
           )}

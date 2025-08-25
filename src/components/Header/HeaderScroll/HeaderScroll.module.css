@@ -92,6 +92,8 @@
         background: #FFF;
         backdrop-filter: blur(1.33vw);
 
+        cursor: pointer;
+        user-select: none;
     }
 
     .header_menu span {
@@ -103,5 +105,7 @@
         font-weight: 500;
         line-height: 5.21277vw;
         letter-spacing: -0.07447vw;
+
+
     }
 }

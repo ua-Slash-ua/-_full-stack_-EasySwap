@@ -11,7 +11,7 @@ export default function MapComponent({locations, center}: { locations: any[]; ce
     <>
       <MapContainer
         center={center}
-        zoom={6}
+        zoom={12}
         style={{ height: '100vh', width: '100%' }}
         className={s.map}
       >

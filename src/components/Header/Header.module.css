@@ -104,7 +104,8 @@
         border-radius: 26.59574vw;
         background: #FFF;
         backdrop-filter: blur(1.33vw);
-
+        cursor: pointer;
+        user-select: none;
     }
 
     .header_menu span {

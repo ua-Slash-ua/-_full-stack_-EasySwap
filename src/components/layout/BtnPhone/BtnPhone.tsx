@@ -7,14 +7,17 @@ type BtnPhoneProps = {
   svgIcon: string
   phone: string
   isReversed?: boolean
+  isMobileMenu?: boolean
 }
 
-export default function BtnPhone({ svgIcon, phone, isReversed = false }: BtnPhoneProps) {
+export default function BtnPhone({ svgIcon, phone, isReversed = false, isMobileMenu = false }: BtnPhoneProps) {
   return (
     <>
       <StarBorder
         as="div"
-        className={`${isReversed ? s.btn_phone_reversed : s.btn_phone} ${isReversed ? 'btn_phone_reversed' : 'btn_phone'}`}
+        className={`${isReversed ? s.btn_phone_reversed : s.btn_phone} ${
+          isReversed ? 'btn_phone_reversed' : 'btn_phone'
+        } ${isMobileMenu ? 'btn_phone_mob_menu' : ''} `}
         speed="5s"
         color={'#622FF1'}
       >
