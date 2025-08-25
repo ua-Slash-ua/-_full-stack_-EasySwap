@@ -15,7 +15,7 @@ export default function Footer({ block, locale }: { block: any; locale: string }
 
 
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth/4)
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)
@@ -24,6 +24,7 @@ export default function Footer({ block, locale }: { block: any; locale: string }
   return (
     <>
       <footer className={s.footer}>
+        <div className={`${s.circle}`}></div>
         <div className={s.footer_container}>
           <div className={s.footer_header}>
             <Logo />
@@ -72,6 +73,7 @@ export default function Footer({ block, locale }: { block: any; locale: string }
                 <BtnPhone
                   svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
                   phone={block.phone}
+                  isReversed={true}
                 />
                 <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
               </div>

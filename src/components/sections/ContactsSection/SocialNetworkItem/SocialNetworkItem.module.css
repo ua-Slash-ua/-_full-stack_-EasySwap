@@ -17,7 +17,6 @@
 }
 
 .social_item:hover {
-    border-radius: 1.66667vw;
     border: 0.05208vw solid rgba(255, 255, 255, 0.00);
     background: #0F0E13;
     box-shadow: 0.20833vw 0.20833vw 0.20833vw 0vw rgba(255, 255, 255, 0.10),
@@ -52,8 +51,13 @@
         height: 8.51064vw;
         flex-shrink: 0;
         aspect-ratio: 1/1;
-
     }
 
-    
+    .social_item:hover {
+        border: 0.05208vw solid rgba(255, 255, 255, 0.00);
+        background: #0F0E13;
+        box-shadow: -1.06vw -1.06vw 6.38vw 0 rgba(255, 255, 255, 0.27) inset,
+        1.06vw  1.06vw 6.38vw 0 rgba(255, 255, 255, 0.10) inset;
+        backdrop-filter: blur(1.33vw);
+    }
 }

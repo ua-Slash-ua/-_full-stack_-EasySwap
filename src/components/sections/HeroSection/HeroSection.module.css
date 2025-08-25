@@ -5,6 +5,8 @@
     flex-direction: row;
     align-items: center;
     gap: 5.21vw;
+    overflow: hidden;
+    position: relative;
 }
 
 .hero_main {
@@ -208,7 +210,26 @@
     background-color: white;
 }
 
+.circle {
+    position: absolute;
+    z-index: 0;
 
+    width: 82.44792vw;
+    height: 66.40625vw;
+    flex-shrink: 0;
+
+    border-radius: 82.44792vw;
+    background: radial-gradient(46.13% 48.05% at 50% 50%, rgba(99, 47, 241, 0.20) 0%, rgba(99, 47, 241, 0.00) 100%);
+    filter: blur(0.52vw);
+
+    top: -27vw;
+    right: -25vw;
+
+}
+.hero_aside{
+    position: relative;
+    z-index: 1;
+}
 @media screen and (max-width: 1024px) {
     .section_hero {
         width: 100vw;
@@ -219,14 +240,14 @@
 
     .hero_aside {
         position: relative;
-
+        z-index: 0;
     }
 
     .hero_container {
         position: relative;
         z-index: 10;
         flex-direction: column;
-        margin: 17.02vw 4.26vw 0 4.26vw;
+        margin: 30.85vw 4.26vw 0 4.26vw;
     }
 
     .calculator {
@@ -235,6 +256,7 @@
         padding: 5.32vw 4.26vw;
         gap: 9.57vw;
         border-radius: 8.51064vw;
+        backdrop-filter: blur(12.5vw);
 
 
     }
@@ -243,11 +265,15 @@
         display: flex;
         position: absolute;
         z-index: 0;
+        width: 100vw;
     }
 
     .image_container img {
-        width: 100vw;
-        height: 215.96vw;
+        width: 100%;
+        height: 190.96vw;
+        position: relative;
+        z-index: 1;
+        object-fit: cover;
     }
 
     .hero_header span, .hero_header p, .hero_description p {
@@ -295,12 +321,16 @@
         line-height: 5.21277vw;
         letter-spacing: -0.07447vw;
     }
-    .hero_items{
+
+    .hero_items {
         gap: 2.13vw;
         margin: 10.64vw 3.99vw 0;
+
     }
 
-    .btn_replace{
+
+
+    .btn_replace {
         display: flex;
         width: 11.11064vw;
         height: 11.11064vw;
@@ -317,10 +347,49 @@
         bottom: -6vw;
     }
 
-    .btn_replace svg{
+    .btn_replace svg {
         width: 3.7234vw;
         height: 3.7234vw;
         flex-shrink: 0;
         aspect-ratio: 1/1;
+    }
+
+    .circle_mob {
+        position: absolute;
+        z-index: 0;
+        width: 215.69149vw;
+        height: 137.76596vw;
+        border-radius: 215.69149vw;
+
+        background: radial-gradient(80.89% 82.85% at 50% 50%, rgba(77, 31, 122, 0.64) 6.73%, rgba(81, 28, 126, 0.00) 58.11%);
+        filter: blur(2.66vw);
+        right: -10vw;
+        top: 140vw;
+
+
+    }
+
+
+    .circle_mob_small{
+        position: absolute;
+        z-index: 1;
+        width: 10.6383vw;
+        height: 33.51064vw;
+        flex-shrink: 0;
+        border-radius: 215.69149vw;
+
+
+        left: -3vw;
+        top: 175vw;
+
+        backdrop-filter: blur(1vw);
+    }
+
+    .circle_mob_small svg{
+        width: 100%;
+        height: 100%;
+        fill: rgba(217, 217, 217, 0.01);
+        background: radial-gradient(80.89% 82.85% at 50% 50%, rgba(77, 31, 122, 0.64) 6.73%, rgba(81, 28, 126, 0.00) 58.11%);
+
     }
 }

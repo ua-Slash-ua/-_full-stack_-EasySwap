@@ -40,3 +40,23 @@
     cursor: pointer;
 
 }
+
+@media screen and (max-width: 1024px) {
+    .btn_phone_reversed .inner-content{
+        display: flex;
+        width: 10.6383vw;
+        height: 10.6383vw;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+        border-radius: 26.59574vw;
+
+        background: rgba(255, 255, 255, 0.04);
+
+        border: 0.133vw solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(1.33vw);
+
+    }
+}

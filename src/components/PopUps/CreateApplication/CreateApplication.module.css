@@ -249,9 +249,9 @@
         gap: 5.32vw;
         margin-bottom: 5.32vw;
     }
-    .application_description {
-        display: none!important;
-    }
+    /*.application_description {*/
+    /*    display: none!important;*/
+    /*}*/
 
 
 }

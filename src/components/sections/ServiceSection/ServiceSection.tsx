@@ -2,7 +2,7 @@
 import s from './ServiceSection.module.css'
 import ServiceAside from '@/components/sections/ServiceSection/ServiceAside/ServiceAside'
 import ServiceItem from '@/components/sections/ServiceSection/ServiceItem/ServiceItem'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ServiceItemProps } from '@/props/ServiceItemProps'
 import ServiceSwiper from '@/components/sections/ServiceSection/ServiceSwiper/ServiceSwiper'
 
@@ -10,15 +10,38 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
   const [activeService, setActiveService] = useState<number>(0)
   const [service, setService] = useState<ServiceItemProps>(block.services[0])
   const [width, setWidth] = useState<number>(0)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.3 }, // секція має бути видимою хоча б на 30%
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+  useEffect(() => {
+    if (!isVisible) return
+
     const timeout = setTimeout(() => {
       handlerService(activeService + 1)
     }, 5_000)
 
     return () => clearTimeout(timeout) // 🧹 очищення попереднього таймера
-  }, [activeService])
+  }, [activeService, isVisible])
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth/4)
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)
@@ -26,7 +49,6 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
   }, [])
 
   function handlerService(id: number) {
-    console.log('id = ', id)
     if (id >= block.services.length) {
       id = 0
     }
@@ -40,7 +62,7 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
     }))
   return (
     <>
-      <section className={s.service_section} id="services">
+      <section className={s.service_section} id="services" ref={sectionRef}>
         <ServiceAside
           title={block.aside_title}
           menuItems={servicesTitle()}
@@ -48,7 +70,11 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
           activeService={activeService}
         />
         {width <= 1024 ? (
-          <ServiceSwiper services={block.services} activeService={activeService} setActiveService={handlerService} />
+          <ServiceSwiper
+            services={block.services}
+            activeService={activeService}
+            setActiveService={handlerService}
+          />
         ) : (
           <ServiceItem service={service} />
         )}

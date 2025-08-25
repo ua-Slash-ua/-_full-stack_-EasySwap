@@ -45,6 +45,7 @@ export default function SupportSection({ block, locale }: { block: any; locale: 
             </div>
           </div>
         </div>
+        <div className={`${s.circle} hide`}></div>
       </section>
     </>
   )
