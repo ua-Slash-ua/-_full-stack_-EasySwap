@@ -38,13 +38,12 @@ export default function MenuMobile({ phone, social_network }: MenuMobileProps) {
               </div>
             </div>
           </div>
-
           <div className={s.menu_container}>
             <nav className={s.menu_items}>
               <span>Меню</span>
               <ul>
                 {menu.map((item, index) => {
-                  return <MenuItem link={item.link} text={item.text} key={index} />
+                  return <MenuItem link={item.link} text={item.text} key={index} func={close}/>
                 })}
               </ul>
             </nav>

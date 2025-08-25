@@ -52,7 +52,7 @@ export default function HeaderScroll({
             <div
               className={s.header_menu}
               onClick={() =>
-                setOpen('menu_mobile')
+                setOpen('menu_mobile', {phone:block.phone, social_network:block.social_networks})
               }
             >
               <span>Меню</span>

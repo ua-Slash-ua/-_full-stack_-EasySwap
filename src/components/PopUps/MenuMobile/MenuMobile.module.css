@@ -130,6 +130,10 @@
     }
     .menu_btn{
         padding:0 4.52vw ;
+        width: 100vw;
+    }
+    .menu_btn > div:first-child{
+        width: 91.23vw;
     }
 
     .social_networks{
@@ -143,6 +147,9 @@
         margin-top: 5.32vw;
     }
     .social_networks a{
+        background: none;
+    }
+    .social_networks a:hover{
         background: none;
     }
     .social_networks svg path{
