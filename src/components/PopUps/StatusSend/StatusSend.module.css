@@ -1,0 +1,147 @@
+
+.popup_backgraund {
+    position: fixed; /* краще ніж absolute для фулскріну */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center; /* вертикальне центрування */
+    justify-content: center; /* горизонтальне центрування */
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(0.26042vw);
+    z-index: 100;
+}
+
+.popup_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 2.08333vw;
+    background: #1E1C25;
+    backdrop-filter: blur(1.04167vw);
+
+    position: relative;
+
+}
+
+.btn_close {
+    display: flex;
+    width: 3.125vw;
+    height: 3.125vw;
+    padding: 0.625vw;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 1.66667vw;
+    background: rgba(196, 196, 196, 0.20);
+    backdrop-filter: blur(0.78125vw);
+
+    position: absolute;
+    right: -4.3vw;
+    top: -2.9vw;
+    cursor: pointer;
+}
+
+.btn_close svg {
+    width: 1.66667vw;
+    height: 1.66667vw;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+
+}
+
+.content_container {
+    display: flex;
+    width: 38.54167vw;
+    padding: 3.75vw 3.125vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25vw;
+    overflow: hidden;
+
+    border-radius: 2.08333vw;
+    background: #1E1C25;
+    backdrop-filter: blur(15vw);
+    position: relative;
+}
+
+.content_container h3{
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.29167vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.29167vw;
+    letter-spacing: -0.04583vw;
+}
+
+.content_container p{
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.16667vw;
+    letter-spacing: -0.01667vw;
+    opacity: 0.7;
+    overflow-wrap: break-word;
+    white-space: pre-line;
+
+}
+
+.img_container:nth-of-type(1){
+    position: absolute;
+    width: 6.68292vw;
+    height: 6.68292vw;
+    top: -0.23vw;
+    left: 2.15vw;
+}
+.img_container:nth-of-type(2){
+    position: absolute;
+    width: 5.3125vw;
+    height: 5.3125vw;
+    bottom: -2.6vw;
+    right: 0.61vw;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .popup_container {
+
+        border-radius: 10.6383vw;
+    }
+
+    .content_container {
+
+    }
+    .btn_close {
+        width: 13.6383vw;
+        height: 13.6383vw;
+        border-radius: 8.51064vw;
+        background: #FFF;
+        backdrop-filter: blur(3.99vw);
+        right: 0;
+        top: -18vw;
+    }
+
+    .btn_close svg {
+        width: 6.38298vw;
+        height: 6.38298vw;
+        flex-shrink: 0;
+        aspect-ratio: 1/1;
+    }
+    .btn_close svg path {
+        fill: #0F0E13;
+    }
+}

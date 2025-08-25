@@ -5,6 +5,7 @@ import ExchangeApplication from '@/components/PopUps/ExchangeApplication/Exchang
 import ReviewImage from '@/components/PopUps/ReviewImage/ReviewImage'
 import CurrenciesInfo from '@/components/PopUps/CurrenciesInfo/CurrenciesInfo'
 import MenuMobile from '@/components/PopUps/MenuMobile/MenuMobile'
+import StatusSend from '@/components/PopUps/StatusSend/StatusSend'
 
 export const PopupManager = () => {
   const { open, data  } = usePopup()
@@ -12,15 +13,17 @@ export const PopupManager = () => {
 
   switch (open) {
     case 'create_application':
-      return <CreateApplication {...data}/>
+      return <CreateApplication {...data} />
     case 'exchange_application':
       return <ExchangeApplication departments={data} />
     case 'review_image':
       return <ReviewImage {...data} />
     case 'currencies_info':
-      return <CurrenciesInfo  {...data}/>
+      return <CurrenciesInfo {...data} />
     case 'menu_mobile':
-      return <MenuMobile  {...data}/>
+      return <MenuMobile {...data} />
+    case 'status_send':
+      return <StatusSend {...data} />
     default:
       return null
   }

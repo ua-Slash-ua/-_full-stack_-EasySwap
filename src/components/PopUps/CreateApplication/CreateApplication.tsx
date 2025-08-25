@@ -9,7 +9,7 @@ import DescriptionInput from '@/components/layout/DescriptionInput/DescriptionIn
 import { createApplication } from '@/api/createApp'
 
 export default function CreateApplication() {
-  const { close } = usePopup()
+  const { close, setOpen } = usePopup()
 
   return (
     <div className={s.popup_backgraund}>
@@ -35,12 +35,15 @@ export default function CreateApplication() {
                 telegramNick: values.telegram,
                 request: values.description,
               })
-
-              console.log('Заявка надіслана:', result)
-              resetForm()
               close()
+              setOpen('status_send', { status: 'success' })
+              resetForm()
+
             } catch (err) {
+              close()
+              setOpen('status_send', { status: 'error' })
               console.error('Помилка при надсиланні заявки:', err)
+              resetForm()
             }
           }}
         >

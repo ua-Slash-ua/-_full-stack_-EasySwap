@@ -8,6 +8,7 @@ type PopupType =
   | 'review_image'
   | 'currencies_info'
   | 'menu_mobile'
+  | 'status_send'
   | null
 
 interface PopupContextType {

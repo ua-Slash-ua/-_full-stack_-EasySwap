@@ -12,8 +12,13 @@ type BtnPhoneProps = {
   isReversed?: boolean
 }
 
-export default function BtnSendApplication({ svgIcon, text, className, isReversed=false}: BtnPhoneProps) {
-  const { setOpen } = usePopup();
+export default function BtnSendApplication({
+  svgIcon,
+  text,
+  className,
+  isReversed = false,
+}: BtnPhoneProps) {
+  const { setOpen } = usePopup()
   return (
     <>
       <StarBorder
@@ -21,6 +26,7 @@ export default function BtnSendApplication({ svgIcon, text, className, isReverse
         className={`${isReversed ? s.btn_mail_reversed : s.btn_mail} ${isReversed ? 'btn_mail_reversed' : 'btn_mail'} `}
         speed="5s"
         color={'#622FF1'}
+        // onClick={() => setOpen('status_send', { status: 'error' })}
         onClick={() => setOpen('create_application')}
       >
         <div dangerouslySetInnerHTML={{ __html: svgIcon }} />

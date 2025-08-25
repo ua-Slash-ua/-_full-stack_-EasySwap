@@ -7,8 +7,11 @@ import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput
 import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import { Form, Formik } from 'formik'
 import { createApplication } from '@/api/createApp'
+import { usePopup } from '@/context/PopupContext'
 
 export default function ApplicationSection({ block, locale }: { block: any; locale: string }) {
+  const { setOpen } = usePopup()
+
   return (
     <section className={s.application_section}>
       <div className={s.application_container}>
@@ -35,8 +38,10 @@ export default function ApplicationSection({ block, locale }: { block: any; loca
                   telegramNick: values.telegram,
                   department: values.department,
                 })
+                setOpen('status_send', { status: 'success' })
                 resetForm()
               } catch (err) {
+                setOpen('status_send', { status: 'error' })
                 console.error('Помилка при надсиланні заявки:', err)
               }
             }}

@@ -9,8 +9,7 @@ import { createApplication } from '@/api/createApp'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
 
 export default function ExchangeApplication({departments}:{departments:any[]}) {
-  const { close } = usePopup()
-  console.log(departments)
+  const { close, setOpen } = usePopup()
   return (
     <div className={s.popup_backgraund}>
       <div className={s.popup_container} id={'exchange_application'}>
@@ -44,12 +43,15 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
                 telegramNick: values.telegram,
                 department: values.department,
               })
-
-              console.log('Заявка надіслана:', result)
-              resetForm()
               close()
+              setOpen('status_send', { status: 'success' })
+              resetForm()
+
             } catch (err) {
+              close()
+              setOpen('status_send', { status: 'error' })
               console.error('Помилка при надсиланні заявки:', err)
+              resetForm()
             }
           }}
         >
