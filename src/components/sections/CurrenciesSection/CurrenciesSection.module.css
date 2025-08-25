@@ -486,9 +486,9 @@
         letter-spacing: -0.07447vw;
         opacity: 1;
         width: 30%;
-        border-right: 1px solid rgba(255, 255, 255, 0.04);
+        border-left: 1px solid rgba(255, 255, 255, 0.04);
         border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        text-align: center;
+        /*text-align: center;*/
         gap: 1.6vw;
     }
 
@@ -501,20 +501,27 @@
         padding-left: 5.31915vw;
         justify-content: flex-start;
         width: 40%;
+        border-left: none;
+
         /*flex-wrap: wrap;*/
 
 
     }
-
+    .table_head_2{
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+    }
     .table_body {
         /*max-height: 10vw;*/
         max-height: 77.1vw;
-        overflow-y: scroll;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
     }
 
     .table_body_line {
         display: flex;
         flex-direction: row;
+
     }
 
     .icon_currencies {

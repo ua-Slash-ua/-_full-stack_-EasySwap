@@ -130,9 +130,10 @@
     color: #FFF;
 }
 
-.container_application_department input:focus {
+.form_input:focus {
     border-color: #2C2C2C;
 }
+
 
 
 @media screen and (max-width: 1024px) {

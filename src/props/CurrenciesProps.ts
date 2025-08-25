@@ -1,9 +1,11 @@
+import { StaticImageData } from 'next/image'
+
 export type RateByCurrency = {
   currency: {
     code: string;
     icon: {
       alt: string;
-      url: string;
+      url: string | StaticImageData // ✅
     };
     name: string;
     createdAt: string;
@@ -14,12 +16,12 @@ export type RateByCurrency = {
     id: string;
   };
   from_1000?: {
-    buy1000?: number;
-    sell1000?: number;
+    buy1000?: number | string;
+    sell1000?: number | string;
   };
   from_5000?: {
-    buy5000?: number;
-    sell5000?: number;
+    buy5000?: number | string;
+    sell5000?: number | string;
   };
   id: string;
 };
