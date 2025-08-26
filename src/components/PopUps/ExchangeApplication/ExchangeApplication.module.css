@@ -166,6 +166,19 @@
     letter-spacing: -0.01667vw;
 }
 
+.btn_send:hover {
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+    box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
+}
+.btn_close:hover{
+    background: white;
+}
+
+.btn_close:hover svg path{
+    fill: black;
+}
+
 @media screen and (max-width: 1024px) {
     .popup_container {
         display: flex;

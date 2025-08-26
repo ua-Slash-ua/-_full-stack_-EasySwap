@@ -142,6 +142,13 @@
     text-align: center;
 }
 
+
+.btn_send:hover {
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+    box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
+}
+
 @media screen and (max-width: 1024px) {
     .application_section{
         width: 100vw;

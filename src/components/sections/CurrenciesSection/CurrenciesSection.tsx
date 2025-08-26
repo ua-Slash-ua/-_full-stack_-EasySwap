@@ -288,7 +288,7 @@ export default function CurrenciesSection({
               </ul>
             </div>
             <div className={s.footer_second}>
-              <h3>Пояснення до таблиці:</h3>
+              <h3>По оптовому курсу ми приймаємо лише:</h3>
               <ul>
                 <li>
                   <div className={s.icon_currencies}>

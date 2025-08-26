@@ -12,6 +12,8 @@ import { useEffect, useRef, useState } from 'react'
 import Exchanger from '@/components/Exchanger/Exchanger'
 import { usePopup } from '@/context/PopupContext'
 import { currencies } from '@/config/currencies.config'
+import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
+import { contacts } from '@/config/contacts.config'
 
 export default function HeroSection({
   block,
@@ -292,6 +294,13 @@ export default function HeroSection({
             })}
           </div>
         </aside>
+        <div className={`${s.phone_container} hide`}>
+          <BtnPhone
+            svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
+            phone={''}
+            isReversed={true}
+          />
+        </div>
         <div className={`${s.circle} hide`}></div>
       </section>
     </>
