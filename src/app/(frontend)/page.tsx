@@ -78,7 +78,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           return (
             <BlockComponent
               key={block.id || i}
-              block={contacts}
+              block={block}
               locale={locale}
               telegram={contacts.social_networks?.telegram?.link}
             />
