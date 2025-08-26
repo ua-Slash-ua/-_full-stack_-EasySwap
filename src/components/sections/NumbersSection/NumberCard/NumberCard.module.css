@@ -1,19 +1,20 @@
 .card_item {
     display: flex;
+
+    flex-direction: column;
+
     width: 19.0625vw;
     height: 19.89583vw;
     justify-content: space-between;
     padding: 1.66667vw;
-    flex-direction: column;
     align-items: flex-start;
-    gap: 0.83333vw;
-
+    gap: .83333vw;
     border-radius: 1.66667vw;
-    border: 0.05208vw solid #622FF1;
+    border: .05208vw solid rgba(255, 255, 255, 0.22);
     background: #0F0E13;
-    box-shadow: 0.20833vw 0.20833vw 1.04167vw 0vw rgba(255, 255, 255, 0.04) inset;
-
+    /* box-shadow: inset .20833vw .20833vw 1.04167vw 0 rgba(255, 255, 255, .04); */
     overflow: hidden;
+    box-shadow: 0.10417vw 0.10417vw 0.625vw 0vw rgba(255, 255, 255, 0.12) inset;
 }
 
 .card_item div {
@@ -63,7 +64,7 @@
         min-height: 48.4vw;
         height: auto;
         padding: 4.25532vw;
-        gap: 8.51vw;
+        /*gap: 8.51vw;*/
         flex-shrink: 0;
         border-radius: 5.31915vw;
 

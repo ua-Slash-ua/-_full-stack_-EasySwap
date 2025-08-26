@@ -52,6 +52,8 @@
     overflow: hidden;
 
     background: rgba(15, 14, 19, 0.9);
+    box-shadow: 0.10417vw 0.10417vw 0.625vw 0vw rgba(255, 255, 255, 0.12) inset;
+
 }
 
 

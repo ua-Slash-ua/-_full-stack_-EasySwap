@@ -70,43 +70,36 @@
     background 0.5s ease;
 }
 
-.active_svg, .disabled_svg{
+.icon{
+    display: flex;
     width: 2.29167vw;
     height: 2.29167vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.52083vw;
+    aspect-ratio: 1/1;
+
+    border-radius: 5.20833vw;
+
+}
+
+.disabled_svg{
+    background:  linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+}
+.disabled_svg path{
+    stroke:white;
+}
+.active_svg{
+    background: white;
+}
+
+.active_svg path{
+    stroke:#622FF1;
 }
 
 
-.active_svg svg rect {
-    fill: white;
-}
 
-.active_svg svg path {
-    stroke: #622FF1;
-}
-
-.active_svg:hover svg rect {
-    fill: #622FF1;
-}
-
-.active_svg:hover svg path {
-    stroke: white;
-}
-
-.disabled_svg svg rect {
-    fill: #622FF1;
-}
-
-.disabled_svg svg path {
-    stroke: white;
-}
-
-.disabled_svg:hover svg rect {
-    fill: white;
-}
-
-.disabled_svg:hover svg path {
-    stroke: #622FF1;
-}
 
 @media screen and (max-width: 1024px) {
     .faq_item{
