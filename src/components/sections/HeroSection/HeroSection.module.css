@@ -230,6 +230,13 @@
     position: relative;
     z-index: 1;
 }
+
+.phone_container{
+    position: absolute;
+    right: 3.33vw;
+    top: 43.13vw;
+}
+
 @media screen and (max-width: 1024px) {
     .section_hero {
         width: 100vw;

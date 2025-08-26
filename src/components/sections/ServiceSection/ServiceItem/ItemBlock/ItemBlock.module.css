@@ -65,6 +65,13 @@
     background: #ffffff;
     border-radius: 5.20833vw;
 }
+.item_block_icon div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .item_block_icon span{
     color: #8143FD;
     text-align: center;

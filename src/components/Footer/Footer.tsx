@@ -7,12 +7,12 @@ import { contacts } from '@/config/contacts.config'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
 import Magnet from '@/libs/Magnet/Magnet'
 import { useEffect, useState } from 'react'
+import { footerConfig } from '@/config/footer.config'
 
 export default function Footer({ block, locale }: { block: any; locale: string }) {
   const socialMedia = block.social_networks
   const footerWords = block.footer_words
   const [width, setWidth] = useState<number>(0)
-
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
@@ -37,19 +37,15 @@ export default function Footer({ block, locale }: { block: any; locale: string }
                 </div>
               ))}
             </div>
-            {
-              width>1024 &&
-              (
-                <div className={s.lside}>
-                  <BtnPhone
-                    svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
-                    phone={block.phone}
-                  />
-                  <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
-                </div>
-              )
-            }
-
+            {width > 1024 && (
+              <div className={s.lside}>
+                <BtnPhone
+                  svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
+                  phone={block.phone}
+                />
+                <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
+              </div>
+            )}
           </div>
           <div className={s.footer_title}>
             <p>
@@ -60,25 +56,28 @@ export default function Footer({ block, locale }: { block: any; locale: string }
           <div className={s.footer_words}>
             <div className={s.word_container}>
               {Object.entries(footerWords).map(([key, value], index) => (
-                  <Magnet key={index} className={s.word_item} padding={50} disabled={false} magnetStrength={50}>
-                    {footerWords[key]}
-                  </Magnet>
+                <Magnet
+                  key={index}
+                  className={s.word_item}
+                  padding={50}
+                  disabled={false}
+                  magnetStrength={50}
+                >
+                  {footerWords[key]}
+                </Magnet>
               ))}
             </div>
           </div>
-          {
-            width<=1024 &&
-            (
-              <div className={s.lside}>
-                <BtnPhone
-                  svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
-                  phone={block.phone}
-                  isReversed={true}
-                />
-                <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
-              </div>
-            )
-          }
+          {width <= 1024 && (
+            <div className={s.lside}>
+              <BtnPhone
+                svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
+                phone={block.phone}
+                isReversed={true}
+              />
+              <BtnSendApplication svgIcon={contacts.iconMail} text={'Залишити заявку'} />
+            </div>
+          )}
           <ul className={s.footer_footer}>
             <li>
               <p>©2025 Easy Swap. All Rights Reserved.</p>
@@ -93,16 +92,20 @@ export default function Footer({ block, locale }: { block: any; locale: string }
                   href={
                     'https://www.instagram.com/before_after.agency/?igsh=MTVyMTIxaTE4ZmRobA%3D%3D#'
                   }
+                  target={'_blank'}
                 >
                   <span>Before/After</span>
                 </Link>
                 <p> & </p>
-                <Link href={'https://projection-ua.webflow.io/'}>
+                <Link href={'https://projection-ua.webflow.io/'} target={'_blank'}>
                   <span>PROJECTION</span>
                 </Link>
               </div>
             </li>
           </ul>
+          <Link href={'#main'} className={s.footer_to_up}>
+            <div dangerouslySetInnerHTML={{ __html: footerConfig.toUp }} />
+          </Link>
         </div>
       </footer>
     </>

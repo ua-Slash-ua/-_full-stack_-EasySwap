@@ -44,10 +44,20 @@ export default function LocationItem({
             <p>{phone}</p>
           </li>
         </ul>
-        <div className={s.location_btn}>
+        <div
+          className={s.location_btn}
+          onClick={() => {
+            const [lat, lng] = coords
+            window.open(
+              `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`,
+              '_blank'
+            )
+          }}
+        >
           <div dangerouslySetInnerHTML={{ __html: contacts.iconBtn }} />
           <span>Прокласти маршрут</span>
         </div>
+
       </li>
     </>
   )

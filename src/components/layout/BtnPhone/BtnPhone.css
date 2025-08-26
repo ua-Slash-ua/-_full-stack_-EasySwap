@@ -1,3 +1,4 @@
+
 .btn_phone .inner-content{
     position: relative;
     display: flex;
@@ -9,7 +10,7 @@
 
     border-radius: 5.20833vw;
     border: 0.02604vw solid transparent; /* фіксована товщина */
-    background: #181819;
+    background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(0.26042vw);
     box-shadow: none;
     transition: all 0.3s ease; /* плавність */
@@ -34,13 +35,18 @@
 /*}*/
 
 .btn_phone:hover {
-    border-color: rgba(247, 234, 249, 0.50);
     background: rgba(255, 255, 255, 0.04);
     box-shadow: 0 0 0.41667vw rgba(98, 47, 241, 0.50);
     cursor: pointer;
 
 }
 
+.btn_phone:hover .inner-content{
+    border: 0.02604vw solid rgba(247, 234, 249, 0.50);
+}
+.no-underline{
+    display: flex;
+}
 @media screen and (max-width: 1024px) {
     .btn_phone_reversed .inner-content{
         display: flex;

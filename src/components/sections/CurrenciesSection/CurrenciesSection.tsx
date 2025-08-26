@@ -7,6 +7,24 @@ import { CurrencyMeta, RateByCurrency } from '@/props/CurrenciesProps'
 import Image from 'next/image'
 import BtnExchange from '@/components/layout/BtnExchange/BtnExchange'
 import { usePopup } from '@/context/PopupContext'
+import crossImg from 'public/currencies/cross_course.svg'
+const crossCourse: RateByCurrency = {
+  id: 'cross',
+  currency: {
+    id: 'cross',
+    code: 'Кросс-курс',
+    icon: { alt: 'cross-course', url: crossImg },
+    name: '',
+    createdAt: '',
+    updatedAt: '',
+    ratesByCurrency: [],
+    cat_date: '',
+    cat_type: ''
+  },
+  from_1000: { buy1000: 'По запиту', sell1000: 'По запиту' },
+  from_5000: { buy5000: 'По запиту', sell5000: 'По запиту' }
+}
+
 
 function formatDateToShort(dateString: string): string {
   const date = new Date(dateString)
@@ -17,7 +35,13 @@ function formatDateToShort(dateString: string): string {
   return `${day}.${month}.${year}`
 }
 
-export default function CurrenciesSection({ block , departments }: { block: CurrencyMeta[], departments:any[] }) {
+export default function CurrenciesSection({
+  block,
+  departments,
+}: {
+  block: CurrencyMeta[]
+  departments: any[]
+}) {
   const countCurrencies: number = 1
   const [width, setWidth] = useState<number>(0)
 
@@ -70,7 +94,7 @@ export default function CurrenciesSection({ block , departments }: { block: Curr
     setLastUpdate(formatted)
   }, [block])
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth )
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)
@@ -175,6 +199,21 @@ export default function CurrenciesSection({ block , departments }: { block: Curr
                       </div>
                     ),
                 )}
+                <div key={-999} className={s.body_line}>
+                  <div className={s.body_item}>
+                    <div className={s.icon_currencies}>
+                      <Image
+                        src={crossCourse.currency.icon.url}
+                        alt={crossCourse.currency.icon.alt}
+                        width={100}
+                        height={100}
+                      />
+                    </div>
+                    Крос-курс
+                    <div className={s.curr_age}></div>
+                  </div>
+                  <TableLine key={-999} curr={crossCourse} />
+                </div>
               </div>
               <div className={s.currencies_table_footer}>
                 <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
@@ -249,7 +288,7 @@ export default function CurrenciesSection({ block , departments }: { block: Curr
               </ul>
             </div>
             <div className={s.footer_second}>
-              <h3>Пояснення до таблиці:</h3>
+              <h3>По оптовому курсу ми приймаємо лише:</h3>
               <ul>
                 <li>
                   <div className={s.icon_currencies}>
@@ -437,6 +476,20 @@ function CurrencyTableMobile({
                 </div>
               ),
           )}
+
+          <div key={-888} className={s.table_body_line}>
+            <div className={s.table_item}>
+              <div className={s.icon_currencies}>
+                <Image src={crossCourse.currency.icon.url} alt={crossCourse.currency.icon.alt} width={100} height={100} />
+              </div>
+              {crossCourse.currency.code}
+              <div className={s.curr_age}>
+
+
+              </div>
+            </div>
+            <TableLine key={-888} curr={crossCourse} mobile={true} isLeft={isLeft} />
+          </div>
         </div>
         <div className={s.table_footer}>
           <div

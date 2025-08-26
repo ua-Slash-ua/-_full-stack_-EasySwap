@@ -12,7 +12,7 @@ export default function SocialNetworkItem({ location_icon, link }: SocialNetwork
 
   return (
     <>
-      <Link className={s.social_item} href={link}>
+      <Link className={s.social_item} href={link} target={'_blank'}>
         <div dangerouslySetInnerHTML={{ __html: location_icon }} />
       </Link>
     </>

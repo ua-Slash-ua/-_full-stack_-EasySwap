@@ -99,6 +99,14 @@
 
     border-radius: 5.20833vw;
     background: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.location_btn:hover {
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+    box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
 }
 
 .location_btn span {

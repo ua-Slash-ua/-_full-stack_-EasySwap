@@ -2,6 +2,7 @@ import './BtnPhone.css'
 import s from './BtnPhone.module.css'
 
 import StarBorder from '@/libs/StarBorder/StarBorder'
+import Link from 'next/link'
 
 type BtnPhoneProps = {
   svgIcon: string
@@ -12,7 +13,7 @@ type BtnPhoneProps = {
 
 export default function BtnPhone({ svgIcon, phone, isReversed = false, isMobileMenu = false }: BtnPhoneProps) {
   return (
-    <>
+    <Link href={`tel:${phone}`} className="no-underline" target={'_blank'}>
       <StarBorder
         as="div"
         className={`${isReversed ? s.btn_phone_reversed : s.btn_phone} ${
@@ -22,9 +23,9 @@ export default function BtnPhone({ svgIcon, phone, isReversed = false, isMobileM
         color={'#622FF1'}
       >
         <div dangerouslySetInnerHTML={{ __html: svgIcon }} />
-
         <span>{phone}</span>
       </StarBorder>
-    </>
+    </Link>
   )
 }
+

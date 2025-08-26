@@ -5,7 +5,7 @@ import SpotlightCard from '@/libs/SpotlightCard/SpotlightCard'
 export default function NumberCard({ card_title, card_number, card_description }: NumberCardProps) {
   return (
     <>
-      <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+      <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(183, 146, 255, 1)">
         <div className={s.card_item}>
           <p className={'hide'}>{card_description}</p>
           <div>
