@@ -40,6 +40,9 @@
     height: 10.15625vw;
     top: -2vw;
 }
+.currencies_icon img{
+    width: 100%;
+}
 
 .currencies_table_container {
     width: 100%;
@@ -204,7 +207,13 @@
     line-height: 1.16667vw; /*  */
     letter-spacing: -0.01667vw;
 }
+.status_update:hover{
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0.41667vw rgba(98, 47, 241, 0.50);
+    cursor: pointer;
+    border: 0.02604vw solid rgba(247, 234, 249, 0.50);
 
+}
 .icon_currencies {
     width: 1.66667vw;
     height: 1.66667vw;
@@ -315,6 +324,10 @@
     position: absolute;
     right: 0.9375vw;
     bottom: -0.26042vw;
+}
+
+.footer_first img{
+    width: 100%;
 }
 
 .footer_second {
@@ -472,6 +485,7 @@
 
     .active path {
         fill: #622FF1;
+        fill-opacity: 1;
     }
 
     .table_item {
@@ -609,6 +623,7 @@
         backdrop-filter: blur(1.33vw);
 
     }
+
 
     .status_update svg {
         width: 4.12234vw;

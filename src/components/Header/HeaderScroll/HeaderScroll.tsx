@@ -47,6 +47,7 @@ export default function HeaderScroll({
             svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
             phone={block.phone}
             isReversed={true}
+            isMobileMenu={true}
           />
           {width <= 1024 ? (
             <div

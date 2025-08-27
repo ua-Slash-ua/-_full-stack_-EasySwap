@@ -8,6 +8,8 @@
     z-index: 0;
 }
 
+
+
 @media screen and (max-width: 1024px) {
     .map{
         width: 91.2234vw;

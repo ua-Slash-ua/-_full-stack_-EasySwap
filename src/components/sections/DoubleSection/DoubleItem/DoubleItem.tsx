@@ -1,8 +1,9 @@
 import { DoubleItemProps } from '@/props/DoubleItemProps'
 import s from './DoubleItem.module.css'
 import DoubleLine from '@/components/sections/DoubleSection/DoubleItem/DoubleLine/DoubleLine'
+import Image from 'next/image'
 
-export default function DoubleItem({ title, icon, lines }: DoubleItemProps) {
+export default function DoubleItem({ title, icon, lines, isRight = false}: DoubleItemProps) {
   return (
     <>
       <div className={s.item}>
@@ -16,7 +17,9 @@ export default function DoubleItem({ title, icon, lines }: DoubleItemProps) {
             />
           ))}
         </div>
-        <div className={s.icon_main} dangerouslySetInnerHTML={{ __html: icon }} />
+        <div className={isRight? s.icon_other: s.icon_main}>
+          <Image src={icon} alt={'image'}/>
+        </div>
       </div>
     </>
   )

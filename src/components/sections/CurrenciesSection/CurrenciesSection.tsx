@@ -2,12 +2,13 @@
 import s from './CurrenciesSection.module.css'
 import { currencies } from '@/config/currencies.config'
 import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CurrencyMeta, RateByCurrency } from '@/props/CurrenciesProps'
 import Image from 'next/image'
 import BtnExchange from '@/components/layout/BtnExchange/BtnExchange'
 import { usePopup } from '@/context/PopupContext'
 import crossImg from 'public/currencies/cross_course.svg'
+
 const crossCourse: RateByCurrency = {
   id: 'cross',
   currency: {
@@ -19,12 +20,11 @@ const crossCourse: RateByCurrency = {
     updatedAt: '',
     ratesByCurrency: [],
     cat_date: '',
-    cat_type: ''
+    cat_type: '',
   },
   from_1000: { buy1000: 'По запиту', sell1000: 'По запиту' },
-  from_5000: { buy5000: 'По запиту', sell5000: 'По запиту' }
+  from_5000: { buy5000: 'По запиту', sell5000: 'По запиту' },
 }
-
 
 function formatDateToShort(dateString: string): string {
   const date = new Date(dateString)
@@ -106,10 +106,9 @@ export default function CurrenciesSection({
         <div className={s.currencies_header}>
           <h3>Актуальний курс валют</h3>
           {width > 1024 && (
-            <div
-              className={s.currencies_icon}
-              dangerouslySetInnerHTML={{ __html: currencies.iconMain }}
-            />
+            <div className={s.currencies_icon}>
+              <Image src={currencies.iconMain} alt={'Main icon'} width={25} height={25} />
+            </div>
           )}
           <div className={s.calc_header}>
             <BtnSwitcher
@@ -248,7 +247,9 @@ export default function CurrenciesSection({
           <div className={s.currencies_footer}>
             <div className={s.footer_first}>
               <h3>Зверніть увагу!</h3>
-              <div dangerouslySetInnerHTML={{ __html: currencies.iconFooter }} />
+              <div className={s.icon_footer}>
+                <Image src={currencies.iconFooter} alt={'iconFooter'} />
+              </div>
             </div>
             <div className={s.footer_second}>
               <h3>Пояснення до таблиці:</h3>
@@ -480,13 +481,15 @@ function CurrencyTableMobile({
           <div key={-888} className={s.table_body_line}>
             <div className={s.table_item}>
               <div className={s.icon_currencies}>
-                <Image src={crossCourse.currency.icon.url} alt={crossCourse.currency.icon.alt} width={100} height={100} />
+                <Image
+                  src={crossCourse.currency.icon.url}
+                  alt={crossCourse.currency.icon.alt}
+                  width={100}
+                  height={100}
+                />
               </div>
               {crossCourse.currency.code}
-              <div className={s.curr_age}>
-
-
-              </div>
+              <div className={s.curr_age}></div>
             </div>
             <TableLine key={-888} curr={crossCourse} mobile={true} isLeft={isLeft} />
           </div>

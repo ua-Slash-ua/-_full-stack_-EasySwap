@@ -5,7 +5,7 @@ import 'swiper/css/navigation'
 import './ServiceSwiper.css'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 import { useEffect, useRef, useState } from 'react'
 import { usePopup } from '@/context/PopupContext'
 import type { Swiper as SwiperType } from 'swiper'
@@ -15,10 +15,14 @@ export default function ServiceSwiper({
   services,
   activeService,
   setActiveService,
+  isActive,
+  setActive,
 }: {
   services: any[]
   activeService: number
   setActiveService: Function
+  isActive: boolean
+  setActive: (active: boolean) => void
 }) {
   const [activeSlide, setActiveSlide] = useState(0)
   const { setOpen } = usePopup()
@@ -30,7 +34,7 @@ export default function ServiceSwiper({
   }, [activeService])
   return (
     <Swiper
-      modules={[ Pagination]}
+      modules={[Pagination]}
       spaceBetween={20}
       slidesPerView={1.05}
       pagination={{ clickable: true }}
@@ -39,7 +43,7 @@ export default function ServiceSwiper({
     >
       {services.map((service, index) => (
         <SwiperSlide key={index}>
-          <ServiceItem service={service} />
+          <ServiceItem service={service} isActive={isActive} setActive={setActive} />
         </SwiperSlide>
       ))}
     </Swiper>

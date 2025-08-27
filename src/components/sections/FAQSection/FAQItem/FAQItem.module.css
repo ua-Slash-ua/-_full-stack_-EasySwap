@@ -21,11 +21,13 @@
 
 
 }
-.faq_item.active{
+
+.faq_item.active {
     border-radius: 1.66667vw;
-    border: 0.05208vw solid #7B4BFF;
+    border: 0.05208vw solid rgb(127, 127, 127);
     background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
 }
+
 .question {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -54,6 +56,7 @@
 
 .active p {
     display: inline;
+    width: 100%;
 }
 
 .title_container {
@@ -70,7 +73,7 @@
     background 0.5s ease;
 }
 
-.icon{
+.icon {
     display: flex;
     width: 2.29167vw;
     height: 2.29167vw;
@@ -81,55 +84,72 @@
     aspect-ratio: 1/1;
 
     border-radius: 5.20833vw;
-
+    transition: all 0.3s;
 }
 
-.disabled_svg{
-    background:  linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+.icon svg {
+    width: 0.72917vw;
+    height: 0.72917vw;
 }
-.disabled_svg path{
-    stroke:white;
+
+.disabled_svg, .active_svg:hover {
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
 }
-.active_svg{
+
+.disabled_svg path, .active_svg:hover path {
+    stroke: white;
+    fill: white;
+}
+
+
+.active_svg, .disabled_svg:hover {
     background: white;
 }
 
-.active_svg path{
-    stroke:#622FF1;
+.active_svg path, .disabled_svg:hover path {
+    stroke: #622FF1;
+    fill: #622FF1;
 }
 
 
-
-
 @media screen and (max-width: 1024px) {
-    .faq_item{
+    .faq_item {
         width: 91.2234vw;
         padding: 5.31915vw;
         border-radius: 5.31915vw;
 
     }
-    .title_container p{
+
+    .title_container p {
         font-size: 4.25532vw;
         line-height: 5.53191vw;
         letter-spacing: -0.08511vw;
     }
-    .active_svg, .disabled_svg{
+
+    .active_svg, .disabled_svg {
         width: 8.51064vw;
         height: 8.51064vw;
     }
-    .active_svg svg, .disabled_svg svg{
+
+    .active_svg svg, .disabled_svg svg {
         width: 7.44681vw;
         height: 7.44681vw;
         max-width: none;
     }
 
-    .answer{
+    .answer {
         font-size: 3.7234vw;
         line-height: 5.21277vw;
         letter-spacing: -0.07447vw;
         padding-right: 12.57vw;
     }
-    .title_container{
+
+    .title_container {
         gap: 3.196vw;
+    }
+
+    .icon svg {
+        width: 3.7234vw;
+        height: 3.7234vw;
     }
 }

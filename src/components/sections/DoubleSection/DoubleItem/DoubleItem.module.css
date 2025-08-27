@@ -30,16 +30,26 @@
 .icon_main {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 2.3vw;
+    width: 6.3vw;
+    height: 6.39125vw;
 }
-.icon_main svg{
-    width: 8.07292vw;
-    height: 8.07292vw;
+.icon_other{
+    position: absolute;
+    top: 0;
+    right: 1.6vw;
+    width: 8.3vw;
+    height: 8.39125vw;
+}
+.icon_main img, .icon_other img {
+    width: 100%;
+    height: 100%;
 }
 .content {
     display: flex;
     flex-direction: column;
     gap: 0.21vw;
+    width: 100%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -50,7 +60,7 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-start;
-        gap: 4.25532vw;
+        gap: 10.64vw;
         align-self: stretch;
         border-radius: 8.51064vw;
         overflow: hidden;
@@ -64,13 +74,17 @@
     }
     .icon_main{
         position: absolute;
-        right: 4.26vw;
-    }
-    .icon_main svg{
-        width: 20.74468vw;
+        right: 5.26vw;
+        width: 15.74468vw;
         height: 16.4234vw;
-        flex-shrink: 0;
     }
+    .icon_other{
+        position: absolute;
+        right: 0;
+        width: 24.2492vw;
+        height: 22.2492vw;
+    }
+
     .content{
         gap: 1.06vw;
     }

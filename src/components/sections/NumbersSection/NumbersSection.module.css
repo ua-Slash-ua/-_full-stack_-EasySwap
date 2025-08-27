@@ -26,7 +26,7 @@
     align-self: stretch;
 }
 .aside_card_title span{
-    background: linear-gradient(93deg, #B792FF -12.64%, #7447FB 15.04%);
+    background: linear-gradient(93deg, #B792FF 16.82%, #7447FB 79.74%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

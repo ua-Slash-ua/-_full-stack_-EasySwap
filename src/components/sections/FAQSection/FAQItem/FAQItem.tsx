@@ -13,7 +13,7 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
           <p className={question}>{question}</p>
           <div
             className={`${s.icon} ${active ? s.active_svg : s.disabled_svg}`}
-            dangerouslySetInnerHTML={{ __html: active ? faqIcons.disabled : faqIcons.active }}
+            dangerouslySetInnerHTML={{ __html: active ? faqIcons.active : faqIcons.disabled }}
           />
         </div>
         <p className={s.answer}>{answer}</p>

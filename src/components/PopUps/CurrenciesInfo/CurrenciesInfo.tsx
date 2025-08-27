@@ -26,6 +26,9 @@ export default function CurrenciesInfo({ iconUSD, iconEUR }: { iconUSD: string; 
             </svg>
           </div>
           <div className={s.popup_content}>
+            <div className={s.info_icon}>
+              <Image src={currencies.iconFooter} alt={'info'} width={25} height={25} />
+            </div>
             <div className={s.title}>
               <h3>Зверніть увагу!</h3>
             </div>

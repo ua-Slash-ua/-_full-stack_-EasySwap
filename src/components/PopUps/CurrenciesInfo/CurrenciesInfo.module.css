@@ -72,6 +72,7 @@
     align-items: flex-start;
     gap: 10.6383vw;
     align-self: stretch;
+    position: relative;
 }
 
 .title h3 {
@@ -187,4 +188,15 @@
 }
 .container_second .text{
     flex-wrap: nowrap;
+}
+.info_icon{
+    width: 26.06383vw;
+    height: 24.46809vw;
+    position: absolute;
+    right: -7vw;
+    top: -9vw;
+}
+
+.info_icon img{
+    width: 100%;
 }
