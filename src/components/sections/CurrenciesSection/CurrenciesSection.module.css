@@ -40,6 +40,9 @@
     height: 10.15625vw;
     top: -2vw;
 }
+.currencies_icon img{
+    width: 100%;
+}
 
 .currencies_table_container {
     width: 100%;
@@ -317,6 +320,10 @@
     bottom: -0.26042vw;
 }
 
+.footer_first img{
+    width: 100%;
+}
+
 .footer_second {
     display: flex;
     width: 36.71875vw;
@@ -472,6 +479,7 @@
 
     .active path {
         fill: #622FF1;
+        fill-opacity: 1;
     }
 
     .table_item {

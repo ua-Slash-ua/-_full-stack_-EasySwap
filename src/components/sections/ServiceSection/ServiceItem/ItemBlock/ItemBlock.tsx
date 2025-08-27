@@ -4,9 +4,8 @@ import { serviceData } from '@/config/services.config'
 import s from './ItemBlock.module.css'
 import { useEffect, useState } from 'react'
 
-export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
+export default function ItemBlock({ isLeft, points, isActive, setActive }: ServiceItemBlockProps) {
   const serviceConst = isLeft ? serviceData[0] : serviceData[1]
-  const [active, setActive] = useState(false)
   const [width, setWidth] = useState<number>(0)
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
@@ -18,13 +17,10 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
   return (
     <>
       <div className={s.item_block}>
-        <div className={s.item_header}>
+        <div className={s.item_header} onClick={() => setActive(!isActive)}>
           <h4>{serviceConst.title}</h4>
           {!isLeft && (
-            <div
-              className={`${s.arrow} show ${active ? s.active : ''}`}
-              onClick={() => setActive(!active)}
-            >
+            <div className={`${s.arrow} show ${isActive ? s.active : ''}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -40,11 +36,7 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
             </div>
           )}
         </div>
-        {(
-          isLeft ||
-          (!isLeft && (width > 1024 || (active && width <= 1024)))
-        ) && (
-
+        {(isLeft || (!isLeft && (width > 1024 || (isActive && width <= 1024)))) && (
           <ul>
             {points.map((point, index) => (
               <li key={index}>
@@ -62,8 +54,6 @@ export default function ItemBlock({ isLeft, points }: ServiceItemBlockProps) {
             ))}
           </ul>
         )}
-
-
       </div>
     </>
   )

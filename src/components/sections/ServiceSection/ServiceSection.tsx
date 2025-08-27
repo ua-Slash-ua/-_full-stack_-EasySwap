@@ -8,6 +8,7 @@ import ServiceSwiper from '@/components/sections/ServiceSection/ServiceSwiper/Se
 
 export default function ServiceSection({ block, locale }: { block: any; locale: string }) {
   const [activeService, setActiveService] = useState<number>(0)
+  const [activeItem, setActiveItem] = useState<boolean>(false)
   const [service, setService] = useState<ServiceItemProps>(block.services[0])
   const [width, setWidth] = useState<number>(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -33,13 +34,14 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
   }, [])
   useEffect(() => {
     if (!isVisible) return
+    if (width <= 1024 && activeItem) return
 
     const timeout = setTimeout(() => {
       handlerService(activeService + 1)
     }, 5_000)
 
     return () => clearTimeout(timeout) // 🧹 очищення попереднього таймера
-  }, [activeService, isVisible])
+  }, [activeService, isVisible, activeItem])
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
@@ -54,6 +56,10 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
     }
     setActiveService(id)
     setService(block.services[id])
+  }
+
+  function handleActiveItem(isActive: boolean) {
+    setActiveItem(isActive)
   }
 
   const servicesTitle = (): { text: string }[] =>
@@ -74,9 +80,11 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
             services={block.services}
             activeService={activeService}
             setActiveService={handlerService}
+            isActive={activeItem}
+            setActive={handleActiveItem}
           />
         ) : (
-          <ServiceItem service={service} />
+          <ServiceItem service={service} isActive={activeItem} setActive={handleActiveItem} />
         )}
       </section>
     </>
