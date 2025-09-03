@@ -1,7 +1,7 @@
 import curr_old from 'public/currencies/curr_old.svg'
 import curr_new from 'public/currencies/curr_new.svg'
 import speakerIcon from 'public/icons/community-speaker.png'
-import mainIcon from 'public/icons/swap-exchange 7.png'
+import mainIcon from 'public/icons/swap-exchange.png'
 
 export const currencies = {
   iconMain:mainIcon,

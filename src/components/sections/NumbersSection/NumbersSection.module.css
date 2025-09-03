@@ -71,6 +71,9 @@
     height: fit-content;
     gap: 1.04vw;
 }
+.aside_bottom_description h3{
+    font-weight: 700;
+}
 .aside_bottom_description p{
     font-size: 1.25vw;
     letter-spacing: -0.025vw;
@@ -120,6 +123,7 @@
     .aside_bottom_description h3{
         font-size: 8.51064vw;
         line-height: 8.51064vw;
+        font-weight: 700;
     }
     .aside_bottom_description p{
         font-size: 3.7234vw;

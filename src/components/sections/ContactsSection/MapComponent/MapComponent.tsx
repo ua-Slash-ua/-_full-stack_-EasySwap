@@ -24,28 +24,44 @@ export default function MapComponent({
   const [width, setWidth] = useState<number>(0)
 
   const [icon, setIcon] = useState<L.Icon>()
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+
+    // виставити відразу при монтуванні
+    handleResize();
+
+    // підписатися на зміни
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
+    console.log('MAPwidth = ', width)
     let customIcon
     if (width > 1024) {
+      console.log('+++')
       // створюємо іконку з розмірами у vw
       customIcon = L.icon({
         iconUrl: iconMap.src,
         iconSize: [vw(2), vw(2)],
-        iconAnchor: [vw(1), vw(2)],
-        popupAnchor: [0, -vw(2)],
+        iconAnchor: [vw(2), vw(2)],
+        // className:s.map_popup,
+        popupAnchor: [-vw(0.6), -vw(2)],
       })
     } else {
+      console.log('---')
+
       customIcon = L.icon({
         iconUrl: iconMap.src,
         iconSize: [vw(9.57447), vw(9.57447)],
         iconAnchor: [vw(1), vw(2)],
-        popupAnchor: [0, -vw(2)],
+        className:s.map_popup,
+        popupAnchor: [vw(3.6), -vw(2)],
       })
     }
 
     setIcon(customIcon)
-  }, [])
+  }, [width])
   return (
     <>
       <MapContainer
@@ -64,8 +80,7 @@ export default function MapComponent({
             <Marker key={index} position={item.coords} icon={icon}>
               <Popup
                 className={s.map_popup}
-                closeOnClick={false}
-              >{`${item.address}, ${item.description}`}</Popup>
+              >{`${item.address}`}</Popup>
             </Marker>
           ) : null,
         )}

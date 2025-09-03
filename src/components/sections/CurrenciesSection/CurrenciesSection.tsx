@@ -107,7 +107,7 @@ export default function CurrenciesSection({
           <h3>Актуальний курс валют</h3>
           {width > 1024 && (
             <div className={s.currencies_icon}>
-              <Image src={currencies.iconMain} alt={'Main icon'} width={25} height={25} />
+              <Image src={currencies.iconMain} alt={'Main icon'} width={500} height={500} />
             </div>
           )}
           <div className={s.calc_header}>

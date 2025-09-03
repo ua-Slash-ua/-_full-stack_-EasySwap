@@ -1,6 +1,8 @@
+'use client'
 import s from './ServiceItem.module.css'
 import { ServiceItemProps } from '@/props/ServiceItemProps'
 import ItemBlock from '@/components/sections/ServiceSection/ServiceItem/ItemBlock/ItemBlock'
+import { usePopup } from '@/context/PopupContext'
 
 export default function ServiceItem({
   service,
@@ -11,6 +13,8 @@ export default function ServiceItem({
   isActive: boolean
   setActive: (active: boolean) => void
 }) {
+  const { setOpen } = usePopup()
+
   return (
     <>
       <div className={s.service_item}>
@@ -36,7 +40,7 @@ export default function ServiceItem({
               setActive={setActive}
             />
           </div>
-          <div className={s.item_btn}>
+          <div className={s.item_btn} onClick={() => setOpen('create_application')}>
             <div className="">
               <svg
                 width="22"

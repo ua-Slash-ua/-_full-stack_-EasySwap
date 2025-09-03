@@ -136,6 +136,12 @@
     height: 1.25vw;
     aspect-ratio: 1/1;
 }
+.support_btn:hover {
+    border-radius: 5.20833vw;
+    background: #F4EEFF;
+    box-shadow: 0 0.83333vw 1.71875vw 0vw rgba(255, 255, 255, 0.30);
+}
+
 .circle{
     position: absolute;
     z-index: 0;

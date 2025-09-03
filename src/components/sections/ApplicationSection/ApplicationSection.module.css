@@ -210,5 +210,7 @@
         line-height: 5.21277vw;
         letter-spacing: -0.07447vw;
     }
-
+    .application_double_item{
+        width: 100%;
+    }
 }
