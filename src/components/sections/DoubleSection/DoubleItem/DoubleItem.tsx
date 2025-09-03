@@ -1,13 +1,29 @@
+'use client'
 import { DoubleItemProps } from '@/props/DoubleItemProps'
 import s from './DoubleItem.module.css'
 import DoubleLine from '@/components/sections/DoubleSection/DoubleItem/DoubleLine/DoubleLine'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-export default function DoubleItem({ title, icon, lines, isRight = false}: DoubleItemProps) {
+export default function DoubleItem({ title, icon, lines, isRight = false }: DoubleItemProps) {
+  const right = isRight ? 300 : -300
   return (
     <>
-      <div className={s.item}>
-        <h4>{title}</h4>
+      <motion.div
+        className={s.item}
+        initial={{ opacity: 0, x: right }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.1, ease: 'easeOut' }}
+      >
+        <motion.h4
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0}}
+          transition={{ duration: 0.1, ease: 'easeOut', delay:0.4 }}
+        >
+          {title}
+        </motion.h4>
         <div className={s.content}>
           {lines.map((line, index) => (
             <DoubleLine
@@ -17,10 +33,10 @@ export default function DoubleItem({ title, icon, lines, isRight = false}: Doubl
             />
           ))}
         </div>
-        <div className={isRight? s.icon_other: s.icon_main}>
-          <Image src={icon} alt={'image'}/>
+        <div className={isRight ? s.icon_other : s.icon_main}>
+          <Image src={icon} alt={'image'} />
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

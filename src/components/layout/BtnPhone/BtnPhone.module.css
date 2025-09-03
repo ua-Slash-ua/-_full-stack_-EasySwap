@@ -33,8 +33,8 @@
 
 @media screen and (max-width: 1024px) {
     .btn_phone_reversed svg {
-        width: 4.25532vw;
-        height: 4.25532vw;
+        width: 5.31915vw;
+        height: 5.31915vw;
         flex-shrink: 0;
         aspect-ratio: 1/1;
 
@@ -42,5 +42,8 @@
 
     .btn_phone_reversed svg path {
         fill: white;
+    }
+    .btn_phone_icon{
+        overflow: visible;
     }
 }
