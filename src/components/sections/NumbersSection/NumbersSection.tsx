@@ -1,20 +1,40 @@
+'use client'
 import s from './NumbersSection.module.css'
 import NumberCard from '@/components/sections/NumbersSection/NumberCard/NumberCard'
+import { motion } from 'framer-motion'
 
 export default function NumbersSection({ block, locale }: { block: any; locale: string }) {
   return (
     <>
       <section className={s.numbers_section} id={'about-service'}>
-        <h3
+        <motion.h3
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className={`${s.aside_card_title} show_inline`}
           dangerouslySetInnerHTML={{ __html: block.aside_title }}
         />
         <aside className={s.aside_card}>
-          <h3
+          <motion.h3
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             className={`${s.aside_card_title} hide_inline`}
             dangerouslySetInnerHTML={{ __html: block.aside_title }}
           />
-          <div className={s.aside_bottom}>
+          <motion.div
+            className={s.aside_bottom}
+            initial={{ opacity: 0, x: 20, scale: 0.2 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{
+              duration: 0.6,
+              ease: 'easeOut',
+              delay:  0.2,
+            }}
+          >
             <div className={s.aside_bottom_left}>
               <div dangerouslySetInnerHTML={{ __html: block.aside_icon }} />
             </div>
@@ -22,10 +42,11 @@ export default function NumbersSection({ block, locale }: { block: any; locale: 
               <h3>{block.aside_number}</h3>
               <p>{block.aside_description}</p>
             </div>
-          </div>
+          </motion.div>
         </aside>
         {block?.cards?.map((card: any, index: number) => (
           <NumberCard
+            card_id={index}
             key={index}
             card_title={card.card_title}
             card_number={card.card_number}

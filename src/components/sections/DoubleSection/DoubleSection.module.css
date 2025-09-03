@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: row;
     gap: 1.04vw;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 1024px) {

@@ -29,3 +29,8 @@
 .card-spotlight:focus-within::before {
   opacity: 0.6;
 }
+@media screen and (max-width: 1024px) {
+  .card-spotlight{
+    border-radius: 5.31915vw;
+  }
+}

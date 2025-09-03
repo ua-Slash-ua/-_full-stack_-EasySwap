@@ -410,6 +410,8 @@
     }
     .currencies_table_container{
         background: none;
+        box-shadow: none;
+        backdrop-filter: none;
     }
     .currencies_table {
         border-radius: 5.5vw;

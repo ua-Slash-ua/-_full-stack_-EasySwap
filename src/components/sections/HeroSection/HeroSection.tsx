@@ -14,6 +14,7 @@ import { usePopup } from '@/context/PopupContext'
 import { currencies } from '@/config/currencies.config'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
+import { motion } from 'framer-motion'
 
 export default function HeroSection({
   block,
@@ -93,7 +94,13 @@ export default function HeroSection({
             backgroundPosition: 'center',
           }}
         >
-          <div className={s.hero_container}>
+          <motion.div
+            className={s.hero_container}
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.1, ease: 'easeOut' }}
+          >
             <div className={s.hero_header}>
               <p>
                 <span className={s.swap}>easy </span>
@@ -107,7 +114,7 @@ export default function HeroSection({
             <div className={s.hero_description}>
               <p>- надійний помічник у валютних операціях</p>
             </div>
-          </div>
+          </motion.div>
 
           <div className={`${s.hero_items} hide`}>
             {heroItem.map((item, index) => {
@@ -179,7 +186,15 @@ export default function HeroSection({
               <p>- надійний помічник у валютних операціях</p>
             </div>
           </div>
-          <div className={s.calculator}>
+          <motion.div
+            className={s.calculator}
+            initial={{ opacity: 1, x: 1500, z: 1500 }}
+            animate={{ opacity: 1, x: [-300, 0], z: 1 }}
+            transition={{
+              duration: 0.7, // час анімації у секундах
+              ease: 'easeOut', // тип easing ("linear", "easeIn", "easeOut", "easeInOut", або bezier-масив)
+            }}
+          >
             <div className={s.calc_header}>
               <BtnSwitcher
                 content={'Фіат'}
@@ -280,7 +295,7 @@ export default function HeroSection({
             >
               <span>Обміняти валюту</span>
             </div>
-          </div>
+          </motion.div>
           <div className={`${s.hero_items} show`}>
             {heroItem.map((item, index) => {
               return (

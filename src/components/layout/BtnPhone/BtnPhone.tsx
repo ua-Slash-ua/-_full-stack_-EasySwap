@@ -22,7 +22,7 @@ export default function BtnPhone({ svgIcon, phone, isReversed = false, isMobileM
         speed="5s"
         color={'#622FF1'}
       >
-        <div dangerouslySetInnerHTML={{ __html: svgIcon }} />
+        <div className={s.btn_phone_icon} dangerouslySetInnerHTML={{ __html: svgIcon }} />
         <span>{phone}</span>
       </StarBorder>
     </Link>
