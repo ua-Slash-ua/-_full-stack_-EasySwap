@@ -119,6 +119,11 @@
         border-radius: 5.31915vw;
 
     }
+    .faq_item.active {
+        border-radius: 5.31915vw;
+        border: 0.05208vw solid rgb(127, 127, 127);
+        background: linear-gradient(91deg, #B792FF -6.48%, #622FF1 6.94%, #0E0E0F 24.38%);
+    }
 
     .title_container p {
         font-size: 4.25532vw;

@@ -38,7 +38,7 @@
     position: absolute;
     top: 0;
     right: 1.6vw;
-    width: 8.3vw;
+    width: 10.3vw;
     height: 8.39125vw;
 }
 .icon_main img, .icon_other img {
@@ -81,7 +81,7 @@
     .icon_other{
         position: absolute;
         right: 0;
-        width: 24.2492vw;
+        width: 27vw;
         height: 22.2492vw;
     }
 
