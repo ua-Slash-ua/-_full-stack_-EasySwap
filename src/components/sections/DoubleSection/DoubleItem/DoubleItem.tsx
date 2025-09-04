@@ -11,16 +11,24 @@ export default function DoubleItem({ title, icon, lines, isRight = false }: Doub
     <>
       <motion.div
         className={s.item}
-        initial={{ opacity: 0, x: right }}
-        whileInView={{ opacity: 1, x: 0 }}
+
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.1, ease: 'easeOut' }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
       >
         <motion.h4
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0}}
-          transition={{ duration: 0.1, ease: 'easeOut', delay:0.4 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+            delay: 0.5,
+          }}
         >
           {title}
         </motion.h4>

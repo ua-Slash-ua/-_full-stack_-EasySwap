@@ -8,31 +8,36 @@ export default function NumbersSection({ block, locale }: { block: any; locale: 
     <>
       <section className={s.numbers_section} id={'about-service'}>
         <motion.h3
-          initial={{ opacity: 0, y: 100 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+          }}
+
           className={`${s.aside_card_title} show_inline`}
           dangerouslySetInnerHTML={{ __html: block.aside_title }}
         />
         <aside className={s.aside_card}>
           <motion.h3
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
+            viewport={{ once: false, amount: 0.2 }}
+
             className={`${s.aside_card_title} hide_inline`}
             dangerouslySetInnerHTML={{ __html: block.aside_title }}
           />
           <motion.div
             className={s.aside_bottom}
-            initial={{ opacity: 0, x: 20, scale: 0.2 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{
-              duration: 0.6,
-              ease: 'easeOut',
-              delay:  0.2,
+              duration: 0.5,
+              ease: "easeOut",
             }}
           >
             <div className={s.aside_bottom_left}>

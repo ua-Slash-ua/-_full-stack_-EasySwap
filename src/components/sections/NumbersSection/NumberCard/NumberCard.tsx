@@ -8,14 +8,10 @@ export default function NumberCard({ card_title, card_number, card_description,c
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 20, scale: 0.2 }}
-      whileInView={{ opacity: 1, x: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       viewport={{ once: false, amount: 0.2 }}
-      transition={{
-        duration: 0.6,
-        ease: "easeOut",
-        delay: card_id * 0.2,
-      }}
     >
       <SpotlightCard
         className="custom-spotlight-card"
