@@ -70,7 +70,6 @@ export default function ServiceSection({ block, locale }: { block: any; locale: 
     <>
       <section className={s.service_section} id="services" ref={sectionRef}>
         <ServiceAside
-          title={block.aside_title}
           menuItems={servicesTitle()}
           func={handlerService}
           activeService={activeService}

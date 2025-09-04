@@ -1,12 +1,18 @@
 import s from './ServiceAside.module.css'
 import { ServiceAsideProps } from '@/props/ServiceAsideProps'
 import React from 'react'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
-export default function ServiceAside({ title, menuItems, func, activeService }: ServiceAsideProps) {
+export default function ServiceAside({  menuItems, func, activeService }: ServiceAsideProps) {
   return (
     <>
       <aside className={s.service_aside}>
-        <h3 dangerouslySetInnerHTML={{ __html: title }} />
+        <h3>
+          <AnimateTitle text={'Послуги '} tagName={'span'} className={''}/>
+          <AnimateTitle text={'easy '} tagName={'span'} className={s.easy} delayCount={8} />
+          <AnimateTitle text={'swap'} tagName={'span'} className={''} delayCount={20}/>
+
+        </h3>
         <div className={s.aside_menu}>
           <div className={`${s.aside_scroll} hide`}>
             {menuItems.map((item, index) => (
