@@ -6,9 +6,9 @@ main {
     color: #fff;
 }
 
-main * {
-    transition: all 0.3s;
-}
+/*main * {*/
+/*    transition: all 0.3s;*/
+/*}*/
 
 .show {
     display: none !important;

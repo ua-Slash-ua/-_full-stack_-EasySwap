@@ -26,7 +26,7 @@ export default function DoubleItem({ title, icon, lines, isRight = false }: Doub
           viewport={{ once: false, amount: 0.2 }}
           transition={{
             duration: 0.5,
-            ease: "easeOut",
+            ease: "linear",
             delay: 0.5,
           }}
         >
