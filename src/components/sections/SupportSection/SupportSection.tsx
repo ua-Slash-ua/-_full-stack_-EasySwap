@@ -4,6 +4,7 @@ import './SupportSection.css'
 import { supportData } from '@/config/support.config'
 import Aurora from '@/libs/Aurora/Aurora'
 import Link from 'next/link'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function SupportSection({
   block,
@@ -32,7 +33,13 @@ export default function SupportSection({
               ))}
             </div>
             <div className={s.title}>
-              <h3 dangerouslySetInnerHTML={{ __html: block.title }} />
+              <h3>
+                <AnimateTitle tagName={'span'} text={'24/7 cлужба підтримки '}/>
+                <AnimateTitle tagName={'span'} text={'easy '} className={s.easy} delayCount={20}/>
+                <AnimateTitle tagName={'span'} text={'swap'} delayCount={30}/>
+              </h3>
+
+              {/*<h3 dangerouslySetInnerHTML={{ __html:  block.title }} />*/}
             </div>
             <div className={s.description}>
               <p>{block.description}</p>

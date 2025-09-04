@@ -10,7 +10,7 @@ export default function DoubleLine({ icon, content }: DoubleLineProps) {
       <motion.div
         className={s.line_item}
 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0 }}
         transition={{

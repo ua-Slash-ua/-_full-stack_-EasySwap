@@ -3,6 +3,7 @@ import s from './FAQSection.module.css'
 import FAQItem from '@/components/sections/FAQSection/FAQItem/FAQItem'
 import { FAQItemProps } from '@/props/FAQItemProps'
 import { usePopup } from '@/context/PopupContext'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function FAQSection({ block, locale }: { block: any; locale: string }) {
   const { setOpen } = usePopup()
@@ -10,7 +11,7 @@ export default function FAQSection({ block, locale }: { block: any; locale: stri
   return (
     <>
       <section className={s.faq_section}>
-        <h3>Питання та відповіді</h3>
+        <AnimateTitle tagName={'h3'} text={'Питання та відповіді'}/>
         <div className={s.faq_container}>
           <div className={s.faq_content}>
             <ul>

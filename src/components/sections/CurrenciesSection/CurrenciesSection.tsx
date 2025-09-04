@@ -8,6 +8,8 @@ import Image from 'next/image'
 import BtnExchange from '@/components/layout/BtnExchange/BtnExchange'
 import { usePopup } from '@/context/PopupContext'
 import crossImg from 'public/currencies/cross_course.svg'
+import { motion } from 'framer-motion'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 const crossCourse: RateByCurrency = {
   id: 'cross',
@@ -104,7 +106,7 @@ export default function CurrenciesSection({
     <>
       <section className={s.currencies_section} id={'courses'}>
         <div className={s.currencies_header}>
-          <h3>Актуальний курс валют</h3>
+          <AnimateTitle text={'Актуальний курс валют'} tagName={'h3'}/>
           {width > 1024 && (
             <div className={s.currencies_icon}>
               <Image src={currencies.iconMain} alt={'Main icon'} width={500} height={500} />
@@ -245,13 +247,25 @@ export default function CurrenciesSection({
         </div>
         {width >= 1024 ? (
           <div className={s.currencies_footer}>
-            <div className={s.footer_first}>
+            <motion.div
+              className={s.footer_first}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: false, amount: 0 }}
+            >
               <h3>Зверніть увагу!</h3>
               <div className={s.icon_footer}>
                 <Image src={currencies.iconFooter} alt={'iconFooter'} />
               </div>
-            </div>
-            <div className={s.footer_second}>
+            </motion.div>
+            <motion.div
+              className={s.footer_second}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: 'easeOut', delay: 0.5 }}
+              viewport={{ once: false, amount: 0 }}
+            >
               <h3>Пояснення до таблиці:</h3>
               <ul>
                 <li>
@@ -287,8 +301,14 @@ export default function CurrenciesSection({
                   <p>Від 10000 у.о. курс уточнюйте індивідуально у менеджера.</p>
                 </li>
               </ul>
-            </div>
-            <div className={s.footer_second}>
+            </motion.div>
+            <motion.div
+              className={s.footer_second}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: 'easeOut', delay: 0.8 }}
+              viewport={{ once: false, amount: 0 }}
+            >
               <h3>По оптовому курсу ми приймаємо лише:</h3>
               <ul>
                 <li>
@@ -307,7 +327,7 @@ export default function CurrenciesSection({
                   <p>€ лише купюри 50, 100, 200, 500 без значних дефектів</p>
                 </li>
               </ul>
-            </div>
+            </motion.div>
           </div>
         ) : null}
       </section>

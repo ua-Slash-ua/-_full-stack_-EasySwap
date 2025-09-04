@@ -15,7 +15,7 @@
     letter-spacing: -0.05417vw;
 }
 
-.service_aside h3 span {
+.service_aside h3 .easy {
     background: linear-gradient(93deg, #B792FF 16.82%, #7447FB 79.74%);
     background-clip: text;
     -webkit-background-clip: text;

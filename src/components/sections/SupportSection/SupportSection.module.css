@@ -83,13 +83,17 @@
     font-weight: 600;
     line-height: 2.97917vw; /* 2.97917vw */
     letter-spacing: -0.05417vw;
+
 }
 
-.title span {
+.title .easy {
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.title h3 {
+    width: 31.4vw;
 }
 
 .description {
