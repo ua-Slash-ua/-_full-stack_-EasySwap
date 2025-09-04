@@ -9,10 +9,15 @@ export default function DoubleLine({ icon, content }: DoubleLineProps) {
     <>
       <motion.div
         className={s.line_item}
-        initial={{ opacity: 0, y: 30 }}
+
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0 }}
-        transition={{ duration: 0.1, ease: 'easeOut', delay: 0.4 }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+          delay: 0.5,
+        }}
       >
         <div dangerouslySetInnerHTML={{ __html: icon ?? 'not found' }} />
         <p>{content}</p>

@@ -96,10 +96,11 @@ export default function HeroSection({
         >
           <motion.div
             className={s.hero_container}
-            initial={{ opacity: 0, y: 100 }}
+
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
             viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.1, ease: 'easeOut' }}
           >
             <div className={s.hero_header}>
               <p>
@@ -188,12 +189,11 @@ export default function HeroSection({
           </div>
           <motion.div
             className={s.calculator}
-            initial={{ opacity: 1, x: 1500, z: 1500 }}
-            animate={{ opacity: 1, x: [-300, 0], z: 1 }}
-            transition={{
-              duration: 0.7, // час анімації у секундах
-              ease: 'easeOut', // тип easing ("linear", "easeIn", "easeOut", "easeInOut", або bezier-масив)
-            }}
+
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             <div className={s.calc_header}>
               <BtnSwitcher
