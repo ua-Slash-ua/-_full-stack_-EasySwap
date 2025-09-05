@@ -4,6 +4,7 @@ import LocationItem from '@/components/sections/ContactsSection/LocationItem/Loc
 import SocialNetworkItem from '@/components/sections/ContactsSection/SocialNetworkItem/SocialNetworkItem'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function ContactsSection({ block, locale }: { block: any; locale: string }) {
   const locations: any[] = block.locations
@@ -31,7 +32,8 @@ export default function ContactsSection({ block, locale }: { block: any; locale:
       <section className={s.contacts_section} id="contacts">
         <aside className={s.main}>
           <div className={s.content}>
-            <h3>Контакти і локації</h3>
+            <AnimateTitle tagName={'h3'} text={'Контакти і локації'}/>
+            {/*<h3>Контакти і локації</h3>*/}
             <ul className={s.content_list_address}>
               {locations.map((item, index) =>
                 item.is_location ? <LocationItem key={index} {...item} /> : '',

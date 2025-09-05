@@ -24,7 +24,7 @@ export default function NumbersSection({ block, locale }: { block: any; locale: 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 1 }}
 
             className={`${s.aside_card_title} hide_inline`}
             dangerouslySetInnerHTML={{ __html: block.aside_title }}
@@ -38,6 +38,7 @@ export default function NumbersSection({ block, locale }: { block: any; locale: 
             transition={{
               duration: 0.5,
               ease: "easeOut",
+              delay: 0.3
             }}
           >
             <div className={s.aside_bottom_left}>
@@ -51,7 +52,7 @@ export default function NumbersSection({ block, locale }: { block: any; locale: 
         </aside>
         {block?.cards?.map((card: any, index: number) => (
           <NumberCard
-            card_id={index}
+            card_id={index+1}
             key={index}
             card_title={card.card_title}
             card_number={card.card_number}

@@ -1,6 +1,7 @@
 import s from './ReviewSection.module.css'
 import ReviewSlider from '@/components/sections/ReviewSection/ReviewSlider/ReviewSlider'
 import Link from 'next/link'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 
 export default async function ReviewSection({ block, locale , telegram }: { block: any; locale: string; telegram?: string }) {
@@ -9,7 +10,7 @@ export default async function ReviewSection({ block, locale , telegram }: { bloc
       <section className={s.review_section} id="reviews">
         <div className={s.review_container}>
           <div className={s.review_title}>
-            <h3>Досвід наших клієнтів</h3>
+            <AnimateTitle tagName={'h3'} text={'Досвід наших клієнтів'}/>
             <Link className={`${s.review_btn} hide`} href={telegram?? '#main'} target={'_blank'}>
               <svg
                 width="17"

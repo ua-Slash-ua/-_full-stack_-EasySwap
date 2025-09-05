@@ -111,7 +111,7 @@
     text-align: center;
 }
 
-.footer_title span {
+.footer_title .easy {
     background: linear-gradient(93deg, #B792FF -12.64%, #7447FB 15.04%);
     background-clip: text;
     -webkit-background-clip: text;

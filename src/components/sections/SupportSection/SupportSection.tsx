@@ -34,9 +34,16 @@ export default function SupportSection({
             </div>
             <div className={s.title}>
               <h3>
-                <AnimateTitle tagName={'span'} text={'24/7 cлужба підтримки '}/>
-                <AnimateTitle tagName={'span'} text={'easy '} className={s.easy} delayCount={20}/>
-                <AnimateTitle tagName={'span'} text={'swap'} delayCount={30}/>
+                <AnimateTitle tagName={'span'} text={'24/7 cлужба підтримки'} />
+                <p>
+                  <AnimateTitle
+                    tagName={'span'}
+                    text={'easy'}
+                    className={s.easy}
+                    delayCount={1.5}
+                  />
+                  <AnimateTitle tagName={'span'} text={'swap'} delayCount={2} />
+                </p>
               </h3>
 
               {/*<h3 dangerouslySetInnerHTML={{ __html:  block.title }} />*/}
