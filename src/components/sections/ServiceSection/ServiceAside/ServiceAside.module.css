@@ -13,6 +13,8 @@
     font-weight: 600;
     line-height: 100%; /* 2.70833vw */
     letter-spacing: -0.05417vw;
+
+    overflow: hidden;
 }
 
 .service_aside h3 .easy {
@@ -20,6 +22,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    overflow: visible;
+    padding: 0 0 0.2vw 0; /* або трохи більше */
 }
 
 .service_aside ul {

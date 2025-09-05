@@ -15,6 +15,7 @@ import { currencies } from '@/config/currencies.config'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import { contacts } from '@/config/contacts.config'
 import { motion } from 'framer-motion'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function HeroSection({
   block,
@@ -99,13 +100,16 @@ export default function HeroSection({
 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: 'linear' }}
             viewport={{ once: false, amount: 0.2 }}
           >
             <div className={s.hero_header}>
               <p>
-                <span className={s.swap}>easy </span>
-                swap
+                <AnimateTitle tagName={'span'} text={'easy'} className={s.swap}/>
+                <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3}/>
+
+                {/*<span className={s.swap}>easy </span>*/}
+                {/*swap*/}
               </p>
               <div className={s.hero_header_icons}>
                 <Image src={icon_1} alt="Hero background" />
@@ -113,7 +117,8 @@ export default function HeroSection({
               </div>
             </div>
             <div className={s.hero_description}>
-              <p>- надійний помічник у валютних операціях</p>
+              <AnimateTitle tagName={'p'} text={'надійний помічник у валютних операціях'} delayCount={1}/>
+              {/*<p>- надійний помічник у валютних операціях</p>*/}
             </div>
           </motion.div>
 
@@ -192,7 +197,7 @@ export default function HeroSection({
 
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 1.2 }}
             viewport={{ once: false, amount: 0.2 }}
           >
             <div className={s.calc_header}>
