@@ -1,0 +1,134 @@
+.title {
+    width: 100vw;
+    padding: 9.382vw 0 2.08vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.title h1 {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.70833vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.97917vw;
+    letter-spacing: -0.05417vw;
+    white-space: pre-line;
+    align-self: stretch;
+
+
+}
+
+.data {
+    margin-top: 2.08vw;
+    margin-bottom: 4.79vw;
+    display: flex;
+    height: 2.70833vw;
+    padding: 0 1.25vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625vw;
+
+    border-radius: 5.20833vw;
+    border: 0.026vw solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(0.26vw);
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.16667vw;
+    letter-spacing: -0.01667vw;
+
+}
+
+.data span {
+    color: #B792FF;
+}
+
+.description {
+    margin: 0 10.42vw 0 10.42vw;
+    display: flex;
+    padding: 3.125vw 4.16667vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.52083vw;
+    align-self: stretch;
+
+    border-radius: 1.66667vw;
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1.04167vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.14583vw;
+    letter-spacing: -0.02083vw;
+    white-space: pre-line;
+
+}
+
+@media screen and (max-width: 1024px) {
+    .title {
+        padding: 25vw 4.52vw 5.32vw 4.52vw;
+    }
+
+    .title h1 {
+        font-size: 6.38298vw;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 7.65957vw;
+        letter-spacing: -0.12766vw;
+    }
+
+    .data {
+        margin-top: 9.57vw;
+        margin-bottom: 18.09vw;
+        height: 11.70213vw;
+        padding: 0 6.38298vw;
+        justify-content: center;
+        align-items: center;
+        gap: 3.19149vw;
+
+        border-radius: 26.59574vw;
+        border: 0.133vw solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(1.33vw);
+
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+
+    .description {
+        margin: 0;
+        display: flex;
+        padding: 8.51064vw 5.31915vw;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.65957vw;
+        align-self: stretch;
+
+        border-radius: 5.31915vw;
+
+        font-size: 3.7234vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+
+    }
+}

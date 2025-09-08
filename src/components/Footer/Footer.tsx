@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 import { footerConfig } from '@/config/footer.config'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
-export default function Footer({ block }: { block: any; }) {
+export default function Footer({ block, slug_privacy_policy }: { block: any;slug_privacy_policy:string }) {
   const socialMedia = block.social_networks
   const footerWords = block.footer_words
   const [width, setWidth] = useState<number>(0)
@@ -50,8 +50,8 @@ export default function Footer({ block }: { block: any; }) {
           </div>
           <div className={s.footer_title}>
             <p>
-              <AnimateTitle tagName={'span'} text={'easy'} className={s.easy}/>
-              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3}/>
+              <AnimateTitle tagName={'span'} text={'easy'} className={s.easy} />
+              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} />
               {/*<span>easy </span>*/}
               {/*swap*/}
             </p>
@@ -86,7 +86,9 @@ export default function Footer({ block }: { block: any; }) {
               <p>©2025 Easy Swap. All Rights Reserved.</p>
             </li>
             <li>
-              <p>Політика конфіденційності</p>
+              <Link href={`/${slug_privacy_policy}`}>
+                <p>Політика конфіденційності</p>
+              </Link>
             </li>
             <li>
               <div>
