@@ -14,19 +14,6 @@ export const ServiceBlock: Block = {
       admin: { position: 'sidebar' },
     },
     {
-      name: 'aside_title',
-      type: 'textarea',
-      required: true,
-      localized: true,
-      label: 'Aside Title',
-      admin: {
-        components: {
-          Field: StyledText,
-        },
-      },
-    },
-
-    {
       name:'services',
       type:'array',
       label:'Services',

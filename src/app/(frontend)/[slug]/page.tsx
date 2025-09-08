@@ -1,11 +1,10 @@
+import config from '@payload-config'
 import { getPayload } from 'payload'
-import React from 'react'
-
-import config from '@/payload.config'
-import './styles.css'
-import './reset.css'
-import HeroSection from '@/components/sections/HeroSection/HeroSection'
 import Header from '@/components/Header/Header'
+import React from 'react'
+import { getContacts } from '@/api/getContacts'
+import Footer from '@/components/Footer/Footer'
+import HeroSection from '@/components/sections/HeroSection/HeroSection'
 import NumbersSection from '@/components/sections/NumbersSection/NumbersSection'
 import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
 import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
@@ -13,14 +12,17 @@ import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
 import FAQSection from '@/components/sections/FAQSection/FAQSection'
 import SupportSection from '@/components/sections/SupportSection/SupportSection'
 import ReviewSection from '@/components/sections/ReviewSection/ReviewSection'
-import { getReviews } from '@/api/getReviews'
 import ApplicationSection from '@/components/sections/ApplicationSection/ApplicationSection'
-import { getContacts } from '@/api/getContacts'
 import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
-import Footer from '@/components/Footer/Footer'
 import CurrenciesSection from '@/components/sections/CurrenciesSection/CurrenciesSection'
 import { getCurrencies } from '@/api/getCurrencies'
+import { getReviews } from '@/api/getReviews'
 
+type Props = {
+  params: {
+    slug: string
+  }
+}
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
   'numbers-block': NumbersSection,
@@ -34,19 +36,21 @@ const BLOCK_COMPONENTS = {
   'contact-block': ContactsSection,
   'currencies-block': CurrenciesSection,
 }
+export default async function Page({ params }: Props) {
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
+  const contacts = await getContacts()
+  const currencies = await getCurrencies()
+  const reviews = await getReviews()
 
   const { docs } = await payload.find({
     collection: 'pages',
     pagination: false,
   })
-  const reviews = await getReviews()
-  const contacts = await getContacts()
-  const currencies = await getCurrencies()
-  const pageMain = docs.find(page => page.slug === 'main')
+
+  const pageMain = docs.find(page => page.slug === params.slug)
+
 
   return (
     <>
@@ -55,7 +59,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
           block.blockType as keyof typeof BLOCK_COMPONENTS
-        ] as unknown as React.ComponentType<{
+          ] as unknown as React.ComponentType<{
           block: unknown
           departments?: any
           telegram?: any
@@ -66,7 +70,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <BlockComponent
               key={block.id || i}
               block={reviews}
-              
               telegram={contacts.social_networks?.telegram?.link}
             />
           )
@@ -77,7 +80,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <BlockComponent
               key={block.id || i}
               block={block}
-              
               telegram={contacts.social_networks?.telegram?.link}
             />
           )
@@ -86,7 +88,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <BlockComponent
               key={block.id || i}
               block={currencies.docs}
-              
               departments={contacts.locations}
             />
           )

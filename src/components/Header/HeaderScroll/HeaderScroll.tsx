@@ -10,11 +10,9 @@ import { usePopup } from '@/context/PopupContext'
 
 export default function HeaderScroll({
   block,
-  locale,
   className,
 }: {
   block: any
-  locale: string
   className: string
 }) {
   const { setOpen } = usePopup()

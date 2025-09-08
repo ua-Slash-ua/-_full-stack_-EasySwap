@@ -10,6 +10,7 @@ import { ReviewBlock } from '@/blocks/ReviewBlock'
 import { ContactBlock } from '@/blocks/ContactBlock'
 import { ApplicationBlock } from '@/blocks/ApplicationBlock'
 import { CurrenciesBlock } from '@/blocks/CurrenciesBlock'
+import { AccordionBlock } from '@/blocks/AccordionBlock'
 
 
 export const Pages: CollectionConfig = {
@@ -51,7 +52,7 @@ export const Pages: CollectionConfig = {
     },
     {
       name: 'description',
-      type: 'text',
+      type: 'textarea',
       localized: true,
     },
     {
@@ -69,6 +70,7 @@ export const Pages: CollectionConfig = {
         ReviewBlock,
         ApplicationBlock,
         ContactBlock,
+        AccordionBlock,
       ],
     },
   ],

@@ -19,11 +19,9 @@ import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function HeroSection({
   block,
-  locale,
   departments,
 }: {
   block: any[]
-  locale: string
   departments: any[]
 }) {
   const { setOpen } = usePopup()

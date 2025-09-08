@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ServiceItemProps } from '@/props/ServiceItemProps'
 import ServiceSwiper from '@/components/sections/ServiceSection/ServiceSwiper/ServiceSwiper'
 
-export default function ServiceSection({ block, locale }: { block: any; locale: string }) {
+export default function ServiceSection({ block }: { block: any;  }) {
   const [activeService, setActiveService] = useState<number>(0)
   const [activeItem, setActiveItem] = useState<boolean>(false)
   const [service, setService] = useState<ServiceItemProps>(block.services[0])

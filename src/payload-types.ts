@@ -218,7 +218,6 @@ export interface Page {
             enabled?: boolean | null;
             why_we_the_best: {
               title?: string | null;
-              icon_why: string;
               why_point?:
                 | {
                     why_icon: string;
@@ -229,7 +228,6 @@ export interface Page {
             };
             what_do_you_get: {
               title?: string | null;
-              icon_what: string;
               what_point?:
                 | {
                     what_icon: string;
@@ -244,7 +242,6 @@ export interface Page {
           }
         | {
             enabled?: boolean | null;
-            aside_title: string;
             services?:
               | {
                   service_title: string;
@@ -285,7 +282,6 @@ export interface Page {
           }
         | {
             enabled?: boolean | null;
-            title: string;
             description: string;
             id?: string | null;
             blockName?: string | null;
@@ -308,6 +304,34 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'contact-block';
+          }
+        | {
+            enabled?: boolean | null;
+            data?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion-block';
           }
       )[]
     | null;
@@ -555,7 +579,6 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     title?: T;
-                    icon_why?: T;
                     why_point?:
                       | T
                       | {
@@ -568,7 +591,6 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     title?: T;
-                    icon_what?: T;
                     what_point?:
                       | T
                       | {
@@ -584,7 +606,6 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               enabled?: T;
-              aside_title?: T;
               services?:
                 | T
                 | {
@@ -632,7 +653,6 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               enabled?: T;
-              title?: T;
               description?: T;
               id?: T;
               blockName?: T;
@@ -655,6 +675,21 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'accordion-block'?:
+          | T
+          | {
+              enabled?: T;
+              data?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

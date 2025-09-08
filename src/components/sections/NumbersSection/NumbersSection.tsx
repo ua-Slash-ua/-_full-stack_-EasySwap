@@ -3,7 +3,7 @@ import s from './NumbersSection.module.css'
 import NumberCard from '@/components/sections/NumbersSection/NumberCard/NumberCard'
 import { motion } from 'framer-motion'
 
-export default function NumbersSection({ block, locale }: { block: any; locale: string }) {
+export default function NumbersSection({ block }: { block: any;  }) {
   return (
     <>
       <section className={s.numbers_section} id={'about-service'}>

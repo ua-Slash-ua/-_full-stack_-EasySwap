@@ -5,7 +5,7 @@ import { FAQItemProps } from '@/props/FAQItemProps'
 import { usePopup } from '@/context/PopupContext'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
-export default function FAQSection({ block, locale }: { block: any; locale: string }) {
+export default function FAQSection({ block }: { block: any;  }) {
   const { setOpen } = usePopup()
 
   return (

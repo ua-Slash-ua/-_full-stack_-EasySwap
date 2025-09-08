@@ -3,7 +3,7 @@ import DoubleItem from '@/components/sections/DoubleSection/DoubleItem/DoubleIte
 import first from 'public/icons/Arrows.png'
 import second from 'public/icons/money-bag.png'
 
-export default function DoubleSection({ block, locale }: { block: any; locale: string }) {
+export default function DoubleSection({ block }: { block: any;  }) {
   return (
     <>
       <section className={s.double_section}>
