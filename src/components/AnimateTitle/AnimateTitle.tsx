@@ -1,25 +1,25 @@
 'use client'
-
+import s from './AnimateTitle.module.css'
 import { motion } from 'framer-motion'
 import { AnimateTitleProps } from '@/props/AnimateTitleProps'
 
 export default function AnimateTitle({ tagName, className, text, delayCount }: AnimateTitleProps) {
-  const letters = text.split('')
+  const words = text.split(' ') // 🔹 розбиваємо на слова
 
-  // Контейнер для stagger (затримка між буквами)
+  // Контейнер для stagger (затримка між словами)
   const containerVariant = {
     hidden: {},
     show: {
       transition: {
-        delayChildren: delayCount ? delayCount * 0.05 : 0, // Затримка перед стартом анімації
-        staggerChildren: 0.05, // затримка між буквами
+        delayChildren: delayCount ? delayCount * 0.3 : 0, // Затримка перед стартом
+        staggerChildren: 0.15, // затримка між словами
       },
     },
   }
 
-  const letterVariant = {
-    hidden: { opacity: 0, y: -20 },
-    show: { opacity: 1, y: 0 },
+  const wordVariant = {
+    hidden: { opacity: 0, y: '100%', rotate: 10 },
+    show: { opacity: 1, y: 0, rotate: 0, },
   }
 
   // Динамічний тег
@@ -27,21 +27,23 @@ export default function AnimateTitle({ tagName, className, text, delayCount }: A
 
   return (
     <MotionTag
-      className={className}
+      className={s.tag_style}
       variants={containerVariant}
       initial="hidden"
       whileInView="show"
       viewport={{ once: false, amount: 0.2 }}
     >
-      {letters.map((letter, idx) => (
+      {words.map((word, idx) => (
         <motion.span
           key={idx}
-          variants={letterVariant}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-          style={{ display: 'inline-block', letterSpacing: '-0.05417rem' }}
+          className={className}
+          variants={wordVariant}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          style={{ display: 'inline-block' }}
         >
-          {letter === ' ' ? '\u00A0' : letter}
+          {word + '\u00A0'}
         </motion.span>
+
       ))}
     </MotionTag>
   )

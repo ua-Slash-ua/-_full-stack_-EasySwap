@@ -8,9 +8,9 @@ export default function ServiceAside({  menuItems, func, activeService }: Servic
     <>
       <aside className={s.service_aside}>
         <h3>
-          <AnimateTitle text={'Послуги '} tagName={'span'} className={''}/>
-          <AnimateTitle text={'easy '} tagName={'span'} className={s.easy} delayCount={8} />
-          <AnimateTitle text={'swap'} tagName={'span'} className={''} delayCount={20}/>
+          <AnimateTitle text={'Послуги'} tagName={'span'} className={''}/>
+          <AnimateTitle text={'easy'} tagName={'span'} className={s.easy} delayCount={0.3} />
+          <AnimateTitle text={'swap'} tagName={'span'} className={''} delayCount={1}/>
 
         </h3>
         <div className={s.aside_menu}>

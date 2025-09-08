@@ -8,6 +8,7 @@ import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendAp
 import Magnet from '@/libs/Magnet/Magnet'
 import { useEffect, useState } from 'react'
 import { footerConfig } from '@/config/footer.config'
+import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function Footer({ block, locale }: { block: any; locale: string }) {
   const socialMedia = block.social_networks
@@ -49,8 +50,10 @@ export default function Footer({ block, locale }: { block: any; locale: string }
           </div>
           <div className={s.footer_title}>
             <p>
-              <span>easy </span>
-              swap
+              <AnimateTitle tagName={'span'} text={'easy'} className={s.easy}/>
+              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3}/>
+              {/*<span>easy </span>*/}
+              {/*swap*/}
             </p>
           </div>
           <div className={s.footer_words}>

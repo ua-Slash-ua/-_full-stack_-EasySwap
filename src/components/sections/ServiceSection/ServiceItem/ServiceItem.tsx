@@ -3,7 +3,7 @@ import s from './ServiceItem.module.css'
 import { ServiceItemProps } from '@/props/ServiceItemProps'
 import ItemBlock from '@/components/sections/ServiceSection/ServiceItem/ItemBlock/ItemBlock'
 import { usePopup } from '@/context/PopupContext'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 export default function ServiceItem({
@@ -21,25 +21,28 @@ export default function ServiceItem({
   // Запуск анімації при зміні service
   useEffect(() => {
     setAnimate(false) // скидаємо стан
-    const timer = setTimeout(() => setAnimate(true), 50) // невелика затримка для повторного запуску
+    const timer = setTimeout(() => setAnimate(true), 200) // невелика затримка для повторного запуску
     return () => clearTimeout(timer)
   }, [service])
 
   return (
     <div className={s.service_item}>
       {/* Заголовок */}
-      <motion.div
-        className={s.item_header}
-        initial={{ opacity: 0, y: 50 }}
-        animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-      >
-        <div
-          className={s.header_icon}
-          dangerouslySetInnerHTML={{ __html: service.service_icon }}
-        />
-        <h3>{service.service_title}</h3>
-      </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={service.id} // Тепер працює правильно
+          className={s.item_header}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
+          <div
+            className={s.header_icon}
+            dangerouslySetInnerHTML={{ __html: service.service_icon }}
+          />
+          <h3>{service.service_title}</h3>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Контент */}
       <motion.div
@@ -48,7 +51,7 @@ export default function ServiceItem({
 
         initial={{ opacity: 0, y: 50 }}
         animate={animate ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
       >
         <ItemBlock
           isLeft={true}
