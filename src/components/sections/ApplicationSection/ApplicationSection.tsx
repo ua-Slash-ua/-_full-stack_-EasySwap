@@ -10,7 +10,7 @@ import { createApplication } from '@/api/createApp'
 import { usePopup } from '@/context/PopupContext'
 import { validationSchema } from '@/components/PopUps/CreateApplication/CreateApplication'
 
-export default function ApplicationSection({ block, locale }: { block: any; locale: string }) {
+export default function ApplicationSection({ block }: { block: any; }) {
   const { setOpen } = usePopup()
 
   return (

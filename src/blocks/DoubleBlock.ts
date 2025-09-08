@@ -23,18 +23,6 @@ export const DoubleBlock: Block = {
           label: 'Title',
         },
         {
-          name: 'icon_why',
-          type: 'textarea',
-          required: true,
-          localized: true,
-          label: 'Icon',
-          admin: {
-            components: {
-              Field: PreviewSvg,
-            },
-          },
-        },
-        {
           name: 'why_point',
           type: 'array',
           label: 'Point',
@@ -72,18 +60,6 @@ export const DoubleBlock: Block = {
           name: 'title',
           type: 'text',
           label: 'Title',
-        },
-        {
-          name: 'icon_what',
-          type: 'textarea',
-          required: true,
-          localized: true,
-          label: 'Icon',
-          admin: {
-            components: {
-              Field: PreviewSvg,
-            },
-          },
         },
         {
           name: 'what_point',

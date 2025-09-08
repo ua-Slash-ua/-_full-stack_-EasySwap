@@ -12,17 +12,6 @@ export const SupportBlock: Block = {
       admin: { position: 'sidebar' },
     },
     {
-      name: 'title',
-      type: 'textarea',
-      required: true,
-      label: 'Title',
-      admin: {
-        components: {
-          Field: StyledText,
-        },
-      },
-    },
-    {
       name:'description',
       type: 'textarea',
       required: true,

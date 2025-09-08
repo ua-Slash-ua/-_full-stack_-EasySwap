@@ -1,7 +1,7 @@
 'use client'
 import s from './PromiseSection.module.css'
 
-export default function PromiseSection({ block, locale }: { block: any; locale: string }) {
+export default function PromiseSection({ block }: { block: any; }) {
   const items = [
     { text: block.title, svg: block.icon, word: block.word },
     { text: block.title, svg: block.icon, word: block.word },

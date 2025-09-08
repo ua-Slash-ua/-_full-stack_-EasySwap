@@ -10,7 +10,7 @@ import HeaderScroll from '@/components/Header/HeaderScroll/HeaderScroll'
 import { useEffect, useState } from 'react'
 import { usePopup } from '@/context/PopupContext'
 
-export default function Header({ block, locale }: { block: any; locale: string }) {
+export default function Header({ block }: { block: any; }) {
   const [scrolled, setScrolled] = useState(false)
   const [width, setWidth] = useState<number>(0)
   const { setOpen } = usePopup()
@@ -88,7 +88,6 @@ export default function Header({ block, locale }: { block: any; locale: string }
 
       <HeaderScroll
         block={block}
-        locale={locale}
         className={`${s.headerScroll} ${scrolled ? s.visible : s.hidden}`}
       />
     </>

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
-export default function ContactsSection({ block, locale }: { block: any; locale: string }) {
+export default function ContactsSection({ block }: { block: any }) {
   const locations: any[] = block.locations
   const social_networks: any = block.social_networks
   const defaultCenter: [number, number] = [50.4501, 30.5234]

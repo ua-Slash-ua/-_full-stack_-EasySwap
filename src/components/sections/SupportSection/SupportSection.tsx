@@ -8,7 +8,7 @@ import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 export default function SupportSection({
   block,
-  locale,
+
   telegram,
 }: {
   block: any

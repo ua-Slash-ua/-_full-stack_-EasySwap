@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react'
 import { footerConfig } from '@/config/footer.config'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
-export default function Footer({ block, locale }: { block: any; locale: string }) {
+export default function Footer({ block }: { block: any; }) {
   const socialMedia = block.social_networks
   const footerWords = block.footer_words
   const [width, setWidth] = useState<number>(0)

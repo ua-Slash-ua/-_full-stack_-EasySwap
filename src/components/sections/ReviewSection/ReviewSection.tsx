@@ -4,7 +4,7 @@ import Link from 'next/link'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
 
-export default async function ReviewSection({ block, locale , telegram }: { block: any; locale: string; telegram?: string }) {
+export default async function ReviewSection({ block , telegram }: { block: any;  telegram?: string }) {
   return (
     <>
       <section className={s.review_section} id="reviews">
