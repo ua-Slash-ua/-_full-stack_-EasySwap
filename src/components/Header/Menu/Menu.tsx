@@ -9,7 +9,7 @@ export default function Menu() {
         <ul>
           {menu.map(
             (item, index) =>
-              item.main && <MenuItem link={item.link} text={item.text} key={index} />,
+              item.main ? <MenuItem link={item.link!} text={item.text!} key={index} />: ''
           )}
         </ul>
       </nav>

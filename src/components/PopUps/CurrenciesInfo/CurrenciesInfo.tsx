@@ -4,12 +4,19 @@ import Image from 'next/image'
 import React from 'react'
 import { usePopup } from '@/context/PopupContext'
 import { currencies } from '@/config/currencies.config'
+import { motion } from 'framer-motion'
 
 export default function CurrenciesInfo({ iconUSD, iconEUR }: { iconUSD: string; iconEUR: string }) {
   const { close } = usePopup()
   return (
     <>
-      <div className={s.popup_backgraund} onClick={close}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'linear' }}
+        className={s.popup_backgraund}
+        onClick={close}
+      >
         <div
           onClick={e => e.stopPropagation()}
           className={s.popup_container}
@@ -112,7 +119,7 @@ export default function CurrenciesInfo({ iconUSD, iconEUR }: { iconUSD: string; 
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

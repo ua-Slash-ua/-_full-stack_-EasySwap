@@ -42,7 +42,10 @@
     height: 1.35104vw;
     fill: rgba(255, 255, 255, 0.20);
 }
-
+.active_arrow svg{
+    fill: #622FF1;
+    opacity: 1;
+}
 
 
 .prevReview:hover svg, .nextReview:hover svg{

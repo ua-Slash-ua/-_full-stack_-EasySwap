@@ -8,6 +8,7 @@ import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import DescriptionInput from '@/components/layout/DescriptionInput/DescriptionInput'
 import { createApplication } from '@/api/createApp'
 import * as Yup from 'yup'
+import { motion } from 'framer-motion'
 
 // 🔹 схема валідації
 export const validationSchema = Yup.object({
@@ -24,7 +25,11 @@ export default function CreateApplication() {
 
   return (
     <div className={s.popup_backgraund} onClick={close}>
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'linear' }}
+
         className={s.popup_container}
         id={'create_application'}
         onClick={e => e.stopPropagation()}
@@ -116,7 +121,7 @@ export default function CreateApplication() {
             </Form>
           )}
         </Formik>
-      </div>
+      </motion.div>
     </div>
   )
 }

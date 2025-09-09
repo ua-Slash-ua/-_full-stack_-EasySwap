@@ -2,8 +2,9 @@ import s from './StatusSend.module.css'
 import { usePopup } from '@/context/PopupContext'
 import React from 'react'
 import Image from 'next/image'
-import img_1 from 'public/wallet_4.svg'
-import img_2 from 'public/wallet_3.svg'
+import img_1 from 'public/wallet_4.png'
+import img_2 from 'public/wallet_3.png'
+import { motion } from 'framer-motion'
 
 type StatusSendProps = {
   status: 'success' | 'error'
@@ -26,7 +27,14 @@ export default function StatusSend({ status }: StatusSendProps) {
   let className = s.content_container
   return (
     <div className={s.popup_backgraund} onClick={close}>
-      <div onClick={e => e.stopPropagation()} className={s.popup_container} id={'review_image'}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'linear' }}
+        onClick={e => e.stopPropagation()}
+        className={s.popup_container}
+        id={'review_image'}
+      >
         <div className={s.btn_close} onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +59,7 @@ export default function StatusSend({ status }: StatusSendProps) {
           <h3>{dataStatus[status]?.title ?? 'Title'}</h3>
           <p>{dataStatus[status]?.description ?? 'Description'}</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

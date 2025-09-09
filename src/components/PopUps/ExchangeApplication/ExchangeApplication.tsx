@@ -8,12 +8,16 @@ import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import { createApplication } from '@/api/createApp'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
 import { validationSchema } from '@/components/PopUps/CreateApplication/CreateApplication'
+import { motion } from 'framer-motion'
 
 export default function ExchangeApplication({ departments }: { departments: any[] }) {
   const { close, setOpen } = usePopup()
   return (
     <div className={s.popup_backgraund} onClick={close}>
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'linear' }}
         onClick={e => e.stopPropagation()}
         className={s.popup_container}
         id={'exchange_application'}
@@ -108,7 +112,7 @@ export default function ExchangeApplication({ departments }: { departments: any[
             </Form>
           )}
         </Formik>
-      </div>
+      </motion.div>
     </div>
   )
 }

@@ -1,4 +1,12 @@
 .tag_style{
     display: inline-block;
     overflow: hidden;
+    padding-bottom:0.2vw;
+}
+@media screen and (max-width: 1024px) {
+    .tag_style{
+        display: inline-block;
+        overflow: hidden;
+        padding-bottom:0.4vw;
+    }
 }

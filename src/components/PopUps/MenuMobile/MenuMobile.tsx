@@ -10,6 +10,7 @@ import bg from 'public/menu_bg_mobile.png'
 import BtnPhone from '@/components/layout/BtnPhone/BtnPhone'
 import BtnSendApplication from '@/components/layout/BtnSendApplication/BtnSendApplication'
 import SocialNetworkItem from '@/components/sections/ContactsSection/SocialNetworkItem/SocialNetworkItem'
+import { motion } from 'framer-motion'
 
 type MenuMobileProps = {
   phone: string
@@ -20,7 +21,13 @@ export default function MenuMobile({ phone, social_network }: MenuMobileProps) {
   return (
     <>
       <div className={s.popup_backgraund}>
-        <div className={s.popup_container} id={'menu_mobile'}>
+        <motion.div
+          className={s.popup_container}
+          id={'menu_mobile'}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: 'linear' }}
+        >
           <div className={s.bg_container}>
             <Image src={bg} alt={'Bg_mobile'} />
           </div>
@@ -42,9 +49,9 @@ export default function MenuMobile({ phone, social_network }: MenuMobileProps) {
             <nav className={s.menu_items}>
               <span>Меню</span>
               <ul>
-                {menu.map((item, index) => {
-                  return <MenuItem link={item.link} text={item.text} key={index} func={close}/>
-                })}
+                {menu.map((item, index) =>
+                  item.main ? <MenuItem link={item.link!} text={item.text!} key={index} /> : '',
+                )}
               </ul>
             </nav>
           </div>
@@ -56,7 +63,7 @@ export default function MenuMobile({ phone, social_network }: MenuMobileProps) {
               <SocialNetworkItem key={`${index}-0`} {...social_network[key]} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   )

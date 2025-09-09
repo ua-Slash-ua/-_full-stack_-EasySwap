@@ -1,6 +1,6 @@
 'use client'
 // context/PopupContext.tsx
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 type PopupType =
   | 'create_application'
@@ -39,6 +39,21 @@ export const PopupProvider = ({ children }: { children: React.ReactNode }) => {
     setOpenState(null)
     setData(null)
   }
+
+  // 🔹 блокування скролу
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    // на випадок демонтажу
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
 
   return (
     <PopupContext.Provider value={{ open, data, setOpen, close }}>{children}</PopupContext.Provider>

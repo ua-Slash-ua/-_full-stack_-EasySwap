@@ -125,6 +125,7 @@
         width: 91.2234vw;
         padding: 5.31915vw;
         border-radius: 5.31915vw;
+        gap: 3.19vw;
 
     }
     .faq_item.active {
