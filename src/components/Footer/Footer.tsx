@@ -51,7 +51,7 @@ export default function Footer({ block, slug_privacy_policy }: { block: any;slug
           <div className={s.footer_title}>
             <p>
               <AnimateTitle tagName={'span'} text={'easy'} className={s.easy} />
-              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} />
+              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} whiteEnd={false}/>
               {/*<span>easy </span>*/}
               {/*swap*/}
             </p>

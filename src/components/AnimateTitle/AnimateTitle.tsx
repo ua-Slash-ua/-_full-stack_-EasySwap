@@ -3,7 +3,13 @@ import s from './AnimateTitle.module.css'
 import { motion } from 'framer-motion'
 import { AnimateTitleProps } from '@/props/AnimateTitleProps'
 
-export default function AnimateTitle({ tagName, className, text, delayCount }: AnimateTitleProps) {
+export default function AnimateTitle({
+  tagName,
+  className,
+  text,
+  delayCount,
+  whiteEnd = true,
+}: AnimateTitleProps) {
   const words = text.split(' ') // 🔹 розбиваємо на слова
 
   // Контейнер для stagger (затримка між словами)
@@ -19,7 +25,7 @@ export default function AnimateTitle({ tagName, className, text, delayCount }: A
 
   const wordVariant = {
     hidden: { opacity: 0, y: '100%', rotate: 10 },
-    show: { opacity: 1, y: 0, rotate: 0, },
+    show: { opacity: 1, y: 0, rotate: 0 },
   }
 
   // Динамічний тег
@@ -41,9 +47,8 @@ export default function AnimateTitle({ tagName, className, text, delayCount }: A
           transition={{ duration: 0.4, ease: 'easeOut' }}
           style={{ display: 'inline-block' }}
         >
-          {word + '\u00A0'}
+          {word}{whiteEnd ? '\u00A0' : ''}
         </motion.span>
-
       ))}
     </MotionTag>
   )

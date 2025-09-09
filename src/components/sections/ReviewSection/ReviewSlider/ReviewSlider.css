@@ -34,6 +34,9 @@
     align-items: center;
     gap: 0.52083vw;
     cursor: pointer;
+    width: 3.03vw;
+    height: 3.03vw;
+    margin: 0.35vw 0;
 }
 
 .prevReview svg, .nextReview svg{
@@ -48,9 +51,16 @@
 }
 
 
-.prevReview:hover svg, .nextReview:hover svg{
-    fill: #622FF1;
-    opacity: 1;
+.prevReview:hover,
+.nextReview:hover {
+    background-color: white;
+    border-radius: 2vw;
+}
+
+/* Ховер для prevReview тільки коли він НЕ активний */
+.prevReview:hover:not(.active_arrow) svg,
+.nextReview:hover:not(.active_arrow) svg{
+    fill: #000000;
 }
 /*.swiper-slide{*/
 /*    margin-right: 1.04vw!important;*/
@@ -72,5 +82,8 @@
     .swiper-slide{
         height: auto;
     }
-
+    .active_arrow svg{
+        fill: #622FF1;
+        opacity: 1;
+    }
 }
