@@ -11,9 +11,11 @@ import { usePopup } from '@/context/PopupContext'
 export default function HeaderScroll({
   block,
   className,
+  isMobile
 }: {
   block: any
   className: string
+  isMobile: boolean
 }) {
   const { setOpen } = usePopup()
   const [width, setWidth] = useState<number>(0)
@@ -27,7 +29,7 @@ export default function HeaderScroll({
 
   return (
     <>
-      <header className={`${s.header} ${className ?? ''}`}>
+      <header className={`${s.header} ${className ?? ''}  ${isMobile? s.mobile : ''}`}>
         <div className={s.rside}>
           <Logo />
         </div>

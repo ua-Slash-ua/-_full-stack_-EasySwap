@@ -12,18 +12,20 @@ import { usePopup } from '@/context/PopupContext'
 
 export default function Header({ block }: { block: any; }) {
   const [scrolled, setScrolled] = useState(false)
+  const [mobile, setMobile] = useState(false)
   const [width, setWidth] = useState<number>(0)
   const { setOpen } = usePopup()
 
   let threshold
 
-  console.log('width = ', width)
   useEffect(() => {
     const handleScroll = () => {
       if (width > 1024) {
-        threshold = window.innerWidth * 0.5
+        threshold = window.innerWidth * 0.1
+        setMobile(false)
       } else {
         threshold = window.innerWidth * 2.0
+        setMobile(true)
       }
       // const threshold = window.innerWidth * 0.1;
       const currentScrollY = window.scrollY
@@ -41,7 +43,7 @@ export default function Header({ block }: { block: any; }) {
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [width])
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)
@@ -87,6 +89,7 @@ export default function Header({ block }: { block: any; }) {
       </header>
 
       <HeaderScroll
+        isMobile={mobile}
         block={block}
         className={`${s.headerScroll} ${scrolled ? s.visible : s.hidden}`}
       />

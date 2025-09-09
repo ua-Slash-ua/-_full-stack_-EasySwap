@@ -7,12 +7,17 @@
     position: fixed;
     left: 20.73vw;
     z-index: 50;
-    top: 1vw;
-
+    bottom: 1vw;
+    top: auto;
     border-radius: 1.25vw;
     background: rgba(15, 14, 19, 0.80);
     backdrop-filter: blur(1.56vw);
 
+}
+
+.mobile{
+    top: 1vw;
+    bottom: auto;
 }
 
 .rside {
