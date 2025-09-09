@@ -4,7 +4,7 @@ import '../reset.css'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 import Header from '@/components/Header/Header'
-import React from 'react'
+import React, { JSX } from 'react'
 import { getContacts } from '@/api/getContacts'
 import Footer from '@/components/Footer/Footer'
 import HeroSection from '@/components/sections/HeroSection/HeroSection'
@@ -38,8 +38,13 @@ const BLOCK_COMPONENTS = {
   'currencies-block': CurrenciesSection,
   'accordion-block': AccordionBlock,
 }
-export default async function Page({ params }: { params: { slug: string } }) {
-  const slug = params.slug // <- присвоюємо одразу
+
+interface PageProps {
+  params: Promise<{ slug: string }> // Змінено тут - params тепер Promise
+}
+
+export default async function Page({ params }: PageProps): Promise<JSX.Element> {
+  const { slug } = await params
 
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
@@ -57,8 +62,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const accordionDate = accordionBlock?.data ?? null
 
   const slug_privacy_policy =
-    docs.find(doc => doc.id === menu.find(item =>
-    item.name === 'privacy_policy')?.id)?.slug ||
+    docs.find(doc => doc.id === menu.find(item => item.name === 'privacy_policy')?.id)?.slug ||
     '123'
   return (
     <>
