@@ -58,6 +58,8 @@
 
     border-radius: 5.20833vw;
     background: #FFF;
+
+    transition: all 0.3s;
 }
 
 .item_btn:hover {

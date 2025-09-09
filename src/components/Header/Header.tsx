@@ -20,30 +20,36 @@ export default function Header({ block }: { block: any; }) {
 
   useEffect(() => {
     const handleScroll = () => {
+      let threshold: number;
+
       if (width > 1024) {
-        threshold = window.innerWidth * 0.1
-        setMobile(false)
+        threshold = window.innerWidth * 0.1;
+        setMobile(false);
       } else {
-        threshold = window.innerWidth * 2.0
-        setMobile(true)
+        threshold = window.innerWidth * 2.0;
+        setMobile(true);
       }
-      // const threshold = window.innerWidth * 0.1;
-      const currentScrollY = window.scrollY
 
-      if (currentScrollY > threshold) {
-        setScrolled(true)
+      const currentScrollY = window.scrollY;
+
+      // 10% до кінця сторінки
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const distanceFromBottom = docHeight - (currentScrollY + windowHeight);
+
+      if (currentScrollY > threshold && distanceFromBottom > docHeight * 0.1) {
+        setScrolled(true);  // показуємо меню
       } else {
-        setScrolled(false)
+        setScrolled(false); // ховаємо меню
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // одразу на рендері
 
-    // одразу викликаємо для першого рендера
-    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [width]);
 
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [width])
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth)

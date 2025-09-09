@@ -33,7 +33,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .social_item{
+    .social_item {
         width: 28.98936vw;
         height: 21.2766vw;
         border-radius: 3.7234vw;
@@ -42,11 +42,12 @@
 
         background: #0F0E13;
         box-shadow: -1.06vw -1.06vw 6.38vw 0 rgba(255, 255, 255, 0.04) inset,
-        1.06vw  1.06vw 6.38vw 0 rgba(255, 255, 255, 0.10) inset;
+        1.06vw 1.06vw 6.38vw 0 rgba(255, 255, 255, 0.10) inset;
         backdrop-filter: blur(1.33vw);
 
     }
-    .social_item div svg, .social_item div{
+
+    .social_item div svg, .social_item div {
         width: 8.51064vw;
         height: 8.51064vw;
         flex-shrink: 0;
@@ -57,7 +58,7 @@
         border: 0.05208vw solid rgba(255, 255, 255, 0.00);
         background: #0F0E13;
         box-shadow: -1.06vw -1.06vw 6.38vw 0 rgba(255, 255, 255, 0.27) inset,
-        1.06vw  1.06vw 6.38vw 0 rgba(255, 255, 255, 0.10) inset;
+        1.06vw 1.06vw 6.38vw 0 rgba(255, 255, 255, 0.10) inset;
         backdrop-filter: blur(1.33vw);
     }
 }

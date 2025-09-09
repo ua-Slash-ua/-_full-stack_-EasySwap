@@ -4,12 +4,12 @@ import React from 'react'
 import { usePopup } from '@/context/PopupContext'
 import Image from 'next/image'
 
-export default function ReviewImage({ src, alt }: { src: string, alt: string }) {
+export default function ReviewImage({ src, alt }: { src: string; alt: string }) {
   const { close } = usePopup()
 
   return (
-    <div className={s.popup_backgraund}>
-      <div className={s.popup_container} id={'review_image'}>
+    <div className={s.popup_backgraund} onClick={close}>
+      <div onClick={e => e.stopPropagation()} className={s.popup_container} id={'review_image'}>
         <div className={s.btn_close} onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ export default function ReviewImage({ src, alt }: { src: string, alt: string }) 
           </svg>
         </div>
         <div className={s.image_container}>
-          <Image width={25} height={25} src={src} alt={alt}/>
+          <Image width={25} height={25} src={src} alt={alt} />
         </div>
       </div>
     </div>

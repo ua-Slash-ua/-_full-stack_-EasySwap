@@ -62,9 +62,9 @@ export default function Footer({ block, slug_privacy_policy }: { block: any;slug
                 <Magnet
                   key={index}
                   className={s.word_item}
-                  padding={50}
+                  padding={0}
                   disabled={false}
-                  magnetStrength={50}
+                  magnetStrength={1.5}
                 >
                   {footerWords[key]}
                 </Magnet>

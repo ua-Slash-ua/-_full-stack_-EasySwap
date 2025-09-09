@@ -37,6 +37,7 @@
 }
 
 .prevReview svg, .nextReview svg{
+    transition: all 0.3s;
     width: 0.74313vw;
     height: 1.35104vw;
     fill: rgba(255, 255, 255, 0.20);
@@ -46,6 +47,7 @@
 
 .prevReview:hover svg, .nextReview:hover svg{
     fill: #622FF1;
+    opacity: 1;
 }
 /*.swiper-slide{*/
 /*    margin-right: 1.04vw!important;*/

@@ -27,6 +27,7 @@
             -0.20833vw -0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.04) inset,
             0.20833vw  0.20833vw 1.25vw 0vw rgba(255, 255, 255, 0.10) inset;
 
+    transition: all 0.3s;
 }
 .review_slide:hover{
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
@@ -109,6 +110,7 @@
         gap: 3.19vw;
     }
     .swiper_header svg path{
+        transition: all 0.3s;
         fill: white;
     }
     .swiper_header div{
@@ -117,6 +119,7 @@
         aspect-ratio: 1/1;
     }
     .swiper_header svg{
+        transition: all 0.3s;
         width: 11.2367vw;
         height: 8.21144vw;
         flex-shrink: 0;

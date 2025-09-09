@@ -625,6 +625,7 @@
         background: rgba(255, 255, 255, 0.04);
         backdrop-filter: blur(1.33vw);
 
+        transition: all 0.3s;
     }
 
 

@@ -9,8 +9,12 @@ export default function CurrenciesInfo({ iconUSD, iconEUR }: { iconUSD: string; 
   const { close } = usePopup()
   return (
     <>
-      <div className={s.popup_backgraund}>
-        <div className={s.popup_container} id={'currencies_info'}>
+      <div className={s.popup_backgraund} onClick={close}>
+        <div
+          onClick={e => e.stopPropagation()}
+          className={s.popup_container}
+          id={'currencies_info'}
+        >
           <div className={s.btn_close} onClick={close}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

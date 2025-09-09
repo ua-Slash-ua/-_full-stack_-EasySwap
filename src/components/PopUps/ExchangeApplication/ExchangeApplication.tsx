@@ -9,11 +9,15 @@ import { createApplication } from '@/api/createApp'
 import DepartmentInput from '@/components/layout/DepartmentInput/DepartmentInput'
 import { validationSchema } from '@/components/PopUps/CreateApplication/CreateApplication'
 
-export default function ExchangeApplication({departments}:{departments:any[]}) {
+export default function ExchangeApplication({ departments }: { departments: any[] }) {
   const { close, setOpen } = usePopup()
   return (
-    <div className={s.popup_backgraund}>
-      <div className={s.popup_container} id={'exchange_application'}>
+    <div className={s.popup_backgraund} onClick={close}>
+      <div
+        onClick={e => e.stopPropagation()}
+        className={s.popup_container}
+        id={'exchange_application'}
+      >
         <div className={s.btn_close} onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +52,6 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
               close()
               setOpen('status_send', { status: 'success' })
               resetForm()
-
             } catch (err) {
               close()
               setOpen('status_send', { status: 'error' })
@@ -74,7 +77,6 @@ export default function ExchangeApplication({departments}:{departments:any[]}) {
                   value={values.telegram}
                   onChange={handleChange}
                   error={touched.telegram && errors.telegram ? errors.telegram : null}
-
                 />
               </div>
 
