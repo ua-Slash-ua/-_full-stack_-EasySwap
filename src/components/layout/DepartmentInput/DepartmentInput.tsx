@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import s from './DepartmentInput.module.css'
 import { applicationConfig } from '@/config/application.config'
 
@@ -12,18 +12,34 @@ type DepartmentInputProps = {
 }
 
 export default function DepartmentInput({
-  name,
-  text,
-  departments,
-  value,
-  onChange,
-}: DepartmentInputProps) {
+                                          name,
+                                          text,
+                                          departments,
+                                          value,
+                                          onChange,
+                                        }: DepartmentInputProps) {
   const [active, setActive] = useState(false)
   const [address, setAddress] = useState('')
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // Закриття при кліку поза контейнером
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setActive(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <div className={s.container_application_department}>
+    <div className={s.container_application_department} ref={containerRef}>
       <label htmlFor={name} className={s.form_label}>
-        {text?? 'Оберіть відділення'}
+        {text ?? 'Оберіть відділення'}
       </label>
       <div className={s.select_container}>
         <input
@@ -32,8 +48,8 @@ export default function DepartmentInput({
           value={address || value}
           placeholder={departments[0]?.address || 'Оберіть відділення'}
           onChange={e => {
-            setAddress(e.target.value); // оновлюємо локальний стан
-            onChange(e.target.value);   // повідомляємо батьків
+            setAddress(e.target.value) // оновлюємо локальний стан
+            onChange(e.target.value)   // повідомляємо батьків
           }}
           id={name}
           name={name}

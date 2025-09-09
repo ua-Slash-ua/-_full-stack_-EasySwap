@@ -31,14 +31,14 @@
 
 .choose_code {
     position: relative;
-    width: 2.5vw;
+    width: 3.12vw;
 }
 
 .choose_code_text {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.20833vw;
+    gap: 0.4vw;
 
     border-radius: 1.04167vw;
     cursor: pointer;
@@ -58,12 +58,17 @@
 }
 
 .choose_code_text div {
-    width: 0.52083vw;
+    width: 0.7vw;
     height: 1.04167vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.choose_code_text svg{
+    width: 100%;
+    height: 100%;
 }
 
 .input_container input::placeholder, .input_container input {
@@ -99,9 +104,17 @@
     background: #141219;
     z-index: 10;
     user-select: none;
+
+    max-height: 25vw;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch; /* важливо для сенсорних екранів */
+    scrollbar-width: thin; /* Firefox: тонкий скролбар */
+    scrollbar-color: #622FF1 #141219; /* Firefox: колір thumb та track */
 }
 
 .choose_code_container li {
+    flex-shrink: 0;
     display: flex;
     height: 3.54167vw;
     padding: 0 1.04167vw;
@@ -210,10 +223,13 @@
         border-radius: 3.7234vw;
         gap: 1vw;
         max-height: 30vw;
-        overflow: scroll;
+        overflow-y: scroll;
+
     }
 
     .choose_code_container li {
+        height: 9vw;
+        flex-shrink: 0;
         font-size: 3.7234vw;
         font-style: normal;
         font-weight: 500;
