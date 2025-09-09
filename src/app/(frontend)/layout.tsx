@@ -4,6 +4,8 @@ import { Inter, Noto_Sans } from 'next/font/google'
 import { PopupProvider } from '@/context/PopupContext'
 import { PopupManager } from '@/components/PopUps/PopupManager'
 
+
+
 const notoSans = Noto_Sans({
   subsets: ['latin'],
   variable: '--font-noto-sans', // (необов’язково, але зручно)
@@ -18,6 +20,9 @@ export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
   title: 'Payload Blank Template',
 }
+
+
+
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props

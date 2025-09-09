@@ -50,12 +50,14 @@
     padding: 1.04167vw 0;
     align-items: center;
     gap: 0.52083vw;
-}
-.aside_bottom_left{
+
     width: 2.5vw;
     height: 2.5vw;
     aspect-ratio: 1/1;
+
+    margin-top: 1vw;
 }
+
 
 
 .aside_bottom_description {

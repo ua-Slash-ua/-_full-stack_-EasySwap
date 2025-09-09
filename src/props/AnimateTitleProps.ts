@@ -5,4 +5,5 @@ export type AnimateTitleProps = {
   tagName: keyof JSX.IntrinsicElements;
   text: string;
   delayCount?: number;
+  whiteEnd?: boolean;
 }

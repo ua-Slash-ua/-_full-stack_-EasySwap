@@ -113,6 +113,8 @@
     border-radius: 5.20833vw;
     background: #FFF;
     margin-top: 3.75vw;
+
+    transition: all 0.3s;
 }
 
 .btn_send span{

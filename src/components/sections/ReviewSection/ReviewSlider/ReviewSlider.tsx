@@ -22,13 +22,17 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
   const swiperRef = useRef<SwiperType | null>(null)
   const [width, setWidth] = useState<number>(0)
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.slideTo(activeSlide)
+  function checkArrow(activeSlide: number, isEnd?: boolean): boolean {
+    if (isEnd) {}
+    if (!isEnd) {
+      return activeSlide >= 1
+    } else {
+      return width >= 1024 ? activeSlide < reviewCount - 4 : activeSlide < reviewCount-1
     }
-  }, [activeSlide])
+  }
+
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth )
+    const handleResize = () => setWidth(window.innerWidth)
     handleResize() // виставляємо ширину одразу після маунту
 
     window.addEventListener('resize', handleResize)
@@ -83,11 +87,11 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
       <div className={s.review_slider_nav}>
         {width <= 1024 && (
           <div className={`${s.swiper_scroll_container} show`}>
-            <span className={s.swiper_scroll_info}>
+            <span className={`${s.swiper_scroll_info}`}>
               {activeSlide + 1}/{reviewCount}
             </span>
             <div
-              className={s.swiper_scroll_back}
+              className={`${s.swiper_scroll_back} ${checkArrow(activeSlide, true) ? 'active_arrow' : ''}`}
               style={{ width: `${((activeSlide + 1) / reviewCount) * 100}%` }}
             ></div>
           </div>
@@ -95,12 +99,8 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
 
         <div
           ref={prevRef}
-          className="prevReview"
+          className={`prevReview ${checkArrow(activeSlide) ? 'active_arrow' : ''}`}
           dangerouslySetInnerHTML={{ __html: reviewData.iconPrev }}
-          onClick={() => {
-            if (activeSlide <= 0) return
-            setActiveSlide(activeSlide - 1)
-          }}
         />
         {width >= 1024 && (
           <div className={`${s.swiper_scroll_container} hide`}>
@@ -115,12 +115,8 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
         )}
         <div
           ref={nextRef}
-          className="nextReview"
+          className={`nextReview ${checkArrow(activeSlide, true) ? 'active_arrow' : ''}`}
           dangerouslySetInnerHTML={{ __html: reviewData.iconNext }}
-          onClick={() => {
-            if (activeSlide >= reviews.length - 4) return
-            setActiveSlide(activeSlide + 1)
-          }}
         />
       </div>
     </>

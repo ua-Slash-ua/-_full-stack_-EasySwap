@@ -1,10 +1,10 @@
 import s from './StatusSend.module.css'
 import { usePopup } from '@/context/PopupContext'
 import React from 'react'
-import { applicationConfig } from '@/config/application.config'
 import Image from 'next/image'
-import img_1 from 'public/wallet_4.svg'
-import img_2 from 'public/wallet_3.svg'
+import img_1 from 'public/wallet_4.png'
+import img_2 from 'public/wallet_3.png'
+import { motion } from 'framer-motion'
 
 type StatusSendProps = {
   status: 'success' | 'error'
@@ -21,13 +21,20 @@ const dataStatus = {
   },
 }
 
-export default function StatusSend({ status }:StatusSendProps) {
+export default function StatusSend({ status }: StatusSendProps) {
   const { close } = usePopup()
 
   let className = s.content_container
   return (
-    <div className={s.popup_backgraund}>
-      <div className={s.popup_container} id={'review_image'}>
+    <div className={s.popup_backgraund} onClick={close}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'linear' }}
+        onClick={e => e.stopPropagation()}
+        className={s.popup_container}
+        id={'review_image'}
+      >
         <div className={s.btn_close} onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,15 +51,15 @@ export default function StatusSend({ status }:StatusSendProps) {
         </div>
         <div className={className}>
           <div className={s.img_container}>
-            <Image src={img_1} alt={"first"}/>
+            <Image src={img_1} alt={'first'} />
           </div>
           <div className={s.img_container}>
-            <Image src={img_2} alt={"second"}/>
+            <Image src={img_2} alt={'second'} />
           </div>
           <h3>{dataStatus[status]?.title ?? 'Title'}</h3>
           <p>{dataStatus[status]?.description ?? 'Description'}</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

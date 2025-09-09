@@ -2,7 +2,7 @@ import s from './Logo.module.css'
 import Link from 'next/link'
 export default function Logo() {
   return (<>
-      <Link href={'#main'}>
+      <Link href={'/'}>
         <div className={s.logo}>
           <svg xmlns="http://www.w3.org/2000/svg" width="151" height="40" viewBox="0 0 151 40" fill="none">
             <path d="M0 6.88674L6.96315 0V4.05021H20.7695C26.9313 4.05021 31.9278 8.9919 31.9278 15.088V30.3281L18.0594 16.612L26.0818 20.8717C26.0818 19.7925 25.926 18.7488 25.6322 17.7624C25.1005 15.9636 24.1172 14.3566 22.8141 13.0678C20.7955 11.0694 18.0055 9.83594 14.9236 9.83594H6.96315V13.7774L0 6.89069V6.88674Z" fill="url(#paint0_linear_248_2011)"/>

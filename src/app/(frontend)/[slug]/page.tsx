@@ -1,11 +1,13 @@
-import { getPayload } from 'payload'
-import React from 'react'
+import '../styles.css'
+import '../reset.css'
 
-import config from '@/payload.config'
-import './styles.css'
-import './reset.css'
-import HeroSection from '@/components/sections/HeroSection/HeroSection'
+import config from '@payload-config'
+import { getPayload } from 'payload'
 import Header from '@/components/Header/Header'
+import React, { JSX } from 'react'
+import { getContacts } from '@/api/getContacts'
+import Footer from '@/components/Footer/Footer'
+import HeroSection from '@/components/sections/HeroSection/HeroSection'
 import NumbersSection from '@/components/sections/NumbersSection/NumbersSection'
 import PromiseSection from '@/components/sections/PromiseSection/PromiseSection'
 import DoubleSection from '@/components/sections/DoubleSection/DoubleSection'
@@ -13,14 +15,13 @@ import ServiceSection from '@/components/sections/ServiceSection/ServiceSection'
 import FAQSection from '@/components/sections/FAQSection/FAQSection'
 import SupportSection from '@/components/sections/SupportSection/SupportSection'
 import ReviewSection from '@/components/sections/ReviewSection/ReviewSection'
-import { getReviews } from '@/api/getReviews'
 import ApplicationSection from '@/components/sections/ApplicationSection/ApplicationSection'
-import { getContacts } from '@/api/getContacts'
 import ContactsSection from '@/components/sections/ContactsSection/ContactsSection'
-import Footer from '@/components/Footer/Footer'
 import CurrenciesSection from '@/components/sections/CurrenciesSection/CurrenciesSection'
 import { getCurrencies } from '@/api/getCurrencies'
+import { getReviews } from '@/api/getReviews'
 import AccordionBlock from '@/components/AccordionBlock/AccordionBlock'
+import PageTitle from '@/components/PageTitle/PageTitle'
 import { menu } from '@/config/menu.config'
 
 const BLOCK_COMPONENTS = {
@@ -38,26 +39,42 @@ const BLOCK_COMPONENTS = {
   'accordion-block': AccordionBlock,
 }
 
-export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+interface PageProps {
+  params: Promise<{ slug: string }> // Змінено тут - params тепер Promise
+}
+
+export default async function Page({ params }: PageProps): Promise<JSX.Element> {
+  const { slug } = await params
+
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
+  const contacts = await getContacts()
+  const currencies = await getCurrencies()
+  const reviews = await getReviews()
 
   const { docs } = await payload.find({
     collection: 'pages',
     pagination: false,
   })
-  const reviews = await getReviews()
-  const contacts = await getContacts()
-  const currencies = await getCurrencies()
-  const pageMain = docs.find(page => page.slug === 'main')
+
+  const page = docs.find(page => page.slug === slug)
+  const accordionBlock = page?.blocks?.find(block => block.blockType === 'accordion-block')
+  const accordionDate = accordionBlock?.data ?? null
+
   const slug_privacy_policy =
-    docs.find(doc => doc.id === menu.find(item =>
-    item.name === 'privacy_policy')?.id)?.slug ||
+    docs.find(doc => doc.id === menu.find(item => item.name === 'privacy_policy')?.id)?.slug ||
     '123'
   return (
     <>
       <Header block={contacts} />
-      {pageMain?.blocks?.map((block, i) => {
+      {
+        <PageTitle
+          title={page ? page.title : 'Заголовок сторінки'}
+          data={accordionDate ?? '11.11.1111'}
+          description={page?.description ?? 'Опис сторінки'}
+        />
+      }
+      {page?.blocks?.map((block, i) => {
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
           block.blockType as keyof typeof BLOCK_COMPONENTS

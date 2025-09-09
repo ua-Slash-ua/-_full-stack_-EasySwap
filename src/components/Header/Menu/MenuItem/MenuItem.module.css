@@ -20,11 +20,12 @@
 }
 
 .link_li{
-    transition: all 0.1s;
+    border-radius: 5.20833vw;
+    transition: all 0.3s;
 }
 
 .link_li:hover{
-    border-radius: 5.20833vw;
+
     background: #F4EEFF;
 }
 

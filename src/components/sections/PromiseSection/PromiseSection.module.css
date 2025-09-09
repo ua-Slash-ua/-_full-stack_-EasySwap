@@ -1,11 +1,14 @@
 .promise_section {
     display: flex;
     width: 99.89583vw;
+    max-width: 99.89583vw;
     flex-direction: row;
     align-items: center;
     margin: 8.33333vw 0;
     gap: 0.51vw;
     position: relative;
+    overflow: hidden;
+
 }
 
 .promise_container {
@@ -57,7 +60,7 @@
 }
 
 .promise_container {
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     position: relative;
 }
@@ -114,25 +117,33 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .promise_section {
+        margin: 15.96vw 0;
+        min-height: 9vw;
+    }
 
     .promise_item p {
         font-size: 6.38298vw;
         line-height: 6.38298vw;
         letter-spacing: -0.12766vw;
     }
-    .promise{
+
+    .promise {
         padding: 3vw 2.5vw;
         height: 7vw;
     }
-    .promise svg{
+
+    .promise svg {
         width: 3.5vw;
         height: 3.5vw;
     }
-    .promise span{
+
+    .promise span {
         font-size: 3.5vw;
         line-height: 3.5vw;
         letter-spacing: -0.12766vw;
     }
+
     .blur_item {
         height: 9vw !important;
     }

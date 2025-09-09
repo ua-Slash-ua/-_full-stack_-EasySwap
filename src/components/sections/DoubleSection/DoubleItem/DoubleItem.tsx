@@ -11,27 +11,15 @@ export default function DoubleItem({ title, icon, lines, isRight = false }: Doub
     <>
       <motion.div
         className={s.item}
-
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
         transition={{
           duration: 0.5,
-          ease: "easeOut",
+          ease: 'easeOut',
         }}
       >
-        <motion.h4
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
-          transition={{
-            duration: 0.5,
-            ease: "linear",
-            delay: 0.5,
-          }}
-        >
-          {title}
-        </motion.h4>
+        <h4>{title}</h4>
         <div className={s.content}>
           {lines.map((line, index) => (
             <DoubleLine

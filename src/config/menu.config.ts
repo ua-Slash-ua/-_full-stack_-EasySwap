@@ -1,22 +1,32 @@
 export const menu = [
   {
-    link: '#about-service',
+    main: true,
+    link: '/#about-service',
     text: 'Про сервіс',
   },
   {
-    link: '#services',
+    main: true,
+    link: '/#services',
     text: 'Послуги',
   },
   {
-    link: '#courses',
+    main: true,
+    link: '/#courses',
     text: 'Курс',
   },
   {
-    link: '#reviews',
+    main: true,
+    link: '/#reviews',
     text: 'Відгуки',
   },
   {
-    link: '#contacts',
+    main: true,
+    link: '/#contacts',
     text: 'Контакти',
   },
+  {
+    main: false,
+    id :'68bab4c979f11388c27d290d',
+    name:'privacy_policy'
+  }
 ]

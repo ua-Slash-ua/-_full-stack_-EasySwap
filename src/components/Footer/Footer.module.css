@@ -321,11 +321,13 @@
         flex-shrink: 0;
 
         border-radius: 3.7234vw;
-        border: 0.27vw solid rgba(255, 255, 255, 0.28);
-        background: rgba(15, 14, 19, 0.20);
-        box-shadow: -1.06vw -1.06vw 6.38vw 0 rgba(255, 255, 255, 0.04) inset,
-        1.06vw  1.06vw 6.38vw 0 rgba(255, 255, 255, 0.10) inset;
-        backdrop-filter: blur(0.80vw);
+        border: 0.266vw solid rgba(255,255,255,0.00);
+        background: rgba(15,14,19,0.20);
+        box-shadow:
+                -1.064vw -1.064vw 6.383vw 0 rgba(255,255,255,0.04) inset,
+                1.064vw 1.064vw 6.383vw 0 rgba(255,255,255,0.10) inset;
+        backdrop-filter: blur(0.798vw);
+
 
 
 

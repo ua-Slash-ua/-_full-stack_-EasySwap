@@ -17,16 +17,11 @@ import { contacts } from '@/config/contacts.config'
 import { motion } from 'framer-motion'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
 
-export default function HeroSection({
-  block,
-  departments,
-}: {
-  block: any[]
-  departments: any[]
-}) {
+export default function HeroSection({ block, departments }: { block: any[]; departments: any[] }) {
   const { setOpen } = usePopup()
   const divRef = useRef<HTMLDivElement>(null)
   const [main, setMain] = useState(true)
+
 
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
@@ -95,7 +90,6 @@ export default function HeroSection({
         >
           <motion.div
             className={s.hero_container}
-
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'linear' }}
@@ -103,8 +97,8 @@ export default function HeroSection({
           >
             <div className={s.hero_header}>
               <p>
-                <AnimateTitle tagName={'span'} text={'easy'} className={s.swap}/>
-                <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3}/>
+                <AnimateTitle tagName={'span'} text={'easy'} className={s.swap} />
+                <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} />
 
                 {/*<span className={s.swap}>easy </span>*/}
                 {/*swap*/}
@@ -115,7 +109,11 @@ export default function HeroSection({
               </div>
             </div>
             <div className={s.hero_description}>
-              <AnimateTitle tagName={'p'} text={'надійний помічник у валютних операціях'} delayCount={1}/>
+              <AnimateTitle
+                tagName={'p'}
+                text={'- надійний помічник у валютних операціях'}
+                delayCount={1}
+              />
               {/*<p>- надійний помічник у валютних операціях</p>*/}
             </div>
           </motion.div>
@@ -192,7 +190,6 @@ export default function HeroSection({
           </div>
           <motion.div
             className={s.calculator}
-
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut', delay: 1.2 }}
@@ -313,11 +310,7 @@ export default function HeroSection({
           </div>
         </aside>
         <div className={`${s.phone_container} hide`}>
-          <BtnPhone
-            svgIcon={contacts.iconPhone.replace('#7C4DF5', 'white')}
-            phone={''}
-            isReversed={true}
-          />
+
         </div>
         <div className={`${s.circle} hide`}></div>
       </section>

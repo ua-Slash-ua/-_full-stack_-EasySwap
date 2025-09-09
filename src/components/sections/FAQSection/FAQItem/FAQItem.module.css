@@ -68,9 +68,7 @@
     width: 100%;
     cursor: pointer;
 
-    transition: border-radius 0.3s ease,
-    border 0.3s ease,
-    background 0.5s ease;
+    transition: all 0.3s;
 }
 
 .icon {
@@ -85,18 +83,28 @@
 
     border-radius: 5.20833vw;
     transition: all 0.3s;
+
+    position: relative;
+
 }
+
 
 .icon svg {
     width: 0.72917vw;
     height: 0.72917vw;
+    transition: all 0.3s;
+}
+.icon ::before{
+    transition: all 0.3s ;
 }
 
 .disabled_svg, .active_svg:hover {
+    transition: all 0.3s;
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
 }
 
 .disabled_svg path, .active_svg:hover path {
+    transition: all 0.3s;
     stroke: white;
     fill: white;
 }
@@ -117,6 +125,7 @@
         width: 91.2234vw;
         padding: 5.31915vw;
         border-radius: 5.31915vw;
+        gap: 3.19vw;
 
     }
     .faq_item.active {

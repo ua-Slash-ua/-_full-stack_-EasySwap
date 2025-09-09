@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Ref } from 'react'
 import './StarBorder.css'
 
 type StarBorderProps<T extends React.ElementType> = React.ComponentPropsWithoutRef<T> & {
@@ -8,6 +8,7 @@ type StarBorderProps<T extends React.ElementType> = React.ComponentPropsWithoutR
   color?: string
   speed?: React.CSSProperties['animationDuration']
   thickness?: number
+  ref?: Ref<HTMLDivElement> | null | undefined
 }
 
 const StarBorder = <T extends React.ElementType = 'button'>({
@@ -17,12 +18,14 @@ const StarBorder = <T extends React.ElementType = 'button'>({
   speed = '6s',
   thickness = 1,
   children,
+  ref,
   ...rest
 }: StarBorderProps<T>) => {
   const Component = as || 'button'
 
   return (
     <Component
+      ref={ref}
       className={`star-border-container ${className}`}
       {...(rest as any)}
       style={{

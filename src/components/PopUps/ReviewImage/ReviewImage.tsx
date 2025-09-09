@@ -3,13 +3,21 @@ import s from './ReviewImage.module.css'
 import React from 'react'
 import { usePopup } from '@/context/PopupContext'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-export default function ReviewImage({ src, alt }: { src: string, alt: string }) {
+export default function ReviewImage({ src, alt }: { src: string; alt: string }) {
   const { close } = usePopup()
 
   return (
-    <div className={s.popup_backgraund}>
-      <div className={s.popup_container} id={'review_image'}>
+    <div className={s.popup_backgraund} onClick={close}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: 'linear' }}
+        onClick={e => e.stopPropagation()}
+        className={s.popup_container}
+        id={'review_image'}
+      >
         <div className={s.btn_close} onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,9 +33,9 @@ export default function ReviewImage({ src, alt }: { src: string, alt: string }) 
           </svg>
         </div>
         <div className={s.image_container}>
-          <Image width={25} height={25} src={src} alt={alt}/>
+          <Image width={500} height={500} src={src} alt={alt} />
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

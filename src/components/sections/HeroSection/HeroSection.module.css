@@ -170,6 +170,7 @@
     letter-spacing: -0.01667vw;
     user-select: none;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .btn_exchange:hover {
@@ -236,6 +237,8 @@
     right: 3.33vw;
     top: 43.13vw;
 }
+
+
 
 @media screen and (max-width: 1024px) {
     .section_hero {
@@ -397,6 +400,14 @@
         height: 100%;
         fill: rgba(217, 217, 217, 0.01);
         background: radial-gradient(80.89% 82.85% at 50% 50%, rgba(77, 31, 122, 0.64) 6.73%, rgba(81, 28, 126, 0.00) 58.11%);
+
+    }
+
+    .calc_header{
+        padding: 1.06vw;
+        border-radius: 26.59574vw;
+        backdrop-filter: blur(5.32vw);
+
 
     }
 }

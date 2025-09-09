@@ -44,7 +44,7 @@
     backdrop-filter: blur(0.26042vw);
     cursor: pointer;
     user-select: none;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .review_btn span {

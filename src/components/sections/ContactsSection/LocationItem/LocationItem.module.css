@@ -26,12 +26,23 @@
 }
 
 .bg_circle svg {
-
-    width: 0.72917vw;
-    height: 0.72917vw;
     flex-shrink: 0;
     aspect-ratio: 1/1;
 }
+.location_header .bg_circle svg {
+    width: 1.04167vw;
+    height: 1.04167vw;
+}
+.location_content li:nth-of-type(1) svg{
+    width: 0.78125vw;
+    height: 0.78125vw;
+}
+.location_content li:nth-of-type(2) svg{
+    width: 0.72125vw;
+    height: 0.72125vw;
+}
+
+
 .bg_circle svg path {
     fill: #7C4DF5;
 }
@@ -104,6 +115,7 @@
     background: white;
     cursor: pointer;
     user-select: none;
+    transition: all 0.3s;
 }
 
 .location_btn:hover {
@@ -232,5 +244,19 @@
         height: 5.31915vw;
         flex-shrink: 0;
     }
+
+    .location_header .bg_circle svg {
+        width: 5.31915vw;
+        height: 5.31915vw;
+    }
+    .location_content li:nth-of-type(1) svg{
+        width: 3.98936vw;
+        height: 3.98936vw;
+    }
+    .location_content li:nth-of-type(2) svg{
+        width: 3.7234vw;
+        height: 3.7234vw;
+    }
+
 }
 

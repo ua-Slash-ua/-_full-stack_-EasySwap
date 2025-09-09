@@ -75,7 +75,7 @@
 }
 
 .hidden {
-    transform: translateY(-100%);
+    transform: translateY(100%);
     opacity: 0;
     pointer-events: none;
 }
@@ -117,5 +117,8 @@
         font-weight: 500;
         line-height: 5.21277vw;
         letter-spacing: -0.07447vw;
+    }
+    .hidden {
+        transform: translateY(-100%);
     }
 }
