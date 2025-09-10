@@ -9,8 +9,17 @@ import Magnet from '@/libs/Magnet/Magnet'
 import { useEffect, useState } from 'react'
 import { footerConfig } from '@/config/footer.config'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
+import blurIconDesktop from 'public/blur_footer_desktop.svg'
+import blurIconMobile from 'public/blur_footer_mobile.svg'
+import Image from 'next/image'
 
-export default function Footer({ block, slug_privacy_policy }: { block: any;slug_privacy_policy:string }) {
+export default function Footer({
+  block,
+  slug_privacy_policy,
+}: {
+  block: any
+  slug_privacy_policy: string
+}) {
   const socialMedia = block.social_networks
   const footerWords = block.footer_words
   const [width, setWidth] = useState<number>(0)
@@ -51,7 +60,7 @@ export default function Footer({ block, slug_privacy_policy }: { block: any;slug
           <div className={s.footer_title}>
             <p>
               <AnimateTitle tagName={'span'} text={'easy'} className={s.easy} />
-              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} whiteEnd={false}/>
+              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} whiteEnd={false} />
               {/*<span>easy </span>*/}
               {/*swap*/}
             </p>
@@ -59,15 +68,24 @@ export default function Footer({ block, slug_privacy_policy }: { block: any;slug
           <div className={s.footer_words}>
             <div className={s.word_container}>
               {Object.entries(footerWords).map(([key, value], index) => (
-                <Magnet
-                  key={index}
-                  className={s.word_item}
-                  padding={0}
-                  disabled={false}
-                  magnetStrength={1.5}
-                >
-                  {footerWords[key]}
-                </Magnet>
+                <div key={index} className={s.word_item_container}>
+                  <Magnet
+                    className={s.word_item}
+                    padding={0}
+                    disabled={false}
+                    magnetStrength={1.5}
+                  >
+                    {footerWords[key]}
+                  </Magnet>
+                  {index === 1 && (
+                    width > 1024 ? (
+                      <Image src={blurIconDesktop} alt="blur icon" width={1000} height={1000} />
+                    ) : (
+                      <Image src={blurIconMobile} alt="blur icon" width={1000} height={1000} />
+                    )
+                  )}
+
+                </div>
               ))}
             </div>
           </div>

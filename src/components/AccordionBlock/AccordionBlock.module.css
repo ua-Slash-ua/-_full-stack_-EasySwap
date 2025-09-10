@@ -13,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 1.66667vw;
     align-self: stretch;
 
     border-radius: 1.66667vw;
@@ -56,34 +55,66 @@
 
     border-radius: 5.20833vw;
     transition: all 0.3s;
+
+    position: relative;
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+    overflow: hidden;
+}
+
+.icon.active_svg {
+    background: white;
 }
 
 .icon svg {
     width: 0.72917vw;
     height: 0.72917vw;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+}
+.icon svg path{
+    transition: all 0.3s ease;
 }
 
-.disabled_svg, .active_svg:hover {
-    background: white;
-}
 
 .disabled_svg path, .active_svg:hover path {
-    stroke: #622FF1;
-    fill: #622FF1;
-}
-
-
-.active_svg, .disabled_svg:hover {
-    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
-}
-
-.active_svg path, .disabled_svg:hover path {
     stroke: white;
     fill: white;
 }
 
+
+.active_svg path, .disabled_svg:hover path {
+    stroke: #622FF1;
+    fill: #622FF1;
+}
+
+.icon.disabled_svg:before, .icon.active_svg:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: white;
+    transition: all 0.3s ease;
+    top: 0;
+    left: 0;
+}
+
+.icon.active_svg:before {
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+}
+
+.icon.active_svg:hover:before {
+    opacity: 1;
+}
+
+.icon.disabled_svg:hover:before {
+    opacity: 1;
+}
+
 .item_content {
-    margin: 0 2.6vw;
+    /*margin: 0 2.6vw;*/
 
     color: rgba(255, 255, 255, 0.80);
     font-feature-settings: 'liga' off, 'clig' off;
@@ -93,6 +124,14 @@
     font-weight: 400;
     line-height: 1.16667vw;
     letter-spacing: -0.01667vw;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+.item.active .item_content{
+    margin-top: 1.66667vw;
+    max-height:50em;
 }
 
 .item_content strong {
