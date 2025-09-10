@@ -23,6 +23,7 @@ import { getReviews } from '@/api/getReviews'
 import AccordionBlock from '@/components/AccordionBlock/AccordionBlock'
 import PageTitle from '@/components/PageTitle/PageTitle'
 import { menu } from '@/config/menu.config'
+import { generateMetadata as generateMetaDataPage } from '@/api/getPage'
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,
@@ -41,6 +42,11 @@ const BLOCK_COMPONENTS = {
 
 interface PageProps {
   params: Promise<{ slug: string }> // Змінено тут - params тепер Promise
+}
+
+export async function generateMetadata(): Promise<any> {
+  const page_id = menu.find(item => item.name === 'privacy_policy')?.id || '0'
+  return await generateMetaDataPage('', '68bab4c979f11388c27d290d')
 }
 
 export default async function Page({ params }: PageProps): Promise<JSX.Element> {

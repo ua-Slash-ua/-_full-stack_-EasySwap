@@ -3,6 +3,8 @@ import './styles.css'
 import { Inter, Noto_Sans } from 'next/font/google'
 import { PopupProvider } from '@/context/PopupContext'
 import { PopupManager } from '@/components/PopUps/PopupManager'
+import { generateMetadata as generateMetaDataPage } from '@/api/getPage'
+import { menu } from '@/config/menu.config'
 
 
 
@@ -16,11 +18,9 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter', // (необов’язково)
 })
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+export async function generateMetadata(): Promise<any> {
+  return await generateMetaDataPage('main',)
 }
-
 
 
 

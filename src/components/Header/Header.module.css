@@ -59,12 +59,9 @@
 /* CSS приклад */
 .headerScroll {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     transition: all 0.4s ease;
     transform: translateY(-100%); /* схований зверху */
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 

@@ -23,7 +23,9 @@ export default function FAQItem({ question, answer }: FAQItemProps) {
             dangerouslySetInnerHTML={{ __html: active ? faqIcons.active : faqIcons.disabled }}
           />
         </div>
-        <p className={s.answer}>{answer}</p>
+        <div className={s.answer_container}>
+          <p className={s.answer}>{answer}</p>
+        </div>
       </motion.li>
     </>
   )
