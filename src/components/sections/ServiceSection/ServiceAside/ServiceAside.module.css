@@ -32,7 +32,8 @@
     flex-direction: column;
     gap: 2.5vw;
 
-
+    scrollbar-width: thin; /* Firefox: тонкий скролбар */
+    scrollbar-color: #622FF1 #141219; /* Firefox: колір thumb та track */
 }
 
 .service_aside li {
@@ -127,7 +128,7 @@
     }
     .aside_menu ul{
         flex-direction: row;
-        overflow: scroll;
+        overflow-x: scroll;
         gap: 2.66vw;
         padding: 1vw 0 2vw 0  ;
     }

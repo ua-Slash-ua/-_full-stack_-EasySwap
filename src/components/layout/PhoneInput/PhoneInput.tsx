@@ -1,6 +1,6 @@
 'use client'
 import s from './PhoneInput.module.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { applicationConfig } from '@/config/application.config'
 import { phones } from '@/config/phone.config'
 
@@ -31,13 +31,27 @@ export default function PhoneInput({
   const [partPhone, setPartPhone] = useState('')
   const [active, setActive] = useState(false)
   const [focused, setFocused] = useState(false)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // Закриття при кліку поза контейнером
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setActive(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   // Синхронізуємо внутрішній номер з зовнішнім value
   useEffect(() => {
     const parts = (value ?? '').replace(code, '').trim()
     setPartPhone(parts)
   }, [value, code])
-
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let newPart = e.target.value.slice(0, 9)
@@ -56,7 +70,7 @@ export default function PhoneInput({
   }
 
   return (
-    <div className={`${s.phone_container} ${className ?? ''}`}>
+    <div className={`${s.phone_container} ${className ?? ''}`} ref={containerRef}>
       <label htmlFor={name}>{label ?? 'Номер телефону'}</label>
       <input type="text" hidden name={name} id={name} value={value} readOnly />
       <div className={`${s.input_container} ${focused ? s.focused : ''}`}>
@@ -102,7 +116,6 @@ export default function PhoneInput({
         />
       </div>
       {error && <div className="error-message">Вкажіть номер телефону</div>}
-
     </div>
   )
 }

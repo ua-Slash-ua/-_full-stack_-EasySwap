@@ -24,9 +24,9 @@ export default function MenuMobile({ phone, social_network }: MenuMobileProps) {
         <motion.div
           className={s.popup_container}
           id={'menu_mobile'}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, ease: 'linear' }}
+          initial={{ opacity: 0, y:100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: 'linear' }}
         >
           <div className={s.bg_container}>
             <Image src={bg} alt={'Bg_mobile'} />

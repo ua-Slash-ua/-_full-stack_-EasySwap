@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import s from './SelectCurrencies.module.css'
 
@@ -33,19 +33,36 @@ type SelectCurrenciesProps = {
 }
 
 export default function SelectCurrencies({
-  currency,
-  changeCurrCode,
-  changeCurrCount,
-  currCode,
-  currCodeExc,
-  changeCurrCodeExc,
-}: SelectCurrenciesProps) {
+                                           currency,
+                                           changeCurrCode,
+                                           changeCurrCount,
+                                           currCode,
+                                           currCodeExc,
+                                           changeCurrCodeExc,
+                                         }: SelectCurrenciesProps) {
   const defaultCurrency: Currency = {
     code: 'UAN',
     icon: { url: '/api/media/file/Vector%20(10).svg', alt: 'USD' },
   }
 
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(defaultCurrency)
+  const [active, setActive] = useState(false)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // Закриття при кліку поза контейнером
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setActive(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
   useEffect(() => {
     if (changeCurrCode) {
       const findCurren = currency.find(item => item.code === currCode.code)
@@ -60,7 +77,7 @@ export default function SelectCurrencies({
         }
 
       }
-    else
+      else
 
       if (currency.length > 0) {
         // console.log('Take 1-st element')
@@ -111,10 +128,7 @@ export default function SelectCurrencies({
     }
   }, [currency,currCode])
 
-  const [active, setActive] = useState(false)
-
   const handleSelect = (item: Currency | RateItem) => {
-    // console.log('item = ', changeCurrCode ? (item as Currency) : (item as RateItem).currency)
     const code = changeCurrCode ? (item as Currency).code : (item as RateItem).currency.code?.trim()
     const isAge = changeCurrCode ? (item as Currency).cat_date : (item as RateItem).currency.cat_date?.trim()
     setSelectedCurrency(changeCurrCode ? (item as Currency) : (item as RateItem).currency)
@@ -126,7 +140,7 @@ export default function SelectCurrencies({
   }
 
   return (
-    <div className={s.select_container}>
+    <div className={s.select_container} ref={containerRef}>
       <div className={s.select} onClick={() => setActive(!active)}>
         <div className={s.info}>
           <div className={s.icon_back}>
@@ -178,20 +192,20 @@ export default function SelectCurrencies({
             currency
               .find(item => item.code === currCode.code)
               ?.ratesByCurrency?.map((item: RateItem, index) => {
-                return (
-                  <li key={item.currency.code.trim() + index} onClick={() => handleSelect(item)}>
-                    <div className={s.icon_back_reverse}>
-                      <Image
-                        src={item.currency.icon.url}
-                        alt={item.currency.icon.alt}
-                        width={24}
-                        height={12}
-                      />
-                    </div>
-                    <span>{item.currency.name?.trim()}</span>
-                  </li>
-                )
-              })
+              return (
+                <li key={item.currency.code.trim() + index} onClick={() => handleSelect(item)}>
+                  <div className={s.icon_back_reverse}>
+                    <Image
+                      src={item.currency.icon.url}
+                      alt={item.currency.icon.alt}
+                      width={24}
+                      height={12}
+                    />
+                  </div>
+                  <span>{item.currency.name?.trim()}</span>
+                </li>
+              )
+            })
           ) : (
             <p>Немає для обміну2!</p>
           )}

@@ -95,6 +95,15 @@
     backdrop-filter: blur(2.60417vw);
 
     gap: 1.04vw;
+
+    flex-shrink: 0;
+    max-height: 50vw;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch; /* важливо для сенсорних екранів */
+
+    scrollbar-width: thin; /* Firefox: тонкий скролбар */
+    scrollbar-color: #622FF1 #141219; /* Firefox: колір thumb та track */
 }
 
 
@@ -123,47 +132,54 @@
         border-radius: 26.59574vw;
 
     }
+
     .icon_back, .icon_back_reverse {
         width: 6.38298vw;
         height: 6.38298vw;
         flex-shrink: 0;
         border-radius: 6vw;
     }
+
     .icon_back img, .icon_back_reverse img {
         width: 2.39362vw;
         height: 3.59043vw;
         flex-shrink: 0;
 
     }
-    .info{
+
+    .info {
         gap: 1.6vw;
     }
 
-    .info span{
+    .info span {
         font-size: 3.7234vw;
         line-height: 5.21277vw; /*  */
         letter-spacing: -0.07447vw;
     }
-    .select_options{
+
+    .select_options {
         top: 12vw;
         left: 2vw;
         padding: 2.12766vw 0;
         border-radius: 5.31915vw;
-
+        gap: 3vw;
     }
-    .select_options li{
+
+    .select_options li {
         padding: 0 3.19149vw;
 
     }
-    .select_options li span{
+
+    .select_options li span {
         font-size: 3.7234vw;
         font-weight: 500;
         line-height: 5.21277vw; /*  */
         letter-spacing: -0.07447vw;
     }
-.btn_arrow{
-    width: 3.19149vw;
-    height: 6.38298vw;
-    aspect-ratio: 1/2;
-}
+
+    .btn_arrow {
+        width: 3.19149vw;
+        height: 6.38298vw;
+        aspect-ratio: 1/2;
+    }
 }
