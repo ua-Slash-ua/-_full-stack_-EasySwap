@@ -7,7 +7,7 @@ import { AccItem } from '@/props/AccordionProps'
 import { convertLexicalToHTMLAsync } from '@payloadcms/richtext-lexical/html-async'
 
 export default function AccordionItem({ item, index }: { item: AccItem; index: number }) {
-  const [active, setActive] = useState(true)
+  const [active, setActive] = useState(false)
   const [html, setHtml] = useState<string>('')
 
   useEffect(() => {
@@ -35,14 +35,13 @@ export default function AccordionItem({ item, index }: { item: AccItem; index: n
           />
         </div>
 
-        {active && (
+
           <div
             className={s.item_content}
             dangerouslySetInnerHTML={{
               __html: html,
             }}
           />
-        )}
       </li>
     </>
   )

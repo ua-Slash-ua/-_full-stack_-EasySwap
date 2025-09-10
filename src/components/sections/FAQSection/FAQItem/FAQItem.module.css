@@ -5,7 +5,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1.66667vw;
 
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -54,11 +53,13 @@
     max-height: 0;
     transition: all 0.3s ease;
     overflow: hidden;
+    width: 100%;
 }
 
 .active .answer_container {
-    max-height: none;
+    max-height: 20vw;
     width: 100%;
+    margin-top: 1.66667vw;
 }
 
 .title_container {
@@ -87,41 +88,61 @@
     transition: all 0.3s;
 
     position: relative;
-
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+    overflow: hidden;
 }
 
+.icon.active_svg {
+    background: white;
+}
 
 .icon svg {
     width: 0.72917vw;
     height: 0.72917vw;
     transition: all 0.3s;
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+}
+.icon svg path{
+    transition: all 0.3s ease;
 }
 
-.icon ::before {
-    transition: all 0.3s;
-}
-
-.disabled_svg, .active_svg:hover {
-    transition: all 0.3s;
-    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
-}
 
 .disabled_svg path, .active_svg:hover path {
-    transition: all 0.3s;
     stroke: white;
     fill: white;
 }
 
-
-.active_svg, .disabled_svg:hover {
-    background: white;
-}
 
 .active_svg path, .disabled_svg:hover path {
     stroke: #622FF1;
     fill: #622FF1;
 }
 
+.icon.disabled_svg:before, .icon.active_svg:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: white;
+    transition: all 0.3s ease;
+    top: 0;
+    left: 0;
+}
+
+.icon.active_svg:before {
+    background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
+}
+
+.icon.active_svg:hover:before {
+    opacity: 1;
+}
+
+.icon.disabled_svg:hover:before {
+    opacity: 1;
+}
 
 @media screen and (max-width: 1024px) {
     .faq_item {
