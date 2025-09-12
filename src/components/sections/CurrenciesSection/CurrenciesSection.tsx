@@ -106,7 +106,7 @@ export default function CurrenciesSection({
     <>
       <section className={s.currencies_section} id={'courses'}>
         <div className={s.currencies_header}>
-          <AnimateTitle text={'Актуальний курс валют'} tagName={'h3'}/>
+          <AnimateTitle text={'Актуальний курс валют'} tagName={'h3'} />
           {width > 1024 && (
             <div className={s.currencies_icon}>
               <Image src={currencies.iconMain} alt={'Main icon'} width={500} height={500} />
@@ -254,9 +254,11 @@ export default function CurrenciesSection({
               transition={{ duration: 0.5, ease: 'easeOut' }}
               viewport={{ once: false, amount: 0 }}
             >
-              <h3>Зверніть увагу!</h3>
-              <div className={s.icon_footer}>
-                <Image src={currencies.iconFooter} alt={'iconFooter'} />
+              <div className={s.footer_container}>
+                <h3>Зверніть увагу!</h3>
+                <div className={s.icon_footer}>
+                  <Image src={currencies.iconFooter} alt={'iconFooter'} />
+                </div>
               </div>
             </motion.div>
             <motion.div
