@@ -9,6 +9,7 @@ export default function AnimateTitle({
   text,
   delayCount,
   whiteEnd = true,
+  duration = 0.4,
 }: AnimateTitleProps) {
   const words = text.split(' ') // 🔹 розбиваємо на слова
 
@@ -44,10 +45,11 @@ export default function AnimateTitle({
           key={idx}
           className={className}
           variants={wordVariant}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          transition={{ duration: duration, ease: 'easeOut' }}
           style={{ display: 'inline-block' }}
         >
-          {word}{whiteEnd ? '\u00A0' : ''}
+          {word}
+          {whiteEnd ? '\u00A0' : ''}
         </motion.span>
       ))}
     </MotionTag>

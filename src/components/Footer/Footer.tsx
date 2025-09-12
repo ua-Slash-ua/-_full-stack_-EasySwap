@@ -59,8 +59,8 @@ export default function Footer({
           </div>
           <div className={s.footer_title}>
             <p>
-              <AnimateTitle tagName={'span'} text={'easy'} className={s.easy} />
-              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.3} whiteEnd={false} />
+              <AnimateTitle tagName={'span'} text={'easy'} className={s.easy} duration={0.8}/>
+              <AnimateTitle tagName={'span'} text={'swap'} delayCount={0.7} whiteEnd={false} duration={0.8}/>
               {/*<span>easy </span>*/}
               {/*swap*/}
             </p>

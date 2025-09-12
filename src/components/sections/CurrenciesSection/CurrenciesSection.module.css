@@ -298,7 +298,7 @@
     display: flex;
     width: 14.0625vw;
     height: 11.82292vw;
-    padding: 1.66667vw;
+
     flex-direction: column;
     align-items: flex-start;
     gap: 0.83333vw;
@@ -306,8 +306,13 @@
     border-radius: 1.66667vw;
     background: #0F0E13;
     box-shadow: 0.20833vw 0.20833vw 1.04167vw 0vw rgba(255, 255, 255, 0.02) inset;
+    overflow: hidden;
 }
-
+.footer_container{
+    width: 100%;
+    height: 100%;
+    padding: 1.66667vw;
+}
 .footer_first h3 {
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -319,7 +324,7 @@
     letter-spacing: -0.03333vw;
 }
 
-.footer_first div {
+.footer_container div {
     width: 6.92708vw;
     height: 6.45833vw;
     position: absolute;

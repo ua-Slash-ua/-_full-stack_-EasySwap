@@ -6,4 +6,5 @@ export type AnimateTitleProps = {
   text: string;
   delayCount?: number;
   whiteEnd?: boolean;
+  duration?: number;
 }
