@@ -36,88 +36,91 @@ export default function CurrenciesInfo({ iconUSD, iconEUR }: { iconUSD: string; 
               />
             </svg>
           </div>
-          <div className={s.popup_content}>
-            <div className={s.info_icon}>
-              <Image src={currencies.iconFooter} alt={'info'} width={25} height={25} />
-            </div>
-            <div className={s.title}>
-              <h3>Зверніть увагу!</h3>
-            </div>
-            <div className={s.container_first}>
-              <h3>Пояснення до таблиці:</h3>
-              <ul>
-                <li>
-                  <div
-                    className={s.li_icon}
-                    dangerouslySetInnerHTML={{ __html: currencies.iconInfo }}
-                  />
-                  <div className={s.text}>
-                    <span>USD</span>
-                    <div className={s.curr_age}>
-                      <Image
-                        src={currencies.iconAgeNew.url}
-                        alt={currencies.iconAgeNew.alt}
-                        width={25}
-                        height={25}
-                      />
-                    </div>
+          <div className={s.content}>
+            <div className={s.popup_content}>
+              <div className={s.info_icon}>
+                <Image src={currencies.iconFooter} alt={'info'} width={1000} height={1000} />
+              </div>
+              <div className={s.title}>
+                <h3>Зверніть увагу!</h3>
+              </div>
+              <div className={s.container_first}>
+                <h3>Пояснення до таблиці:</h3>
+                <ul>
+                  <li>
+                    <div
+                      className={s.li_icon}
+                      dangerouslySetInnerHTML={{ __html: currencies.iconInfo }}
+                    />
+                    <div className={s.text}>
+                      <span>USD</span>
+                      <div className={s.curr_age}>
+                        <Image
+                          src={currencies.iconAgeNew.url}
+                          alt={currencies.iconAgeNew.alt}
+                          width={25}
+                          height={25}
+                        />
+                      </div>
 
-                    <p> - нові доларові купюри,</p>
-                    <p> введені в обіг після 2009 рр.;</p>
-                  </div>
-                </li>
-                <li>
-                  <div
-                    className={s.li_icon}
-                    dangerouslySetInnerHTML={{ __html: currencies.iconInfo }}
-                  />
-                  <div className={s.text}>
-                    <span>USD</span>
-                    <div className={s.curr_age}>
-                      <Image
-                        src={currencies.iconAgeOld.url}
-                        alt={currencies.iconAgeOld.alt}
-                        width={25}
-                        height={25}
-                      />
+                      <p> - нові доларові купюри,</p>
+                      <p> введені в обіг після 2009 рр.;</p>
                     </div>
+                  </li>
+                  <li>
+                    <div
+                      className={s.li_icon}
+                      dangerouslySetInnerHTML={{ __html: currencies.iconInfo }}
+                    />
+                    <div className={s.text}>
+                      <span>USD</span>
+                      <div className={s.curr_age}>
+                        <Image
+                          src={currencies.iconAgeOld.url}
+                          alt={currencies.iconAgeOld.alt}
+                          width={25}
+                          height={25}
+                        />
+                      </div>
 
-                    <p>- старіші доларові купюри,</p>
-                    <p> 2000-2006 рр.;</p>
-                  </div>
-                </li>
-                <li>
-                  <div
-                    className={s.li_icon}
-                    dangerouslySetInnerHTML={{ __html: currencies.iconInfo }}
-                  />
-                  <div className={s.text}>
-                    <p>Від 10000 у.о. курс уточнюйте індивідуально у менеджера.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div className={s.container_second}>
-              <h3>По оптовому курсу ми приймаємо лише:</h3>
-              <ul>
-                <li className={s.text}>
-                  <div className={s.icon_currencies}>
-                    <Image src={iconUSD} alt={'USD'} width={25} height={25} />
-                  </div>
-                  <p>
-                    $ 100 доларові купюри, від 2000р випуску, без потерностей, печаток чи інших
-                    маркувань та без пошкоджень;
-                  </p>
-                </li>
-                <li className={s.text}>
-                  <div className={s.icon_currencies}>
-                    <Image src={iconEUR} alt={'EUR'} width={25} height={25} />
-                  </div>
-                  <p>€ лише купюри 50, 100, 200, 500 без значних дефектів</p>
-                </li>
-              </ul>
+                      <p>- старіші доларові купюри,</p>
+                      <p> 2000-2006 рр.;</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div
+                      className={s.li_icon}
+                      dangerouslySetInnerHTML={{ __html: currencies.iconInfo }}
+                    />
+                    <div className={s.text}>
+                      <p>Від 10000 у.о. курс уточнюйте індивідуально у менеджера.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className={s.container_second}>
+                <h3>По оптовому курсу ми приймаємо лише:</h3>
+                <ul>
+                  <li className={s.text}>
+                    <div className={s.icon_currencies}>
+                      <Image src={iconUSD} alt={'USD'} width={25} height={25} />
+                    </div>
+                    <p>
+                      $ 100 доларові купюри, від 2000р випуску, без потерностей, печаток чи інших
+                      маркувань та без пошкоджень;
+                    </p>
+                  </li>
+                  <li className={s.text}>
+                    <div className={s.icon_currencies}>
+                      <Image src={iconEUR} alt={'EUR'} width={25} height={25} />
+                    </div>
+                    <p>€ лише купюри 50, 100, 200, 500 без значних дефектів</p>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
+
         </div>
       </motion.div>
     </>

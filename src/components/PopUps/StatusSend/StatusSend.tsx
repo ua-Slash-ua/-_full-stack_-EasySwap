@@ -50,14 +50,17 @@ export default function StatusSend({ status }: StatusSendProps) {
           </svg>
         </div>
         <div className={className}>
-          <div className={s.img_container}>
-            <Image src={img_1} alt={'first'} />
+          <div className={s.container}>
+            <div className={s.img_container}>
+              <Image src={img_1} alt={'first'} />
+            </div>
+            <div className={s.img_container}>
+              <Image src={img_2} alt={'second'} />
+            </div>
+            <h3>{dataStatus[status]?.title ?? 'Title'}</h3>
+            <p>{dataStatus[status]?.description ?? 'Description'}</p>
           </div>
-          <div className={s.img_container}>
-            <Image src={img_2} alt={'second'} />
-          </div>
-          <h3>{dataStatus[status]?.title ?? 'Title'}</h3>
-          <p>{dataStatus[status]?.description ?? 'Description'}</p>
+
         </div>
       </motion.div>
     </div>

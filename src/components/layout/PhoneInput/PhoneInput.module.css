@@ -105,7 +105,7 @@
     z-index: 10;
     user-select: none;
 
-    max-height: 25vw;
+    max-height: 17vw;
     overflow-y: auto;
 
     -webkit-overflow-scrolling: touch; /* важливо для сенсорних екранів */

@@ -58,7 +58,6 @@
 
     position: relative;
     background: linear-gradient(146deg, #B792FF -20.67%, #622FF1 78.87%);
-    overflow: hidden;
 }
 
 .icon.active_svg {
@@ -99,6 +98,8 @@
     transition: all 0.3s ease;
     top: 0;
     left: 0;
+    overflow: hidden;
+    border-radius: 5.20833vw;
 }
 
 .icon.active_svg:before {

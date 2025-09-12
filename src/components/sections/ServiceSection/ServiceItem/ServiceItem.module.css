@@ -150,7 +150,7 @@
         align-self: stretch;
     }
 
-    .item_btn div svg {
+    .item_btn svg {
         display: flex;
         width: 5.31915vw;
         height: 5.31915vw;

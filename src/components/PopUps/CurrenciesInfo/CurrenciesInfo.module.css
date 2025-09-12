@@ -26,13 +26,18 @@
 
     position: relative;
 
-    padding: 11vw 5.31915vw;
+
 
     border-radius: 6.38298vw;
 
 
 }
-
+.content{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 6.38298vw;
+}
 .btn_close {
     display: flex;
     width: 10.6383vw;
@@ -62,6 +67,7 @@
 
 
 }
+
 .btn_close svg path {
     fill: #0F0E13;
 }
@@ -73,9 +79,11 @@
     gap: 10.6383vw;
     align-self: stretch;
     position: relative;
+    padding: 11vw 5.31915vw;
 }
 
 .title h3 {
+    width: 95%;
     color: #FFF;
     font-feature-settings: 'liga' off, 'clig' off;
     font-family: var(--font-inter), sans-serif;
@@ -98,7 +106,7 @@
     letter-spacing: -0.08511vw;
 }
 
-.container_first,.container_second, .container_second ul {
+.container_first, .container_second, .container_second ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -112,14 +120,14 @@
     width: 100%;
 }
 
-.container_first li,  .container_second li{
+.container_first li, .container_second li {
     display: flex;
     flex-direction: row;
     gap: 2.66vw;
 }
 
 
-.li_icon svg  {
+.li_icon svg {
     width: 6.38298vw;
     height: 6.38298vw;
     aspect-ratio: 1/1;
@@ -165,7 +173,7 @@
     aspect-ratio: 44.00/18.43;
 }
 
-.icon_currencies{
+.icon_currencies {
 
     width: 6.38298vw;
     height: 6.38298vw;
@@ -180,23 +188,26 @@
     align-items: center;
 
 }
-.icon_currencies img{
+
+.icon_currencies img {
     width: 3.45745vw;
     height: 3.19149vw;
     flex-shrink: 0;
     aspect-ratio: 13/12;
 }
-.container_second .text{
+
+.container_second .text {
     flex-wrap: nowrap;
 }
-.info_icon{
+
+.info_icon {
     width: 26.06383vw;
     height: 24.46809vw;
     position: absolute;
-    right: -7vw;
-    top: -9vw;
+    right: -0.3vw;
+    top: 2vw;
 }
 
-.info_icon img{
+.info_icon img {
     width: 100%;
 }
