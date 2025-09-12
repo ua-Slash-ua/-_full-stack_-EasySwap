@@ -52,10 +52,10 @@ export default function StatusSend({ status }: StatusSendProps) {
         <div className={className}>
           <div className={s.container}>
             <div className={s.img_container}>
-              <Image src={img_1} alt={'first'} />
+              <Image src={img_1} alt={'first'} width={1000} height={1000} />
             </div>
             <div className={s.img_container}>
-              <Image src={img_2} alt={'second'} />
+              <Image src={img_2} alt={'second'} width={1000} height={1000}/>
             </div>
             <h3>{dataStatus[status]?.title ?? 'Title'}</h3>
             <p>{dataStatus[status]?.description ?? 'Description'}</p>
