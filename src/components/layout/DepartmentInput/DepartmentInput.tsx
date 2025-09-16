@@ -46,7 +46,7 @@ export default function DepartmentInput({
           className={s.form_input}
           type="text"
           value={address || value}
-          placeholder={departments[0]?.address || 'Оберіть відділення'}
+          placeholder={departments[0]? `${departments[0].address} ${departments[0].description}` :   'Оберіть відділення'}
           onChange={e => {
             setAddress(e.target.value) // оновлюємо локальний стан
             onChange(e.target.value)   // повідомляємо батьків
@@ -60,11 +60,11 @@ export default function DepartmentInput({
               key={index}
               onClick={() => {
                 onChange(department.address)
-                setAddress(department.address)
+                setAddress(`${department.address} ${department.description}`)
                 setActive(false)
               }}
             >
-              {department.address}
+              {department.address} {department.description}
             </li>
           ))}
         </ul>
