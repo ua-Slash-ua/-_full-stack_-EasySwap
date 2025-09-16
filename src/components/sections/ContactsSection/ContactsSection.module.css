@@ -39,6 +39,7 @@
     display: flex;
     flex-direction: row;
     gap: 2.81vw;
+    flex-wrap: wrap;
 }
 
 .content_list_social{
