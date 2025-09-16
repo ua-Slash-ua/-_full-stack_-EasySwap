@@ -15,24 +15,28 @@ export const DoubleBlock: Block = {
       name: 'why_we_the_best',
       type: 'group',
       required: true,
-      label: 'Why we the best?',
+      label: 'Чому ми кращі?',
       fields: [
         {
           name: 'title',
           type: 'text',
-          label: 'Title',
+          label: 'Заголовок',
         },
         {
           name: 'why_point',
           type: 'array',
-          label: 'Point',
+          label: 'Пункти',
+          labels: {
+            plural:'Пункти',
+            singular:'Пункт'
+          },
           fields: [
             {
               name: 'why_icon',
               type: 'textarea',
               required: true,
               localized: true,
-              label: 'Icon',
+              label: 'Зображення',
               admin: {
                 components: {
                   Field: PreviewSvg,
@@ -44,7 +48,7 @@ export const DoubleBlock: Block = {
               type: 'textarea',
               required: true,
               localized: true,
-              label: 'Description',
+              label: 'Опис',
             },
           ],
         },
@@ -54,24 +58,28 @@ export const DoubleBlock: Block = {
       name: 'what_do_you_get',
       type: 'group',
       required: true,
-      label: 'What do you get?',
+      label: 'Що ви отримуєте?',
       fields: [
         {
           name: 'title',
           type: 'text',
-          label: 'Title',
+          label: 'Заголовок',
         },
         {
           name: 'what_point',
           type: 'array',
-          label: 'Point',
+          label: 'Пункти',
+          labels: {
+            plural:'Пункти',
+            singular:'Пункт'
+          },
           fields: [
             {
               name: 'what_icon',
               type: 'textarea',
               required: true,
               localized: true,
-              label: 'Icon',
+              label: 'Зображення',
               admin: {
                 components: {
                   Field: PreviewSvg,
@@ -83,7 +91,7 @@ export const DoubleBlock: Block = {
               type: 'textarea',
               required: true,
               localized: true,
-              label: 'Description',
+              label: 'Опис',
             },
           ],
         },

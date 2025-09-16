@@ -3,7 +3,7 @@ import { PreviewSvg } from '@/plugin/sl_PreviewSvg'
 
 export const Contacts: GlobalConfig = {
   slug: 'contacts',
-  label: 'Contacts',
+  label: 'Контакти',
   fields: [
     {
       name: 'phone',
@@ -12,24 +12,24 @@ export const Contacts: GlobalConfig = {
     },
     {
       name: 'footer_words',
-      label: 'Footer Words',
+      label: 'Слова',
       type: 'group',
       fields: [
         {
           name: 'word_1',
-          label: 'Word 1',
+          label: 'Слово 1',
           type: 'text',
           required:true
         },
         {
           name: 'word_2',
-          label: 'Word 2',
+          label: 'Слово 2',
           type: 'text',
           required:true
         },
         {
           name: 'word_3',
-          label: 'Word 3',
+          label: 'Слово 3',
           type: 'text',
           required:true
         },
@@ -38,17 +38,17 @@ export const Contacts: GlobalConfig = {
 
     {
       name: 'social_networks',
-      label: 'Social Networks',
+      label: 'Соціальні мережі',
       type: 'group',
       fields: [
         {
           name: 'telegram',
-          label: 'Telegram',
+          label: 'Телеграм',
           type: 'group',
           fields: [
             {
               name: 'footer_icon',
-              label: 'Icon in footer',
+              label: 'Зображення у футері',
               type: 'textarea',
               admin: {
                 components: {
@@ -58,7 +58,7 @@ export const Contacts: GlobalConfig = {
             },
             {
               name: 'location_icon',
-              label: 'Icon in location',
+              label: 'Зображення в контактах',
               type: 'textarea',
               admin: {
                 components: {
@@ -68,7 +68,7 @@ export const Contacts: GlobalConfig = {
             },
             {
               name: 'link',
-              label: 'Link',
+              label: 'Посилання',
               type: 'text',
             },
           ],
@@ -80,7 +80,7 @@ export const Contacts: GlobalConfig = {
           fields: [
             {
               name: 'footer_icon',
-              label: 'Icon in footer',
+              label: 'Зображення у футері',
               type: 'textarea',
               admin: {
                 components: {
@@ -90,7 +90,7 @@ export const Contacts: GlobalConfig = {
             },
             {
               name: 'location_icon',
-              label: 'Icon in location',
+              label: 'Зображення в контактах',
               type: 'textarea',
               admin: {
                 components: {
@@ -100,7 +100,7 @@ export const Contacts: GlobalConfig = {
             },
             {
               name: 'link',
-              label: 'Link',
+              label: 'Посилання',
               type: 'text',
             },
           ],
@@ -112,7 +112,7 @@ export const Contacts: GlobalConfig = {
           fields: [
             {
               name: 'footer_icon',
-              label: 'Icon in footer',
+              label: 'Зображення у футері',
               type: 'textarea',
               admin: {
                 components: {
@@ -122,7 +122,7 @@ export const Contacts: GlobalConfig = {
             },
             {
               name: 'location_icon',
-              label: 'Icon in location',
+              label: 'Зображення в контактах',
               type: 'textarea',
               admin: {
                 components: {
@@ -132,7 +132,7 @@ export const Contacts: GlobalConfig = {
             },
             {
               name: 'link',
-              label: 'Link',
+              label: 'Посилання',
               type: 'text',
             },
           ],
@@ -141,7 +141,11 @@ export const Contacts: GlobalConfig = {
     },
     {
       name: 'locations',
-      label: 'Locations',
+      label: 'Локації',
+      labels: {
+        plural:'Локації',
+        singular:'Локація'
+      },
       type: 'array',
       fields: [
         {
@@ -153,27 +157,27 @@ export const Contacts: GlobalConfig = {
 
         {
           name: 'address',
-          label: 'Location Address',
+          label: 'Адреса',
           type: 'text',
         },
         {
           name: 'description',
-          label: 'Location Description',
+          label: 'Опис',
           type: 'text',
         },
         {
           name: 'schedule',
-          label: 'Location Schedule',
+          label: 'Графік роботи',
           type: 'text',
         },
         {
           name: 'phone',
-          label: 'Location Phone',
+          label: 'Телефон',
           type: 'text',
         },
         {
           name: 'coords',
-          label: 'Location Coordinates',
+          label: 'Координати',
           type: 'point',
         },
       ],

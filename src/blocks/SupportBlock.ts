@@ -15,7 +15,7 @@ export const SupportBlock: Block = {
       name:'description',
       type: 'textarea',
       required: true,
-      label: 'Description',
+      label: 'Опис',
     }
   ]
 }

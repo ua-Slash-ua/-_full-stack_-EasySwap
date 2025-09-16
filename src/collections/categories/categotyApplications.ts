@@ -4,6 +4,10 @@ import { CollectionConfig } from 'payload'
 
 const RequestCategories: CollectionConfig = {
   slug: 'request-categories',
+  labels: {
+    plural:'Категорії заявок',
+    singular:'Категорія заявки'
+  },
   admin: {
     useAsTitle: 'title',
   },
@@ -18,6 +22,7 @@ const RequestCategories: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      label: 'Назва',
     },
   ],
 };

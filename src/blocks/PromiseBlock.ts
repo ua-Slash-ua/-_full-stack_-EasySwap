@@ -15,20 +15,20 @@ export const PromiseBlock: Block = {
       name: 'title',
       type: 'text',
       required: true,
-      label: 'Title',
+      label: 'Заголовок',
     },
     {
       name: 'word',
       type: 'text',
       required: true,
-      label: 'Word',
+      label: 'Слово',
     },
     {
       name: 'icon',
       type: 'textarea',
       required: true,
       localized: true,
-      label: 'Icon',
+      label: 'Зображення',
       admin: {
         components: {
           Field: PreviewSvg,

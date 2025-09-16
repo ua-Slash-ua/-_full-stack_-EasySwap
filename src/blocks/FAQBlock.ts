@@ -16,19 +16,23 @@ export const FAQBlock: Block = {
     {
       name:'elements',
       type:'array',
-      label:'Elements',
+      label: 'Елемент',
+      labels: {
+        plural:'Елементи',
+        singular:'Елемент'
+      },
       fields:[
         {
           name:'question',
           type: 'text',
           required: true,
-          label: 'Question',
+          label: 'Питання',
         },
         {
           name:'answer',
           type: 'text',
           required: true,
-          label: 'Answer',
+          label: 'Відповідь',
         },
 
       ]

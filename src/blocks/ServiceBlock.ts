@@ -16,20 +16,23 @@ export const ServiceBlock: Block = {
     {
       name:'services',
       type:'array',
-      label:'Services',
+      labels:{
+        singular:'Сервіс',
+        plural:'Сервіси'
+      },
       fields:[
         {
           name:'service_title',
           type: 'text',
           required: true,
-          label: 'Service Title',
+          label: 'Заголовок',
         },
         {
           name: 'service_icon',
           type: 'textarea',
           required: true,
           localized: true,
-          label: 'Service Icon',
+          label: 'Зображення',
           admin: {
             components: {
               Field: PreviewSvg,
@@ -40,12 +43,16 @@ export const ServiceBlock: Block = {
           name:'how_does_it_work',
           type: 'array',
           required: true,
-          label: 'How does it work?',
+          label: 'Як це працює?',
+          labels: {
+            plural:'Пункти',
+            singular:'Пункт'
+          },
           fields:[
             {
               name:'how_does_it_work_description',
               type: 'text',
-              label: 'How does it work -- Description',
+              label: 'Опис',
             }
           ]
         },
@@ -53,12 +60,16 @@ export const ServiceBlock: Block = {
           name:'features',
           type: 'array',
           required: true,
-          label: 'Features',
+          label: 'Особливості',
+          labels: {
+            plural:'Пункти',
+            singular:'Пункт'
+          },
           fields:[
             {
               name:'features_description',
               type: 'text',
-              label: 'Features -- Description',
+              label: 'Опис',
             }
           ]
         }

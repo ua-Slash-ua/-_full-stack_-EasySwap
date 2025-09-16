@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Reviews: CollectionConfig = {
   slug: 'reviews',
+  labels:{
+    plural:'Відгуки',
+    singular:'Відгуки',
+  },
   admin: {
     useAsTitle: 'title',
   },
@@ -10,19 +14,19 @@ export const Reviews: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
-      label: 'Title',
+      label: 'Заголовок',
     },
     {
       name: 'description',
       type: 'textarea',
       required: true,
-      label: 'Description',
+      label: 'Опис',
     },
     {
       name: 'photo',
       type: 'upload',
       relationTo: 'media',
       required: true,
-      label: 'photo',
+      label: 'Фото',
     },
   ]}
