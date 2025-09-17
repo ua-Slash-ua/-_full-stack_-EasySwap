@@ -1,7 +1,8 @@
-import { CollectionConfig } from 'payload';
+import { CollectionConfig } from 'payload'
 
 const Applications: CollectionConfig = {
   slug: 'applications',
+  labels: { plural: 'Заявки', singular: 'Заявки' },
   admin: {
     useAsTitle: 'telegramNick',
   },
@@ -28,6 +29,7 @@ const Applications: CollectionConfig = {
       admin: {
         readOnly: true, // 🔒 нередаговане поле
       },
+      label: 'Телефон',
     },
     {
       name: 'telegramNick',
@@ -36,6 +38,7 @@ const Applications: CollectionConfig = {
       admin: {
         readOnly: true,
       },
+      label: 'Телеграм',
     },
     {
       name: 'meta',
@@ -44,21 +47,28 @@ const Applications: CollectionConfig = {
       admin: {
         readOnly: true,
       },
+      labels:{
+        plural:'Мета дані',
+        singular:'Полу',
+
+      },
       fields: [
         {
           name: 'key',
           type: 'text',
           required: true,
           admin: { width: '50%' },
+          label:'Назва'
         },
         {
           name: 'value',
           type: 'text',
           admin: { width: '50%' },
+          label:'Значення'
         },
       ],
     },
   ],
-};
+}
 
-export default Applications;
+export default Applications

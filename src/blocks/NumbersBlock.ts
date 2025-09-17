@@ -18,7 +18,7 @@ export const NumbersBlock: Block = {
       type: 'textarea',
       required: true,
       localized: true,
-      label: 'Aside Title',
+      label: 'Заголовок (Збоку)',
       admin: {
         components: {
           Field: StyledText,
@@ -30,7 +30,7 @@ export const NumbersBlock: Block = {
       type: 'textarea',
       required: true,
       localized: true,
-      label: 'Aside Icon',
+      label: 'Зображення (Збоку)',
       admin: {
         components: {
           Field: PreviewSvg,
@@ -41,18 +41,21 @@ export const NumbersBlock: Block = {
       name:'aside_number',
       type: 'text',
       required: true,
-      label: 'Aside Number',
+      label: 'Цифри (Збоку)',
     },
     {
       name:'aside_description',
       type: 'text',
       required: true,
-      label: 'Aside Description',
+      label: 'Опис (Збоку)',
     },
     {
       name:'cards',
       type:'array',
-      label:'Cards',
+      labels:{
+        singular:'Картка',
+        plural:'Картки'
+      },
       maxRows: 3,
       minRows: 3,
       fields:[
@@ -60,19 +63,19 @@ export const NumbersBlock: Block = {
           name:'card_title',
           type: 'text',
           required: true,
-          label: 'Card Title',
+          label: 'Заголовок',
         },
         {
           name:'card_number',
           type: 'text',
           required: true,
-          label: 'Card Number',
+          label: 'Цифри',
         },
         {
           name:'card_description',
           type: 'textarea',
           required: true,
-          label: 'Card Description',
+          label: 'Опис',
         }
       ]
     }

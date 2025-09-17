@@ -24,12 +24,12 @@ export const AccordionBlock: Block = {
           name: 'title',
           type: 'text',
           required: true,
-          label: 'Title'
+          label: 'Заголовок'
         },
         {
           name: 'content',
           type: 'richText',
-          label: 'Content',
+          label: 'Контент',
         },
       ],
     },

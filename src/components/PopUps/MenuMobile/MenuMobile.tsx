@@ -50,7 +50,16 @@ export default function MenuMobile({ phone, social_network }: MenuMobileProps) {
               <span>Меню</span>
               <ul>
                 {menu.map((item, index) =>
-                  item.main ? <MenuItem link={item.link!} text={item.text!} key={index} /> : '',
+                    item.main && (
+                      <MenuItem
+                        key={index}
+                        link={item.link!}
+                        text={item.text!}
+                        func={() => {
+                          close(); // закриває попап
+                        }}
+                      />
+                    )
                 )}
               </ul>
             </nav>

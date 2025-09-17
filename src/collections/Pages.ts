@@ -15,6 +15,10 @@ import { AccordionBlock } from '@/blocks/AccordionBlock'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
+  labels:{
+    singular:'Сторінка',
+    plural:'Сторінки',
+  },
   admin: {
     useAsTitle: 'title',
   },
@@ -49,11 +53,13 @@ export const Pages: CollectionConfig = {
       type: 'textarea',
       localized: true,
       required: true,
+      label: 'Заголовок',
     },
     {
       name: 'description',
       type: 'textarea',
       localized: true,
+      label: 'Опис',
     },
     {
       type: 'blocks',
