@@ -15,9 +15,9 @@ export const validationSchema = Yup.object({
   phone: Yup.string()
     .required('Телефон обовʼязковий')
     .matches(/^\+[0-9]{10,15}$/, 'Некоректний номер телефону'),
-  telegram: Yup.string()
-    .required('Telegram обовʼязковий')
-    .matches(/^@?(\w){5,}$/, 'Вкажіть ваш нік в телеграм'),
+  // telegram: Yup.string()
+  //   .required('Telegram обовʼязковий')
+  //   .matches(/^@?(\w){5,}$/, 'Вкажіть ваш нік в телеграм'),
 })
 
 export default function CreateApplication() {

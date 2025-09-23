@@ -1,5 +1,6 @@
 import { addDataAndFileToRequest, Endpoint } from 'payload'
 import { sendObjectEmail } from '@/hooks/sendObjectEmail'
+import { sendObjectTelegram } from '@/hooks/sendObjectTelegram'
 
 type MetaItem = { key: string; value: string }
 
@@ -65,7 +66,12 @@ export const CreateApp: Endpoint = {
         overrideAccess: true,
       })
       const metaObject = Object.fromEntries(metaFields.map(item => [item.key, item.value]))
-      await sendObjectEmail(`< ${type} >`, {
+      await sendObjectEmail(`${type}`, {
+        phone: phone,
+        telegram: telegramNick,
+        ...metaObject,
+      })
+      await sendObjectTelegram(`${type}`, {
         phone: phone,
         telegram: telegramNick,
         ...metaObject,

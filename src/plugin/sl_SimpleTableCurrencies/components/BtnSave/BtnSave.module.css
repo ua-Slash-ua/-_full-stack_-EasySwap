@@ -1,0 +1,12 @@
+.btn_save{
+    padding: 0.5vw 2vw;
+    margin-top: 1.25vw;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .btn_save{
+        padding: 2vw 8vw;
+        margin-top: 5vw;
+    }
+}

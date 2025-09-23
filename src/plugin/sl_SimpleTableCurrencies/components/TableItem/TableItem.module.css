@@ -1,0 +1,44 @@
+.table_item{
+    display: flex;
+    padding: 0.5vw 1vw;
+    min-width: 13vw;
+    border: 0.1vw solid rgba(255, 255, 255, 0.04);
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.table_input {
+    background-color: rgba(255, 255, 255, 0);
+    width: 10vw;
+    border-color: rgba(255, 255, 255, 0);
+    transition: all 0.3s ease;
+    border-radius: 0.5vw;
+    height: 3rem;
+}
+
+.table_input:hover{
+    background-color: rgba(118, 118, 118, 0.3);
+
+
+}
+
+.hidden .table_input:hover{
+    background: rgba(13, 13, 13, 0);
+}
+.hidden{
+    background: #0D0D0D;
+    width: 13vw;
+}
+
+@media screen and (max-width: 1024px) {
+    .table_item{
+        min-width: 25vw;
+
+    }
+
+    .table_input{
+        height: 2rem;
+        width: 20vw;
+    }
+}
+

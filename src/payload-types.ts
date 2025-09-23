@@ -96,9 +96,11 @@ export interface Config {
   };
   globals: {
     contacts: Contact;
+    'currencies-simple': CurrenciesSimple;
   };
   globalsSelect: {
     contacts: ContactsSelect<false> | ContactsSelect<true>;
+    'currencies-simple': CurrenciesSimpleSelect<false> | CurrenciesSimpleSelect<true>;
   };
   locale: null;
   user: User & {
@@ -862,6 +864,16 @@ export interface Contact {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "currencies-simple".
+ */
+export interface CurrenciesSimple {
+  id: string;
+  currencies_table?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "contacts_select".
  */
 export interface ContactsSelect<T extends boolean = true> {
@@ -909,6 +921,16 @@ export interface ContactsSelect<T extends boolean = true> {
         coords?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "currencies-simple_select".
+ */
+export interface CurrenciesSimpleSelect<T extends boolean = true> {
+  currencies_table?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
