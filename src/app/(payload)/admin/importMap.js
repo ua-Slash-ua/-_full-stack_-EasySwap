@@ -28,6 +28,7 @@ import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c08
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
+import { default as default_adc759107efd8dea5d0f6cbc402f82f3 } from '@/plugin/sl_SimpleTableCurrencies/SimpleTableCurrencies'
 
 export const importMap = {
   "@/plugin/sl_StyledText/components/StyledTextComponent#default": default_d0cdd935fc8ea4c80bd248e90894c594,
@@ -59,5 +60,6 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
-  "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860
+  "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
+  "@/plugin/sl_SimpleTableCurrencies/SimpleTableCurrencies#default": default_adc759107efd8dea5d0f6cbc402f82f3
 }

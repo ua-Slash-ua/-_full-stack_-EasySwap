@@ -1,0 +1,1 @@
+export const SimpleTableCurrencies = '@/plugin/sl_SimpleTableCurrencies/SimpleTableCurrencies'

@@ -17,6 +17,7 @@ import { Currencies } from '@/collections/Currencies'
 import Applications from '@/collections/Applications'
 import categotyApplications from '@/collections/categories/categotyApplications'
 import { CreateApp } from '@/endpoints/createApp'
+import { CurrenciesSimple } from '@/globals/CurrenciesSimple'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -37,7 +38,7 @@ export default buildConfig({
     Applications,
     categotyApplications,
   ],
-  globals: [Contacts],
+  globals: [Contacts,CurrenciesSimple],
   endpoints:[CreateApp,],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
