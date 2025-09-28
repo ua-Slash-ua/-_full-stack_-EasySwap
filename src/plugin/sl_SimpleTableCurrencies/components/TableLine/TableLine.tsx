@@ -34,9 +34,6 @@ export default function TableLine({ tableLine, editable, zeroItem, name, dataTyp
         currenciesNames.map((line: any, index: number) => {
           const exists = currencyExists(line.ratesByCurrency, name!)
           const existsCurrency = line.ratesByCurrency.find((item: any) => item.currency.name === name)
-          console.log(existsCurrency?? '')
-          console.log('line.id', line.id)
-          console.log('line = ', line)
 
           return (
             name === line.name ? (
@@ -46,6 +43,9 @@ export default function TableLine({ tableLine, editable, zeroItem, name, dataTyp
               (
 
                 <TableItemCurrency key={index}  id={line.id} tableItem={existsCurrency ?? {
+                  currency:{
+                    id: zeroItem.id
+                  },
                   from_1000: {
                     buy1000: '',
                     sell1000: '',

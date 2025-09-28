@@ -20,7 +20,7 @@ export default function TableCurrencies({ currencies }: {
   }))
 
   useEffect(() => {
-    console.log('currencies UPDATED')
+    // console.log('currencies UPDATED')
     setCurrenciesItem(currencies.docs)
   },[currencies])
 

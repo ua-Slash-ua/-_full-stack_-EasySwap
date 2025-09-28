@@ -42,12 +42,14 @@ export default function TableItemCurrency({ tableItem, id }: TableItemCurrencyPr
         </div>
         <div className={s.for_1000}>
           <input
+            data-type={'input-buy1000'}
             className={s.table_input}
             type="text"
             // placeholder={'buy 1000'}
             defaultValue={tableItem.from_1000?.buy1000?.toString() ?? ''}
           />
           <input
+            data-type={'input-sell1000'}
             className={s.table_input}
             type="text"
             // placeholder={'sell 1000'}
@@ -57,12 +59,14 @@ export default function TableItemCurrency({ tableItem, id }: TableItemCurrencyPr
         </div>
         <div className={s.for_5000}>
           <input
+            data-type={'input-buy5000'}
             className={s.table_input}
             type="text"
             // placeholder={'buy 5000'}
             defaultValue={tableItem.from_5000?.buy5000?.toString() ?? ''}
           />
           <input
+            data-type={'input-sell5000'}
             className={s.table_input}
             type="text"
             // placeholder={'sell 5000'}
