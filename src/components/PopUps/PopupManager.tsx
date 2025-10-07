@@ -9,7 +9,7 @@ import StatusSend from '@/components/PopUps/StatusSend/StatusSend'
 
 export const PopupManager = () => {
   const { open, data  } = usePopup()
-  console.log('Current popup:', open)
+  // console.log('Current popup:', open)
 
   switch (open) {
     case 'create_application':

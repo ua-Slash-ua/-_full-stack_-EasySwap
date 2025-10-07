@@ -35,26 +35,26 @@ export const CreateApp: Endpoint = {
       }
 
       const body = (await req.json()) as ApplicationPayload
-      const { type, phone, telegramNick, department, request } = body
+      let { type, phone, telegramNick, department, request } = body
 
-      // Валідація обов'язкових полів
-      if (!phone) {
-        return Response.json({ error: 'Поле "phone" є обовʼязковим' }, { status: 400 })
+      // Валідація: хоча б phone або telegramNick
+      if (!phone && !telegramNick) {
+        return Response.json(
+          { error: 'Необхідно вказати хоча б одне з полів: phone або telegramNick' },
+          { status: 400 }
+        )
       }
-      if (!telegramNick) {
-        return Response.json({ error: 'Поле "telegramNick" є обовʼязковим' }, { status: 400 })
-      }
+
       if (!type) {
         return Response.json({ error: 'Поле "type" є обовʼязковим' }, { status: 400 })
       }
 
-      // ✅ Оптимізовано: не дублюємо phone та telegramNick у мета-даних
       const metaFields: MetaItem[] = [
         ...(department ? [{ key: 'department', value: department }] : []),
         ...(request ? [{ key: 'request', value: request }] : []),
       ]
-
-      // ✅ Виправлено: передаємо тільки поля, що існують у схемі
+      phone = phone?? ''
+      telegramNick = telegramNick?? ''
       const newApp = await req.payload.create({
         collection: 'applications',
         data: {
@@ -65,17 +65,19 @@ export const CreateApp: Endpoint = {
         },
         overrideAccess: true,
       })
+
       const metaObject = Object.fromEntries(metaFields.map(item => [item.key, item.value]))
       await sendObjectEmail(`${type}`, {
-        phone: phone,
+        phone,
         telegram: telegramNick,
         ...metaObject,
       })
       await sendObjectTelegram(`${type}`, {
-        phone: phone,
+        phone,
         telegram: telegramNick,
         ...metaObject,
       })
+
       return Response.json({ success: true, data: newApp })
     } catch (error) {
       console.error('Error creating application:', error)
@@ -83,3 +85,4 @@ export const CreateApp: Endpoint = {
     }
   },
 }
+

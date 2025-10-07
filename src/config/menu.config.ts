@@ -17,7 +17,7 @@ export const menu = [
   {
     main: true,
     link: '/#reviews',
-    text: 'Відгуки',
+    text: 'Відгуки1',
   },
   {
     main: true,

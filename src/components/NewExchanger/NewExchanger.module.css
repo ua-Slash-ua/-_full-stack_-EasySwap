@@ -1,0 +1,81 @@
+.exchanger {
+    display: flex;
+    width: 29.6875vw;
+    padding: 1.04167vw 1.66667vw;
+    flex-direction: column;
+
+    border-radius: 1.04167vw;
+    background: rgba(20, 18, 25, 0.80);
+    gap: 1.25vw;
+    position: relative;
+}
+
+.exchanger_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.exchanger h4 {
+    color: #CDC9D3;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.83333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.16667vw;
+    letter-spacing: -0.01667vw;
+}
+
+.exchanger_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.exchanger_content input[type=number], .exchanger_content input[type=number]::placeholder {
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 2.08333vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%; /* 2.91667vw */
+    letter-spacing: -0.04167vw;
+    opacity: 0.3;
+}
+
+.exchanger_content input[type=number] {
+    max-width: 14vw;
+    opacity: 1;
+    overflow-x: scroll;
+}
+
+@media screen and (max-width: 1024px) {
+    .exchanger {
+        width: 82.71vw;
+        gap: 6.38vw;
+        padding: 4.25532vw;
+        border-radius: 5.31915vw;
+
+    }
+    .exchanger_content input[type=number] {
+        max-width: 20vw;
+    }
+
+    .exchanger_content input, .exchanger_content input::placeholder {
+        font-size: 6.38298vw!important;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 8.93617vw;
+        letter-spacing: -0.12766vw;
+    }
+
+    .exchanger h4 {
+        font-size: 3.7234vw;
+        font-weight: 500;
+        line-height: 5.21277vw;
+        letter-spacing: -0.07447vw;
+    }
+}

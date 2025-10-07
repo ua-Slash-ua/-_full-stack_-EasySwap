@@ -36,10 +36,10 @@ export default function MapComponent({
   }, []);
 
   useEffect(() => {
-    console.log('MAPwidth = ', width)
+    // console.log('MAPwidth = ', width)
     let customIcon
     if (width > 1024) {
-      console.log('+++')
+      // console.log('+++')
       // створюємо іконку з розмірами у vw
       customIcon = L.icon({
         iconUrl: iconMap.src,
@@ -49,7 +49,7 @@ export default function MapComponent({
         popupAnchor: [-vw(0.6), -vw(2)],
       })
     } else {
-      console.log('---')
+      // console.log('---')
 
       customIcon = L.icon({
         iconUrl: iconMap.src,

@@ -25,7 +25,6 @@ const Applications: CollectionConfig = {
     {
       name: 'phone',
       type: 'text',
-      required: true,
       admin: {
         readOnly: true, // 🔒 нередаговане поле
       },
@@ -34,7 +33,6 @@ const Applications: CollectionConfig = {
     {
       name: 'telegramNick',
       type: 'text',
-      required: true,
       admin: {
         readOnly: true,
       },

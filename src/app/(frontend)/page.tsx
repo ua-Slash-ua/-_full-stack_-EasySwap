@@ -37,7 +37,7 @@ const BLOCK_COMPONENTS = {
   'currencies-block': CurrenciesSection,
   'accordion-block': AccordionBlock,
 }
-
+export const revalidate = 60 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
@@ -72,7 +72,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <BlockComponent
               key={block.id || i}
               block={reviews}
-              telegram={contacts.social_networks?.telegram?.link}
+              telegram={contacts.telegram_review}
             />
           )
         } else if (block.blockType === 'application-block' || block.blockType === 'contact-block') {
