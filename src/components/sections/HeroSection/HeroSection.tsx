@@ -21,8 +21,8 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
   const [currencyCode, setCurrencyCode] = useState<{ currency: string, course: string }>({
-    currency: 'UAN',
-    course: 'EUR',
+    currency: 'USD',
+    course: 'UAN',
   })
 
   const [currencyValues, setCurrencyValues] = useState<{ up: number, down: number }>({
@@ -107,6 +107,7 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
   }
 
   function handleMultiples(currencyCoursers: RateByCurrency) {
+    console.log('currencyCoursers ===',currencyCoursers)
     const first = {
       buy: currencyCoursers.from_1000?.buy1000 ?? 0,
       sell: currencyCoursers.from_1000?.sell1000 ?? 0,
@@ -176,10 +177,10 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
 
   useEffect(() => {
     if (!currencies) return
-    const currUAN: CurrencyMeta = getCurrency(currencies, 'UAN')
+    const currUAN: CurrencyMeta = getCurrency(currencies, currencyCode.currency)
     const ratesByCurrency = currUAN.ratesByCurrency[0]
 
-    handleCurrencyCode(currUAN.code, ratesByCurrency?.currency.code ?? '1')
+    // handleCurrencyCode(currUAN.code, ratesByCurrency?.currency.code ?? '1')
     handleMultiples(ratesByCurrency)
 
 
