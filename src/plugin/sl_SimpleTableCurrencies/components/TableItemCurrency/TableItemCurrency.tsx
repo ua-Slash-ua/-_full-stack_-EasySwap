@@ -37,7 +37,6 @@ export default function TableItemCurrency({ tableItem, id }: TableItemCurrencyPr
           className={s.head}
         >
           <div className="">Купівля</div>
-          <div className="">Продаж</div>
 
         </div>
         <div className={s.for_1000}>
@@ -48,13 +47,6 @@ export default function TableItemCurrency({ tableItem, id }: TableItemCurrencyPr
             // placeholder={'buy 1000'}
             defaultValue={tableItem.from_1000?.buy1000?.toString() ?? ''}
           />
-          <input
-            data-type={'input-sell1000'}
-            className={s.table_input}
-            type="text"
-            // placeholder={'sell 1000'}
-            defaultValue={tableItem.from_1000?.sell1000?.toString() ?? ''}
-          />
 
         </div>
         <div className={s.for_5000}>
@@ -64,13 +56,6 @@ export default function TableItemCurrency({ tableItem, id }: TableItemCurrencyPr
             type="text"
             // placeholder={'buy 5000'}
             defaultValue={tableItem.from_5000?.buy5000?.toString() ?? ''}
-          />
-          <input
-            data-type={'input-sell5000'}
-            className={s.table_input}
-            type="text"
-            // placeholder={'sell 5000'}
-            defaultValue={tableItem.from_5000?.sell5000?.toString() ?? ''}
           />
 
         </div>

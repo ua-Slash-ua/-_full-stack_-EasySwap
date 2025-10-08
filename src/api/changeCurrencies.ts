@@ -5,9 +5,9 @@ import config from 'next/config'
 
 export type RateItem = {
   id?: string | null
-  currency: string // Завжди string ID, а не об'єкт
-  from_1000: { buy1000: number; sell1000: number }
-  from_5000: { buy5000: number; sell5000: number }
+  currency: string
+  from_1000: { buy1000: number }
+  from_5000: { buy5000: number }
 }
 
 type ChangeCurrenciesHandlerProps = {
@@ -18,7 +18,6 @@ type ChangeCurrenciesHandlerProps = {
   }
 }[]
 
-// Головна функція обробки
 export async function changeCurrenciesHandler(items: ChangeCurrenciesHandlerProps) {
   try {
     if (!items || items.length === 0) return { success: false, error: 'No items provided' }
@@ -26,12 +25,30 @@ export async function changeCurrenciesHandler(items: ChangeCurrenciesHandlerProp
     const payloadConfig = await config
     const payload = await getPayload({ config: payloadConfig as any })
 
+    // Крок 1: Збираємо всі курси з усіх валют
+    const allRatesMap: { [key: string]: { buy1000: number, buy5000: number } } = {}
+
+    for (const item of items) {
+      if (item.data.ratesByCurrency) {
+        for (const rate of item.data.ratesByCurrency) {
+          if (rate.currency !== "none") {
+            // Ключ: "parentId->currencyId"
+            const key = `${item.id}->${rate.currency}`
+            allRatesMap[key] = {
+              buy1000: rate.from_1000.buy1000,
+              buy5000: rate.from_5000.buy5000
+            }
+          }
+        }
+      }
+    }
+
     const results = []
 
+    // Крок 2: Обробляємо кожну валюту
     for (const item of items) {
       let result: any = { success: true, id: item.id }
 
-      // Оновлюємо назву якщо потрібно
       if (item.data.name) {
         await payload.update({
           collection: 'currencies',
@@ -40,9 +57,7 @@ export async function changeCurrenciesHandler(items: ChangeCurrenciesHandlerProp
         })
       }
 
-      // Обробляємо ratesByCurrency якщо є
       if (item.data.ratesByCurrency && item.data.ratesByCurrency.length > 0) {
-        // Отримуємо поточні дані валюти
         const currentCurrency = await payload.findByID({
           collection: 'currencies',
           id: item.id
@@ -50,16 +65,12 @@ export async function changeCurrenciesHandler(items: ChangeCurrenciesHandlerProp
 
         let existingRates = currentCurrency.ratesByCurrency || []
 
-        // Обробляємо кожен курс
-        item.data.ratesByCurrency.forEach(rate => {
-          const currencyId = rate.currency // Тепер завжди string
+        for (const rate of item.data.ratesByCurrency) {
+          const currencyId = rate.currency
 
-          // Перевіряємо чи поля пусті (для видалення)
-          const isEmpty = !rate.from_1000.buy1000 && !rate.from_1000.sell1000 &&
-            !rate.from_5000.buy5000 && !rate.from_5000.sell5000
+          const isEmpty = !rate.from_1000.buy1000 && !rate.from_5000.buy5000
 
           if (isEmpty && currencyId !== "none") {
-            // Видаляємо курс
             existingRates = existingRates.filter((existingRate: any) => {
               const existingCurrencyId = typeof existingRate.currency === 'string'
                 ? existingRate.currency
@@ -67,7 +78,6 @@ export async function changeCurrenciesHandler(items: ChangeCurrenciesHandlerProp
               return existingCurrencyId !== currencyId
             })
           } else if (!isEmpty && currencyId !== "none") {
-            // Шукаємо існуючий курс
             const existingIndex = existingRates.findIndex((existingRate: any) => {
               const existingCurrencyId = typeof existingRate.currency === 'string'
                 ? existingRate.currency
@@ -75,26 +85,33 @@ export async function changeCurrenciesHandler(items: ChangeCurrenciesHandlerProp
               return existingCurrencyId === currencyId
             })
 
+            // Шукаємо зворотний курс для sell
+            const reverseKey = `${currencyId}->${item.id}`
+            const reverseRate = allRatesMap[reverseKey] || { buy1000: 0, buy5000: 0 }
+
+            const rateWithMirror = {
+              currency: currencyId,
+              from_1000: {
+                buy1000: rate.from_1000.buy1000,     // Купівля з поточного курсу
+                sell1000: reverseRate.buy1000         // Продаж = купівля зворотного курсу
+              },
+              from_5000: {
+                buy5000: rate.from_5000.buy5000,
+                sell5000: reverseRate.buy5000
+              }
+            }
+
             if (existingIndex !== -1) {
-              // Оновлюємо існуючий курс
               existingRates[existingIndex] = {
                 ...existingRates[existingIndex],
-                from_1000: rate.from_1000,
-                from_5000: rate.from_5000
+                ...rateWithMirror
               }
             } else {
-              // Створюємо новий курс (без поля id)
-              const newRate = {
-                currency: currencyId, // використовуємо string ID замість об'єкта
-                from_1000: rate.from_1000,
-                from_5000: rate.from_5000
-              }
-              existingRates.push(newRate)
+              existingRates.push(rateWithMirror)
             }
           }
-        })
+        }
 
-        // Оновлюємо валюту з новими курсами
         await payload.update({
           collection: 'currencies',
           id: item.id,

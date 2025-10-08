@@ -1,11 +1,14 @@
 .table_item{
-    display: flex;
-    padding: 0.5vw 1vw;
-    min-width: 13vw;
-    border: 0.1vw solid rgba(255, 255, 255, 0.04);
+    display: flex
+;
+    padding: .5vw 1vw;
+    /* min-width: 13vw; */
+    border: .1vw solid rgba(255, 255, 255, .04);
     align-content: center;
+    width: 8vw;
     flex-wrap: wrap;
 }
+
 
 .table_input {
     background-color: rgba(255, 255, 255, 0);
@@ -14,6 +17,7 @@
     transition: all 0.3s ease;
     border-radius: 0.5vw;
     height: 3rem;
+    font-size: 0.8vw;
 }
 
 .table_input:hover{
@@ -27,12 +31,11 @@
 }
 .hidden{
     background: #0D0D0D;
-    width: 13vw;
 }
 
 @media screen and (max-width: 1024px) {
     .table_item{
-        min-width: 25vw;
+        min-width: 20vw;
 
     }
 

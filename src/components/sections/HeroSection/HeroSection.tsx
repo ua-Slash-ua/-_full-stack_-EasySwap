@@ -120,7 +120,6 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
 
   }
 
-  // Виправлена функція reverseCurrency
   function reverseCurrency() {
     const { currency, course } = currencyCode
 
@@ -133,9 +132,11 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
     }
 
     // Знаходимо зворотній курс
-    const newCourse = newCurrency.ratesByCurrency.find(
+    const newCourseObj = newCurrency.ratesByCurrency.find(
       item => item.currency.code === currency,
-    )?.currency ?? newCurrency.ratesByCurrency[0]?.currency
+    )
+
+    const newCourse = newCourseObj?.currency ?? newCurrency.ratesByCurrency[0]?.currency
 
     if (!newCourse) {
       console.error('Exchange rate not found')
@@ -157,11 +158,20 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
       course: newCourse.code,
     })
 
+    // ✅ ДОДАЙТЕ ЦЕЙ РЯДОК - оновлюємо множники!
+    const newRateByCurrency = newCurrency.ratesByCurrency.find(
+      item => item.currency.code === newCourse.code
+    )
+
+    if (newRateByCurrency) {
+      handleMultiples(newRateByCurrency)
+    }
+
     // Міняємо значення місцями
-    setCurrencyValues({
-      up: currencyValues.down,
-      down: currencyValues.up,
-    })
+    // setCurrencyValues({
+    //   up: currencyValues.down,
+    //   down: currencyValues.up,
+    // })
   }
 
   useEffect(() => {
@@ -475,6 +485,6 @@ function getCurrencyFull(currenciesFull: CurrencyMeta[], currencies: CurrencyMet
 }
 
 function changeBuyOrSell(value: { buy: number | string, sell: number | string}) {
-  return  value.sell as number
+  return  value.buy as number
 }
 
