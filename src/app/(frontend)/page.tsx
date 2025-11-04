@@ -54,6 +54,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     docs.find(doc => doc.id === menu.find(item =>
     item.name === 'privacy_policy')?.id)?.slug ||
     '123'
+
   return (
     <>
       <Header block={contacts} />

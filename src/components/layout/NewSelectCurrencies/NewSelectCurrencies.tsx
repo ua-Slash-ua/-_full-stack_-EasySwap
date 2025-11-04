@@ -19,7 +19,6 @@ export default function NewSelectCurrencies(
 ) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [active, setActive] = useState(false)
-
   // ВИПРАВЛЕННЯ: Додаємо перевірку на порожній масив та безпечну ініціалізацію
   const getInitialCurrency = () => {
     if (!currencies || currencies.length === 0) return null;
@@ -63,7 +62,6 @@ export default function NewSelectCurrencies(
   });
 
   useEffect(() => {
-    // ВИПРАВЛЕННЯ: Додаємо перевірки на існування та довжину масиву
     if (!currencies || currencies.length === 0) {
       setCurrency(null);
       setSelectCurrency(null);
@@ -194,34 +192,41 @@ export default function NewSelectCurrencies(
                   <span>{item.name?.trim()}</span>
                 </li>
               ))
-              : (currencies as RateByCurrency[]).map((item, index) => (
-                <li
-                  key={item.currency.code.trim() + index}
-                  onClick={() => {
-                    setActive(false)
-                    handleCurrencyCode(undefined, item.currency.code)
-                    setSelectCurrency(
-                      {
-                        icon: {
-                          url: item.currency.icon.url,
-                          alt: item.currency.icon.alt,
-                        },
-                        code: item.currency.code.trim(),
-                      }
-                    )
-                  }}
-                >
-                  <div className={s.icon_back_reverse}>
-                    <Image
-                      src={item.currency.icon.url}
-                      alt={item.currency.icon.alt}
-                      width={24}
-                      height={12}
-                    />
-                  </div>
-                  <span>{item.currency.name?.trim()}</span>
-                </li>
-              ))}
+              : (currencies as RateByCurrency[]).map((item, index) => {
+                console.log
+                ('item.currency.code', item.currency)
+                return(
+                  <li
+                    key={(item.currency?.code?.trim() ?? '') + index}
+                    onClick={() => {
+                      const code = item.currency?.code?.trim() ?? '';
+                      const icon = item.currency?.icon ?? { url: '/placeholder.png', alt: 'icon' };
+                      const name = item.currency?.name?.trim() ?? '';
+
+                      setActive(false);
+                      handleCurrencyCode(undefined, code);
+                      setSelectCurrency({
+                        icon,
+                        code,
+                      });
+                    }}
+                  >
+                    <div className={s.icon_back_reverse}>
+                      {item.currency?.icon && (
+                        <Image
+                          src={item.currency.icon.url}
+                          alt={item.currency.icon.alt}
+                          width={24}
+                          height={12}
+                        />
+                      )}
+                    </div>
+                    <span>{item.currency?.name?.trim() ?? ''}</span>
+                  </li>
+
+                )
+
+              })}
           </ul>
         )}
       </div>

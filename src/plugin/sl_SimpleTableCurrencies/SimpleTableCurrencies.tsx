@@ -3,7 +3,7 @@ import  './SimpleTableCurrencies.css'
 import TableCurrencies from '@/plugin/sl_SimpleTableCurrencies/components/TableCurrencies/TableCurrencies'
 
 const SimpleTableCurrencies = async () => {
-  const currencies = await getCurrencies()
+  const currencies = await getCurrencies(false )
 
 
 

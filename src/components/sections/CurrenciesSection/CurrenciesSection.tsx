@@ -44,7 +44,8 @@ export default function CurrenciesSection({
   block: CurrencyMeta[]
   departments: any[]
 }) {
-  const countCurrencies: number = 1
+  //console.log('currencies123 = ', block)
+  const countCurrencies: number = 9
   const [width, setWidth] = useState<number>(0)
 
   const [activeFiat, setActiveFiat] = useState(true)
@@ -71,7 +72,6 @@ export default function CurrenciesSection({
 
   const [lastUpdate, setLastUpdate] = useState('')
 
-  // const currUAN: CurrUAN = block.find((item: any) => item.code === 'UAN').ratesByCurrency
   const iconUSD: string = block.find((item: CurrencyMeta) => item.code === 'USD')!.icon.url
   const iconEUR: string = block.find((item: CurrencyMeta) => item.code === 'EUR')!.icon.url
 
@@ -102,6 +102,7 @@ export default function CurrenciesSection({
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
+  //console.log('filteredCurrencies = ', filteredCurrencies.length)
   return (
     <>
       <section className={s.currencies_section} id={'courses'}>
@@ -218,14 +219,21 @@ export default function CurrenciesSection({
               </div>
               <div className={s.currencies_table_footer}>
                 <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
-                  <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
+                  {
+                    filteredCurrencies.length > 10 ? (
+                      <>
+                        <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
+                        <div
+                          className={s.see}
+                          dangerouslySetInnerHTML={{
+                            __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
+                          }}
+                        />
+                      </>
 
-                  <div
-                    className={s.see}
-                    dangerouslySetInnerHTML={{
-                      __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
-                    }}
-                  />
+                    ): null
+                  }
+
                 </div>
                 <div className={s.status_update}>
                   <div dangerouslySetInnerHTML={{ __html: currencies.iconStatus }} />
@@ -338,10 +346,10 @@ export default function CurrenciesSection({
 }
 
 function TableLine({
-  curr,
-  isLeft,
-  mobile = false,
-}: {
+                     curr,
+                     isLeft,
+                     mobile = false,
+                   }: {
   curr: RateByCurrency
   isLeft?: {
     left: boolean
@@ -349,26 +357,32 @@ function TableLine({
   }
   mobile?: boolean
 }) {
+  const safeDivide = (val?: any) => {
+    if (val ==='По запиту') return val
+    const num = Number(val)
+    return Number.isFinite(num) && num !== 0 ? (1 / num).toFixed(2) : '—'
+  }
+
   return (
     <>
       {mobile ? (
         isLeft?.left ? (
           <>
             <div className={s.table_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-            <div className={s.table_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
+            <div className={s.table_item}>{safeDivide(curr.from_1000?.sell1000?? '—')}</div>
           </>
         ) : (
           <>
             <div className={s.table_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-            <div className={s.table_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
+            <div className={s.table_item}>{safeDivide(curr.from_5000?.sell5000) ?? '—'}</div>
           </>
         )
       ) : (
         <>
           <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-          <div className={s.body_item}>{curr.from_1000?.sell1000 ?? '—'}</div>
+          <div className={s.body_item}>{safeDivide(curr.from_1000?.sell1000?? '—')}</div>
           <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-          <div className={s.body_item}>{curr.from_5000?.sell5000 ?? '—'}</div>
+          <div className={s.body_item}>{safeDivide(curr.from_5000?.sell5000?? '—')}</div>
           <div className={s.body_item}>
             <BtnExchange />
           </div>
@@ -377,6 +391,7 @@ function TableLine({
     </>
   )
 }
+
 
 function CurrencyTableMobile({
   icons,

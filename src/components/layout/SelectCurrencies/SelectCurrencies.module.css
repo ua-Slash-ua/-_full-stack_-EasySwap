@@ -58,9 +58,7 @@
 
 }
 
-.icon_back_reverse {
-    background: linear-gradient(139deg, #FFF 15.16%, rgba(255, 255, 255, 0.10) 100%);
-}
+
 
 .icon_back_reverse img {
     fill: black;

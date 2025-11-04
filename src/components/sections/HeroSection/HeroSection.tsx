@@ -21,7 +21,7 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
   const [activeFiat, setActiveFiat] = useState(true)
   const [activeCrypto, setActiveCrypto] = useState(false)
   const [currencyCode, setCurrencyCode] = useState<{ currency: string, course: string }>({
-    currency: 'USD',
+    currency: 'USD ',
     course: 'UAN',
   })
 
@@ -107,7 +107,13 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
   }
 
   function handleMultiples(currencyCoursers: RateByCurrency) {
-    console.log('currencyCoursers ===',currencyCoursers)
+
+    // ДОДАЙТЕ ЦЮ ПЕРЕВІРКУ:
+    if (!currencyCoursers || !currencyCoursers.from_1000) {
+      console.warn('Currency coursers data not available yet');
+      return; // або встановіть дефолтні значення
+    }
+    // console.log('currencyCoursers ===',currencyCoursers)
     const first = {
       buy: currencyCoursers.from_1000?.buy1000 ?? 0,
       sell: currencyCoursers.from_1000?.sell1000 ?? 0,
