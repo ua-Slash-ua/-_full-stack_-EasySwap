@@ -11,6 +11,11 @@ export const Contacts: GlobalConfig = {
       type: 'text',
     },
     {
+      name: 'telegram_review',
+      label: 'Телеграм (для відгуків)',
+      type: 'text',
+    },
+    {
       name: 'footer_words',
       label: 'Слова',
       type: 'group',

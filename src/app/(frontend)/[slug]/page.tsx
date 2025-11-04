@@ -70,6 +70,7 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
   const slug_privacy_policy =
     docs.find(doc => doc.id === menu.find(item => item.name === 'privacy_policy')?.id)?.slug ||
     '123'
+
   return (
     <>
       <Header block={contacts} />
@@ -95,7 +96,7 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
             <BlockComponent
               key={block.id || i}
               block={reviews}
-              telegram={contacts.social_networks?.telegram?.link}
+              telegram={contacts.telegram_review}
             />
           )
         } else if (block.blockType === 'application-block' || block.blockType === 'contact-block') {

@@ -9,14 +9,13 @@ export const Currencies: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name', // показувати в заголовку код валюти
-    defaultColumns: ['code', 'name', 'symbol'],
+    defaultColumns: ['code', 'name', 'symbol', 'order'],
+    listSearchableFields: ['code', 'name'],
+    pagination: {
+      defaultLimit: 50,
+    },
   },
-  access: {
-    create: () => true,
-    read: () => true,
-    update: () => true,
-    delete: () => true,
-  },
+  defaultSort: 'order', // від меншого до більшого
   fields: [
     {
       name: 'code',
@@ -24,6 +23,18 @@ export const Currencies: CollectionConfig = {
       type: 'text',
       required: true,
       unique: false,
+    },
+    {
+      name: 'order',
+      label: '🔢 Порядок',
+      type: 'number',
+      required: true,
+      defaultValue: 100,
+      admin: {
+        position: 'sidebar',
+        description: 'Чим менше число — тим вище в списку',
+        step: 1,
+      },
     },
     {
       name: 'name',
@@ -83,12 +94,16 @@ export const Currencies: CollectionConfig = {
       },
 
       fields: [
+
         {
           name: 'currency',
           label: 'Валюта',
           type: 'relationship',
           relationTo: 'currencies',
           required: true,
+          admin: {
+            isSortable: true,
+          },
         },
         {
           name: 'from_1000',

@@ -120,7 +120,7 @@ export default function SelectCurrencies({
           changeCurrCount?.(firstRate?.from_1000?.sell1000)
         }
         firstRate?.from_1000?.sell1000
-        console.log('Take 1-st element with currCode = ', firstRate.currency)
+        // console.log('Take 1-st element with currCode = ', firstRate.currency)
       } else {
         // console.log('Def')
         setSelectedCurrency(defaultCurrency)

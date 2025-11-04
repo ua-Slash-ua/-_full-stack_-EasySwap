@@ -11,6 +11,9 @@ importers:
       '@chakra-ui/react':
         specifier: ^3.24.0
         version: 3.24.0(@emotion/react@11.14.0(@types/react@19.1.0)(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@nouance/payload-better-fields-plugin':
+        specifier: ^1.0.0
+        version: 1.0.0(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@payloadcms/db-mongodb':
         specifier: 3.55.0
         version: 3.55.0(@aws-sdk/credential-providers@3.848.0)(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))
@@ -26,6 +29,9 @@ importers:
       '@payloadcms/payload-cloud':
         specifier: 3.55.0
         version: 3.55.0(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))
+      '@payloadcms/plugin-nested-docs':
+        specifier: ^3.61.1
+        version: 3.61.1(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))
       '@payloadcms/plugin-seo':
         specifier: 3.55.0
         version: 3.55.0(@types/react@19.1.0)(monaco-editor@0.52.2)(next@15.3.2(@babel/core@7.28.0)(@playwright/test@1.50.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)
@@ -1363,6 +1369,11 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
+  '@nouance/payload-better-fields-plugin@1.0.0':
+    resolution: {integrity: sha512-pg+YTPlJLdldu7CUn/VRaNbFxzbgi07zBz1T9RC0UQ+W3/AXAm5vybOwRlqJ8UYqA0bnUWThQZcjYWMQKjFFXw==}
+    peerDependencies:
+      payload: ^1.0.0
+
   '@pandacss/is-valid-prop@0.54.0':
     resolution: {integrity: sha512-UhRgg1k9VKRCBAHl+XUK3lvN0k9bYifzYGZOqajDid4L1DyU813A1L0ZwN4iV9WX5TX3PfUugqtgG9LnIeFGBQ==}
 
@@ -1396,6 +1407,11 @@ packages:
     resolution: {integrity: sha512-XL+k5Pzh3kU5vNmQKLVxjL5wj8Nx4gUFhvXbbvUbb8gCdNf9cA06AawZjukdHW04bOP+RTioZ4pF8LCn7G4+ig==}
     peerDependencies:
       payload: 3.55.0
+
+  '@payloadcms/plugin-nested-docs@3.61.1':
+    resolution: {integrity: sha512-rbVSuDpLyzFNn7WDmZKQX6z1t+oDGkzMRTHPmpTqlzYI/w7x6i+cbYF3R9RB9OKoEx1Yb7NxKgCxYbLEsiNO6w==}
+    peerDependencies:
+      payload: 3.61.1
 
   '@payloadcms/plugin-seo@3.55.0':
     resolution: {integrity: sha512-YJleDn9L6j8S9fpY+PGW14WpYDJSAUnPUeKTsSnuI0JP7Ax+HAX6TAGRpB7hYppHVtcgf9F0BZIdhLRsZ4MZdQ==}
@@ -2706,6 +2722,9 @@ packages:
   color@4.2.3:
     resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
     engines: {node: '>=12.5.0'}
+
+  colord@2.9.3:
+    resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
@@ -4157,6 +4176,12 @@ packages:
   quick-format-unescaped@4.0.4:
     resolution: {integrity: sha512-tYC1Q1hgyRuHgloV/YXs2w15unPVh8qfu/qCTfhTYamaw7fyhumKa2yGpdSo87vY32rIclj+4fWYQXUMs9EHvg==}
 
+  react-colorful@5.6.1:
+    resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
   react-datepicker@7.6.0:
     resolution: {integrity: sha512-9cQH6Z/qa4LrGhzdc3XoHbhrxNcMi9MKjZmYgF/1MNNaJwvdSjv3Xd+jjvrEEbKEf71ZgCA3n7fQbdwd70qCRw==}
     peerDependencies:
@@ -4209,6 +4234,12 @@ packages:
       leaflet: ^1.9.0
       react: ^19.0.0
       react-dom: ^19.0.0
+
+  react-number-format@5.4.4:
+    resolution: {integrity: sha512-wOmoNZoOpvMminhifQYiYSTCLUDOiUbBunrMrMjA+dV52sY+vck1S4UhR6PkgnoCquvvMSeJjErXZ4qSaWCliA==}
+    peerDependencies:
+      react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-phone-number-input@3.4.12:
     resolution: {integrity: sha512-Raob77KdtLGm49iC6nuOX9qy6Mg16idkgC7Y1mHmvG2WBYoauHpzxYNlfmFskQKeiztrJIwPhPzBhjFwjenNCA==}
@@ -4403,6 +4434,10 @@ packages:
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+
+  slugify@1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
 
   sonic-boom@4.2.0:
     resolution: {integrity: sha512-INb7TM37/mAcsGmc9hyyI6+QR3rR1zVRu36B0NeGXKnOOLiZOfER5SA+N7X7k3yUYRzLWafduTDvJAfDswwEww==}
@@ -4749,6 +4784,9 @@ packages:
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
+
+  validate-color@2.2.4:
+    resolution: {integrity: sha512-Znolz+b6CwW6eBXYld7MFM3O7funcdyRfjKC/X9hqYV/0VcC5LB/L45mff7m3dIn9wdGdNOAQ/fybNuD5P/HDw==}
 
   vfile-message@4.0.3:
     resolution: {integrity: sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==}
@@ -6781,6 +6819,19 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
+  '@nouance/payload-better-fields-plugin@1.0.0(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      colord: 2.9.3
+      payload: 3.55.0(graphql@16.11.0)(typescript@5.7.3)
+      react-colorful: 5.6.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-number-format: 5.4.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-phone-number-input: 3.4.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      slugify: 1.6.6
+      validate-color: 2.2.4
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
   '@pandacss/is-valid-prop@0.54.0': {}
 
   '@payloadcms/db-mongodb@3.55.0(@aws-sdk/credential-providers@3.848.0)(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))':
@@ -6856,6 +6907,10 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
       - encoding
+
+  '@payloadcms/plugin-nested-docs@3.61.1(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))':
+    dependencies:
+      payload: 3.55.0(graphql@16.11.0)(typescript@5.7.3)
 
   '@payloadcms/plugin-seo@3.55.0(@types/react@19.1.0)(monaco-editor@0.52.2)(next@15.3.2(@babel/core@7.28.0)(@playwright/test@1.50.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.77.4))(payload@3.55.0(graphql@16.11.0)(typescript@5.7.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.7.3)':
     dependencies:
@@ -8757,6 +8812,8 @@ snapshots:
       color-convert: 2.0.1
       color-string: 1.9.1
 
+  colord@2.9.3: {}
+
   colorette@2.0.20: {}
 
   commander@2.20.3: {}
@@ -10538,6 +10595,11 @@ snapshots:
 
   quick-format-unescaped@4.0.4: {}
 
+  react-colorful@5.6.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
   react-datepicker@7.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@floating-ui/react': 0.27.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -10583,6 +10645,11 @@ snapshots:
     dependencies:
       '@react-leaflet/core': 3.0.0(leaflet@1.9.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       leaflet: 1.9.4
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
+  react-number-format@5.4.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
@@ -10858,6 +10925,8 @@ snapshots:
   simple-wcswidth@1.1.2: {}
 
   sisteransi@1.0.5: {}
+
+  slugify@1.6.6: {}
 
   sonic-boom@4.2.0:
     dependencies:
@@ -11225,6 +11294,8 @@ snapshots:
   uuid@10.0.0: {}
 
   uuid@9.0.1: {}
+
+  validate-color@2.2.4: {}
 
   vfile-message@4.0.3:
     dependencies:

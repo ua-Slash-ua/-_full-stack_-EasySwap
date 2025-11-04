@@ -7,18 +7,25 @@ import { usePopup } from '@/context/PopupContext'
 import TelegramInput from '@/components/layout/TelegramInput/TelegramInput'
 import DescriptionInput from '@/components/layout/DescriptionInput/DescriptionInput'
 import { createApplication } from '@/api/createApp'
-import * as Yup from 'yup'
 import { motion } from 'framer-motion'
+import * as Yup from 'yup'
 
-// 🔹 схема валідації
 export const validationSchema = Yup.object({
-  phone: Yup.string()
-    .required('Телефон обовʼязковий')
-    .matches(/^\+[0-9]{10,15}$/, 'Некоректний номер телефону'),
-  // telegram: Yup.string()
-  //   .required('Telegram обовʼязковий')
-  //   .matches(/^@?(\w){5,}$/, 'Вкажіть ваш нік в телеграм'),
-})
+  phone: Yup.string().matches(/^\+[0-9]{10,15}$/, 'Некоректний номер телефону'),
+  telegram: Yup.string().matches(/^@?(\w){5,}$/, 'Вкажіть ваш нік в телеграм'),
+}).test(
+  'phone-or-telegram',
+  'Потрібно вказати хоча б телефон або Telegram',
+  function (value) {
+    if (!value?.phone && !value?.telegram) {
+      return this.createError({ path: 'phone', message: 'Потрібно вказати хоча б телефон або Telegram' });
+    }
+    return true;
+  }
+)
+
+
+
 
 export default function CreateApplication() {
   const { close, setOpen } = usePopup()

@@ -115,7 +115,7 @@ export default function PhoneInput({
           value={partPhone}
         />
       </div>
-      {error && <div className="error-message">Вкажіть номер телефону</div>}
+      {error && <div className="error-message">{error}</div>}
     </div>
   )
 }

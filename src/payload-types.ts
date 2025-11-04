@@ -367,6 +367,10 @@ export interface Review {
 export interface Currency {
   id: string;
   code: string;
+  /**
+   * Чим менше число — тим вище в списку
+   */
+  order: number;
   name: string;
   cat_type: 'fiat' | 'crypto';
   cat_date: 'standard' | 'new' | 'old';
@@ -395,8 +399,8 @@ export interface Currency {
 export interface Application {
   id: string;
   requestCategory?: (string | null) | RequestCategory;
-  phone: string;
-  telegramNick: string;
+  phone?: string | null;
+  telegramNick?: string | null;
   meta?:
     | {
         key: string;
@@ -731,6 +735,7 @@ export interface ReviewsSelect<T extends boolean = true> {
  */
 export interface CurrenciesSelect<T extends boolean = true> {
   code?: T;
+  order?: T;
   name?: T;
   cat_type?: T;
   cat_date?: T;
@@ -822,6 +827,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 export interface Contact {
   id: string;
   phone?: string | null;
+  telegram_review?: string | null;
   footer_words: {
     word_1: string;
     word_2: string;
@@ -878,6 +884,7 @@ export interface CurrenciesSimple {
  */
 export interface ContactsSelect<T extends boolean = true> {
   phone?: T;
+  telegram_review?: T;
   footer_words?:
     | T
     | {

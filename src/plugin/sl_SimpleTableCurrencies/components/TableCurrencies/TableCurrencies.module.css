@@ -1,8 +1,8 @@
-.table_container{
+.table_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    min-width: 70vw;
     width: fit-content;
 
 
@@ -11,11 +11,13 @@
 
     overflow: scroll;
 }
+
 @media screen and (max-width: 1024px) {
-    .table_container input{
+    .table_container input {
         font-size: 3vw;
     }
-    .table_container div{
+
+    .table_container div {
         font-size: 2vw;
     }
 }

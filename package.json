@@ -19,11 +19,13 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^3.24.0",
+    "@nouance/payload-better-fields-plugin": "^1.0.0",
     "@payloadcms/db-mongodb": "3.55.0",
     "@payloadcms/email-nodemailer": "3.55.0",
     "@payloadcms/graphql": "3.55.0",
     "@payloadcms/next": "3.55.0",
     "@payloadcms/payload-cloud": "3.55.0",
+    "@payloadcms/plugin-nested-docs": "^3.61.1",
     "@payloadcms/plugin-seo": "3.55.0",
     "@payloadcms/richtext-lexical": "3.55.0",
     "@payloadcms/ui": "3.55.0",
