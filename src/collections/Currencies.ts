@@ -85,16 +85,87 @@ export const Currencies: CollectionConfig = {
     //   },
     // },
     {
+      name: 'baseRates',
+      label: 'Базові курси (відносно гривні)',
+      type: 'group',
+      admin: {
+        description: 'Курси цієї валюти відносно гривні (UAN). Продаж обчислюється автоматично.',
+      },
+      fields: [
+        {
+          name: 'from_1000',
+          label: 'Від 1000',
+          type: 'group',
+          fields: [
+            {
+              name: 'buy1000',
+              label: 'Купівля',
+              type: 'number',
+              admin: {
+                description: 'Курс купівлі від 1000 UAN',
+              },
+            },
+            {
+              name: 'sell1000',
+              label: 'Продаж (автоматично)',
+              type: 'number',
+              admin: {
+                readOnly: true,
+                description: 'Обчислюється автоматично',
+              },
+            },
+          ],
+        },
+        {
+          name: 'from_5000',
+          label: 'Від 5000',
+          type: 'group',
+          fields: [
+            {
+              name: 'buy5000',
+              label: 'Купівля',
+              type: 'number',
+              admin: {
+                description: 'Курс купівлі від 5000 UAN',
+              },
+            },
+            {
+              name: 'sell5000',
+              label: 'Продаж (автоматично)',
+              type: 'number',
+              admin: {
+                readOnly: true,
+                description: 'Обчислюється автоматично',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'exchangeableWith',
+      label: 'Доступні пари для обміну',
+      type: 'relationship',
+      relationTo: 'currencies',
+      hasMany: true,
+      admin: {
+        description: 'Виберіть валюти, з якими можна обміняти цю валюту (крім гривні)',
+      },
+    },
+    {
       name: 'ratesByCurrency',
-      label: 'Курси по валютах',
+      label: 'Курси по валютах (стара структура)',
       type: 'array',
       labels: {
         singular: 'Курс',
         plural: 'Курси',
       },
+      admin: {
+        description: 'Стара структура курсів. Використовується для сумісності.',
+        condition: data => !data.baseRates, // Показувати тільки якщо немає baseRates
+      },
 
       fields: [
-
         {
           name: 'currency',
           label: 'Валюта',

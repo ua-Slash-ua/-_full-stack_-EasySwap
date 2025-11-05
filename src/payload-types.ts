@@ -97,10 +97,12 @@ export interface Config {
   globals: {
     contacts: Contact;
     'currencies-simple': CurrenciesSimple;
+    'currencies-rates': CurrenciesRate;
   };
   globalsSelect: {
     contacts: ContactsSelect<false> | ContactsSelect<true>;
     'currencies-simple': CurrenciesSimpleSelect<false> | CurrenciesSimpleSelect<true>;
+    'currencies-rates': CurrenciesRatesSelect<false> | CurrenciesRatesSelect<true>;
   };
   locale: null;
   user: User & {
@@ -375,6 +377,38 @@ export interface Currency {
   cat_type: 'fiat' | 'crypto';
   cat_date: 'standard' | 'new' | 'old';
   icon: string | Media;
+  /**
+   * Курси цієї валюти відносно гривні (UAN). Продаж обчислюється автоматично.
+   */
+  baseRates?: {
+    from_1000?: {
+      /**
+       * Курс купівлі від 1000 UAN
+       */
+      buy1000?: number | null;
+      /**
+       * Обчислюється автоматично
+       */
+      sell1000?: number | null;
+    };
+    from_5000?: {
+      /**
+       * Курс купівлі від 5000 UAN
+       */
+      buy5000?: number | null;
+      /**
+       * Обчислюється автоматично
+       */
+      sell5000?: number | null;
+    };
+  };
+  /**
+   * Виберіть валюти, з якими можна обміняти цю валюту (крім гривні)
+   */
+  exchangeableWith?: (string | Currency)[] | null;
+  /**
+   * Стара структура курсів. Використовується для сумісності.
+   */
   ratesByCurrency?:
     | {
         currency: string | Currency;
@@ -740,6 +774,23 @@ export interface CurrenciesSelect<T extends boolean = true> {
   cat_type?: T;
   cat_date?: T;
   icon?: T;
+  baseRates?:
+    | T
+    | {
+        from_1000?:
+          | T
+          | {
+              buy1000?: T;
+              sell1000?: T;
+            };
+        from_5000?:
+          | T
+          | {
+              buy5000?: T;
+              sell5000?: T;
+            };
+      };
+  exchangeableWith?: T;
   ratesByCurrency?:
     | T
     | {
@@ -880,6 +931,16 @@ export interface CurrenciesSimple {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "currencies-rates".
+ */
+export interface CurrenciesRate {
+  id: string;
+  currencies_rates_table?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "contacts_select".
  */
 export interface ContactsSelect<T extends boolean = true> {
@@ -938,6 +999,16 @@ export interface ContactsSelect<T extends boolean = true> {
  */
 export interface CurrenciesSimpleSelect<T extends boolean = true> {
   currencies_table?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "currencies-rates_select".
+ */
+export interface CurrenciesRatesSelect<T extends boolean = true> {
+  currencies_rates_table?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

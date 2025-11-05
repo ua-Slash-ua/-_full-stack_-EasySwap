@@ -1,15 +1,16 @@
 'use client'
-import s from './CurrenciesSection.module.css'
-import { currencies } from '@/config/currencies.config'
-import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
-import React, { useEffect, useState } from 'react'
-import { CurrencyMeta, RateByCurrency } from '@/props/CurrenciesProps'
-import Image from 'next/image'
-import BtnExchange from '@/components/layout/BtnExchange/BtnExchange'
-import { usePopup } from '@/context/PopupContext'
-import crossImg from 'public/currencies/cross_course.svg'
-import { motion } from 'framer-motion'
 import AnimateTitle from '@/components/AnimateTitle/AnimateTitle'
+import BtnExchange from '@/components/layout/BtnExchange/BtnExchange'
+import BtnSwitcher from '@/components/layout/BtnSwitcher/BtnSwitcher'
+import { currencies } from '@/config/currencies.config'
+import { usePopup } from '@/context/PopupContext'
+import { convertRate } from '@/plugin/sl_SimpleTableCurrencies/helpers/convertRate'
+import { CurrencyMeta, RateByCurrency } from '@/props/CurrenciesProps'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import crossImg from 'public/currencies/cross_course.svg'
+import { useEffect, useState } from 'react'
+import s from './CurrenciesSection.module.css'
 
 const crossCourse: RateByCurrency = {
   id: 'cross',
@@ -194,10 +195,28 @@ export default function CurrenciesSection({
                             )}
                           </div>
                         </div>
-                        {item.ratesByCurrency.map(
-                          (curr: RateByCurrency, index) =>
-                            curr.currency.code === 'UAN' && <TableLine key={index} curr={curr} />,
-                        )}
+                        {(() => {
+                          // Створюємо RateByCurrency з baseRates для сумісності
+                          const uanCurrency = block.find(curr => curr.code === 'UAN')
+                          if (!uanCurrency) return null
+
+                          const rate: RateByCurrency = {
+                            id: item.id,
+                            currency: {
+                              ...uanCurrency,
+                              ratesByCurrency: uanCurrency.ratesByCurrency ?? [],
+                            },
+                            from_1000: {
+                              buy1000: item.baseRates?.from_1000?.buy1000 ?? null,
+                              sell1000: item.baseRates?.from_1000?.sell1000 ?? null,
+                            },
+                            from_5000: {
+                              buy5000: item.baseRates?.from_5000?.buy5000 ?? null,
+                              sell5000: item.baseRates?.from_5000?.sell5000 ?? null,
+                            },
+                          }
+                          return <TableLine key={item.id} curr={rate} />
+                        })()}
                       </div>
                     ),
                 )}
@@ -219,21 +238,17 @@ export default function CurrenciesSection({
               </div>
               <div className={s.currencies_table_footer}>
                 <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
-                  {
-                    filteredCurrencies.length > 10 ? (
-                      <>
-                        <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
-                        <div
-                          className={s.see}
-                          dangerouslySetInnerHTML={{
-                            __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
-                          }}
-                        />
-                      </>
-
-                    ): null
-                  }
-
+                  {filteredCurrencies.length > 10 ? (
+                    <>
+                      <span>{seeAll ? currencies.seeAll.text : currencies.seeSome.text}</span>
+                      <div
+                        className={s.see}
+                        dangerouslySetInnerHTML={{
+                          __html: seeAll ? currencies.seeAll.icon : currencies.seeSome.icon,
+                        }}
+                      />
+                    </>
+                  ) : null}
                 </div>
                 <div className={s.status_update}>
                   <div dangerouslySetInnerHTML={{ __html: currencies.iconStatus }} />
@@ -250,6 +265,7 @@ export default function CurrenciesSection({
               visibleCurrencies={visibleCurrencies}
               handlerColumn={handleColumn}
               lastUpdate={lastUpdate}
+              block={block}
             />
           )}
         </div>
@@ -346,10 +362,10 @@ export default function CurrenciesSection({
 }
 
 function TableLine({
-                     curr,
-                     isLeft,
-                     mobile = false,
-                   }: {
+  curr,
+  isLeft,
+  mobile = false,
+}: {
   curr: RateByCurrency
   isLeft?: {
     left: boolean
@@ -357,10 +373,13 @@ function TableLine({
   }
   mobile?: boolean
 }) {
-  const safeDivide = (val?: any) => {
-    if (val ==='По запиту') return val
+  const formatRate = (val?: any) => {
+    if (val === 'По запиту' || val === null || val === undefined) return val ?? '—'
     const num = Number(val)
-    return Number.isFinite(num) && num !== 0 ? (1 / num).toFixed(2) : '—'
+    if (!Number.isFinite(num) || num === 0) return '—'
+    // Конвертуємо з бази (0.0235...) у формат для відображення (42.5)
+    const converted = convertRate(num, 'toDisplay')
+    return converted.toFixed(2)
   }
 
   return (
@@ -368,21 +387,21 @@ function TableLine({
       {mobile ? (
         isLeft?.left ? (
           <>
-            <div className={s.table_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-            <div className={s.table_item}>{safeDivide(curr.from_1000?.sell1000?? '—')}</div>
+            <div className={s.table_item}>{formatRate(curr.from_1000?.buy1000)}</div>
+            <div className={s.table_item}>{formatRate(curr.from_1000?.sell1000)}</div>
           </>
         ) : (
           <>
-            <div className={s.table_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-            <div className={s.table_item}>{safeDivide(curr.from_5000?.sell5000) ?? '—'}</div>
+            <div className={s.table_item}>{formatRate(curr.from_5000?.buy5000)}</div>
+            <div className={s.table_item}>{formatRate(curr.from_5000?.sell5000)}</div>
           </>
         )
       ) : (
         <>
-          <div className={s.body_item}>{curr.from_1000?.buy1000 ?? '—'}</div>
-          <div className={s.body_item}>{safeDivide(curr.from_1000?.sell1000?? '—')}</div>
-          <div className={s.body_item}>{curr.from_5000?.buy5000 ?? '—'}</div>
-          <div className={s.body_item}>{safeDivide(curr.from_5000?.sell5000?? '—')}</div>
+          <div className={s.body_item}>{formatRate(curr.from_1000?.buy1000)}</div>
+          <div className={s.body_item}>{formatRate(curr.from_1000?.sell1000)}</div>
+          <div className={s.body_item}>{formatRate(curr.from_5000?.buy5000)}</div>
+          <div className={s.body_item}>{formatRate(curr.from_5000?.sell5000)}</div>
           <div className={s.body_item}>
             <BtnExchange />
           </div>
@@ -392,7 +411,6 @@ function TableLine({
   )
 }
 
-
 function CurrencyTableMobile({
   icons,
   isLeft,
@@ -401,6 +419,7 @@ function CurrencyTableMobile({
   visibleCurrencies,
   departments,
   lastUpdate,
+  block,
 }: {
   icons: string[]
   isLeft: {
@@ -412,6 +431,7 @@ function CurrencyTableMobile({
   activeFiat?: boolean
   handlerColumn: Function
   lastUpdate: string
+  block: CurrencyMeta[]
 }) {
   const { setOpen } = usePopup()
   const [textHeader, setTextHeader] = useState<string>(currencies.text.fiat.fist)
@@ -505,12 +525,28 @@ function CurrencyTableMobile({
                       )}
                     </div>
                   </div>
-                  {item.ratesByCurrency.map(
-                    (curr: RateByCurrency, index) =>
-                      curr.currency.code === 'UAN' && (
-                        <TableLine key={index} curr={curr} mobile={true} isLeft={isLeft} />
-                      ),
-                  )}
+                  {(() => {
+                    // Створюємо RateByCurrency з baseRates для сумісності
+                    const uanCurrency = block.find(curr => curr.code === 'UAN')
+                    if (!uanCurrency) return null
+
+                    const rate: RateByCurrency = {
+                      id: item.id,
+                      currency: {
+                        ...uanCurrency,
+                        ratesByCurrency: uanCurrency.ratesByCurrency ?? [],
+                      },
+                      from_1000: {
+                        buy1000: item.baseRates?.from_1000?.buy1000 ?? null,
+                        sell1000: item.baseRates?.from_1000?.sell1000 ?? null,
+                      },
+                      from_5000: {
+                        buy5000: item.baseRates?.from_5000?.buy5000 ?? null,
+                        sell5000: item.baseRates?.from_5000?.sell5000 ?? null,
+                      },
+                    }
+                    return <TableLine key={item.id} curr={rate} mobile={true} isLeft={isLeft} />
+                  })()}
                 </div>
               ),
           )}

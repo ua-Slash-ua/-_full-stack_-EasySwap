@@ -1,34 +1,30 @@
-import s from './NewExchanger.module.css'
-import React, { ReactNode } from 'react'
-import { CurrencyMeta, CurrencyRateItem, RateByCurrency } from '@/props/CurrenciesProps'
 import NewSelectCurrencies from '@/components/layout/NewSelectCurrencies/NewSelectCurrencies'
+import { CurrencyMeta } from '@/props/CurrenciesProps'
+import { ReactNode } from 'react'
+import s from './NewExchanger.module.css'
 
-export default function NewExchanger(
-  {
-    isMain,
-    handleCurrencyValues,
-    currencyValues,
-    currencies,
-    currencyCode,
-    multiples,
-    handleCurrencyCode,
-    content,
-  }:
-  {
-    isMain: boolean,
-    handleCurrencyValues: Function,
-    handleCurrencyCode: Function,
-    currencyValues: { up: number, down: number },
-    currencies: CurrencyMeta[] | RateByCurrency[],
-    currencyCode: { currency: string, course: string },
-    multiples: {
-      first: { buy: number| string, sell: number | string},
-      second: { buy: number| string, sell: number | string}
-    },
-    content?:ReactNode,
-
-  }) {
-
+export default function NewExchanger({
+  isMain,
+  handleCurrencyValues,
+  currencyValues,
+  currencies,
+  currencyCode,
+  multiples,
+  handleCurrencyCode,
+  content,
+}: {
+  isMain: boolean
+  handleCurrencyValues: Function
+  handleCurrencyCode: Function
+  currencyValues: { up: number; down: number }
+  currencies: CurrencyMeta[]
+  currencyCode: { currency: string; course: string; currencyId?: string; courseId?: string }
+  multiples: {
+    first: { buy: number | string; sell: number | string }
+    second: { buy: number | string; sell: number | string }
+  }
+  content?: ReactNode
+}) {
   const value = isMain ? currencyValues.up : currencyValues.down
 
   return (
@@ -51,9 +47,14 @@ export default function NewExchanger(
             placeholder={'0'}
             value={value}
           />
-          <NewSelectCurrencies currencies={currencies} isMain={isMain} currencyCode={currencyCode} handleCurrencyCode={handleCurrencyCode}/>
+          <NewSelectCurrencies
+            currencies={currencies}
+            isMain={isMain}
+            currencyCode={currencyCode}
+            handleCurrencyCode={handleCurrencyCode}
+          />
         </div>
-        {content?? content}
+        {content ?? content}
       </div>
     </>
   )

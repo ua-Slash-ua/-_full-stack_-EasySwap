@@ -1,101 +1,112 @@
 'use client'
-import s from './NewSelectCurrencies.module.css'
+import { CurrencyMeta } from '@/props/CurrenciesProps'
 import Image, { StaticImageData } from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { CurrencyMeta, RateByCurrency } from '@/props/CurrenciesProps'
+import s from './NewSelectCurrencies.module.css'
 
-export default function NewSelectCurrencies(
-  {
-    isMain,
-    currencies,
-    currencyCode,
-    handleCurrencyCode,
-  }: {
-    currencies: CurrencyMeta[] | RateByCurrency[],
-    isMain: boolean,
-    handleCurrencyCode: Function,
-    currencyCode: { currency: string, course: string },
-  },
-) {
+export default function NewSelectCurrencies({
+  isMain,
+  currencies,
+  currencyCode,
+  handleCurrencyCode,
+}: {
+  currencies: CurrencyMeta[]
+  isMain: boolean
+  handleCurrencyCode: Function
+  currencyCode: { currency: string; course: string; currencyId?: string; courseId?: string }
+}) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [active, setActive] = useState(false)
   // ВИПРАВЛЕННЯ: Додаємо перевірку на порожній масив та безпечну ініціалізацію
   const getInitialCurrency = () => {
-    if (!currencies || currencies.length === 0) return null;
+    if (!currencies || currencies.length === 0) return null
 
     if (isMain) {
-      return (currencies as CurrencyMeta[]).find(
-        item => item.code === currencyCode.currency,
-      ) ?? (currencies as CurrencyMeta[])[0];
+      // Шукаємо за ID, якщо є, інакше за кодом
+      if (currencyCode.currencyId) {
+        const found = (currencies as CurrencyMeta[]).find(
+          item => item.id === currencyCode.currencyId,
+        )
+        if (found) return found
+      }
+      return (
+        (currencies as CurrencyMeta[]).find(item => item.code === currencyCode.currency) ??
+        (currencies as CurrencyMeta[])[0]
+      )
     } else {
-      return (currencies as RateByCurrency[]).find(
-        item => item.currency.code === currencyCode.course,
-      ) ?? (currencies as RateByCurrency[])[0];
+      // Шукаємо за ID, якщо є, інакше за кодом
+      if (currencyCode.courseId) {
+        const found = (currencies as CurrencyMeta[]).find(item => item.id === currencyCode.courseId)
+        if (found) return found
+      }
+      // Тепер для другого селектора також передаються CurrencyMeta[]
+      const currencyMeta =
+        (currencies as CurrencyMeta[]).find(item => item.code === currencyCode.course) ??
+        (currencies as CurrencyMeta[])[0]
+      return currencyMeta
     }
-  };
+  }
 
-  const [currency, setCurrency] = useState<CurrencyMeta | RateByCurrency | null>(getInitialCurrency());
+  const [currency, setCurrency] = useState<CurrencyMeta | null>(getInitialCurrency())
 
   const [selectCurrency, setSelectCurrency] = useState<{
     icon: {
-      alt: string,
-      url: string | StaticImageData,
-    },
-    code: string,
+      alt: string
+      url: string | StaticImageData
+    }
+    code: string
   } | null>(() => {
-    const initialCurrency = getInitialCurrency();
-    if (!initialCurrency) return null;
+    const initialCurrency = getInitialCurrency()
+    if (!initialCurrency) return null
 
+    // Тепер обидва селектори працюють з CurrencyMeta
+    const currencyMeta = initialCurrency as CurrencyMeta
     return {
       icon: {
-        url: isMain
-          ? (initialCurrency as CurrencyMeta).icon.url
-          : (initialCurrency as RateByCurrency).currency.icon.url,
-        alt: isMain
-          ? (initialCurrency as CurrencyMeta).icon.alt
-          : (initialCurrency as RateByCurrency).currency.icon.alt,
+        url: currencyMeta.icon.url,
+        alt: currencyMeta.icon.alt,
       },
-      code: isMain
-        ? (initialCurrency as CurrencyMeta).code.trim()
-        : (initialCurrency as RateByCurrency).currency.code.trim(),
-    };
-  });
+      code: currencyMeta.code.trim(),
+    }
+  })
 
   useEffect(() => {
     if (!currencies || currencies.length === 0) {
-      setCurrency(null);
-      setSelectCurrency(null);
-      return;
+      setCurrency(null)
+      setSelectCurrency(null)
+      return
     }
 
+    // Тепер обидва селектори працюють з CurrencyMeta[]
+    // Шукаємо за ID, якщо є, інакше за кодом
     const newCurrency = isMain
-      ? (currencies as CurrencyMeta[]).find(item => item.code === currencyCode.currency)
-      ?? (currencies as CurrencyMeta[])[0]
-      : (currencies as RateByCurrency[]).find(item => item.currency.code === currencyCode.course)
-      ?? (currencies as RateByCurrency[])[0];
+      ? ((currencyCode.currencyId
+          ? (currencies as CurrencyMeta[]).find(item => item.id === currencyCode.currencyId)
+          : null) ??
+        (currencies as CurrencyMeta[]).find(item => item.code === currencyCode.currency.trim()) ??
+        (currencies as CurrencyMeta[])[0])
+      : ((currencyCode.courseId
+          ? (currencies as CurrencyMeta[]).find(item => item.id === currencyCode.courseId)
+          : null) ??
+        (currencies as CurrencyMeta[]).find(item => item.code === currencyCode.course.trim()) ??
+        (currencies as CurrencyMeta[])[0])
 
     if (!newCurrency) {
-      setCurrency(null);
-      setSelectCurrency(null);
-      return;
+      setCurrency(null)
+      setSelectCurrency(null)
+      return
     }
 
-    setCurrency(newCurrency);
+    setCurrency(newCurrency)
 
     setSelectCurrency({
       icon: {
-        url: isMain
-          ? (newCurrency as CurrencyMeta).icon.url
-          : (newCurrency as RateByCurrency).currency.icon.url,
-        alt: isMain
-          ? (newCurrency as CurrencyMeta).icon.alt
-          : (newCurrency as RateByCurrency).currency.icon.alt,
+        url: newCurrency.icon.url,
+        alt: newCurrency.icon.alt,
       },
-      code: isMain
-        ? (newCurrency as CurrencyMeta).code.trim()
-        : (newCurrency as RateByCurrency).currency.code.trim(),
-    });
-  }, [currencyCode, currencies, isMain]);
+      code: newCurrency.code.trim(),
+    })
+  }, [currencyCode, currencies, isMain])
 
   // Закриття при кліку поза контейнером
   useEffect(() => {
@@ -121,7 +132,7 @@ export default function NewSelectCurrencies(
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -165,68 +176,49 @@ export default function NewSelectCurrencies(
           <ul className={s.select_options}>
             {isMain
               ? (currencies as CurrencyMeta[]).map((item, index) => (
-                <li
-                  key={item.code.trim() + index}
-                  onClick={() => {
-                    handleCurrencyCode(item.code)
-                    setActive(false)
-                    setSelectCurrency(
-                      {
+                  <li
+                    key={item.id || item.code.trim() + index}
+                    onClick={() => {
+                      // Передаємо об'єкт валюти замість коду, щоб уникнути проблем з дублікатами кодів
+                      handleCurrencyCode(item.id || item.code, undefined, item, undefined)
+                      setActive(false)
+                      setSelectCurrency({
                         icon: {
                           url: item.icon.url,
                           alt: item.icon.alt,
                         },
                         code: item.code.trim(),
-                      }
-                    )
-                  }}
-                >
-                  <div className={s.icon_back_reverse}>
-                    <Image
-                      src={item.icon.url}
-                      alt={item.icon.alt}
-                      width={24}
-                      height={12}
-                    />
-                  </div>
-                  <span>{item.name?.trim()}</span>
-                </li>
-              ))
-              : (currencies as RateByCurrency[]).map((item, index) => {
-                console.log
-                ('item.currency.code', item.currency)
-                return(
-                  <li
-                    key={(item.currency?.code?.trim() ?? '') + index}
-                    onClick={() => {
-                      const code = item.currency?.code?.trim() ?? '';
-                      const icon = item.currency?.icon ?? { url: '/placeholder.png', alt: 'icon' };
-                      const name = item.currency?.name?.trim() ?? '';
-
-                      setActive(false);
-                      handleCurrencyCode(undefined, code);
-                      setSelectCurrency({
-                        icon,
-                        code,
-                      });
+                      })
                     }}
                   >
                     <div className={s.icon_back_reverse}>
-                      {item.currency?.icon && (
-                        <Image
-                          src={item.currency.icon.url}
-                          alt={item.currency.icon.alt}
-                          width={24}
-                          height={12}
-                        />
-                      )}
+                      <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
                     </div>
-                    <span>{item.currency?.name?.trim() ?? ''}</span>
+                    <span>{item.name?.trim()}</span>
                   </li>
-
-                )
-
-              })}
+                ))
+              : (currencies as CurrencyMeta[]).map((item, index) => (
+                  <li
+                    key={item.id || item.code.trim() + index}
+                    onClick={() => {
+                      setActive(false)
+                      // Передаємо об'єкт валюти замість коду, щоб уникнути проблем з дублікатами кодів
+                      handleCurrencyCode(undefined, item.id || item.code, undefined, item)
+                      setSelectCurrency({
+                        icon: {
+                          url: item.icon.url,
+                          alt: item.icon.alt,
+                        },
+                        code: item.code.trim(),
+                      })
+                    }}
+                  >
+                    <div className={s.icon_back_reverse}>
+                      <Image src={item.icon.url} alt={item.icon.alt} width={24} height={12} />
+                    </div>
+                    <span>{item.name?.trim() ?? ''}</span>
+                  </li>
+                ))}
           </ul>
         )}
       </div>

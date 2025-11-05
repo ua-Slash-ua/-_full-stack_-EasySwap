@@ -1,22 +1,23 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
-import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { seoPlugin } from '@payloadcms/plugin-seo'
+import { fileURLToPath } from 'url'
 
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
-import { Pages } from '@/collections/Pages'
-import { Reviews } from '@/collections/Reviews'
-import { Contacts } from '@/globals/Contacts'
-import { Currencies } from '@/collections/Currencies'
 import Applications from '@/collections/Applications'
 import categotyApplications from '@/collections/categories/categotyApplications'
+import { Currencies } from '@/collections/Currencies'
+import { Pages } from '@/collections/Pages'
+import { Reviews } from '@/collections/Reviews'
 import { CreateApp } from '@/endpoints/createApp'
+import { Contacts } from '@/globals/Contacts'
+import { CurrenciesRates } from '@/globals/CurrenciesRates'
 import { CurrenciesSimple } from '@/globals/CurrenciesSimple'
+import { Media } from './collections/Media'
+import { Users } from './collections/Users'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,17 +29,9 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [
-    Users,
-    Media,
-    Pages,
-    Reviews,
-    Currencies,
-    Applications,
-    categotyApplications,
-  ],
-  globals: [Contacts,CurrenciesSimple],
-  endpoints:[CreateApp,],
+  collections: [Users, Media, Pages, Reviews, Currencies, Applications, categotyApplications],
+  globals: [Contacts, CurrenciesSimple, CurrenciesRates],
+  endpoints: [CreateApp],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -66,6 +59,6 @@ export default buildConfig({
           : `https://easy-swap.com/${collectionSlug}`
       },
       tabbedUI: true,
-    })
+    }),
   ],
 })
