@@ -39,11 +39,7 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
     down: 0,
   })
   const [currencies, setCurrencies] = useState<CurrencyMeta[]>(
-    block.filter(item => {
-      if (activeFiat) return item.cat_type === 'fiat'
-      if (activeCrypto) return item.cat_type === 'crypto'
-      return true
-    }),
+    filterByCategory(block)
   )
   const [currencyAge, setCurrencyAge] = useState<{ currency: string; course: string }>(() => {
     const currencyAge: CurrencyMeta = getCurrency(currencies, currencyCode.currency)
@@ -63,13 +59,24 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
   })
 
   useEffect(() => {
-    const filtered = block.filter(item => {
-      if (activeFiat) return item.cat_type === 'fiat'
-      if (activeCrypto) return item.cat_type === 'crypto'
-      return true
-    })
+    const filtered = filterByCategory(block)
     setCurrencies(filtered)
   }, [block, activeFiat, activeCrypto])
+
+
+  function filterByCategory(block: CurrencyMeta[]): CurrencyMeta[] {
+    return block.filter(item => {
+      // Фільтр по категорії
+      if (activeFiat && item.cat_type !== 'fiat') return false;
+      if (activeCrypto && item.cat_type !== 'crypto') return false;
+
+      // Фільтр по viewed
+      return item.viewed;
+
+
+    });
+  }
+
 
   function handleCurrencyValues(isMain: boolean, value: number) {
     const multiple = value >= 5000 ? multiples.second : multiples.first
@@ -299,11 +306,7 @@ export default function HeroSection({ block, departments }: { block: any[]; depa
   }, [currencyCode])
   useEffect(() => {
     setCurrencies(
-      block.filter(item => {
-        if (activeFiat) return item.cat_type === 'fiat'
-        if (activeCrypto) return item.cat_type === 'crypto'
-        return true
-      }),
+      filterByCategory(block)
     )
   }, [setActiveFiat, setActiveCrypto, activeCrypto, activeFiat, block])
   useEffect(() => {

@@ -3,6 +3,7 @@ import { StaticImageData } from 'next/image'
 export type RateByCurrency = {
   currency: {
     code: string
+    viewed:boolean
     icon: {
       alt: string
       url: string | StaticImageData // ✅
@@ -31,6 +32,7 @@ export type CurrencyMeta = {
   updatedAt: string
   code: string
   name: string
+  viewed:boolean
   icon: {
     alt: string
     url: string

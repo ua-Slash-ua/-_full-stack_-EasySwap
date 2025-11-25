@@ -25,7 +25,7 @@
     "@payloadcms/graphql": "3.55.0",
     "@payloadcms/next": "3.55.0",
     "@payloadcms/payload-cloud": "3.55.0",
-    "@payloadcms/plugin-nested-docs": "^3.61.1",
+    "@payloadcms/plugin-nested-docs": "3.55.0",
     "@payloadcms/plugin-seo": "3.55.0",
     "@payloadcms/richtext-lexical": "3.55.0",
     "@payloadcms/ui": "3.55.0",

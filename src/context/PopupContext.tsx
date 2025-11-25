@@ -1,5 +1,4 @@
 'use client'
-// context/PopupContext.tsx
 import { createContext, useContext, useEffect, useState } from 'react'
 
 type PopupType =
@@ -16,7 +15,7 @@ interface PopupContextType {
   setOpen: (type: PopupType, data?: any) => void
   close: () => void
 
-  data: any // або зробити generic типізований
+  data: any
 }
 
 const PopupContext = createContext<PopupContextType>({
@@ -40,7 +39,6 @@ export const PopupProvider = ({ children }: { children: React.ReactNode }) => {
     setData(null)
   }
 
-  // 🔹 блокування скролу
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden'

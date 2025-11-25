@@ -373,6 +373,10 @@ export interface Currency {
    * Чим менше число — тим вище в списку
    */
   order: number;
+  /**
+   * За замовчування (показувати)
+   */
+  viewed: boolean;
   name: string;
   cat_type: 'fiat' | 'crypto';
   cat_date: 'standard' | 'new' | 'old';
@@ -770,6 +774,7 @@ export interface ReviewsSelect<T extends boolean = true> {
 export interface CurrenciesSelect<T extends boolean = true> {
   code?: T;
   order?: T;
+  viewed?: T;
   name?: T;
   cat_type?: T;
   cat_date?: T;

@@ -17,6 +17,7 @@ const crossCourse: RateByCurrency = {
   currency: {
     id: 'cross',
     code: 'Кросс-курс',
+    viewed:true,
     icon: { alt: 'cross-course', url: crossImg },
     name: '',
     createdAt: '',
@@ -66,7 +67,18 @@ export default function CurrenciesSection({
       right: right,
     })
   }
+  function filterByCategory(block: CurrencyMeta[]): CurrencyMeta[] {
+    return block.filter(item => {
+      // Фільтр по категорії
+      if (activeFiat && item.cat_type !== 'fiat') return false;
+      if (activeCrypto && item.cat_type !== 'crypto') return false;
 
+      // Фільтр по viewed
+      return item.viewed;
+
+
+    });
+  }
   function handleSeAll(seAll: boolean) {
     setSeeAll(seAll)
   }
@@ -76,11 +88,7 @@ export default function CurrenciesSection({
   const iconUSD: string = block.find((item: CurrencyMeta) => item.code === 'USD')!.icon.url
   const iconEUR: string = block.find((item: CurrencyMeta) => item.code === 'EUR')!.icon.url
 
-  const filteredCurrencies = block.filter(item => {
-    if (activeFiat) return item.cat_type === 'fiat'
-    if (activeCrypto) return item.cat_type === 'crypto'
-    return true // fallback: показати всі
-  })
+  const filteredCurrencies = filterByCategory(block)
 
   const visibleCurrencies = seeAll
     ? filteredCurrencies.slice(0, countCurrencies)
@@ -220,21 +228,6 @@ export default function CurrenciesSection({
                       </div>
                     ),
                 )}
-                <div key={-999} className={s.body_line}>
-                  <div className={s.body_item}>
-                    <div className={s.icon_currencies}>
-                      <Image
-                        src={crossCourse.currency.icon.url}
-                        alt={crossCourse.currency.icon.alt}
-                        width={100}
-                        height={100}
-                      />
-                    </div>
-                    Крос-курс
-                    <div className={s.curr_age}></div>
-                  </div>
-                  <TableLine key={-999} curr={crossCourse} />
-                </div>
               </div>
               <div className={s.currencies_table_footer}>
                 <div className={s.btn_see_all} onClick={() => setSeeAll(!seeAll)}>
@@ -429,7 +422,7 @@ function CurrencyTableMobile({
   visibleCurrencies: any[]
   departments: any[]
   activeFiat?: boolean
-  handlerColumn: Function
+  handlerColumn: (left: boolean, right?: boolean)=>void
   lastUpdate: string
   block: CurrencyMeta[]
 }) {
@@ -551,21 +544,6 @@ function CurrencyTableMobile({
               ),
           )}
 
-          <div key={-888} className={s.table_body_line}>
-            <div className={s.table_item}>
-              <div className={s.icon_currencies}>
-                <Image
-                  src={crossCourse.currency.icon.url}
-                  alt={crossCourse.currency.icon.alt}
-                  width={100}
-                  height={100}
-                />
-              </div>
-              {crossCourse.currency.code}
-              <div className={s.curr_age}></div>
-            </div>
-            <TableLine key={-888} curr={crossCourse} mobile={true} isLeft={isLeft} />
-          </div>
         </div>
         <div className={s.table_footer}>
           <div

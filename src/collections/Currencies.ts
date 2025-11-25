@@ -24,6 +24,7 @@ export const Currencies: CollectionConfig = {
       required: true,
       unique: false,
     },
+
     {
       name: 'order',
       label: '🔢 Порядок',
@@ -36,6 +37,19 @@ export const Currencies: CollectionConfig = {
         step: 1,
       },
     },
+
+    {
+      name: 'viewed',
+      label: 'Показувати на сайті?',
+      type: 'checkbox',
+      required: true,
+      defaultValue: true,
+      admin: {
+        position: 'sidebar',
+        description: 'За замовчування (показувати)',
+      },
+    },
+
     {
       name: 'name',
       label: 'Назва (наприклад, Долар США)',
