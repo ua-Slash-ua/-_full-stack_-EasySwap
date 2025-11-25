@@ -8,17 +8,6 @@ export default function SimpleTableCurrenciesRates(props: any) {
   const [error, setError] = useState<string | null>(null)
 
   console.log('SimpleTableCurrenciesRates props:', props)
-
-  // Перевірка на наявність props (після ініціалізації стану)
-  if (!props) {
-    console.warn('SimpleTableCurrenciesRates: props is null/undefined')
-    return (
-      <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
-        Помилка: компонент не отримав props. Перезавантажте сторінку.
-      </div>
-    )
-  }
-
   useEffect(() => {
     // Завантажуємо валюти з API Payload
     const fetchCurrencies = async () => {
@@ -79,6 +68,17 @@ export default function SimpleTableCurrenciesRates(props: any) {
 
     fetchCurrencies()
   }, [])
+  // Перевірка на наявність props (після ініціалізації стану)
+  if (!props) {
+    console.warn('SimpleTableCurrenciesRates: props is null/undefined')
+    return (
+      <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
+        Помилка: компонент не отримав props. Перезавантажте сторінку.
+      </div>
+    )
+  }
+
+
 
   if (error) {
     return (

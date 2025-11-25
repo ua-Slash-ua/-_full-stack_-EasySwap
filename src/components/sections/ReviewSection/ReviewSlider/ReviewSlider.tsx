@@ -67,7 +67,7 @@ export default function ReviewSlider({ reviews }: { reviews: ReviewProps[] }) {
         }}
       >
         {reviews.map((review, index) => (
-          <SwiperSlide className={s.review_slide}>
+          <SwiperSlide className={s.review_slide} key={index}>
             <div className={s.swiper_header}>
               <div dangerouslySetInnerHTML={{ __html: reviewData.icon }} />
               <p>{review.description}</p>

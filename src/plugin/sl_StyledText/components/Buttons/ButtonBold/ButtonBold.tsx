@@ -5,7 +5,7 @@ type ButtonBoldProps = {
   onChange: (newContent: string) => void
 }
 
-export default function ButtonBold({ content, onChange }: ButtonBoldProps) {
+export default function ButtonBold({  onChange }: ButtonBoldProps) {
   const handleGetSelection = () => {
     const selection = window.getSelection()
     const previewContainer = document.getElementById('preview_container')

@@ -14,8 +14,13 @@ export default function NewExchanger({
   content,
 }: {
   isMain: boolean
-  handleCurrencyValues: Function
-  handleCurrencyCode: Function
+  handleCurrencyValues: (isMain: boolean, value:  number)=>void
+  handleCurrencyCode: (
+    currCodeOrId?: string,
+    courseCodeOrId?: string,
+    fromCurrencyObj?: CurrencyMeta,
+    toCurrencyObj?: CurrencyMeta,
+  )=>void
   currencyValues: { up: number; down: number }
   currencies: CurrencyMeta[]
   currencyCode: { currency: string; course: string; currencyId?: string; courseId?: string }
@@ -42,7 +47,7 @@ export default function NewExchanger({
                 e.target.value = e.target.value.slice(1)
               }
 
-              handleCurrencyValues(isMain, e.target.value)
+              handleCurrencyValues(isMain, Number(e.target.value))
             }}
             placeholder={'0'}
             value={value}

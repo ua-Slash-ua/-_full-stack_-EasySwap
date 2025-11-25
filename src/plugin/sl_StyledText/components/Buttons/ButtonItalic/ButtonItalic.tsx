@@ -5,7 +5,7 @@ type ButtonItalicProps = {
   onChange: (newContent: string) => void
 }
 
-export default function ButtonItalic({ content, onChange }: ButtonItalicProps) {
+export default function ButtonItalic({  onChange }: ButtonItalicProps) {
   const handleGetSelection = () => {
     const selection = window.getSelection()
     const previewContainer = document.getElementById('preview_container')

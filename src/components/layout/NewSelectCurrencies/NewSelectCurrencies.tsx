@@ -12,7 +12,12 @@ export default function NewSelectCurrencies({
 }: {
   currencies: CurrencyMeta[]
   isMain: boolean
-  handleCurrencyCode: Function
+  handleCurrencyCode: (
+    currCodeOrId?: string,
+    courseCodeOrId?: string,
+    fromCurrencyObj?: CurrencyMeta,
+    toCurrencyObj?: CurrencyMeta,
+  )=>void
   currencyCode: { currency: string; course: string; currencyId?: string; courseId?: string }
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null)
